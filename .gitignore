@@ -1,0 +1,41 @@
+# 操作系统生成的文件
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# 编辑器和 IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.settings/
+*.sublime-project
+*.sublime-workspace
+
+# 临时文件
+*.tmp
+*.bak
+*.log
+.cache/
+
+# 私密内容（如个人笔记、草稿）
+private/
+.private/
+*-private.md
+
+# 构建和依赖
+node_modules/
+dist/
+build/
+*.pyc
+__pycache__/
+
+# 其他
+.env
+.env.local
