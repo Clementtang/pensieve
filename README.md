@@ -1,76 +1,76 @@
-# Pensieve - 个人写作仓库
+# Pensieve - 個人寫作儲存庫
 
-这是一个用于存储和管理个人写作内容的仓库，配合 Claude AI 助手进行写作。
+這是一個用於儲存和管理個人寫作內容的儲存庫，配合 Claude AI 助理進行寫作。
 
-## 📁 仓库结构
+## 📁 儲存庫結構
 
 ```
 pensieve/
-├── docs/                    # 已发布的文档
+├── docs/                    # 已發布的文件
 │   ├── articles/           # 正式文章
-│   └── notes/              # 笔记和简短内容
-├── drafts/                 # 草稿文件夹
+│   └── notes/              # 筆記和簡短內容
+├── drafts/                 # 草稿資料夾
 ├── templates/              # 文章模板
-├── WRITING_GUIDE.md        # 写作规范指南
-└── README.md               # 本文件
+├── WRITING_GUIDE.md        # 寫作規範指南
+└── README.md               # 本檔案
 ```
 
 ## 🎯 使用方式
 
-### 创建新文章
+### 建立新文章
 
-1. 从 `templates/` 目录复制模板文件到 `drafts/`
-2. 按照 [WRITING_GUIDE.md](./WRITING_GUIDE.md) 中的规范进行写作
-3. 完成后移动到 `docs/articles/` 或 `docs/notes/`
+1. 從 `templates/` 目錄複製模板檔案到 `drafts/`
+2. 按照 [WRITING_GUIDE.md](./WRITING_GUIDE.md) 中的規範進行寫作
+3. 完成後移動到 `docs/articles/` 或 `docs/notes/`
 
-### 文件命名规则
+### 檔案命名規則
 
-- 使用小写字母
-- 单词之间用连字符 `-` 分隔
-- 格式：`YYYY-MM-DD-标题关键词.md`
-- 示例：`2025-11-20-claude-writing-guide.md`
+- 使用小寫字母
+- 單詞之間用連字號 `-` 分隔
+- 格式：`YYYY-MM-DD-標題關鍵詞.md`
+- 範例：`2025-11-20-claude-writing-guide.md`
 
-### 与 Claude 协作
+### 與 Claude 協作
 
-可以直接在 Claude 中请求：
-- 创建新文章
-- 审阅和改进现有文章
-- 根据主题生成文章大纲
-- 检查文章是否符合写作规范
+可以直接在 Claude 中請求：
+- 建立新文章
+- 審閱和改進現有文章
+- 根據主題產生文章大綱
+- 檢查文章是否符合寫作規範
 
-## 📖 文档规范
+## 📖 文件規範
 
-详细的写作规范请参阅 [WRITING_GUIDE.md](./WRITING_GUIDE.md)
+詳細的寫作規範請參閱 [WRITING_GUIDE.md](./WRITING_GUIDE.md)
 
 ## 🔍 快速查找
 
-- 所有已发布文章：`docs/articles/`
-- 所有笔记：`docs/notes/`
-- 进行中的草稿：`drafts/`
+- 所有已發布文章：`docs/articles/`
+- 所有筆記：`docs/notes/`
+- 進行中的草稿：`drafts/`
 
-## 📝 常用命令
+## 📝 常用指令
 
 ```bash
-# 查找特定主题的文章
-grep -r "关键词" docs/
+# 查找特定主題的文章
+grep -r "關鍵詞" docs/
 
-# 列出所有文章（按时间排序）
+# 列出所有文章（按時間排序）
 ls -lt docs/articles/
 
-# 统计文章数量
+# 統計文章數量
 find docs/ -name "*.md" | wc -l
 ```
 
-## 🤖 AI 辅助写作
+## 🤖 AI 輔助寫作
 
-本仓库设计用于与 Claude AI 协作：
-- Claude 可以根据规范帮助创建、编辑和优化内容
-- 所有规范文档都存储在仓库中，确保一致性
-- 使用 Git 版本控制追踪所有更改
+本儲存庫設計用於與 Claude AI 協作：
+- Claude 可以根據規範幫助建立、編輯和最佳化內容
+- 所有規範文件都儲存在儲存庫中，確保一致性
+- 使用 Git 版本控制追蹤所有變更
 
-## 📌 注意事项
+## 📌 注意事項
 
-- 定期提交更改到 Git
-- 保持文件命名的一致性
-- 遵循 WRITING_GUIDE.md 中的格式规范
-- 草稿完成后及时移动到正式目录
+- 定期提交變更到 Git
+- 保持檔案命名的一致性
+- 遵循 WRITING_GUIDE.md 中的格式規範
+- 草稿完成後及時移動到正式目錄
