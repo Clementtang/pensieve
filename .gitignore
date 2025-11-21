@@ -1,4 +1,4 @@
-# 操作系统生成的文件
+# 作業系統產生的檔案
 .DS_Store
 .DS_Store?
 ._*
@@ -7,7 +7,7 @@
 ehthumbs.db
 Thumbs.db
 
-# 编辑器和 IDE
+# 編輯器和 IDE
 .vscode/
 .idea/
 *.swp
@@ -18,18 +18,18 @@ Thumbs.db
 *.sublime-project
 *.sublime-workspace
 
-# 临时文件
+# 暫存檔案
 *.tmp
 *.bak
 *.log
 .cache/
 
-# 私密内容（如个人笔记、草稿）
+# 私密內容（如個人筆記、草稿）
 private/
 .private/
 *-private.md
 
-# 构建和依赖
+# 建置和相依套件
 node_modules/
 dist/
 build/
