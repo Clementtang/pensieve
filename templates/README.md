@@ -56,6 +56,35 @@
 
 ---
 
+### 4. company-research-template.md
+**用途：** 企業商業分析與研究報告
+
+**適用場景：**
+- 投資研究
+- 競爭分析
+- 產業研究
+- 策略規劃
+- 商業案例研究
+
+**包含結構：**
+- 執行摘要 (Executive Summary)
+- 公司概況 (Company Overview)
+- 產業分析 (Industry Analysis) - 波特五力
+- 商業模式分析 (Business Model Analysis) - 商業模式畫布、護城河
+- 競爭分析 (Competitive Analysis)
+- 財務分析 (Financial Analysis) - 杜邦分析
+- SWOT 分析與交叉策略矩陣
+- 管理團隊與治理 (Management & Governance)
+- 風險分析 (Risk Analysis)
+- 成長策略與展望 (Growth Strategy & Outlook)
+
+**參考框架：**
+- 哈佛商學院 (HBS) 案例研究方法
+- MIT Sloan 策略分析框架
+- 柏克萊 Haas 商業分析模型
+
+---
+
 ## 使用方法
 
 ### 方法 1：指令行複製
