@@ -139,7 +139,7 @@ vim docs/company-research/YYYY-MM-DD-company-name-research.md
 
 | 公司 | 產業 | 日期 | 研究深度 |
 |------|------|------|---------|
-| *尚無研究* | | | |
+| [Sun Group（太陽集團）](./2025-11-26-sun-group-vietnam-research.md) | 旅遊業、房地產、基礎建設 | 2025-11-26 | L2 深度分析 |
 
 ---
 
