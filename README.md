@@ -22,12 +22,15 @@
 
 ```
 pensieve/
+├── .github/                 # GitHub 設定
+│   └── pull_request_template.md  # PR 模板
 ├── docs/                    # 已發布的文件
 │   ├── articles/           # 正式文章
 │   ├── notes/              # 筆記和簡短內容
 │   └── company-research/   # 企業研究分析
 ├── drafts/                 # 草稿資料夾
 ├── templates/              # 文章模板
+├── CONTRIBUTING.md         # 貢獻指南（PR 規範）
 ├── WRITING_GUIDE.md        # 寫作規範指南
 └── README.md               # 本檔案
 ```
@@ -58,6 +61,16 @@ pensieve/
 ## 📖 文件規範
 
 詳細的寫作規範請參閱 [WRITING_GUIDE.md](./WRITING_GUIDE.md)
+
+## 🤝 貢獻指南
+
+如果您想對本專案做出貢獻，請參閱 [CONTRIBUTING.md](./CONTRIBUTING.md)
+
+**包含內容：**
+- 分支命名規則
+- 提交訊息規範
+- **Pull Request 標題和描述格式**
+- 協作流程指引
 
 ## 🔍 快速查找
 
