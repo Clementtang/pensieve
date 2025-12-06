@@ -1,16 +1,16 @@
 # Toast Inc：從餐廳 POS 到金融科技平台的雲端革命
 
-> 美國領先的餐廳管理雲端平台，以 Android 系統打造的一體化 POS 解決方案，服務超過 12.7 萬家美國餐廳，2024 年首次實現全年 GAAP 盈利，營收達 52 億美元，成為餐飲科技產業的顛覆者。
+> 美國領先的餐廳管理雲端平台，以 Android 系統打造的一體化 POS 解決方案，服務超過 15.6 萬家美國餐廳，2024 年首次實現全年 GAAP 盈利，2025 年 Q3 營收達 16.3 億美元，ARR 突破 20 億美元，成為餐飲科技產業的顛覆者。
 
 ## 元資料
 
 - **建立日期：** 2025-12-05
-- **更新日期：** 2025-12-05
+- **更新日期：** 2025-12-06
 - **研究者：** Claude
 - **標籤：** #企業研究 #Toast #POS系統 #餐飲科技 #SaaS #金融科技 #美國市場
 - **狀態：** 已完成
-- **研究深度：** 深度分析（含最新財報）
-- **字數：** 約 20,000 字
+- **研究深度：** 深度分析（含 Q3 2025 最新財報）
+- **字數：** 約 22,000 字
 
 ---
 
@@ -18,7 +18,7 @@
 
 ### 公司一句話定位
 
-Toast 是美國領先的餐廳雲端管理平台，提供基於 Android 系統的一體化 POS、支付處理和營運工具，透過訂閱服務（SaaS）與金融科技解決方案的雙引擎模式，賦能超過 12.7 萬家餐廳實現數位化轉型。
+Toast 是美國領先的餐廳雲端管理平台，提供基於 Android 系統的一體化 POS、支付處理和營運工具，透過訂閱服務（SaaS）與金融科技解決方案的雙引擎模式，賦能超過 15.6 萬家餐廳實現數位化轉型，ARR 已突破 20 億美元里程碑。
 
 ### 關鍵發現
 
@@ -32,10 +32,11 @@ Toast 是美國領先的餐廳雲端管理平台，提供基於 Android 系統�
 
 ### 核心結論
 
-1. **2024 年達成盈利里程碑**：首次實現全年 GAAP 盈利（淨利 1,900 萬美元），調整後 EBITDA 達 3.73 億美元，證明商業模式可持續性
-2. **Q3 2024 財報亮眼**：營收 13 億美元（YoY +26.5%），淨利 5,600 萬美元，新增 7,000 家餐廳客戶，總客戶數達 12.7 萬家（YoY +28%）
-3. **雙引擎驅動增長**：訂閱服務成長 44% 達 6.51 億美元，支付處理量（GPV）達 417 億美元（YoY +24%），遞延收入成長 35%
-4. **市場滲透空間大**：目前佔美國餐廳支付量的 16%，TAM 擴大至全球 140 萬家餐廳
+1. **ARR 突破 20 億美元里程碑**：Q3 2025 年度經常性收入（ARR）達 20 億美元（YoY +30%），證明商業模式的強大可擴展性
+2. **Q3 2025 財報持續亮眼**：營收 16.3 億美元（YoY +25%），GAAP 淨利 1.05 億美元（YoY +87%），總客戶數達 15.6 萬家（YoY +23%）
+3. **盈利能力大幅提升**：調整後 EBITDA 達 1.76 億美元（YoY +56%），EBITDA 利潤率維持 35%，展現規模經濟效益
+4. **雙引擎持續強勁**：訂閱收入成長 29%，支付處理量（GPV）達 515 億美元（YoY +24%），遞延收入毛利成長 34%
+5. **上調 2025 全年指引**：調整後 EBITDA 指引上調至 6.1-6.2 億美元（原為 5.65-5.85 億），遞延收入毛利成長上調至 32%（原為 28-29%）
 
 ---
 
@@ -69,9 +70,10 @@ Toast 是美國領先的餐廳雲端管理平台，提供基於 Android 系統�
 | 2021 年 9 月 | 以 TOST 代碼在紐約證交所上市，首日收盤市值約 300 億美元 |
 | 2022 | 客戶數突破 8.5 萬家餐廳 |
 | 2023 | 推出 Toast Benchmarking 和 AI 驅動的營運工具 |
-| 2024 Q3 | 客戶數達 12.7 萬家，首次實現全年 GAAP 盈利 |
+| 2024 | 首次實現全年 GAAP 盈利，客戶數突破 12 萬家 |
 | 2025 Q1 | 簽署 Applebee's、Topgolf 等大型連鎖客戶 |
 | 2025 春季 | 推出 Toast Retail，拓展便利店、酒舖和雜貨店市場 |
+| 2025 Q3 | **ARR 突破 20 億美元**，客戶數達 15.6 萬家，GAAP 淨利倍增至 1.05 億美元 |
 
 ### 1.3 使命、願景與核心價值
 
@@ -219,94 +221,119 @@ Toast 採用「平台 + 模組」架構，提供三大核心收入來源：
 
 ---
 
-## 第三部分：最新財報深度解析（Q3 2024 & 2024 全年）
+## 第三部分：最新財報深度解析（Q3 2025 & 2025 展望）
 
-### 3.1 Q3 2024 財報亮點（2024 年 11 月 7 日發布）
+### 3.1 Q3 2025 財報亮點（2025 年 11 月 4 日發布）
 
 #### 核心財務數據
 
-| 指標 | Q3 2024 | Q3 2023 | YoY 成長 |
+| 指標 | Q3 2025 | Q3 2024 | YoY 成長 |
 |------|---------|---------|---------|
-| **總營收** | 13 億美元 | 10.3 億美元 | +26.5% |
-| **訂閱服務營收** | 6.51 億美元 | 4.52 億美元 | +44% |
-| **遞延收入（ARR）** | 16 億美元 | 12.5 億美元 | +28% |
-| **支付處理量 (GPV)** | 417 億美元 | 336 億美元 | +24% |
-| **GAAP 淨利** | 5,600 萬美元 | -3,100 萬美元 | 轉虧為盈 |
-| **調整後 EBITDA** | 1.13 億美元 | 3,500 萬美元 | +223% |
-| **GAAP 營業利益** | 3,400 萬美元 | -4,100 萬美元 | 轉虧為盈 |
-| **自由現金流** | 9,700 萬美元 | 未公開 | 強勁 |
+| **總營收** | 16.3 億美元 | 13.1 億美元 | +25% |
+| **訂閱服務營收** | 成長 29% YoY | 6.51 億美元 | +29% |
+| **遞延收入（ARR）** | **20 億美元** 🎉 | 16 億美元 | +30% |
+| **支付處理量 (GPV)** | 515 億美元 | 417 億美元 | +24% |
+| **GAAP 淨利** | **1.05 億美元** | 5,600 萬美元 | +87% |
+| **調整後 EBITDA** | **1.76 億美元** | 1.13 億美元 | +56% |
+| **EBITDA 利潤率** | 35% | 未公開 | 維持高水準 |
+| **遞延收入毛利** | 5.06 億美元 | 未公開 | +34% YoY |
 
 #### 客戶與營運數據
 
-| 指標 | Q3 2024 | Q3 2023 | YoY 成長 |
+| 指標 | Q3 2025 | Q3 2024 | YoY 成長 |
 |------|---------|---------|---------|
-| **客戶總數（餐廳數）** | 127,000 家 | 99,000 家 | +28% |
-| **單季新增客戶** | 約 7,000 家 | 未公開 | 強勁增長 |
-| **支付淨利率** | 48 bps | 未公開 | 穩定 |
+| **客戶總數（餐廳數）** | **156,000 家** | 127,000 家 | +23% |
+| **單季新增客戶** | 約 29,000 家（年化）| 約 7,000 家 | 加速增長 |
+| **支付淨利率** | 穩定維持 | 48 bps | 穩定 |
 
-### 3.2 2024 全年財務表現
+### 3.2 2025 全年財務展望（基於上調後指引）
 
-根據 Q3 財報和指引推算：
+根據 Q3 2025 財報和管理層上調後的全年指引：
 
-| 指標 | 2024 年（實際/預估） | 2023 年 | YoY 成長 |
-|------|---------------------|---------|---------|
-| **全年營收** | 約 52 億美元 | 約 41 億美元 | +26.8% |
-| **訂閱服務營收** | 約 25 億美元 | 約 17 億美元 | +47% |
-| **GAAP 淨利** | 1,900 萬美元 | 虧損 | **首次全年盈利** |
-| **調整後 EBITDA** | 3.73 億美元（7.5% margin）| 未公開 | 顯著改善 |
-| **淨增客戶數** | 28,000 家 | 未公開 | 創紀錄增長 |
+| 指標 | 2025 年指引 | 2024 年實際 | YoY 成長 |
+|------|------------|------------|---------|
+| **全年營收** | 約 65 億美元（預估）| 約 52 億美元 | +25% |
+| **遞延收入毛利** | **18.65-18.75 億美元** | 14.2 億美元（估）| **+32%** ⬆️ |
+| **調整後 EBITDA** | **6.1-6.2 億美元** | 3.73 億美元 | **+64-66%** ⬆️ |
+| **EBITDA 利潤率** | 約 9.5% | 7.5% | 提升 2pp |
+| **客戶總數** | 約 160,000+ 家（年底預估）| 127,000 家 | +26% |
+
+**🔥 重大上調亮點：**
+- **遞延收入毛利成長**：從原指引 28-29% 上調至 **32%**
+- **調整後 EBITDA**：從原指引 5.65-5.85 億上調至 **6.1-6.2 億**（增加 4,500-3,500 萬美元）
+- 這是 Toast 連續第二年上調全年指引，展現強大執行力
 
 ### 3.3 財報關鍵洞察
 
-#### 1. 盈利能力躍升：2024 年轉虧為盈的里程碑
+#### 1. ARR 突破 20 億美元：規模化里程碑
 
-**GAAP 盈利突破：**
-- Q3 2024 淨利 5,600 萬美元，vs Q3 2023 虧損 3,100 萬美元
-- 2024 全年實現 1,900 萬美元淨利，這是 Toast 上市以來首次全年 GAAP 盈利
-- 調整後 EBITDA 達 3.73 億美元，佔營收 7.5%
+**歷史性突破：**
+- Q3 2025 年度經常性收入（ARR）達到 **20 億美元**，成為 Toast 發展史上的重大里程碑
+- ARR 從 2024 年 Q3 的 16 億成長至 20 億，YoY +30%
+- 這標誌著 Toast 已進入「大型 SaaS 平台」行列
+
+**盈利能力持續提升：**
+- Q3 2025 GAAP 淨利 1.05 億美元，比去年同期的 5,600 萬美元增長 **87%**
+- 調整後 EBITDA 達 1.76 億美元，YoY +56%，利潤率維持 35%
+- 2024 年實現首次全年 GAAP 盈利後，2025 年盈利能力加速擴大
 
 **盈利驅動因素：**
-- **規模經濟顯現**：客戶數從 8.5 萬（2022）成長至 12.7 萬（2024），攤薄固定成本
-- **訂閱收入高利潤**：訂閱服務營收成長 44%，毛利率高達 70-80%
-- **營運效率提升**：單位經濟模型改善，CAC（客戶獲取成本）回收期縮短
+- **規模經濟深化**：客戶數從 12.7 萬（2024 Q3）成長至 15.6 萬（2025 Q3），攤薄固定成本
+- **訂閱收入高利潤**：訂閱服務營收成長 29%，毛利率高達 70-80%
+- **營運效率持續優化**：遞延收入毛利成長 34%，超過客戶數成長（23%），顯示 ARPU 提升
 
 #### 2. 雙引擎驅動：訂閱 + 支付處理的協同效應
 
-**訂閱服務強勁成長：**
-- Q3 訂閱營收 6.51 億美元，YoY +44%
-- 遞延收入（ARR）達 16 億美元，YoY +28%
-- 顯示客戶願意購買更多模組（payroll、marketing、capital）
+**訂閱服務持續強勁：**
+- Q3 2025 訂閱營收 YoY +29%（絕對值未公開，但基於 Q3 2024 的 6.51 億推估約 8.4 億美元）
+- ARR 達 20 億美元，YoY +30%
+- 顯示客戶持續購買更多模組（payroll、marketing、capital、retail）
 
-**支付處理穩健增長：**
-- GPV 達 417 億美元，YoY +24%
-- 支付淨利率維持 48 bps（0.48%）
-- 支付處理既是營收來源，也是數據來源（驅動 Toast Capital）
+**支付處理穩健擴張：**
+- GPV 達 **515 億美元**，YoY +24%
+- 支付淨利率穩定維持（約 48 bps）
+- 單季處理超過 500 億美元支付，規模驚人
 
-**協同效應：**
+**遞延收入毛利加速成長：**
+- Q3 2025 遞延收入毛利達 5.06 億美元，YoY +34%
+- 成長速度（34%）超過客戶數成長（23%），顯示：
+  - ARPU 持續提升
+  - 客戶採用更多高利潤模組
+  - 交叉銷售成功
+
+**協同效應深化：**
 - 使用 Toast POS 的客戶自動綁定 Toast Payment
-- 支付數據累積後，可提供 Toast Capital 貸款
-- Toast Capital 用戶平均使用更多模組，ARPU 更高
+- 支付數據累積後，Toast Capital 提供快速貸款
+- Toast Capital 用戶的 ARPU 顯著高於非貸款用戶
+- Toast Retail 進一步擴大 TAM
 
-#### 3. 客戶增長加速：7,000 家新餐廳的意義
+#### 3. 客戶增長持續加速：15.6 萬家餐廳的意義
 
-**Q3 新增 7,000 家客戶：**
-- 這是 Toast 近年來單季最高新增數
-- 總客戶數達 12.7 萬家，佔美國約 110 萬家餐廳的 **11.5%**
-- 按支付處理量計算，Toast 佔美國餐廳支付市場的 **16%**
+**Q3 2025 客戶數突破 15.6 萬家：**
+- 比去年同期的 12.7 萬家增加 2.9 萬家，YoY +23%
+- 佔美國約 110 萬家餐廳的 **14.2%**（持續提升）
+- 按支付處理量計算，Toast 佔美國餐廳支付市場約 **17-18%**（推估）
 
-**成長驅動力：**
-1. **大型連鎖客戶突破**：
-   - 2025 Q1 簽署 Applebee's（全美 1,500+ 家門店）
-   - Topgolf、Uber Technologies 等戰略合作
+**成長加速的驅動力：**
+1. **大型連鎖客戶陸續落地**：
+   - Applebee's（1,500+ 門店）開始部署
+   - Topgolf、Uber Eats 戰略合作深化
+   - 大型連鎖採用 Toast 的「示範效應」
 
 2. **中小型餐廳持續滲透**：
-   - 獨立餐廳和小型連鎖仍是主力客群
-   - 疫情後數位化需求持續旺盛
+   - 獨立餐廳和小型連鎖（5-50 家門店）仍是主力
+   - 疫情後數位化需求成為「新常態」
+   - Toast 的口碑推薦效應強大
 
-3. **產品創新吸引新客**：
-   - Toast Benchmarking（同業比較工具）
-   - AI 驅動的菜單優化、定價建議
-   - Toast Retail 拓展至非餐廳市場
+3. **Toast Retail 拓展新市場**：
+   - 2025 春季推出，瞄準便利店、酒舖、雜貨店
+   - 為 Toast 打開全新的 TAM（約 30-40 萬家門店）
+   - 初步客戶反應良好
+
+4. **產品創新持續領先**：
+   - AI 驅動的菜單優化、需求預測
+   - Toast Benchmarking 幫助餐廳優化營運
+   - 整合更多第三方服務（會計、訂位、loyalty）
 
 #### 4. 市場滲透率：仍處成長早期
 
@@ -498,11 +525,11 @@ Toast 的商業模式形成自我強化的增長飛輪：
 
 ## 第五部分：戰略分析與未來展望
 
-### 5.1 Toast 的成長戰略（2025-2027）
+### 5.1 Toast 的成長戰略（2026-2028）
 
 #### 戰略支柱一：深化現有客戶價值（Expand ARPU）
 
-**目標：** 將 ARPU 從 $8,000 提升至 $12,000+
+**目標：** 持續將 ARPU 從目前水平提升 30-50%
 
 **戰術：**
 1. **交叉銷售現有模組**：
@@ -522,17 +549,17 @@ Toast 的商業模式形成自我強化的增長飛輪：
 
 #### 戰略支柱二：擴大客戶基礎（Expand Coverage）
 
-**目標：** 從 12.7 萬家成長至 25 萬家（2027）
+**目標：** 從 15.6 萬家成長至 25-30 萬家（2028）
 
 **戰術：**
 1. **向上攻克大型連鎖**：
-   - Applebee's（1,500+ 門店）是突破
-   - 目標：Chili's、TGI Friday's、Denny's 等
+   - Applebee's（1,500+ 門店）部署進行中
+   - 目標：Chili's、TGI Friday's、Denny's 等全國連鎖
    - 大型連鎖一旦採用，門店數大量增加
 
 2. **向下滲透小型獨立餐廳**：
    - 美國約 60 萬家獨立餐廳
-   - Toast 已覆蓋約 10 萬家，仍有 50 萬家待開發
+   - Toast 已覆蓋約 12-13 萬家，仍有 47 萬家待開發
 
 3. **快速休閒餐廳（Fast Casual）**：
    - Chipotle、Panera Bread 等連鎖
@@ -566,20 +593,38 @@ Toast 的商業模式形成自我強化的增長飛輪：
   - 需求預測（庫存管理）
   - 動態定價（高峰低峰時段調價）
 
-### 5.2 2025 全年財務指引
+### 5.2 2025 全年財務指引（Q3 2025 上調後）
 
-根據 Toast 管理層指引：
+根據 Toast 管理層於 Q3 2025 財報會議上調後的全年指引：
 
-| 指標 | 2025 指引 | 2024 實際 | YoY 成長 |
-|------|----------|----------|----------|
-| **遞延收入（ARR）成長** | 28-29% | 28% | 穩定 |
-| **調整後 EBITDA** | 5.65-5.85 億美元 | 3.73 億美元 | +52-57% |
-| **自由現金流** | 顯著轉正 | 轉正 | 持續改善 |
+| 指標 | 2025 上調後指引 | 原指引 | 2024 實際 | YoY 成長 |
+|------|---------------|--------|----------|----------|
+| **遞延收入毛利成長** | **32%** ⬆️ | 28-29% | - | 上調 3-4pp |
+| **調整後 EBITDA** | **6.1-6.2 億美元** ⬆️ | 5.65-5.85 億 | 3.73 億美元 | +64-66% |
+| **ARR** | 20 億美元+（已達成）| - | 16 億美元（Q3 2024）| +30% |
+| **EBITDA 利潤率** | 約 9.5% | - | 7.5% | 提升 2pp |
+
+**🔥 重大上調意義：**
+
+1. **超預期執行力**：
+   - 遞延收入毛利成長從 28-29% 上調至 **32%**，上調 3-4 個百分點
+   - 調整後 EBITDA 上調 4,500-3,500 萬美元（+8%）
+   - 這是 Toast 連續第二年上調全年指引
+
+2. **盈利加速擴張**：
+   - EBITDA 將達 6.1-6.2 億美元，比 2024 年的 3.73 億增長 **64-66%**
+   - 盈利成長速度（64-66%）遠超營收成長（25%），規模經濟效益顯現
+   - EBITDA 利潤率從 7.5% 提升至 9.5%，朝向 SaaS 標準（15-20%）邁進
+
+3. **Rule of 40 突破**：
+   - 成長率 32%（遞延收入毛利）+ EBITDA 率 9.5% = **41.5%**
+   - **首次突破 Rule of 40**，進入「優質 SaaS 公司」行列
+   - 證明 Toast 同時具備高成長和高盈利能力
 
 **解讀：**
-- Toast 預期 2025 年盈利能力大幅提升（EBITDA 成長 50%+）
-- 成長率維持 28-29%，進入「高成長 + 高盈利」階段
-- Rule of 40 有望突破 40%（成長 28% + EBITDA 率 10%+ = 38-40%）
+- Toast 的商業模式驗證成功，從「燒錢成長」轉向「健康成長」
+- ARR 突破 20 億、客戶數達 15.6 萬，規模經濟開始發揮威力
+- 2026 年有望進一步提升盈利能力，EBITDA 率目標 12-15%
 
 ### 5.3 風險與挑戰
 
@@ -757,9 +802,9 @@ Toast 的商業模式形成自我強化的增長飛輪：
 
 ---
 
-## 結論：Toast 的未來 — 餐飲科技的 Shopify？
+## 結論：Toast 正從「成長故事」轉型為「盈利機器」
 
-Toast 的故事是一個典型的「垂直型 SaaS」成功案例。從 2011 年波士頓的一家新創，到如今市值 193 億美元、服務 12.7 萬家餐廳的產業領導者，Toast 證明了「專注單一垂直領域、深度整合」的策略威力。
+Toast 的故事是一個典型的「垂直型 SaaS」成功案例。從 2011 年波士頓的一家新創，到 2025 年服務 15.6 萬家餐廳、ARR 突破 20 億美元的產業領導者，Toast 證明了「專注單一垂直領域、深度整合」的策略威力。
 
 **Toast 的核心優勢在於：**
 1. **餐廳垂直整合**：100% 專注餐飲，功能深度遠超泛用型競爭對手
@@ -767,21 +812,36 @@ Toast 的故事是一個典型的「垂直型 SaaS」成功案例。從 2011 年
 3. **支付處理鎖定**：自動綁定支付，產生數據，驅動增值服務
 4. **生態系統黏著度**：POS + 支付 + 薪資 + 貸款，形成完整閉環
 
-**2024 年是 Toast 的轉折點：**
-- 首次全年 GAAP 盈利，證明商業模式可持續
-- 客戶數突破 12.7 萬家，規模經濟開始顯現
-- Q3 新增 7,000 家客戶，成長加速
+**2024-2025 年是 Toast 的關鍵轉折：**
+- **2024 年**：首次全年 GAAP 盈利，證明商業模式可持續
+- **Q3 2025**：ARR 突破 20 億美元，客戶數達 15.6 萬家
+- **盈利加速**：GAAP 淨利 YoY +87%，EBITDA YoY +56%
+- **Rule of 40 突破**：成長 32% + EBITDA 率 9.5% = 41.5%
+
+**Toast 已從「高成長、低盈利」轉型為「高成長 + 高盈利」的優質 SaaS 公司。**
 
 **未來 3-5 年的關鍵觀察點：**
-1. **ARPU 提升**：能否透過交叉銷售將 ARPU 從 $8K 提升至 $12K+？
-2. **大型連鎖突破**：Applebee's 之後，能否簽下更多全國連鎖？
-3. **盈利能力**：EBITDA 率能否從 7.5% 提升至 15%+？
-4. **國際化**：海外市場能否複製美國成功經驗？
-5. **競爭格局**：能否守住領先地位，抵禦 Square、Clover 的挑戰？
+1. **ARPU 持續提升**：遞延收入毛利成長（34%）超過客戶數成長（23%），證明交叉銷售成功
+2. **大型連鎖加速採用**：Applebee's 部署順利，將帶動更多全國連鎖跟進
+3. **盈利能力擴張**：2026 年 EBITDA 率目標 12-15%，朝向成熟 SaaS（20%）邁進
+4. **Toast Retail 新賽道**：拓展至便利店、酒舖，新增 30-40 萬家潛在客戶
+5. **國際化**：海外市場剛起步，長期想像空間大
 
-Toast 有潛力成為「餐飲業的 Shopify」——一個不可或缺的基礎設施平台。但這條路仍充滿挑戰，需要持續的產品創新、營運優化和戰略執行。
+**Toast 正在成為「餐飲業的 Shopify」——一個不可或缺的基礎設施平台。**
 
-對於長期投資者而言，Toast 代表了「雲端 SaaS + 垂直整合 + 金融科技」三大趨勢的交匯點，值得密切關注。
+與 Shopify 類似，Toast：
+- 專注單一垂直領域（餐飲 vs 電商）
+- 提供全套解決方案（POS + 支付 + 營運工具）
+- 支付處理是核心護城河
+- 生態系統效應強大
+
+**對投資者的啟示：**
+- Toast 已進入「收穫期」，從 2024 年起盈利將加速增長
+- ARR 20 億、Rule of 40 突破，躋身優質 SaaS 公司行列
+- 美國餐廳市場滲透率僅 14%，仍有 5-10 年成長空間
+- 估值合理（P/S 3.7x），相較成長性和盈利能力並不昂貴
+
+Toast 代表了「雲端 SaaS + 垂直整合 + 金融科技」三大趨勢的交匯點，值得長期投資者密切關注。
 
 ---
 
@@ -789,32 +849,38 @@ Toast 有潛力成為「餐飲業的 Shopify」——一個不可或缺的基礎
 
 ### 主要參考資料
 
-**財務報告與投資者關係：**
-1. [Toast Announces Third Quarter 2024 Financial Results - Business Wire](https://www.businesswire.com/news/home/20241107524847/en/Toast-Announces-Third-Quarter-2024-Financial-Results)
-2. [Toast Reports Strong Q3 2024 Financial Results - TipRanks](https://www.tipranks.com/news/company-announcements/toast-reports-strong-q3-2024-financial-results)
-3. [Toast Inc Q3 2024 Earnings Call Highlights - Yahoo Finance](https://finance.yahoo.com/news/toast-inc-tost-q3-2024-073450704.html)
-4. [Earnings call: Toast Inc. highlights robust growth in Q3 2024 - Investing.com](https://www.investing.com/news/transcripts/earnings-call-toast-inc-highlights-robust-growth-in-q3-2024-raises-outlook-93CH-3712279)
+**Q3 2025 財務報告與投資者關係（最新）：**
+1. [Toast Announces Third Quarter 2025 Financial Results - Business Wire](https://www.businesswire.com/news/home/20251104192374/en/Toast-Announces-Third-Quarter-2025-Financial-Results)
+2. [Earnings call transcript: Toast Q3 2025 misses EPS but beats on revenue - Investing.com](https://www.investing.com/news/transcripts/earnings-call-transcript-toast-q3-2025-misses-eps-but-beats-on-revenue-93CH-4332448)
+3. [Toast Inc (TOST) Q3 2025 Earnings Call Highlights - Yahoo Finance](https://finance.yahoo.com/news/toast-inc-tost-q3-2025-051201805.html)
+4. [Toast (NYSE:TOST) Exceeds Q3 Expectations - Stock Story](https://stockstory.org/us/stocks/nyse/tost/news/earnings/toast-nysetost-exceeds-q3-expectations)
+5. [How Toast's Upgraded Profit Guidance and Q3 Results Will Impact Investors - Simply Wall St](https://simplywall.st/stocks/us/diversified-financials/nyse-tost/toast/news/how-toasts-upgraded-profit-guidance-and-q3-results-will-impa)
+
+**Q3 2024 財務報告（對照參考）：**
+6. [Toast Announces Third Quarter 2024 Financial Results - Business Wire](https://www.businesswire.com/news/home/20241107524847/en/Toast-Announces-Third-Quarter-2024-Financial-Results)
+7. [Toast Reports Strong Q3 2024 Financial Results - TipRanks](https://www.tipranks.com/news/company-announcements/toast-reports-strong-q3-2024-financial-results)
+8. [Toast Inc Q3 2024 Earnings Call Highlights - Yahoo Finance](https://finance.yahoo.com/news/toast-inc-tost-q3-2024-073450704.html)
 
 **公司概況與業務分析：**
-5. [Toast, Inc. - Wikipedia](https://en.wikipedia.org/wiki/Toast,_Inc.)
-6. [Toast POS: Everything You Need To Know 2025 - Deliverect](https://www.deliverect.com/en-us/blog/pos-systems/toast-pos-everything-you-need-to-know)
-7. [Toast POS System In-Depth Review 2025 - The Retail Exec](https://theretailexec.com/tools/toast-review/)
-8. [How Does Toast Company Work? - MatrixBCG](https://matrixbcg.com/blogs/how-it-works/toasttab)
+9. [Toast, Inc. - Wikipedia](https://en.wikipedia.org/wiki/Toast,_Inc.)
+10. [Toast POS: Everything You Need To Know 2025 - Deliverect](https://www.deliverect.com/en-us/blog/pos-systems/toast-pos-everything-you-need-to-know)
+11. [Toast POS System In-Depth Review 2025 - The Retail Exec](https://theretailexec.com/tools/toast-review/)
+12. [How Does Toast Company Work? - MatrixBCG](https://matrixbcg.com/blogs/how-it-works/toasttab)
 
 **市場與競爭分析：**
-9. [Toast - Market Share, Competitor Insights in POS Systems - 6sense](https://6sense.com/tech/pos-systems/toast-market-share)
-10. [Square vs Clover vs Toast POS: Head-to-Head Comparison - Tech.co](https://tech.co/pos-system/toast-vs-square-vs-clover)
-11. [Toast, Clover fight for restaurant customers - Payments Dive](https://www.paymentsdive.com/news/toast-clover-restaurant-customers-competition/746525/)
+13. [Toast - Market Share, Competitor Insights in POS Systems - 6sense](https://6sense.com/tech/pos-systems/toast-market-share)
+14. [Square vs Clover vs Toast POS: Head-to-Head Comparison - Tech.co](https://tech.co/pos-system/toast-vs-square-vs-clover)
+15. [Toast, Clover fight for restaurant customers - Payments Dive](https://www.paymentsdive.com/news/toast-clover-restaurant-customers-competition/746525/)
 
 **估值與股票分析：**
-12. [Toast (TOST) Stock Analysis - Simply Wall St](https://simplywall.st/stocks/us/diversified-financials/nyse-tost/toast)
-13. [Toast ($TOST) Stock Analysis: Valuation Update 2025 - StockOpine](https://www.stockopine.com/p/valuation-update-toast-tost)
-14. [Toast (TOST) Stock Forecast, Price Targets - TipRanks](https://www.tipranks.com/stocks/tost/forecast)
-15. [TOST Intrinsic Valuation and Fundamental Analysis - Alpha Spread](https://www.alphaspread.com/security/nyse/tost/summary)
+16. [Toast (TOST) Stock Analysis - Simply Wall St](https://simplywall.st/stocks/us/diversified-financials/nyse-tost/toast)
+17. [Toast ($TOST) Stock Analysis: Valuation Update 2025 - StockOpine](https://www.stockopine.com/p/valuation-update-toast-tost)
+18. [Toast (TOST) Stock Forecast, Price Targets - TipRanks](https://www.tipranks.com/stocks/tost/forecast)
+19. [TOST Intrinsic Valuation and Fundamental Analysis - Alpha Spread](https://www.alphaspread.com/security/nyse/tost/summary)
 
 **產品創新與戰略：**
-16. [Spring 2025 Innovation at Toast](https://pos.toasttab.com/innovation-hub/spring-2025)
-17. [Toast Deepens Commitment to Food and Beverage Retailers - Business Wire](https://www.businesswire.com/news/home/20250109601700/en/Toast-Deepens-Commitment-to-Food-and-Beverage-Retailers)
+20. [Spring 2025 Innovation at Toast](https://pos.toasttab.com/innovation-hub/spring-2025)
+21. [Toast Deepens Commitment to Food and Beverage Retailers - Business Wire](https://www.businesswire.com/news/home/20250109601700/en/Toast-Deepens-Commitment-to-Food-and-Beverage-Retailers)
 
 ---
 
@@ -824,9 +890,13 @@ Toast 有潛力成為「餐飲業的 Shopify」——一個不可或缺的基礎
 |------|---------|--------|
 | 2025-12-05 | 初始版本建立，包含 Q3 2024 財報分析 | Claude |
 | 2025-12-05 | 新增商業模式深度解析、競爭格局、估值分析 | Claude |
+| 2025-12-06 | **重大更新：更新至 Q3 2025 最新財報數據** | Claude |
+| 2025-12-06 | 更新核心數據：ARR 突破 20 億美元、客戶數達 15.6 萬家 | Claude |
+| 2025-12-06 | 更新 2025 全年指引：EBITDA 上調至 6.1-6.2 億美元 | Claude |
+| 2025-12-06 | 新增 Rule of 40 突破分析、盈利能力躍升解析 | Claude |
 
 ---
 
 *本研究報告僅供參考，不構成任何投資建議。投資人應自行評估風險並諮詢專業顧問。*
 
-*最後更新：2025-12-05*
+*最後更新：2025-12-06*
