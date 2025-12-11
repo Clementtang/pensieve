@@ -765,21 +765,41 @@ Airwallex 作為華人創辦、擁有中國投資者和中國營運團隊的金�
 
 #### 2024-2025 年公開爭議事件
 
-**Keith Rabois 的指控（2024 年底）**
+**Keith Rabois 的指控（2024 年 12 月）**
 
-Stripe 投資人、Khosla Ventures 合夥人 Keith Rabois 在社交媒體 X 上公開指控 Airwallex：
-- 稱其為「中國後門」（Chinese backdoor）
-- 聲稱中國《國家情報法》和香港《國安法》可能迫使 Airwallex 將美國客戶數據交給中國政府
+Stripe 投資人、Khosla Ventures 合夥人 Keith Rabois 在社交媒體 X 上發布詳細的指控推文串：
+
+**原始推文內容：**
+> 「你們有向美國客戶如 @Rippling、@Billcom、@brexHQ 和 @Navan 披露你們正在悄悄將他們客戶的數據發送到中國嗎？Airwallex 已成為中國進入敏感美國數據（如 AI 實驗室和國防承包商）的後門。」
+
+**核心指控包括：**
+- 稱 Airwallex 為「中國後門」（Chinese backdoor），可存取：
+  - **AI 實驗室的供應商付款數據**
+  - **國防承包商的薪資數據**
+  - **海外員工的個人數據**
+- 點名具體美國客戶：Rippling、Bill.com、Brex、Navan，質疑他們是否知情
+- 強調中國法律**要求** Airwallex 員工必須支持中共情報要求，並在被要求時「悄悄交出數據」
 - 質疑約 40% 員工在中國大陸和香港的安全性
+- 指出超過 20% 股權由騰訊、HongShan 等中國公司持有
 - 指出 Airwallex 在 2023 年前無法完全隔離數據存取
 
 **Airwallex 的回應**
 
-CEO Jack Zhang 和總裁 Lucy Liu 迅速反擊：
+CEO Jack Zhang 和總裁 Lucy Liu 迅速在 X 平台反擊：
+
+**Jack Zhang 的回應：**
 - **數據隔離**：美國客戶數據不存放在中國，中國員工無權存取
 - **技術架構**：已建立嚴格的數據隔離架構和權限管理
 - **監管合規**：持有 70+ 個全球金融牌照，在 48 個美國州受監管
 - **競爭動機**：暗示 Rabois 的指控是基於競爭考量（Rabois 投資 Stripe 和 Block）
+
+**Lucy Liu 的回應（X 平台原文）：**
+> 「值得注意的是，這裡的指控和不準確的敘述與投資組合公司的利益高度一致。Airwallex 的立場絕對明確。Airwallex 在嚴格的全球數據駐留和安全標準下運營，符合所有美國聯邦法規。」
+
+Lucy Liu 進一步強調：
+- Airwallex 完全遵守美國聯邦法規和各州金融監管要求
+- 數據駐留政策確保美國客戶數據僅存儲於美國境內
+- 質疑 Rabois 的指控動機與其投資組合公司（Stripe、Block）的競爭利益相關
 
 **獨立驗證**
 
@@ -1083,15 +1103,18 @@ Airwallex 有潛力成為「跨境支付領域的重要玩家」，但能否達�
 15. [Airwallex CEO Jack Zhang on building a global financial platform - Tatler Asia](https://www.tatlerasia.com/power-purpose/wealth/jack-zhang-airwallex-interview)
 
 **地緣政治風險與爭議：**
-16. [Airwallex CEO denies allegations that US user data is being sent to China - Capital Brief](https://www.capitalbrief.com/briefing/airwallex-ceo-denies-allegations-that-us-user-data-is-being-sent-to-china-926c5a94-5d49-47cc-be83-c32899fd7b92/)
-17. [Fintech Feud Erupts After Rabois' "Chinese Backdoor" Jab at Airwallex - CX Today](https://www.cxtoday.com/security-privacy-compliance/fintech-feud-erupts-after-rabois-chinese-backdoor-jab-at-airwallex-ceo-zhang-fires-back/)
-18. [Airwallex caught in the crossfire of US-China tech war - Capital Brief](https://www.capitalbrief.com/article/airwallex-caught-in-the-crossfire-of-us-china-tech-war-e8eb6cf4-f27a-4d6a-808b-03054ed2d073/)
-19. [Geopolitical Risk in Fintech Investments: Airwallex's China-Linked Governance - AInvest](https://www.ainvest.com/news/geopolitical-risk-fintech-investments-airwallex-china-linked-governance-valuation-regulatory-scrutiny-2512/)
-20. [A US Stripe investor launched an extraordinary 'Reds under the beds' spray against Airwallex - Startup Daily](https://www.startupdaily.net/topic/business/a-us-stripe-investor-launched-an-extraordinary-reds-under-the-beds-spray-against-airwallex-and-the-fintechs-cofounders-joined-in-on-x-to-deny-chinese-access-to-data/)
+16. [Keith Rabois X post - Airwallex Chinese backdoor allegations](https://x.com/rabois/status/1995532262998417834)
+17. [Lucy Liu X response to Rabois allegations](https://x.com/awxlucy/status/1996025760377884717)
+18. [Airwallex ambush - Capital Brief](https://www.capitalbrief.com/newsletter/airwallex-ambush-38a5b9b3-f4c9-4d7d-884b-5b1b9eb93942/)
+19. [Airwallex CEO denies allegations that US user data is being sent to China - Capital Brief](https://www.capitalbrief.com/briefing/airwallex-ceo-denies-allegations-that-us-user-data-is-being-sent-to-china-926c5a94-5d49-47cc-be83-c32899fd7b92/)
+20. [Fintech Feud Erupts After Rabois' "Chinese Backdoor" Jab at Airwallex - CX Today](https://www.cxtoday.com/security-privacy-compliance/fintech-feud-erupts-after-rabois-chinese-backdoor-jab-at-airwallex-ceo-zhang-fires-back/)
+21. [Airwallex caught in the crossfire of US-China tech war - Capital Brief](https://www.capitalbrief.com/article/airwallex-caught-in-the-crossfire-of-us-china-tech-war-e8eb6cf4-f27a-4d6a-808b-03054ed2d073/)
+22. [Geopolitical Risk in Fintech Investments: Airwallex's China-Linked Governance - AInvest](https://www.ainvest.com/news/geopolitical-risk-fintech-investments-airwallex-china-linked-governance-valuation-regulatory-scrutiny-2512/)
+23. [A US Stripe investor launched an extraordinary 'Reds under the beds' spray against Airwallex - Startup Daily](https://www.startupdaily.net/topic/business/a-us-stripe-investor-launched-an-extraordinary-reds-under-the-beds-spray-against-airwallex-and-the-fintechs-cofounders-joined-in-on-x-to-deny-chinese-access-to-data/)
 
 **Stripe 收購提議：**
-21. [Airwallex founder declined $1.2 billion Stripe acquisition offer - Nasdaq](https://www.nasdaq.com/articles/airwallex-founder-declined-12-billion-stripe-acquisition-offer)
-22. [The $1.2 Billion Offer From Stripe - Thomas Yeddou](https://thomasyeddou.substack.com/p/the-12-billion-offer-from-stripe)
+24. [Airwallex founder declined $1.2 billion Stripe acquisition offer - Nasdaq](https://www.nasdaq.com/articles/airwallex-founder-declined-12-billion-stripe-acquisition-offer)
+25. [The $1.2 Billion Offer From Stripe - Thomas Yeddou](https://thomasyeddou.substack.com/p/the-12-billion-offer-from-stripe)
 
 ---
 
@@ -1105,9 +1128,12 @@ Airwallex 有潛力成為「跨境支付領域的重要玩家」，但能否達�
 | 2025-12-10 | **重大更新：新增地緣政治風險深度分析** | Claude |
 | | - 中國投資者與營運團隊背景分析 | |
 | | - 2024-2025 年 Rabois 指控事件完整記錄 | |
+| | - Keith Rabois 原始 X 推文內容與具體指控 | |
+| | - Lucy Liu X 平台回應完整內容 | |
 | | - 對美國市場擴張影響評估（極高風險） | |
 | | - 澄清 Stripe 收購動機（非地緣政治因素） | |
 | | - 緩解措施與應對策略建議 | |
+| | - 新增原始來源參考：Keith Rabois X post、Lucy Liu X response、Capital Brief 文章 | |
 
 ---
 
