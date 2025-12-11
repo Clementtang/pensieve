@@ -6,9 +6,9 @@
 
 - **建立日期：** 2025-12-10
 - **更新日期：** 2025-12-10
-- **標籤：** #Airwallex #地緣政治 #中美科技戰 #金融科技 #數據安全 #社群貼文
+- **標籤：** #Airwallex #地緣政治 #中美科技戰 #金融科技 #數據安全 #華語社群 #社群貼文
 - **狀態：** 已發布
-- **字數：** 約 3,500 字
+- **字數：** 約 4,200 字
 
 ---
 
@@ -108,6 +108,30 @@ Rabois 本身就是 Stripe 和 Block 的投資人，他的公開指控很難說�
 
 ---
 
+## 華語社群的分裂：愛國還是理性？
+
+這場風暴不僅在矽谷引爆，也在華語圈掀起了波瀾。事件發生後的幾天內（12 月 2 日至 4 日），X 平台上出現了數十篇使用簡體中文的相關討論，主要來自加密貨幣、金融科技和區塊鏈圈的用戶。
+
+這些討論呈現出一個有趣的現象：華語社群內部也分裂成了截然不同的兩派。
+
+一派認為這是「國家安全隱患」。他們的論點很直接：Airwallex 創辦團隊有中國背景，公司有中國員工和騰訊這樣的投資者，就必須遵守中國《國家情報法》。根據該法第七條，「任何組織和公民都應當依法支持、協助和配合國家情報工作」。換句話說，如果中國政府要求 Airwallex 交出數據，公司和員工在法律上沒有拒絕的權利。
+
+這不是陰謀論，而是法律條文。TikTok 面臨的困境也是基於同樣的邏輯。一位用戶在回覆 Rabois 的貼文時直接指出：「必須遵守中國法律」，言下之意是無論 Airwallex 如何辯解，都無法改變這個結構性問題。這派觀點雖然人數較少，但立場堅定，多見於直接回覆或引用 Rabois 原貼的討論中。
+
+另一派則認為這是「商業抹黑」。他們轉述 Jack Zhang 和 Lucy Liu 的回應，強調美國客戶數據僅存於美國、荷蘭和新加坡數據中心，中國和香港團隊完全沒有存取權限。公司遵守全球數據駐留標準和美國聯邦法規，在 48 個州持有金融牌照。這些事實被視為有力的反駁，整件事很可能是競爭對手（暗指 Stripe）散布的不實指控。
+
+這派的證據更具體：Airwallex 剛完成 3.3 億美元融資，估值達 80 億美元，市場顯然沒有被這場風波影響。而且早在 2019 年，公司就拒絕了 Stripe 的 12 億美元收購提議，證明其獨立性。事件的時機太過巧合——正值 Airwallex 宣布進軍美國市場，Rabois 作為 Stripe 投資人突然出手，這背後的「競爭動機」不言而喻。
+
+這派意見在華語討論中佔多數，多為中性報導或正面解讀，來自媒體帳號如 @wublockchain12 和 @BlockBeatsAsia。他們的焦點很快就從地緣政治爭議轉向了公司的融資新聞和商業成就。
+
+值得注意的是，這場討論的熱度並不高。相比美國科技圈的激烈論戰，華語社群的反應相對冷靜，甚至有些冷淡。話題在短短幾天內就被其他新聞淹沒，顯示公眾的關注點更在意公司成長，而非政治風險。
+
+但這種「冷淡」本身就很說明問題。對於華語社群來說，這類爭議早已見怪不怪。從華為到 TikTok，從 DJI 到字節跳動，任何有中國背景的科技公司在美國都會面臨類似質疑。Airwallex 只是最新的一個案例，但絕不會是最後一個。
+
+問題的核心不在於 Airwallex 做了什麼，而在於它「是什麼」。在當前的地緣政治環境下，華人背景、中國投資者、中國員工，這些客觀事實本身就構成了「原罪」。無論公司如何解釋、如何合規，這個標籤都很難撕掉。
+
+---
+
 ## 數據隔離、總部遷移，但夠嗎？
 
 面對質疑，Airwallex 並非坐以待斃。公司已經建立了數據隔離架構，將美國客戶數據僅存放於美國數據中心,中國員工無法存取。2023 年將總部從墨爾本遷至新加坡這個中立地區，2025 年又設立了舊金山雙總部以強化美國形象。公司也持續公開回應質疑，與監管機構保持溝通。
@@ -176,12 +200,17 @@ Airwallex 於 2015 年在澳洲墨爾本創立，目前估值 80 億美元，年
 5. Fintech Feud Erupts After Rabois' "Chinese Backdoor" Jab at Airwallex - CX Today
    https://www.cxtoday.com/security-privacy-compliance/fintech-feud-erupts-after-rabois-chinese-backdoor-jab-at-airwallex-ceo-zhang-fires-back/
 
+**華語社群討論：**
+6. X 平台簡體中文討論（2025 年 12 月 2-4 日）
+   主要來源：@wublockchain12, @BlockBeatsAsia, @Ahmedchidiac13, @ccy1871 等用戶
+   討論焦點：中國《國家情報法》、數據安全、商業競爭動機
+
 **公司背景：**
-6. Airwallex raises $330M Series G at $8B valuation - Business Wire
+7. Airwallex raises $330M Series G at $8B valuation - Business Wire
    https://www.airwallex.com/newsroom/awx-raises-usd330m-series-g-at-usd8b-valuation-establishes-sf-as-dual-global-hq
-7. Airwallex crosses $1 billion in annualized revenue - Fortune
+8. Airwallex crosses $1 billion in annualized revenue - Fortune
    https://fortune.com/2025/11/03/airwallex-1-billion-annualized-revenue-fintech-payments-ramp-stripe-jack-zhang/
-8. Jack Zhang – Finding success in the pursuit of happiness - University of Melbourne
+9. Jack Zhang – Finding success in the pursuit of happiness - University of Melbourne
    https://www.unimelb.edu.au/alumni/stay-connected/news-and-stories/jack-zhang-finding-success
 
 ---
