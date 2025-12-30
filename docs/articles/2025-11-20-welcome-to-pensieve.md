@@ -177,8 +177,8 @@ Pensieve 提供了一個結構化的寫作環境：
 
 ## 延伸閱讀
 
-- [WRITING_GUIDE.md](../../WRITING_GUIDE.md) - 完整的寫作規範
-- [README.md](../../README.md) - 儲存庫使用說明
+- WRITING_GUIDE.md - 完整的寫作規範（位於專案根目錄）
+- README.md - 儲存庫使用說明（位於專案根目錄）
 
 ---
 

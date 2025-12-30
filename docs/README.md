@@ -26,7 +26,7 @@
 - 產業變革分析
 - 跨領域系統性研究
 
-詳見 [議題研究說明](./topic-research/README.md)
+詳見 [議題研究說明](./topic-research/)
 
 ### notes/
 存放簡短的筆記和快速記錄，包括：
