@@ -107,13 +107,19 @@ Benchmark 的律師最終說服財政部：Manus 技術上不屬於需要限制�
 
 ## 祖克柏為何要買 Manus？
 
-2025 年，AI 競爭已經從「聊天機器人」轉向「AI Agent」。OpenAI 有 Deep Research 和 Operator，Google 有 Gemini 整合 Android，Anthropic 有 Claude 的 Computer Use 功能，Microsoft 有 Copilot 整合 Office 365。而 Meta 在這場競賽中落後了，沒有成熟的 AI Agent 產品。
+這筆交易的背後，有一個關鍵推手——Alexandr Wang，Scale AI 創辦人，現任 Meta 首席 AI 長。
 
-收購 Manus，讓 Meta 一次性獲得成熟的 AI Agent 技術、1 億美元營收的業務、經驗豐富的團隊（100 多人加入 Meta），以及全球領先的市場地位。
+2025 年 6 月，Meta 以 143 億美元收購 Scale AI 49% 股權，並聘請 Wang 領導新成立的「Meta 超級智慧實驗室」（MSL）。12 月 29 日，Wang 在 X 上親自宣布 Manus 併購：「很興奮宣布 Manus 加入 Meta！新加坡的 Manus 團隊在建構強大的 Agent 方面是世界級的。」這則推文顯示，Wang 在這筆交易中扮演了關鍵角色。
 
-這是 Meta 2025 年的第五起 AI 相關併購。在此之前，Meta 已經收購了 Scale AI 49% 股權（140 億美元）、AI 語音公司 PlayAI、AI 音訊公司 WaveForms、AI 加速器公司 Rivos，以及 AI 穿戴裝置公司 Limitless。2025 年，Meta 的資本支出超過 700 億美元，大部分投向 AI。
+但更深層的原因，是 Meta 面臨的 AI 變現困境。
 
-祖克柏正在打造一個完整的 AI 帝國。Manus 是其中關鍵的一塊拼圖。
+2025 年第一季，Meta 97.8% 的營收來自廣告。這個數字揭示了一個殘酷的現實：Meta 幾乎完全依賴單一收入來源。對比競爭對手，Google 有 GCP 雲端服務可以直接銷售 AI，還有 YouTube Premium、Google One 等訂閱產品可以整合 Gemini。Microsoft 有 Azure 雲端、Microsoft 365 Copilot 訂閱（每用戶每月 30 美元），2025 年直接 AI 收入已達 130 億美元。而 Meta 呢？沒有雲端服務，沒有訂閱制生產力工具，2025 年資本支出 700 億美元投向 AI 基礎設施，卻無法指出一美元的直接 AI 收入。
+
+分析師的評論很直接：「Meta 沒有直接的 AI 營收可以報告。就這麼簡單。」當 Meta 在 10 月提高資本支出預測時，股價單日下跌 11%。同樣的消息，卻讓亞馬遜股價飆升——因為亞馬遜有 AWS 可以直接變現 AI 投資。
+
+Manus 的價值正在於此：它提供了 Meta 急需的 2C 端 AI 變現場景。Manus 已經有 1.25 億美元的年營收，來自消費者直接付費——這是 Meta 從未擁有的商業模式。更重要的是，Manus 技術將整合至 WhatsApp、Instagram、Facebook，創造 WhatsApp Business Agents（商家 AI 客服）、Instagram 創作助手等新的付費場景。
+
+2025 年，AI 競爭已經從「聊天機器人」轉向「AI Agent」。OpenAI 有 Deep Research 和 Operator，Google 有 Gemini 整合 Android，Anthropic 有 Claude Computer Use，Microsoft 有 Copilot 整合 365。Meta 在這場競賽中落後了，而收購 Manus 讓它一次性獲得成熟的 AI Agent 產品、經驗豐富的團隊，以及最關鍵的——廣告之外的 AI 變現管道。
 
 ---
 
