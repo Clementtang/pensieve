@@ -1,3 +1,11 @@
+---
+title: "歡迎使用 Pensieve 寫作儲存庫"
+description: "這是一個範例文章，展示如何使用 Pensieve 儲存庫進行寫作。"
+date: 2025-11-20
+tags: ["寫作", "指南", "Pensieve"]
+category: articles
+---
+
 # 歡迎使用 Pensieve 寫作儲存庫
 
 > 這是一個範例文章，展示如何使用 Pensieve 儲存庫進行寫作。

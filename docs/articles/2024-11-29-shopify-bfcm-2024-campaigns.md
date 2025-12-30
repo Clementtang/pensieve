@@ -1,3 +1,9 @@
+---
+title: "Shopify BFCM 2024 技術力宣傳活動整理"
+date: 2024-11-29
+category: articles
+---
+
 # Shopify BFCM 2024 技術力宣傳活動整理
 
 ## 活動概覽

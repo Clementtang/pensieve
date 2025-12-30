@@ -1,3 +1,9 @@
+---
+title: "Shopify BFCM 2024 社群短文"
+date: 2024-11-29
+category: articles
+---
+
 # Shopify BFCM 2024 社群短文
 
 ## 版本 1：完整版（適合 Facebook）
