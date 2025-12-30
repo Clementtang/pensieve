@@ -39,3 +39,4 @@ __pycache__/
 # 其他
 .env
 .env.local
+node_modules
