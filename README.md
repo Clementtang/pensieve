@@ -1,8 +1,6 @@
-# 🧠 Pensieve - 個人寫作與研究平台
+# 🧠 Pensieve - 個人研究與寫作框架
 
-> **儲思盆** - 一個用於儲存和管理個人寫作內容的儲存庫，配合 Claude AI 進行系統化研究與寫作。
-
-[![驗證內容](https://github.com/Clementtang/pensieve/actions/workflows/validate.yml/badge.svg)](https://github.com/Clementtang/pensieve/actions/workflows/validate.yml)
+> **儲思盆** - 一個用於系統化研究與寫作的個人知識管理框架，配合 Claude AI 進行協作。
 
 ## 💭 關於 Pensieve（儲思盆）
 
@@ -20,60 +18,22 @@
 
 ---
 
-## 🚀 快速開始
-
-### 本地開發
-
-```bash
-# 安裝依賴
-npm install
-
-# 啟動開發伺服器
-npm run docs:dev
-
-# 建置靜態網站
-npm run docs:build
-
-# 預覽建置結果
-npm run docs:preview
-```
-
-### 驗證內容
-
-```bash
-# 驗證文件命名規範
-npm run validate
-
-# Markdown lint 檢查
-npm run lint
-```
-
----
-
 ## 📁 儲存庫結構
 
 ```
 pensieve/
-├── .github/                 # GitHub Actions 工作流
-│   └── workflows/
-│       └── validate.yml     # 內容驗證流水線
-├── .vitepress/              # VitePress 配置
-│   └── config.ts            # 網站配置（繁體中文）
-├── docs/                    # 已發布的內容
-│   ├── index.md             # 首頁
-│   ├── about.md             # 關於頁面
+├── docs/                    # 研究內容
 │   ├── articles/            # 文章
 │   ├── company-research/    # 企業研究
-│   └── topic-research/      # 議題研究
+│   ├── topic-research/      # 議題研究
+│   └── adr/                 # 架構決策記錄
 ├── drafts/                  # 草稿資料夾
 ├── templates/               # 文章模板
 │   ├── article-template.md
 │   ├── company-research-template.md
 │   ├── topic-research-template.md
 │   └── research-memo-template.md
-├── scripts/                 # 工具腳本
-│   └── validate-filenames.js
-├── CHANGELOG.md             # 標準變更記錄
+├── CHANGELOG.md             # 變更記錄
 ├── CONTRIBUTING.md          # 貢獻指南
 ├── WRITING_GUIDE.md         # 寫作規範（v1.1.0）
 └── README.md                # 本檔案
@@ -146,12 +106,11 @@ pensieve/
 
 ---
 
-## 🔧 技術堆疊
+## 🌐 公開發布
 
-- **靜態網站生成器：** [VitePress](https://vitepress.dev/)
-- **部署平台：** [Vercel](https://vercel.com/)
-- **內容驗證：** [markdownlint-cli2](https://github.com/DavidAnson/markdownlint-cli2)
-- **CI/CD：** GitHub Actions
+精選內容發布於 **Multivac42**：https://multivac42.vercel.app
+
+關於網站分離的決策，請參閱 [ADR-0001](./docs/adr/0001-separate-website-from-research-framework.md)。
 
 ---
 
