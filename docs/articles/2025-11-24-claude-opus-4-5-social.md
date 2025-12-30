@@ -1,3 +1,11 @@
+---
+title: "Claude Opus 4.5 發布：三大突破重新定義企業 AI"
+description: "社群媒體精簡版 - Anthropic 最新旗艦模型帶來編碼、agents 與無限對話的革命性升級"
+date: 2025-11-24
+tags: ["Claude", "AI", "編碼", "Agents", "社群媒體"]
+category: articles
+---
+
 # Claude Opus 4.5 發布：三大突破重新定義企業 AI
 
 > 社群媒體精簡版 - Anthropic 最新旗艦模型帶來編碼、agents 與無限對話的革命性升級

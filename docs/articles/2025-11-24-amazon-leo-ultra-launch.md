@@ -1,3 +1,11 @@
+---
+title: "Amazon Leo Ultra：挑戰 Starlink 的 1 Gbps 衛星網路服務正式登場"
+description: "Amazon 正式推出 Leo Ultra 企業級衛星網路服務，提供高達 1 Gbps 的下載速度——這不只是技術規格的競爭，更是 Amazon 進軍全球衛星網路市場、挑戰 SpaceX Starlink 壟斷地位的關鍵一步。"
+date: 2025-11-24
+tags: ["Amazon", "衛星網路", "Leo", "Starlink", "企業服務", "基礎建設", "AWS"]
+category: articles
+---
+
 # Amazon Leo Ultra：挑戰 Starlink 的 1 Gbps 衛星網路服務正式登場
 
 > Amazon 正式推出 Leo Ultra 企業級衛星網路服務，提供高達 1 Gbps 的下載速度——這不只是技術規格的競爭，更是 Amazon 進軍全球衛星網路市場、挑戰 SpaceX Starlink 壟斷地位的關鍵一步。

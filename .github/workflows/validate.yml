@@ -1,0 +1,67 @@
+name: 驗證內容
+
+on:
+  pull_request:
+    branches: [main, master]
+    paths:
+      - 'docs/**/*.md'
+      - 'templates/**/*.md'
+      - 'drafts/**/*.md'
+  push:
+    branches: [main, master]
+    paths:
+      - 'docs/**/*.md'
+      - 'templates/**/*.md'
+
+jobs:
+  validate:
+    name: 驗證 Markdown 文件
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 檢出代碼
+        uses: actions/checkout@v4
+
+      - name: 設置 Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: 安裝依賴
+        run: npm ci
+
+      - name: 驗證文件命名規範
+        run: node scripts/validate-filenames.js
+
+      - name: Markdown Lint 檢查
+        run: npx markdownlint-cli2 'docs/**/*.md' --config .markdownlint.yml
+        continue-on-error: true  # 初期先允許警告
+
+  build:
+    name: 建置 VitePress 網站
+    runs-on: ubuntu-latest
+    needs: validate
+
+    steps:
+      - name: 檢出代碼
+        uses: actions/checkout@v4
+
+      - name: 設置 Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: 安裝依賴
+        run: npm ci
+
+      - name: 建置網站
+        run: npm run docs:build
+
+      - name: 上傳建置產物
+        uses: actions/upload-artifact@v4
+        with:
+          name: vitepress-dist
+          path: .vitepress/dist
+          retention-days: 7
