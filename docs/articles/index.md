@@ -27,7 +27,7 @@ description: 科技趨勢、產業分析、商業觀察的深度文章
 
 簡短的社群媒體友善版本：
 
-- [Shopify BFCM 2024 活動分析](./shopify-bfcm-2024-campaigns.md)
+- [Shopify BFCM 2024 活動分析](./2024-11-29-shopify-bfcm-2024-campaigns.md)
 - [Claude Opus 4.5 社群版](./2025-11-24-claude-opus-4-5-social.md)
 - [Amazon Leo Ultra 社群版](./2025-11-24-amazon-leo-ultra-social-post.md)
 - [Lovable 收購 Molnett 社群版](./2025-11-25-lovable-acquires-molnett-social.md)
