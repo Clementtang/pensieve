@@ -12,6 +12,51 @@
 - 自動化 PR 驗證流水線
 - Research Memo 行動工作流模板
 
+## [1.3.0] - 2025-12-31
+
+### Added
+- **產業研究模板** (`templates/industry-research-template.md`)
+  - 7 大章節結構：市場概況、價值鏈、技術架構、競爭格局、應用案例、商業模式、未來展望
+  - 專為產業/技術/市場深度研究設計
+  - 目標達到市調/顧問公司研究報告水準
+
+- **發布腳本 category 分類支援**
+  - 根據 frontmatter `category` 欄位決定 M42 目標目錄
+  - Pensieve 可保持平面結構，發布時自動分類至正確位置
+  - 支援三種 category：`articles`、`company-research`、`topic-research`
+
+### Changed
+- **WRITING_GUIDE.md** 更新至 v1.3.0
+  - 新增「產業研究（Topic Research）」文章類型規範
+  - 新增 Category 對應的 M42 目標目錄說明表
+  - 區分產業研究（industry-research）與議題研究（topic-research）
+
+- **發布腳本** (`scripts/publish-to-multivac.js`)
+  - 重構目標路徑邏輯：從目錄結構改為 category 欄位決定
+  - 新增 `inferCategoryFromPath()` 函數作為 fallback
+  - 新增 `CATEGORY_CONFIG` 設定物件
+
+- **模板說明** (`templates/README.md`)
+  - 新增 `industry-research-template.md` 說明
+  - 區分產業研究模板與議題研究模板的適用場景
+
+## [1.2.0] - 2025-12-31
+
+### Added
+- **Pensieve → Multivac42 發布系統**
+  - 發布腳本 (`scripts/publish-to-multivac.js`)
+  - 格式轉換：移除元資料區塊、自動補充 lastModified
+  - 公司研究依公司名稱分類、其他類型平面結構
+  - 支援 `--dry-run` 和 `--status` 選項
+
+- **Frontmatter 發布欄位規範**
+  - `publish: true/false` 控制是否發布
+  - `category` 欄位決定文章分類
+  - `lastModified` 自動補充
+
+### Changed
+- WRITING_GUIDE.md 新增發布到 Multivac42 規範
+
 ## [1.1.0] - 2025-12-30
 
 ### Added
@@ -38,6 +83,8 @@
 
 ---
 
-[Unreleased]: https://github.com/Clementtang/pensieve/compare/v1.1.0...HEAD
+[Unreleased]: https://github.com/Clementtang/pensieve/compare/v1.3.0...HEAD
+[1.3.0]: https://github.com/Clementtang/pensieve/compare/v1.2.0...v1.3.0
+[1.2.0]: https://github.com/Clementtang/pensieve/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/Clementtang/pensieve/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/Clementtang/pensieve/releases/tag/v1.0.0
