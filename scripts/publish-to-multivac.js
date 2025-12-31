@@ -5,9 +5,10 @@
  *
  * 功能：
  * 1. 掃描 publish: true 的文章
- * 2. 格式轉換（移除元資料區塊等）
- * 3. 複製到 Multivac42（公司研究依公司分類）
- * 4. 同步狀態檢查
+ * 2. 根據 frontmatter category 欄位決定目標目錄
+ * 3. 格式轉換（移除元資料區塊等）
+ * 4. 複製到 Multivac42（公司研究依公司分類）
+ * 5. 同步狀態檢查
  *
  * 使用方式：
  *   node scripts/publish-to-multivac.js [--dry-run] [--status]
@@ -15,6 +16,11 @@
  * 選項：
  *   --dry-run  只顯示會執行的操作，不實際複製
  *   --status   只顯示同步狀態，不執行發布
+ *
+ * 分類邏輯（根據 frontmatter category 欄位）：
+ *   category: articles        → docs/articles/（平面結構）
+ *   category: company-research → docs/company-research/（依公司分類）
+ *   category: topic-research  → docs/topic-research/（平面結構）
  *
  * M42 目錄結構：
  *   docs/articles/           - 時事評論（平面結構）
@@ -32,13 +38,20 @@ const path = require('path');
 const PENSIEVE_ROOT = path.resolve(__dirname, '..');
 const MULTIVAC_ROOT = path.resolve(PENSIEVE_ROOT, '..', 'multivac42');
 
-// 來源目錄設定
-// type: 'flat' = 平面結構, 'by-company' = 依公司分類
+// 來源目錄設定（掃描這些目錄下的所有 .md 檔案）
 const SOURCE_DIRS = [
-  { src: 'docs/articles', dest: 'docs/articles', type: 'flat' },
-  { src: 'docs/company-research', dest: 'docs/company-research', type: 'by-company' },
-  { src: 'docs/topic-research', dest: 'docs/topic-research', type: 'flat' }
+  'docs/articles',
+  'docs/company-research',
+  'docs/topic-research'
 ];
+
+// Category 對應的目標目錄與處理方式
+// type: 'flat' = 平面結構, 'by-company' = 依公司分類
+const CATEGORY_CONFIG = {
+  'articles': { dest: 'docs/articles', type: 'flat' },
+  'company-research': { dest: 'docs/company-research', type: 'by-company' },
+  'topic-research': { dest: 'docs/topic-research', type: 'flat' }
+};
 
 // 公司名稱對應表（檔名關鍵字 → 資料夾名稱）
 // 若產品名知名度大於公司名，使用產品名
@@ -222,17 +235,32 @@ function getCompanyFromFilename(filename) {
 }
 
 /**
- * 計算目標路徑
+ * 從來源路徑推斷 category
  */
-function getDestPath(filePath, srcDir, destDir, dirType) {
+function inferCategoryFromPath(srcDirRelative) {
+  // docs/articles → articles
+  // docs/company-research → company-research
+  // docs/topic-research → topic-research
+  const parts = srcDirRelative.split('/');
+  return parts[parts.length - 1] || 'articles';
+}
+
+/**
+ * 根據 category 計算目標路徑
+ */
+function getDestPath(filePath, category) {
   const fileName = path.basename(filePath);
 
-  if (dirType === 'by-company') {
+  // 取得該 category 的設定，預設為 articles
+  const config = CATEGORY_CONFIG[category] || CATEGORY_CONFIG['articles'];
+  const { dest, type } = config;
+
+  if (type === 'by-company') {
     const company = getCompanyFromFilename(fileName);
-    return path.join(MULTIVAC_ROOT, destDir, company, fileName);
+    return path.join(MULTIVAC_ROOT, dest, company, fileName);
   }
 
-  return path.join(MULTIVAC_ROOT, destDir, fileName);
+  return path.join(MULTIVAC_ROOT, dest, fileName);
 }
 
 /**
@@ -252,8 +280,8 @@ function main() {
   const notPublished = [];   // 標記 publish: true 但尚未發布的文章
 
   // 掃描所有來源目錄
-  for (const { src, dest, type } of SOURCE_DIRS) {
-    const srcDir = path.join(PENSIEVE_ROOT, src);
+  for (const srcDirRelative of SOURCE_DIRS) {
+    const srcDir = path.join(PENSIEVE_ROOT, srcDirRelative);
 
     const files = scanMarkdownFiles(srcDir);
 
@@ -263,7 +291,9 @@ function main() {
 
       if (frontmatter.publish !== true) continue;
 
-      const destPath = getDestPath(filePath, src, dest, type);
+      // 根據 frontmatter category 決定目標，若無則根據來源目錄推斷
+      const category = frontmatter.category || inferCategoryFromPath(srcDirRelative);
+      const destPath = getDestPath(filePath, category);
 
       const srcModTime = getFileModTime(filePath);
       const destModTime = getFileModTime(destPath);
@@ -272,6 +302,7 @@ function main() {
         srcPath: filePath,
         destPath: destPath,
         title: frontmatter.title || path.basename(filePath),
+        category: category,
         relativeSrc: path.relative(PENSIEVE_ROOT, filePath),
         relativeDest: path.relative(MULTIVAC_ROOT, destPath)
       };
