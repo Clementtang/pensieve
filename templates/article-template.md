@@ -1,3 +1,13 @@
+---
+title: "文章標題"
+description: "簡短的文章摘要（1-2 句話描述文章的核心內容）"
+date: YYYY-MM-DD
+author: "Clement Tang"
+tags: ["標籤1", "標籤2", "標籤3"]
+category: articles
+publish: false
+---
+
 # 文章標題
 
 > 簡短的文章摘要或引言（1-2 句話描述文章的核心內容）

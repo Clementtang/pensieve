@@ -1,6 +1,6 @@
 # 寫作規範指南
 
-> **版本：** 1.1.0 | **更新：** 2025-12-30 | **變更記錄：** [CHANGELOG.md](./CHANGELOG.md)
+> **版本：** 1.2.0 | **更新：** 2025-12-31 | **變更記錄：** [CHANGELOG.md](./CHANGELOG.md)
 
 本文件定義了 Pensieve 儲存庫的寫作規範，確保所有內容保持一致的格式和品質。
 
@@ -12,6 +12,7 @@
 - [內容規範](#內容規範)
 - [Markdown 格式規範](#markdown-格式規範)
 - [元資料規範](#元資料規範)
+- [發布到 Multivac42](#發布到-multivac42)
 
 ---
 
@@ -409,8 +410,91 @@ console.log(greeting);
 
 ---
 
+## 發布到 Multivac42
+
+### 架構原則：單一來源 (Single Source of Truth)
+
+Pensieve 是所有內容的**唯一編輯來源**，Multivac42 只是發布的「快照」。
+
+```
+Pensieve (編輯來源)          Multivac42 (公開網站)
+─────────────────────        ─────────────────────
+修改文章
+    │
+    ▼ 執行發布腳本
+    │
+    └──────────────────────> 覆蓋舊版本
+```
+
+**重要原則：**
+- ✅ 所有修改都在 Pensieve 進行
+- ✅ 修改後重新執行發布腳本即可更新
+- ❌ 不要直接編輯 Multivac42 中的文章（會被覆蓋）
+
+### Frontmatter 欄位
+
+發布到 Multivac42 的文章需要包含以下 frontmatter：
+
+```yaml
+---
+title: "文章標題"
+description: "文章摘要（1-2 句話）"
+date: 2025-12-03
+author: "Clement Tang"
+tags: ["標籤1", "標籤2"]
+category: articles  # 或 company-research、topic-research
+publish: true       # 設為 true 才會被發布
+---
+```
+
+| 欄位 | 必填 | 說明 |
+|------|------|------|
+| `title` | ✅ | 文章標題 |
+| `description` | ✅ | 文章摘要，用於 SEO 和預覽 |
+| `date` | ✅ | 發布日期（YYYY-MM-DD） |
+| `author` | ✅ | 作者名稱 |
+| `tags` | ✅ | 標籤陣列 |
+| `category` | ✅ | 分類：articles、company-research、topic-research |
+| `publish` | ✅ | 是否發布到 Multivac42 |
+| `lastModified` | ⚪ | 最後修改日期（可選，腳本會自動補充） |
+
+### 發布流程
+
+1. **標記文章**：在 frontmatter 加入 `publish: true`
+2. **執行腳本**：
+   ```bash
+   cd ~/pensieve
+   node scripts/publish-to-multivac.js
+   ```
+3. **提交 Multivac42**：
+   ```bash
+   cd ~/multivac42
+   git add -A
+   git commit -m "發布新文章：文章標題"
+   git push
+   ```
+
+### 格式轉換
+
+發布腳本會自動進行以下轉換：
+
+| 原始格式 | 發布格式 |
+|----------|----------|
+| `## 元資料` 區塊 | 移除（由 Byline 組件取代） |
+| `*最後更新：...*` | 移除 |
+| 缺少 `lastModified` | 自動補充檔案修改時間 |
+
+### 同步狀態檢查
+
+發布腳本會提示：
+- 「有 N 篇文章已修改但未重新發布」
+- 「有 N 篇新文章標記為 publish: true」
+
+---
+
 ## 更新記錄
 
+- **2025-12-31：** 新增發布到 Multivac42 規範（v1.2.0）
 - **2025-12-25：** 新增用語規範（台灣繁體中文用語對照表、避免特定句型指引）
 - **2025-11-20：** 初始版本建立
 
