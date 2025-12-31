@@ -6,7 +6,7 @@
  * 功能：
  * 1. 掃描 publish: true 的文章
  * 2. 格式轉換（移除元資料區塊等）
- * 3. 複製到 Multivac42
+ * 3. 複製到 Multivac42（公司研究依公司分類）
  * 4. 同步狀態檢查
  *
  * 使用方式：
@@ -15,6 +15,14 @@
  * 選項：
  *   --dry-run  只顯示會執行的操作，不實際複製
  *   --status   只顯示同步狀態，不執行發布
+ *
+ * M42 目錄結構：
+ *   docs/articles/           - 時事評論（平面結構）
+ *   docs/company-research/   - 公司研究（依公司分類）
+ *     ├── airwallex/
+ *     ├── manus-ai/
+ *     └── ...
+ *   docs/topic-research/     - 產業研究（平面結構）
  */
 
 const fs = require('fs');
@@ -24,11 +32,25 @@ const path = require('path');
 const PENSIEVE_ROOT = path.resolve(__dirname, '..');
 const MULTIVAC_ROOT = path.resolve(PENSIEVE_ROOT, '..', 'multivac42');
 
+// 來源目錄設定
+// type: 'flat' = 平面結構, 'by-company' = 依公司分類
 const SOURCE_DIRS = [
-  { src: 'docs/articles', dest: 'docs/articles' },
-  { src: 'docs/company-research', dest: 'docs/company-research' },
-  { src: 'docs/topic-research', dest: 'docs/topic-research' }
+  { src: 'docs/articles', dest: 'docs/articles', type: 'flat' },
+  { src: 'docs/company-research', dest: 'docs/company-research', type: 'by-company' },
+  { src: 'docs/topic-research', dest: 'docs/topic-research', type: 'flat' }
 ];
+
+// 公司名稱對應表（檔名關鍵字 → 資料夾名稱）
+// 若產品名知名度大於公司名，使用產品名
+const COMPANY_MAPPING = {
+  'airwallex': 'airwallex',
+  'manus': 'manus-ai',
+  'luckin': 'luckin-coffee',
+  'toast': 'toast',
+  'hotai': 'hotai',
+  'REDACTED': 'REDACTED',
+  'REDACTED': 'REDACTED'  // REDACTED也對應到 REDACTED
+};
 
 // 預設作者
 const DEFAULT_AUTHOR = 'Clement Tang';
@@ -170,12 +192,47 @@ function scanMarkdownFiles(dir) {
   const entries = fs.readdirSync(dir, { withFileTypes: true });
 
   for (const entry of entries) {
-    if (entry.isFile() && entry.name.endsWith('.md') && entry.name !== 'index.md') {
+    if (entry.isFile() && entry.name.endsWith('.md') && entry.name !== 'index.md' && entry.name !== 'README.md') {
       files.push(path.join(dir, entry.name));
     }
   }
 
   return files;
+}
+
+/**
+ * 從檔名推測公司名稱
+ */
+function getCompanyFromFilename(filename) {
+  const lowerFilename = filename.toLowerCase();
+
+  for (const [keyword, companyFolder] of Object.entries(COMPANY_MAPPING)) {
+    if (lowerFilename.includes(keyword)) {
+      return companyFolder;
+    }
+  }
+
+  // 如果找不到對應，嘗試從檔名提取（移除日期後的第一個單詞）
+  const match = filename.match(/^\d{4}-\d{2}-\d{2}-([a-z]+)/i);
+  if (match) {
+    return match[1].toLowerCase();
+  }
+
+  return 'misc';  // 無法識別的放入 misc
+}
+
+/**
+ * 計算目標路徑
+ */
+function getDestPath(filePath, srcDir, destDir, dirType) {
+  const fileName = path.basename(filePath);
+
+  if (dirType === 'by-company') {
+    const company = getCompanyFromFilename(fileName);
+    return path.join(MULTIVAC_ROOT, destDir, company, fileName);
+  }
+
+  return path.join(MULTIVAC_ROOT, destDir, fileName);
 }
 
 /**
@@ -195,9 +252,8 @@ function main() {
   const notPublished = [];   // 標記 publish: true 但尚未發布的文章
 
   // 掃描所有來源目錄
-  for (const { src, dest } of SOURCE_DIRS) {
+  for (const { src, dest, type } of SOURCE_DIRS) {
     const srcDir = path.join(PENSIEVE_ROOT, src);
-    const destDir = path.join(MULTIVAC_ROOT, dest);
 
     const files = scanMarkdownFiles(srcDir);
 
@@ -207,8 +263,7 @@ function main() {
 
       if (frontmatter.publish !== true) continue;
 
-      const fileName = path.basename(filePath);
-      const destPath = path.join(destDir, fileName);
+      const destPath = getDestPath(filePath, src, dest, type);
 
       const srcModTime = getFileModTime(filePath);
       const destModTime = getFileModTime(destPath);
@@ -216,7 +271,7 @@ function main() {
       const article = {
         srcPath: filePath,
         destPath: destPath,
-        title: frontmatter.title || fileName,
+        title: frontmatter.title || path.basename(filePath),
         relativeSrc: path.relative(PENSIEVE_ROOT, filePath),
         relativeDest: path.relative(MULTIVAC_ROOT, destPath)
       };

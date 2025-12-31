@@ -1,7 +1,11 @@
 ---
 title: "Amazon Leo Ultra 社群貼文精簡版"
+description: "Amazon 正式進軍衛星網路市場，Starlink 的競爭對手來了。"
 date: 2025-11-24
+author: "Clement Tang"
+tags: ["Amazon", "衛星網路", "Starlink", "社群貼文"]
 category: articles
+publish: true
 ---
 
 # Amazon Leo Ultra 社群貼文精簡版

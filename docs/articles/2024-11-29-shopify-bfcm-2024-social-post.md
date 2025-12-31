@@ -1,7 +1,11 @@
 ---
 title: "Shopify BFCM 2024 社群短文"
+description: "Shopify 今年黑色星期五的技術展示：租下 Las Vegas Sphere、打造 3D Mothership 駕駛艙，展現驚人技術實力。"
 date: 2024-11-29
+author: "Clement Tang"
+tags: ["Shopify", "BFCM", "電商", "社群貼文"]
 category: articles
+publish: true
 ---
 
 # Shopify BFCM 2024 社群短文
