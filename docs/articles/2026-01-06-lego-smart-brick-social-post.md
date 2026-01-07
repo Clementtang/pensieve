@@ -1,5 +1,5 @@
 ---
-title: "LEGO Smart Brick 社群貼文"
+title: "LEGO 推出 Smart Brick，把一台電腦塞進積木裡"
 description: "LEGO 在 CES 2026 發表 Smart Brick，這是自 1978 年推出人偶以來最重大的創新。"
 date: 2026-01-06
 author: "Clement Tang"
@@ -8,13 +8,13 @@ category: articles
 publish: true
 ---
 
-# LEGO Smart Brick 社群貼文
+# LEGO 推出 Smart Brick，把一台電腦塞進積木裡
 
 ## 元資料
 
 - **建立日期：** 2026-01-06
 - **類型：** 社群貼文
-- **字數：** 約 800 字
+- **字數：** 約 1,000 字
 - **適用平台：** LinkedIn, Twitter/X, Facebook
 
 ---
@@ -38,7 +38,16 @@ Smart Brick 的核心是一顆 4.1mm 的客製化 ASIC 晶片——比標準積�
 • **聲音輸入**：內建麥克風作為虛擬按鈕，可回應吹氣、敲擊等聲音指令（但不會錄音）
 • **視覺輸出**：LED 陣列提供燈光效果
 • **音效輸出**：迷你揚聲器搭配板載合成器，能播放引擎聲、光劍嗡鳴或經典配樂
-• **無線充電**：支援多顆積木同時在共用充電板上充電，電池設計即使閒置多年仍能運作
+
+**電池與供電：隱形的工程挑戰**
+
+把這麼多元件塞進 2×4 積木已經夠難了，電池更是關鍵挑戰。LEGO 的解決方案是內建可充電電池，搭配無線感應充電技術。
+
+積木內部整合了銅線圈，支援無線充電。更聰明的設計是：即使 Smart Brick「埋」在組裝完成的作品深處，電力也能穿透其他積木進行充電。你不需要拆開作品就能補充電力。
+
+LEGO 還設計了共用充電板，可同時為多顆 Smart Brick 充電。電池採用特殊設計，即使閒置多年仍能保持電量——意味著你組好一台 X-Wing 放在架上幾年，拿下來還是能玩。
+
+為了維持積木外觀的完整性，電池不可更換，也沒有任何外露接口。看起來就是一顆普通積木，沒有電池蓋、沒有充電孔。具體續航時間目前尚未公開，這可能是 LEGO 仍在最終測試的數據。
 
 **BrickNet：積木之間的秘密語言**
 
@@ -96,48 +105,6 @@ LEGO 已宣布將把 Smart Play 擴展到 City 和 Technic 系列。但真正有
 
 ---
 
-## 短版本（Twitter/X 適用，約 250 字）
-
-🧱 LEGO 在 CES 2026 發表 Smart Brick——自 1978 年人偶以來最大創新！
-
-一顆 2×4 積木 = 一台完整電腦：
-• 4.1mm ASIC 晶片（比凸點還小）
-• 加速度計、光感、麥克風、LED、揚聲器
-• 無線充電，閒置多年仍能運作
-
-最強技術是 BrickNet：
-積木之間能形成 mesh network 互相溝通，知道彼此的距離和方向。你的 X-Wing 追逐 TIE Fighter 時，會自動觸發追逐音效和碰撞效果。
-
-重點是：
-✅ 不需要 App
-✅ 不需要網路
-✅ 不需要外部控制器
-✅ 沒有攝影機、沒有雲端、沒有 AI
-
-首發星戰系列 $70-$160
-📅 3/1 發售，1/9 預購
-
-LEGO 的設計哲學：科技應該增強實體遊玩，而非取代它。
-
-#LEGO #SmartBrick #CES2026
-
----
-
-## 超短版本（Twitter/X 限制，約 280 字元）
-
-🧱 LEGO Smart Brick：一顆 2×4 積木裡的完整電腦
-
-• 4.1mm 晶片驅動感測器、LED、揚聲器
-• BrickNet 讓積木互相「對話」
-• 不需 App、不需網路
-
-首發星戰系列 $70-$160
-3/1 發售 🚀
-
-#LEGO #SmartBrick #CES2026
-
----
-
 ## 參考資料
 
 - [TechCrunch: Lego Smart Bricks introduce a new way to build](https://techcrunch.com/2026/01/05/lego-smart-bricks-introduce-a-new-way-to-build-and-they-dont-require-screens/)
@@ -145,8 +112,9 @@ LEGO 的設計哲學：科技應該增強實體遊玩，而非取代它。
 - [Jay's Brick Blog: LEGO unveils the Smart Brick and Smart Play system](https://jaysbrickblog.com/news/lego-unveils-the-smart-brick-and-smart-play-system-march-2026/)
 - [LEGO 官方公告](https://www.lego.com/en-us/aboutus/news/2026/december/lego-smart-play-announcement)
 - [Hackster.io: The LEGO SMART Brick Is Here](https://www.hackster.io/news/the-lego-smart-brick-is-here-de4c934efbbe)
-- [Decrypt: Lego Debuts Smart Brick at CES](https://decrypt.co/353756/lego-debuts-smart-brick-bringing-light-sound-silicon-classic-2x4)
+- [Tom's Hardware: The smallest computer at CES 2026 is a Lego brick](https://www.tomshardware.com/tech-industry/the-smallest-computer-at-ces-2026-is-a-lego-brick)
+- [Brickset: SMART Play Fact Sheet](https://brickset.com/article/128822/smart-play-fact-sheet)
 
 ---
 
-*最後更新：2026-01-06*
+*最後更新：2026-01-07*
