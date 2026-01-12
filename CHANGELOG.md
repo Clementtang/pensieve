@@ -11,6 +11,19 @@
 - VitePress 網站架構
 - 自動化 PR 驗證流水線
 - Research Memo 行動工作流模板
+- **優化 Backlog 追蹤文件** (`docs/roadmap/optimization-backlog.md`)
+  - 識別 19 項優化項目（P0: 2, P1: 10, P2: 7）
+  - 涵蓋：模板與結構、工作流程、品質標準、自動化潛力、技術債務
+
+- **P0-001：清理目錄結構不一致**
+  - 建立 `docs/notes/` 目錄與 index.md
+  - 刪除空目錄 `docs/business-development/`
+  - 遷移 `content/` 文章至 `docs/articles/`
+
+- **P0-005：發布前驗證機制**
+  - 新增 `scripts/validate-article.js` 驗證腳本
+  - 整合至發布腳本：`publish-to-multivac.js --validate`
+  - 驗證項目：必填欄位、日期格式、檔名格式
 
 ## [1.4.0] - 2026-01-12
 
