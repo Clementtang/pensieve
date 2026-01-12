@@ -11,11 +11,12 @@
  * 5. 同步狀態檢查
  *
  * 使用方式：
- *   node scripts/publish-to-multivac.js [--dry-run] [--status]
+ *   node scripts/publish-to-multivac.js [--dry-run] [--status] [--validate]
  *
  * 選項：
- *   --dry-run  只顯示會執行的操作，不實際複製
- *   --status   只顯示同步狀態，不執行發布
+ *   --dry-run   只顯示會執行的操作，不實際複製
+ *   --status    只顯示同步狀態，不執行發布
+ *   --validate  發布前驗證必填欄位（title, description, date, category）
  *
  * 分類邏輯（根據 frontmatter category 欄位）：
  *   category: articles        → docs/articles/（平面結構）
@@ -72,6 +73,40 @@ const DEFAULT_AUTHOR = 'Clement Tang';
 const args = process.argv.slice(2);
 const isDryRun = args.includes('--dry-run');
 const statusOnly = args.includes('--status');
+const validateMode = args.includes('--validate');
+
+// 必填欄位（發布時驗證）
+const REQUIRED_FIELDS_FOR_PUBLISH = ['title', 'description', 'date', 'category'];
+
+/**
+ * 驗證文章是否符合發布要求
+ */
+function validateForPublish(frontmatter, filePath) {
+  const errors = [];
+  const fileName = path.basename(filePath);
+
+  // 檢查必填欄位
+  for (const field of REQUIRED_FIELDS_FOR_PUBLISH) {
+    if (!frontmatter[field]) {
+      errors.push(`缺少必填欄位：${field}`);
+    }
+  }
+
+  // 檢查日期格式
+  if (frontmatter.date) {
+    const dateStr = String(frontmatter.date);
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(dateStr)) {
+      errors.push(`date 格式錯誤：應為 YYYY-MM-DD`);
+    }
+  }
+
+  // 檢查檔名格式
+  if (!/^\d{4}-\d{2}-\d{2}-[\w-]+\.md$/.test(fileName)) {
+    errors.push(`檔名格式不符：應為 YYYY-MM-DD-slug.md`);
+  }
+
+  return errors;
+}
 
 /**
  * 解析 YAML frontmatter
@@ -278,6 +313,7 @@ function main() {
   const toPublish = [];      // 要發布的文章
   const needsUpdate = [];    // 已發布但有更新的文章
   const notPublished = [];   // 標記 status: published 但尚未發布的文章
+  const validationErrors = []; // 驗證錯誤
 
   // 掃描所有來源目錄
   for (const srcDirRelative of SOURCE_DIRS) {
@@ -298,14 +334,22 @@ function main() {
       const srcModTime = getFileModTime(filePath);
       const destModTime = getFileModTime(destPath);
 
+      // 驗證文章（如果啟用驗證模式）
+      const errors = validateMode ? validateForPublish(frontmatter, filePath) : [];
+
       const article = {
         srcPath: filePath,
         destPath: destPath,
         title: frontmatter.title || path.basename(filePath),
         category: category,
         relativeSrc: path.relative(PENSIEVE_ROOT, filePath),
-        relativeDest: path.relative(MULTIVAC_ROOT, destPath)
+        relativeDest: path.relative(MULTIVAC_ROOT, destPath),
+        validationErrors: errors
       };
+
+      if (errors.length > 0) {
+        validationErrors.push(article);
+      }
 
       if (destModTime === 0) {
         // 目標不存在，需要發布
@@ -341,6 +385,21 @@ function main() {
   if (toPublish.length === 0) {
     console.log('✅ 所有文章都已是最新狀態！\n');
     return;
+  }
+
+  // 顯示驗證錯誤（如果有）
+  if (validateMode && validationErrors.length > 0) {
+    console.log(`⚠️  驗證錯誤 (${validationErrors.length} 篇)：\n`);
+    for (const a of validationErrors) {
+      console.log(`   ❌ ${a.title}`);
+      for (const err of a.validationErrors) {
+        console.log(`      - ${err}`);
+      }
+    }
+    console.log();
+    console.log('請修正上述問題後再發布。\n');
+    console.log('提示：使用 node scripts/validate-article.js <file> 進行詳細驗證。');
+    process.exit(1);
   }
 
   // 如果只是查看狀態，到此結束
