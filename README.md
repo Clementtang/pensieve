@@ -26,16 +26,17 @@ pensieve/
 │   ├── articles/            # 文章
 │   ├── company-research/    # 企業研究
 │   ├── topic-research/      # 議題研究
-│   └── adr/                 # 架構決策記錄
+│   ├── notes/               # 筆記
+│   ├── adr/                 # 架構決策記錄
+│   └── roadmap/             # 優化追蹤
 ├── drafts/                  # 草稿資料夾
 ├── templates/               # 文章模板
-│   ├── article-template.md
-│   ├── company-research-template.md
-│   ├── topic-research-template.md
-│   └── research-memo-template.md
+├── scripts/                 # 工具腳本
+│   ├── publish-to-multivac.js
+│   └── validate-article.js
 ├── CHANGELOG.md             # 變更記錄
 ├── CONTRIBUTING.md          # 貢獻指南
-├── WRITING_GUIDE.md         # 寫作規範（v1.1.0）
+├── WRITING_GUIDE.md         # 寫作規範（v1.4.0）
 └── README.md                # 本檔案
 ```
 
@@ -122,9 +123,10 @@ pensieve/
 
 ## 📌 版本資訊
 
-- **寫作規範版本：** v1.1.0
+- **寫作規範版本：** v1.4.0
 - **變更記錄：** [CHANGELOG.md](./CHANGELOG.md)
+- **優化追蹤：** [docs/roadmap/optimization-backlog.md](./docs/roadmap/optimization-backlog.md)
 
 ---
 
-*最後更新：2025-12-30*
+*最後更新：2026-01-12*
