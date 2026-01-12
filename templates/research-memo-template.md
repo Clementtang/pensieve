@@ -1,3 +1,13 @@
+---
+title: "Research Memo: [主題名稱]"
+description: "輕量級研究備忘錄，用於 Web↔CLI 工作流交接"
+date: YYYY-MM-DD
+author: "Clement Tang"
+tags: ["research-memo"]
+category: memo
+status: draft
+---
+
 # Research Memo: [主題名稱]
 
 > 輕量級研究備忘錄，用於 Web↔CLI 工作流交接

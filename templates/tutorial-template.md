@@ -1,3 +1,13 @@
+---
+title: "教學：[主題名稱]"
+description: "一句話描述你將在本教學中學到什麼"
+date: YYYY-MM-DD
+author: "Clement Tang"
+tags: ["教學", "主題標籤"]
+category: tutorial
+status: draft
+---
+
 # 教學：[主題名稱]
 
 > 一句話描述你將在本教學中學到什麼

@@ -5,7 +5,7 @@ date: 2025-12-10
 author: "Clement Tang"
 tags: ["Airwallex", "地緣政治", "中美科技戰", "金融科技", "數據安全", "社群貼文"]
 category: articles
-publish: true
+status: published
 ---
 
 # 80 億美元獨角獸的致命弱點：Airwallex 為何被指控是「中國後門」？

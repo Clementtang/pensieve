@@ -12,6 +12,51 @@
 - 自動化 PR 驗證流水線
 - Research Memo 行動工作流模板
 
+## [1.4.0] - 2026-01-12
+
+### Added
+- **商業寫作風格章節** (WRITING_GUIDE.md)
+  - 敘事性寫作技巧
+  - 避免過度使用列點指南
+  - 金句與比喻使用建議
+  - 段落過渡技巧
+  - 商業寫作檢查清單
+
+- **強化句型改寫指引**
+  - 新增 5 種具體改寫方式（直述句、轉折句、因果邏輯、讓步轉折、強調主語）
+  - 提供更多實際範例
+
+- **統一 Frontmatter 欄位**
+  - 所有模板新增 YAML frontmatter
+  - 統一使用 `status` 欄位取代 `publish`
+  - 狀態值：draft / in-progress / published / archived
+
+- **Topic-Research Lite 模板** (`templates/topic-research-lite-template.md`)
+  - 5 部分精簡框架（原 10 部分）
+  - 目標字數：3,000-8,000 字（原 15,000-50,000 字）
+  - 適合快節奏議題探討和初步研究
+  - 新增版本選擇指南（決策樹）
+
+### Removed
+- `docs/.writing-guidelines.md`（內容已合併至 WRITING_GUIDE.md）
+- `publish` 欄位（由 `status` 取代）
+
+### Changed
+- WRITING_GUIDE.md 更新至 v1.4.0
+  - 整合 .writing-guidelines.md 的獨特內容
+  - 更新 Frontmatter 欄位說明
+  - 更新目錄結構
+
+- 發布腳本 (`scripts/publish-to-multivac.js`)
+  - 改用 `status: published` 觸發發布（原 `publish: true`）
+
+- 所有模板更新
+  - 新增統一 YAML frontmatter
+  - 移除 `publish` 欄位，改用 `status`
+
+- 遷移現有文章（19 篇）
+  - `publish: true` → `status: published`
+
 ## [1.3.0] - 2025-12-31
 
 ### Added
@@ -83,7 +128,8 @@
 
 ---
 
-[Unreleased]: https://github.com/Clementtang/pensieve/compare/v1.3.0...HEAD
+[Unreleased]: https://github.com/Clementtang/pensieve/compare/v1.4.0...HEAD
+[1.4.0]: https://github.com/Clementtang/pensieve/compare/v1.3.0...v1.4.0
 [1.3.0]: https://github.com/Clementtang/pensieve/compare/v1.2.0...v1.3.0
 [1.2.0]: https://github.com/Clementtang/pensieve/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/Clementtang/pensieve/compare/v1.0.0...v1.1.0
