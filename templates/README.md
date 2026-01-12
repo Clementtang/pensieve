@@ -2,6 +2,47 @@
 
 這個目錄存放各種文章模板，用於快速開始新的寫作。
 
+---
+
+## 快速選擇指南
+
+### 依內容類型選擇
+
+```
+你要寫什麼？
+│
+├─ 快速記錄（< 1,000 字）
+│  ├─ 學習/讀書/會議筆記 → note-template.md
+│  └─ 行動端研究備忘 → research-memo-template.md
+│
+├─ 文章（1,500-5,000 字）
+│  ├─ 一般主題分析 → article-template.md
+│  └─ 步驟式教學 → tutorial-template.md
+│
+├─ 企業研究（5,000-20,000 字）
+│  └─ 單一公司深度分析 → company-research-template.md
+│
+└─ 產業/議題研究
+   ├─ 產業/技術/市場研究 → industry-research-template.md
+   └─ 複雜議題/政策分析
+      ├─ 1-2 週完成 → topic-research-lite-template.md
+      └─ 4-8 週完成 → topic-research-template.md
+```
+
+### 依時間預算選擇
+
+| 時間 | 推薦模板 | 目標字數 |
+|------|---------|---------|
+| 30 分鐘 | note-template | < 500 字 |
+| 1-2 小時 | research-memo-template | 500-1,000 字 |
+| 半天-1 天 | article-template | 1,500-3,000 字 |
+| 2-3 天 | tutorial-template | 2,000-5,000 字 |
+| 1-2 週 | topic-research-lite-template | 3,000-8,000 字 |
+| 2-4 週 | company-research / industry-research | 10,000-20,000 字 |
+| 4-8 週 | topic-research-template | 15,000-50,000 字 |
+
+---
+
 ## 可用模板
 
 ### 1. article-template.md
