@@ -110,9 +110,47 @@ YYYY-MM-DD-議題關鍵詞.md
 - **研究深度：** 初探 / 深度分析 / 系統性研究
 ```
 
+## 模板版本選擇
+
+議題研究提供兩種模板版本，根據研究需求選擇：
+
+### Standard 版本（完整版）
+- **模板位置：** `/templates/topic-research-template.md`
+- **適用情境：** 深度學術研究、系統性政策分析
+- **結構：** 10 部分完整框架
+- **目標字數：** 15,000-50,000 字
+- **完成時間：** 4-8 週
+
+### Lite 版本（簡化版）
+- **模板位置：** `/templates/topic-research-lite-template.md`
+- **適用情境：** 快節奏議題探討、初步研究
+- **結構：** 5 部分精簡框架
+- **目標字數：** 3,000-8,000 字
+- **完成時間：** 1-2 週
+
+### 如何選擇？
+
+```
+時間預算
+├── 1-2 週 → Lite 版本
+└── 4 週以上 → Standard 版本
+
+議題複雜度
+├── 簡單/中等 → Lite 版本
+└── 複雜/跨領域 → Standard 版本
+
+研究目的
+├── 初探/快速理解 → Lite 版本
+├── 決策支援 → Lite 或 Standard（視時間）
+└── 學術發表/深度分析 → Standard 版本
+```
+
+---
+
 ## 相關資源
 
-- **模板位置：** `/templates/topic-research-template.md`
+- **Standard 模板：** `/templates/topic-research-template.md`
+- **Lite 模板：** `/templates/topic-research-lite-template.md`
 - **寫作規範：** `/WRITING_GUIDE.md`
 - **貢獻指南：** `/CONTRIBUTING.md`
 

@@ -1,3 +1,13 @@
+---
+title: "[公司名稱] - 企業研究分析"
+description: "一句話描述這間公司的核心業務與市場定位"
+date: YYYY-MM-DD
+author: "Clement Tang"
+tags: ["企業研究", "產業", "地區"]
+category: company-research
+status: draft
+---
+
 # [公司名稱] - 企業研究分析
 
 > 一句話描述這間公司的核心業務與市場定位

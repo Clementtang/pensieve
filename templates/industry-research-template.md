@@ -6,10 +6,8 @@ lastUpdated: YYYY-MM-DD
 author: "Clement Tang"
 tags: ["產業標籤", "技術標籤", "地區標籤"]
 category: topic-research
-researchType: industry | technology | market
-status: draft | published | updating
+status: draft
 version: "1.0"
-publish: false
 ---
 
 # [主題名稱]：[副標題描述核心價值主張]

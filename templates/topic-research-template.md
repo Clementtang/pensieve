@@ -1,3 +1,14 @@
+---
+title: "[議題名稱] - 議題研究"
+description: "用一句話描述這個議題的核心問題或挑戰"
+date: YYYY-MM-DD
+author: "Clement Tang"
+tags: ["議題研究", "主題領域", "子領域"]
+category: topic-research
+status: draft
+version: "1.0"
+---
+
 # [議題名稱] - 議題研究
 
 > 用一句話描述這個議題的核心問題或挑戰

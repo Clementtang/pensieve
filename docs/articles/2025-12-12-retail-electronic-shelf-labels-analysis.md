@@ -5,7 +5,7 @@ date: 2025-12-12
 author: "Clement Tang"
 tags: ["零售科技", "電子標籤", "ESL", "數位轉型", "動態定價", "智慧零售"]
 category: topic-research
-publish: true
+status: published
 ---
 
 # 電子標籤在零售業的深入分析：數位轉型的關鍵工具

@@ -1,3 +1,13 @@
+---
+title: "筆記：主題標題"
+description: "簡短描述這份筆記的主題和目的"
+date: YYYY-MM-DD
+author: "Clement Tang"
+tags: ["筆記", "主題標籤"]
+category: note
+status: draft
+---
+
 # 筆記：主題標題
 
 ## 元資料

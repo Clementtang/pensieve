@@ -5,7 +5,7 @@ date: 2025-12-30
 author: "Clement Tang"
 tags: ["Manus", "Meta併購", "AI Agent", "中國出海", "肖弘", "社群貼文"]
 category: articles
-publish: true
+status: published
 ---
 
 # 「套殼」到極致，就是勝利：一個 90 後中國創業者如何讓祖克柏掏出數十億美元

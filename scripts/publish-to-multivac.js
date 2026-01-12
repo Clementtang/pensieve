@@ -4,7 +4,7 @@
  * Pensieve → Multivac42 發布腳本
  *
  * 功能：
- * 1. 掃描 publish: true 的文章
+ * 1. 掃描 status: published 的文章
  * 2. 根據 frontmatter category 欄位決定目標目錄
  * 3. 格式轉換（移除元資料區塊等）
  * 4. 複製到 Multivac42（公司研究依公司分類）
@@ -277,7 +277,7 @@ function main() {
 
   const toPublish = [];      // 要發布的文章
   const needsUpdate = [];    // 已發布但有更新的文章
-  const notPublished = [];   // 標記 publish: true 但尚未發布的文章
+  const notPublished = [];   // 標記 status: published 但尚未發布的文章
 
   // 掃描所有來源目錄
   for (const srcDirRelative of SOURCE_DIRS) {
@@ -289,7 +289,7 @@ function main() {
       const content = fs.readFileSync(filePath, 'utf-8');
       const { frontmatter } = parseFrontmatter(content);
 
-      if (frontmatter.publish !== true) continue;
+      if (frontmatter.status !== 'published') continue;
 
       // 根據 frontmatter category 決定目標，若無則根據來源目錄推斷
       const category = frontmatter.category || inferCategoryFromPath(srcDirRelative);
