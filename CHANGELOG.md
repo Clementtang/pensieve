@@ -63,6 +63,12 @@
   - 新增錯誤摘要報告
   - 改進 YAML 解析錯誤訊息
 
+- **技術文件完善**
+  - 新增 `scripts/README.md`：完整腳本使用指南
+  - 新增 `docs/guides/publishing-workflow.md`：發布流程文件
+  - 新增 `.claude/README.md`：Claude Code 整合說明
+  - 更新 `README.md`：新增技術文件索引
+
 ## [1.4.0] - 2026-01-12
 
 ### Added
