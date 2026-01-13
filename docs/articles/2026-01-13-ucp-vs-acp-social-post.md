@@ -5,7 +5,7 @@ date: 2026-01-13
 author: "Clement Tang"
 tags: ["AI", "代理商務", "Google", "OpenAI", "電子商務"]
 category: articles
-status: draft
+status: published
 ---
 
 # AI 購物大戰開打：Google 與 OpenAI 爭奪你的錢包
