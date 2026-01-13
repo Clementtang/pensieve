@@ -27,13 +27,19 @@ pensieve/
 │   ├── company-research/    # 企業研究
 │   ├── topic-research/      # 議題研究
 │   ├── notes/               # 筆記
+│   ├── guides/              # 使用指南
 │   ├── adr/                 # 架構決策記錄
 │   └── roadmap/             # 優化追蹤
 ├── drafts/                  # 草稿資料夾
 ├── templates/               # 文章模板
 ├── scripts/                 # 工具腳本
-│   ├── publish-to-multivac.js
-│   └── validate-article.js
+│   ├── new-article.js       # 建立新文章
+│   ├── validate-article.js  # 文章驗證
+│   └── publish-to-multivac.js  # 發布到 M42
+├── prompts/                 # 研究提示詞模板
+├── .claude/                 # Claude Code 整合
+│   ├── hooks/               # 自動化 Hooks
+│   └── settings.local.json  # 本地設定
 ├── CHANGELOG.md             # 變更記錄
 ├── CONTRIBUTING.md          # 貢獻指南
 ├── WRITING_GUIDE.md         # 寫作規範（v1.4.0）
@@ -64,7 +70,28 @@ pensieve/
 
 ## 🎯 使用方式
 
+### 快速開始
+
+```bash
+# 建立新文章
+node scripts/new-article.js --type article --title "我的文章"
+
+# 驗證文章
+node scripts/validate-article.js docs/articles/
+
+# 發布到 Multivac42
+node scripts/publish-to-multivac.js --validate --auto-commit
+```
+
 ### 建立新文章
+
+**方式一：使用腳本（推薦）**
+
+```bash
+node scripts/new-article.js --type article --title "文章標題"
+```
+
+**方式二：手動複製**
 
 1. 從 `templates/` 目錄複製對應模板到 `drafts/`
 2. 按照 [WRITING_GUIDE.md](./WRITING_GUIDE.md) 中的規範進行寫作
@@ -72,10 +99,9 @@ pensieve/
 
 ### 檔案命名規則
 
-- 使用小寫字母
-- 單詞之間用連字號 `-` 分隔
 - 格式：`YYYY-MM-DD-slug.md`
-- 範例：`2025-12-30-ai-regulation-analysis.md`
+- 範例：`2026-01-13-ai-regulation-analysis.md`
+- 使用小寫字母，單詞用連字號 `-` 分隔
 
 ### 行動端工作流（Web↔CLI）
 
@@ -121,6 +147,19 @@ pensieve/
 
 ---
 
+## 📚 技術文件
+
+| 文件 | 說明 |
+|------|------|
+| [腳本工具說明](./scripts/README.md) | 所有腳本的完整使用指南 |
+| [發布工作流程](./docs/guides/publishing-workflow.md) | 文章發布到 M42 的完整流程 |
+| [Claude Code 整合](./.claude/README.md) | Hooks 與自動化設定 |
+| [標籤分類法](./docs/taxonomy.md) | 標籤命名規範與分類 |
+| [模板使用指南](./templates/README.md) | 模板選擇與使用說明 |
+| [研究提示詞](./prompts/README.md) | Claude 協作提示詞模板 |
+
+---
+
 ## 📌 版本資訊
 
 - **寫作規範版本：** v1.4.0
@@ -129,4 +168,4 @@ pensieve/
 
 ---
 
-*最後更新：2026-01-12*
+*最後更新：2026-01-13*
