@@ -14,6 +14,7 @@
 - [Markdown 格式規範](#markdown-格式規範)
 - [元資料規範](#元資料規範)
 - [發布到 Multivac42](#發布到-multivac42)
+  - [發布前檢查清單](#發布前檢查清單)
 
 ---
 
@@ -711,6 +712,39 @@ status: published   # 設為 published 才會被發布
 發布腳本會提示：
 - 「有 N 篇文章已修改但未重新發布」
 - 「有 N 篇新文章標記為 status: published」
+
+### 發布前檢查清單
+
+在將文章設為 `status: published` 之前，請確認以下項目：
+
+**Frontmatter 檢查：**
+- [ ] `title` 填寫完整且準確
+- [ ] `description` 為 1-2 句摘要（用於 SEO）
+- [ ] `date` 格式正確（YYYY-MM-DD）
+- [ ] `category` 設定正確（articles / company-research / topic-research）
+- [ ] `tags` 標籤符合 [taxonomy.md](./docs/taxonomy.md) 規範
+
+**內容檢查：**
+- [ ] 只有一個 H1 標題（`#`）
+- [ ] 標題層級正確（不跳級，如 H2 → H4）
+- [ ] 無明顯錯字或語法錯誤
+- [ ] 遵循台灣繁體中文用語規範
+- [ ] 連結可正常開啟
+- [ ] 圖片（如有）可正常顯示
+
+**風格檢查：**
+- [ ] 避免「不是 X，而是 Y」句型
+- [ ] 避免過度使用列點（適度使用敘事段落）
+- [ ] 專業術語有適當解釋
+
+**檔名檢查：**
+- [ ] 格式為 `YYYY-MM-DD-slug.md`
+- [ ] 使用小寫字母和連字號
+
+**快速驗證指令：**
+```bash
+node scripts/validate-article.js <檔案路徑>
+```
 
 ---
 
