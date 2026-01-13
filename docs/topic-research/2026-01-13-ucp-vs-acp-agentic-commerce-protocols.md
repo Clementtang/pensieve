@@ -6,7 +6,7 @@ author: "Clement Tang"
 tags: ["議題研究", "AI", "代理商務", "協議標準", "電子商務"]
 category: topic-research
 status: published
-version: "1.1"
+version: "1.2"
 ---
 
 # Google UCP vs OpenAI/Stripe ACP 代理商務協議比較
@@ -182,6 +182,50 @@ Google UCP 與 OpenAI/Stripe ACP 兩大代理商務協議的技術架構、設�
 │                             │                   │                 │
 └─────────────────────────────┴───────────────────┴─────────────────┘
 ```
+
+### UCP 技術架構深入分析
+
+> 資料來源：[Google Developers Blog - Under the Hood: UCP](https://developers.googleblog.com/under-the-hood-universal-commerce-protocol-ucp/)
+
+#### 四大設計原則
+
+| 原則 | 說明 | 商業意涵 |
+|------|------|---------|
+| **Unified Integration** | N x N 複雜度 → 單一整合點 | 降低商家對接多平台的開發成本 |
+| **Shared Language** | 標準化發現、capability schema、transport bindings | 跨平台互通，避免被單一平台鎖定 |
+| **Extensible Architecture** | Capabilities + Extensions 框架 | 未來可擴展至新垂直領域（旅遊、服務等） |
+| **Security-first** | Tokenized payments + verifiable credentials | 每筆授權皆有加密證明，降低詐欺風險 |
+
+#### 發現機制：`/.well-known/ucp`
+
+商家發布標準 JSON manifest，代理可動態發現：
+- 支援的 **Services**（如 `dev.ucp.shopping`）
+- 可用的 **Capabilities**（checkout、discount、fulfillment）
+- 支援的 **Payment Handlers**（Shop Pay、Google Pay 等）
+
+#### Capabilities 架構
+
+```
+dev.ucp.shopping
+├── dev.ucp.shopping.checkout      # 結帳（核心）
+├── dev.ucp.shopping.discount      # 折扣（extends checkout）
+└── dev.ucp.shopping.fulfillment   # 履約（extends checkout）
+```
+
+#### 支付架構分離
+
+| 層級 | 說明 | 範例 |
+|------|------|------|
+| **Instruments** | 消費者使用的支付工具 | 信用卡、Google Pay |
+| **Payment Handlers** | 支付處理商 | Shop Pay、Stripe、Adyen |
+
+此分離設計實現「支付處理商無關性」，商家可同時支援多種支付方式。
+
+#### 商家權益保障
+
+- **Merchant of Record**：商家保留交易記錄身份
+- **Embedded Option**：可維持完全客製化的結帳體驗
+- **Business Logic 自主**：定價、折扣、庫存邏輯由商家控制
 
 ### 關鍵技術差異
 
@@ -425,6 +469,7 @@ X 上的 SEO 從業者指出：
 |------|------|---------|
 | 2026-01-13 | 1.0 | 初始版本 |
 | 2026-01-13 | 1.1 | 整合 X 平台社群反饋、新增設計哲學比喻、Crypto 整合分析、風險評估 |
+| 2026-01-13 | 1.2 | 新增 UCP 技術架構深入分析（四大設計原則、Capabilities 架構、支付分離設計） |
 
 ---
 
