@@ -1,0 +1,88 @@
+# Pensieve Markdown Linting 配置
+# 文件：https://github.com/DavidAnson/markdownlint
+
+# 預設啟用所有規則
+default: true
+
+# === 自訂規則 ===
+
+# MD001: 標題層級應遞增（不跳級）
+heading-increment: true
+
+# MD003: 標題風格（使用 ATX 風格 #）
+heading-style:
+  style: atx
+
+# MD004: 無序列表符號（使用 -）
+ul-style:
+  style: dash
+
+# MD007: 無序列表縮排（2 空格）
+ul-indent:
+  indent: 2
+
+# MD009: 行尾空格
+no-trailing-spaces:
+  br_spaces: 2  # 允許 2 個空格作為換行
+
+# MD012: 連續空行（最多 1 行）
+no-multiple-blanks:
+  maximum: 1
+
+# MD013: 行長度限制（停用，中文文章不適用）
+line-length: false
+
+# MD024: 允許相同標題（在不同章節中）
+no-duplicate-heading:
+  siblings_only: true
+
+# MD025: 只允許一個 H1
+single-h1: true
+
+# MD026: 標題結尾不加標點
+no-trailing-punctuation:
+  punctuation: ".,;:!?。，；：！？"
+
+# MD029: 有序列表編號風格
+ol-prefix:
+  style: ordered  # 1. 2. 3. 而非全部 1.
+
+# MD033: 允許部分 HTML 標籤
+no-inline-html:
+  allowed_elements:
+    - br
+    - details
+    - summary
+    - sup
+    - sub
+
+# MD034: 裸露 URL 應使用連結語法
+no-bare-urls: true
+
+# MD036: 不要用粗體/斜體代替標題
+no-emphasis-as-heading: true
+
+# MD040: 程式碼區塊應指定語言
+fenced-code-language: true
+
+# MD041: 文件應以 H1 開頭（停用，因為有 frontmatter）
+first-line-h1: false
+
+# MD046: 程式碼區塊風格（使用 fenced）
+code-block-style:
+  style: fenced
+
+# MD047: 檔案結尾應有換行
+single-trailing-newline: true
+
+# MD048: 程式碼區塊分隔符號（使用 ```）
+code-fence-style:
+  style: backtick
+
+# MD049: 斜體風格（使用 *）
+emphasis-style:
+  style: asterisk
+
+# MD050: 粗體風格（使用 **）
+strong-style:
+  style: asterisk

@@ -69,6 +69,19 @@
   - 新增 `.claude/README.md`：Claude Code 整合說明
   - 更新 `README.md`：新增技術文件索引
 
+- **P2-004：private 目錄管理規範**
+  - 新增 `private/README.md`
+  - 定義目錄結構與管理規範
+
+- **P2-012：內容品質檢查清單**
+  - WRITING_GUIDE.md 新增「發布前檢查清單」
+  - 涵蓋 Frontmatter、內容、風格、檔名檢查
+
+- **P2-013：Markdown Linting**
+  - 新增 `.markdownlint.yml` 配置
+  - 新增 `package.json` 含 lint 腳本
+  - 執行：`npm run lint` / `npm run lint:fix`
+
 ## [1.4.0] - 2026-01-12
 
 ### Added

@@ -1,0 +1,24 @@
+{
+  "name": "pensieve",
+  "version": "1.4.0",
+  "description": "個人研究與寫作框架",
+  "private": true,
+  "scripts": {
+    "new": "node scripts/new-article.js",
+    "validate": "node scripts/validate-article.js",
+    "publish": "node scripts/publish-to-multivac.js",
+    "lint": "markdownlint 'docs/**/*.md' 'drafts/**/*.md' --config .markdownlint.yml",
+    "lint:fix": "markdownlint 'docs/**/*.md' 'drafts/**/*.md' --config .markdownlint.yml --fix"
+  },
+  "devDependencies": {
+    "markdownlint-cli": "^0.43.0"
+  },
+  "keywords": [
+    "research",
+    "writing",
+    "markdown",
+    "pensieve"
+  ],
+  "author": "Clement Tang",
+  "license": "MIT"
+}
