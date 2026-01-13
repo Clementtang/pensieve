@@ -46,6 +46,23 @@
   - 新增 `prompts/` 目錄
   - 企業研究、新聞分析、社群貼文提示詞模板
 
+- **P1-008：M42 同步自動化**
+  - 發布腳本新增 `--auto-commit` 選項
+  - 自動執行 git add + commit（不 push）
+
+- **P1-011：Frontmatter 驗證腳本完善**
+  - `scripts/validate-article.js` 功能完整
+  - 驗證必填欄位、日期格式、status 值、category 值
+
+- **P1-014：Claude Hooks 整合**
+  - 新增 `.claude/hooks/validate-on-write.js`
+  - 寫入文章後自動驗證 frontmatter
+
+- **P1-018：發布腳本錯誤處理強化**
+  - 新增 `--verbose` 詳細輸出模式
+  - 新增錯誤摘要報告
+  - 改進 YAML 解析錯誤訊息
+
 ## [1.4.0] - 2026-01-12
 
 ### Added

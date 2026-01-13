@@ -11,12 +11,14 @@
  * 5. 同步狀態檢查
  *
  * 使用方式：
- *   node scripts/publish-to-multivac.js [--dry-run] [--status] [--validate]
+ *   node scripts/publish-to-multivac.js [--dry-run] [--status] [--validate] [--verbose]
  *
  * 選項：
- *   --dry-run   只顯示會執行的操作，不實際複製
- *   --status    只顯示同步狀態，不執行發布
- *   --validate  發布前驗證必填欄位（title, description, date, category）
+ *   --dry-run      只顯示會執行的操作，不實際複製
+ *   --status       只顯示同步狀態，不執行發布
+ *   --validate     發布前驗證必填欄位（title, description, date, category）
+ *   --verbose      顯示詳細的處理過程與錯誤資訊
+ *   --auto-commit  發布後自動在 M42 執行 git add + commit（不會 push）
  *
  * 分類邏輯（根據 frontmatter category 欄位）：
  *   category: articles        → docs/articles/（平面結構）
@@ -74,6 +76,40 @@ const args = process.argv.slice(2);
 const isDryRun = args.includes('--dry-run');
 const statusOnly = args.includes('--status');
 const validateMode = args.includes('--validate');
+const verboseMode = args.includes('--verbose');
+const autoCommit = args.includes('--auto-commit');
+
+// 錯誤追蹤
+const processingErrors = [];
+
+/**
+ * 詳細日誌輸出（只在 verbose 模式顯示）
+ */
+function verbose(message) {
+  if (verboseMode) {
+    console.log(`   [詳細] ${message}`);
+  }
+}
+
+/**
+ * 記錄錯誤
+ */
+function logError(filePath, errorType, message, details = null) {
+  const error = {
+    file: path.relative(PENSIEVE_ROOT, filePath),
+    type: errorType,
+    message: message,
+    details: details
+  };
+  processingErrors.push(error);
+
+  if (verboseMode) {
+    console.log(`   [錯誤] ${errorType}: ${message}`);
+    if (details) {
+      console.log(`          ${details}`);
+    }
+  }
+}
 
 // 必填欄位（發布時驗證）
 const REQUIRED_FIELDS_FOR_PUBLISH = ['title', 'description', 'date', 'category'];
@@ -110,23 +146,41 @@ function validateForPublish(frontmatter, filePath) {
 
 /**
  * 解析 YAML frontmatter
+ * @param {string} content - 檔案內容
+ * @param {string} filePath - 檔案路徑（用於錯誤報告）
+ * @returns {{frontmatter: Object, body: string, parseError: string|null}}
  */
-function parseFrontmatter(content) {
+function parseFrontmatter(content, filePath = 'unknown') {
   const match = content.match(/^---\n([\s\S]*?)\n---/);
-  if (!match) return { frontmatter: {}, body: content };
+  if (!match) {
+    return { frontmatter: {}, body: content, parseError: '檔案缺少 YAML frontmatter（--- 區塊）' };
+  }
 
   const frontmatterStr = match[1];
   const body = content.slice(match[0].length).trim();
 
   const frontmatter = {};
   const lines = frontmatterStr.split('\n');
+  let lineNumber = 0;
 
   for (const line of lines) {
+    lineNumber++;
     const colonIndex = line.indexOf(':');
-    if (colonIndex === -1) continue;
+    if (colonIndex === -1) {
+      // 空行或無效行，跳過
+      if (line.trim() !== '') {
+        verbose(`第 ${lineNumber} 行格式不正確，跳過：${line}`);
+      }
+      continue;
+    }
 
     const key = line.slice(0, colonIndex).trim();
     let value = line.slice(colonIndex + 1).trim();
+
+    if (!key) {
+      verbose(`第 ${lineNumber} 行缺少 key，跳過`);
+      continue;
+    }
 
     // 處理字串值（移除引號）
     if ((value.startsWith('"') && value.endsWith('"')) ||
@@ -139,6 +193,7 @@ function parseFrontmatter(content) {
       try {
         value = JSON.parse(value);
       } catch (e) {
+        logError(filePath, 'YAML_PARSE', `第 ${lineNumber} 行陣列解析失敗`, `key: ${key}, value: ${value}`);
         // 保持原值
       }
     }
@@ -150,7 +205,7 @@ function parseFrontmatter(content) {
     frontmatter[key] = value;
   }
 
-  return { frontmatter, body };
+  return { frontmatter, body, parseError: null };
 }
 
 /**
@@ -322,8 +377,23 @@ function main() {
     const files = scanMarkdownFiles(srcDir);
 
     for (const filePath of files) {
-      const content = fs.readFileSync(filePath, 'utf-8');
-      const { frontmatter } = parseFrontmatter(content);
+      verbose(`處理檔案：${path.relative(PENSIEVE_ROOT, filePath)}`);
+
+      // 讀取檔案（含錯誤處理）
+      let content;
+      try {
+        content = fs.readFileSync(filePath, 'utf-8');
+      } catch (err) {
+        logError(filePath, 'FILE_READ', `無法讀取檔案`, err.message);
+        continue;
+      }
+
+      const { frontmatter, parseError } = parseFrontmatter(content, filePath);
+
+      if (parseError) {
+        logError(filePath, 'FRONTMATTER', parseError);
+        continue;
+      }
 
       if (frontmatter.status !== 'published') continue;
 
@@ -418,24 +488,40 @@ function main() {
 
   console.log(`📤 開始發布 ${toPublish.length} 篇文章...\n`);
 
+  let successCount = 0;
+  let failCount = 0;
+
   for (const article of toPublish) {
     console.log(`   處理：${article.title}`);
     console.log(`   來源：${article.relativeSrc}`);
     console.log(`   目標：${article.relativeDest}`);
 
     if (!isDryRun) {
-      // 確保目標目錄存在
-      const destDir = path.dirname(article.destPath);
-      if (!fs.existsSync(destDir)) {
-        fs.mkdirSync(destDir, { recursive: true });
+      try {
+        // 確保目標目錄存在
+        const destDir = path.dirname(article.destPath);
+        if (!fs.existsSync(destDir)) {
+          verbose(`建立目錄：${destDir}`);
+          fs.mkdirSync(destDir, { recursive: true });
+        }
+
+        // 讀取、轉換、寫入
+        verbose(`讀取來源檔案...`);
+        const content = fs.readFileSync(article.srcPath, 'utf-8');
+
+        verbose(`轉換內容格式...`);
+        const transformed = transformArticle(content, article.srcPath);
+
+        verbose(`寫入目標檔案...`);
+        fs.writeFileSync(article.destPath, transformed);
+
+        console.log(`   ✅ 完成`);
+        successCount++;
+      } catch (err) {
+        logError(article.srcPath, 'PUBLISH', `發布失敗`, err.message);
+        console.log(`   ❌ 失敗：${err.message}`);
+        failCount++;
       }
-
-      // 讀取、轉換、寫入
-      const content = fs.readFileSync(article.srcPath, 'utf-8');
-      const transformed = transformArticle(content, article.srcPath);
-      fs.writeFileSync(article.destPath, transformed);
-
-      console.log(`   ✅ 完成`);
     } else {
       console.log(`   ⏸️  跳過（dry-run）`);
     }
@@ -444,14 +530,83 @@ function main() {
   }
 
   console.log('---\n');
-  console.log(`✅ 發布完成！共處理 ${toPublish.length} 篇文章。\n`);
 
+  // 顯示處理摘要
   if (!isDryRun) {
+    if (failCount === 0) {
+      console.log(`✅ 發布完成！成功處理 ${successCount} 篇文章。\n`);
+    } else {
+      console.log(`⚠️  發布完成（有錯誤）`);
+      console.log(`   成功：${successCount} 篇`);
+      console.log(`   失敗：${failCount} 篇\n`);
+    }
+  } else {
+    console.log(`🔍 Dry Run 完成！共 ${toPublish.length} 篇文章待處理。\n`);
+  }
+
+  // 顯示錯誤摘要（如果有）
+  if (processingErrors.length > 0) {
+    console.log(`\n📋 錯誤摘要（共 ${processingErrors.length} 個）：\n`);
+    for (const error of processingErrors) {
+      console.log(`   ❌ [${error.type}] ${error.file}`);
+      console.log(`      ${error.message}`);
+      if (error.details) {
+        console.log(`      詳細：${error.details}`);
+      }
+    }
+    console.log();
+  }
+
+  // 自動 commit（如果有成功發布的文章）
+  if (!isDryRun && successCount > 0 && autoCommit) {
+    console.log('🔄 執行自動 Git Commit...\n');
+
+    try {
+      const { execFileSync } = require('child_process');
+
+      // 切換到 M42 目錄
+      process.chdir(MULTIVAC_ROOT);
+      verbose(`切換到目錄：${MULTIVAC_ROOT}`);
+
+      // git add（使用 execFileSync 避免 shell injection）
+      verbose('執行 git add -A');
+      execFileSync('git', ['add', '-A'], { encoding: 'utf-8' });
+
+      // 生成 commit 訊息
+      const commitMsg = successCount === 1
+        ? `發布文章：${toPublish[0].title}`
+        : `發布/更新 ${successCount} 篇文章`;
+
+      // git commit（使用 execFileSync 避免 shell injection）
+      verbose(`執行 git commit -m "${commitMsg}"`);
+      execFileSync('git', ['commit', '-m', commitMsg], { encoding: 'utf-8' });
+
+      console.log(`   ✅ Git commit 完成：${commitMsg}\n`);
+      console.log('下一步：');
+      console.log('  cd ~/multivac42');
+      console.log('  git push');
+
+    } catch (err) {
+      // 檢查是否是 "nothing to commit" 的情況
+      if (err.stderr && err.stderr.includes('nothing to commit')) {
+        console.log('   ℹ️  沒有變更需要 commit\n');
+      } else {
+        logError(MULTIVAC_ROOT, 'GIT_COMMIT', 'Git commit 失敗', err.message);
+        console.log(`   ❌ Git commit 失敗：${err.message}\n`);
+      }
+    }
+  } else if (!isDryRun && failCount === 0 && successCount > 0) {
     console.log('下一步：');
     console.log('  cd ~/multivac42');
     console.log('  git add -A');
     console.log('  git commit -m "發布/更新文章"');
     console.log('  git push');
+    console.log('\n💡 提示：使用 --auto-commit 可自動執行 git add + commit');
+  }
+
+  // 如果有失敗，退出碼為 1
+  if (failCount > 0) {
+    process.exit(1);
   }
 }
 
