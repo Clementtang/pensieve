@@ -21,6 +21,29 @@ status: draft
 - **預計時間：** X 分鐘
 - **狀態：** 草稿
 
+### Feature Image Prompt
+
+> 複製以下 prompt 到 Gemini (gemini-3-pro-image-preview) 生成 16:9 圖片
+
+```
+[SCENE]: {根據文章主題描述場景}
+
+[STYLE]: modern business illustration, clean professional design,
+amber gold accent (#f59e0b) on deep dark background (#0a0a0f),
+minimalist composition, high-quality digital art,
+tech-forward aesthetic with warm golden highlights
+
+[COMPOSITION]: centered focal point, 16:9 aspect ratio,
+balanced composition with visual breathing room
+
+[MOOD]: {professional / innovative / analytical / transformative}
+
+[SPECIFIC ELEMENTS]: {從文章標籤轉化的 2-3 個視覺元素}
+
+[AVOID]: text, words, letters, logos, realistic human faces,
+cluttered composition, company branding
+```
+
 ---
 
 ## 前置要求
@@ -129,6 +152,7 @@ status: draft
 ```
 
 **執行方式：**
+
 ```bash
 # 指令
 ```
@@ -144,6 +168,7 @@ status: draft
 **原因：** 解釋原因
 
 **解決方法：**
+
 1. 步驟 1
 2. 步驟 2
 
@@ -154,6 +179,7 @@ status: draft
 **原因：** 解釋原因
 
 **解決方法：**
+
 1. 步驟 1
 2. 步驟 2
 
@@ -216,4 +242,4 @@ status: draft
 
 ---
 
-*最後更新：YYYY-MM-DD*
+_最後更新：YYYY-MM-DD_

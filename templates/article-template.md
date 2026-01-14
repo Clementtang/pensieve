@@ -20,6 +20,29 @@ status: draft
 - **狀態：** 草稿
 - **字數：** 約 X 字
 
+### Feature Image Prompt
+
+> 複製以下 prompt 到 Gemini (gemini-3-pro-image-preview) 生成 16:9 圖片
+
+```
+[SCENE]: {根據文章主題描述場景}
+
+[STYLE]: modern business illustration, clean professional design,
+amber gold accent (#f59e0b) on deep dark background (#0a0a0f),
+minimalist composition, high-quality digital art,
+tech-forward aesthetic with warm golden highlights
+
+[COMPOSITION]: centered focal point, 16:9 aspect ratio,
+balanced composition with visual breathing room
+
+[MOOD]: {professional / innovative / analytical / transformative}
+
+[SPECIFIC ELEMENTS]: {從文章標籤轉化的 2-3 個視覺元素}
+
+[AVOID]: text, words, letters, logos, realistic human faces,
+cluttered composition, company branding
+```
+
 ---
 
 ## 引言
@@ -27,6 +50,7 @@ status: draft
 在這裡寫文章的背景、目的和讀者將獲得什麼。
 
 **本文將討論：**
+
 - 要點 1
 - 要點 2
 - 要點 3
@@ -40,6 +64,7 @@ status: draft
 內容描述...
 
 **關鍵要點：**
+
 - 要點 A
 - 要點 B
 
@@ -109,4 +134,4 @@ A: 回答內容。
 
 ---
 
-*最後更新：YYYY-MM-DD*
+_最後更新：YYYY-MM-DD_

@@ -14,6 +14,7 @@
 - [new-article.js](#new-articlejs)
 - [validate-article.js](#validate-articlejs)
 - [publish-to-multivac.js](#publish-to-multivacjs)
+- [generate-feature-image-prompt.js](#generate-feature-image-promptjs)
 - [常見問題](#常見問題)
 
 ---
@@ -35,11 +36,12 @@ node scripts/publish-to-multivac.js --validate --auto-commit
 
 ## 腳本總覽
 
-| 腳本 | 用途 | 實作版本 |
-|------|------|---------|
-| `new-article.js` | 從模板建立新文章 | P1-006 |
-| `validate-article.js` | 驗證文章格式與 frontmatter | P0-005, P1-011 |
-| `publish-to-multivac.js` | 發布文章到 Multivac42 | P0-005, P1-008, P1-018 |
+| 腳本                               | 用途                                 | 實作版本               |
+| ---------------------------------- | ------------------------------------ | ---------------------- |
+| `new-article.js`                   | 從模板建立新文章                     | P1-006                 |
+| `validate-article.js`              | 驗證文章格式與 frontmatter           | P0-005, P1-011         |
+| `publish-to-multivac.js`           | 發布文章到 Multivac42                | P0-005, P1-008, P1-018 |
+| `generate-feature-image-prompt.js` | 生成 Feature Image 的 AI 圖像 Prompt | NEW                    |
 
 ---
 
@@ -48,6 +50,7 @@ node scripts/publish-to-multivac.js --validate --auto-commit
 ### 功能說明
 
 從模板建立新文章，自動處理：
+
 - 選擇正確的模板
 - 生成符合規範的檔名（`YYYY-MM-DD-slug.md`）
 - 預填 frontmatter（date、author、status）
@@ -61,24 +64,24 @@ node scripts/new-article.js --type <類型> --title <標題> [--slug <slug>]
 
 ### 參數說明
 
-| 參數 | 必填 | 說明 | 範例 |
-|------|------|------|------|
-| `--type` | 是 | 文章類型 | `article`, `company`, `topic` |
-| `--title` | 是 | 文章標題 | `"ESL 產業分析"` |
-| `--slug` | 否 | 自訂 slug（預設從標題生成） | `esl-analysis` |
+| 參數      | 必填 | 說明                        | 範例                          |
+| --------- | ---- | --------------------------- | ----------------------------- |
+| `--type`  | 是   | 文章類型                    | `article`, `company`, `topic` |
+| `--title` | 是   | 文章標題                    | `"ESL 產業分析"`              |
+| `--slug`  | 否   | 自訂 slug（預設從標題生成） | `esl-analysis`                |
 
 ### 支援的文章類型
 
-| 類型 | 模板 | 目標目錄 |
-|------|------|---------|
-| `article` | article-template.md | drafts/ |
-| `note` | note-template.md | drafts/ |
-| `memo` | research-memo-template.md | drafts/ |
-| `tutorial` | tutorial-template.md | drafts/ |
-| `company` | company-research-template.md | drafts/ |
-| `industry` | industry-research-template.md | drafts/ |
-| `topic` | topic-research-template.md | drafts/ |
-| `topic-lite` | topic-research-lite-template.md | drafts/ |
+| 類型         | 模板                            | 目標目錄 |
+| ------------ | ------------------------------- | -------- |
+| `article`    | article-template.md             | drafts/  |
+| `note`       | note-template.md                | drafts/  |
+| `memo`       | research-memo-template.md       | drafts/  |
+| `tutorial`   | tutorial-template.md            | drafts/  |
+| `company`    | company-research-template.md    | drafts/  |
+| `industry`   | industry-research-template.md   | drafts/  |
+| `topic`      | topic-research-template.md      | drafts/  |
+| `topic-lite` | topic-research-lite-template.md | drafts/  |
 
 ### 使用範例
 
@@ -140,10 +143,10 @@ node scripts/validate-article.js <檔案或目錄> [選項]
 
 ### 參數說明
 
-| 參數 | 說明 |
-|------|------|
-| `<檔案或目錄>` | 要驗證的檔案路徑或目錄 |
-| `--quiet` | 只顯示錯誤，不顯示成功訊息 |
+| 參數           | 說明                       |
+| -------------- | -------------------------- |
+| `<檔案或目錄>` | 要驗證的檔案路徑或目錄     |
+| `--quiet`      | 只顯示錯誤，不顯示成功訊息 |
 
 ### 使用範例
 
@@ -162,11 +165,11 @@ node scripts/validate-article.js docs/ --quiet
 
 驗證結果分為三種：
 
-| 符號 | 說明 |
-|------|------|
-| ✅ | 通過所有驗證 |
-| ❌ | 有錯誤（阻止發布） |
-| ⚠️ | 有警告（建議修正） |
+| 符號 | 說明               |
+| ---- | ------------------ |
+| ✅   | 通過所有驗證       |
+| ❌   | 有錯誤（阻止發布） |
+| ⚠️   | 有警告（建議修正） |
 
 ### 輸出範例
 
@@ -193,12 +196,14 @@ node scripts/validate-article.js docs/ --quiet
 ### 錯誤與警告定義
 
 **錯誤（阻止發布）：**
+
 - 缺少 YAML frontmatter
 - 缺少必填欄位
 - 日期格式錯誤
 - status 值無效
 
 **警告（建議修正）：**
+
 - 檔名格式不符
 - category 值不在建議清單
 - 缺少 H1 標題
@@ -221,6 +226,7 @@ node scripts/validate-article.js docs/ --quiet
 將 Pensieve 中標記為 `status: published` 的文章發布到 Multivac42 網站。
 
 主要功能：
+
 1. 掃描所有 `status: published` 的文章
 2. 根據 category 決定目標目錄
 3. 格式轉換（移除元資料區塊等）
@@ -235,12 +241,12 @@ node scripts/publish-to-multivac.js [選項]
 
 ### 選項說明
 
-| 選項 | 說明 |
-|------|------|
-| `--dry-run` | 只顯示會執行的操作，不實際複製 |
-| `--status` | 只顯示同步狀態，不執行發布 |
-| `--validate` | 發布前驗證必填欄位 |
-| `--verbose` | 顯示詳細的處理過程與錯誤資訊 |
+| 選項            | 說明                            |
+| --------------- | ------------------------------- |
+| `--dry-run`     | 只顯示會執行的操作，不實際複製  |
+| `--status`      | 只顯示同步狀態，不執行發布      |
+| `--validate`    | 發布前驗證必填欄位              |
+| `--verbose`     | 顯示詳細的處理過程與錯誤資訊    |
 | `--auto-commit` | 發布後自動執行 git add + commit |
 
 ### 使用範例
@@ -266,11 +272,11 @@ node scripts/publish-to-multivac.js --verbose --dry-run
 
 根據 frontmatter 的 `category` 欄位決定目標目錄：
 
-| Category | 目標目錄 | 結構 |
-|----------|---------|------|
-| `articles` | docs/articles/ | 平面結構 |
+| Category           | 目標目錄               | 結構       |
+| ------------------ | ---------------------- | ---------- |
+| `articles`         | docs/articles/         | 平面結構   |
 | `company-research` | docs/company-research/ | 依公司分類 |
-| `topic-research` | docs/topic-research/ | 平面結構 |
+| `topic-research`   | docs/topic-research/   | 平面結構   |
 
 ### 公司研究分類
 
@@ -356,11 +362,102 @@ docs/company-research/
 
 ---
 
+## generate-feature-image-prompt.js
+
+### 功能說明
+
+從文章 frontmatter 自動生成適用於 Google Gemini Nano Banana Pro 的圖像生成 prompt。
+
+主要功能：
+
+1. 解析文章的 title、description、tags、category
+2. 根據 category 選擇對應的視覺風格
+3. 從內容中提取關鍵概念轉化為視覺場景
+4. 生成結構化的圖像生成 prompt
+
+### 使用方式
+
+```bash
+node scripts/generate-feature-image-prompt.js <article-path> [選項]
+```
+
+### 選項說明
+
+| 選項              | 說明                            |
+| ----------------- | ------------------------------- |
+| `--copy`          | 將 prompt 複製到剪貼簿（macOS） |
+| `--output <path>` | 輸出 prompt 到指定檔案          |
+| `--json`          | 以 JSON 格式輸出                |
+
+### 使用範例
+
+```bash
+# 生成 prompt 並顯示
+node scripts/generate-feature-image-prompt.js docs/articles/2025-11-19-workday-acquires-pipedream.md
+
+# 生成並複製到剪貼簿
+node scripts/generate-feature-image-prompt.js docs/articles/2025-11-19-workday-acquires-pipedream.md --copy
+
+# 輸出到檔案
+node scripts/generate-feature-image-prompt.js docs/articles/my-article.md --output prompt.txt
+
+# JSON 格式輸出（適合自動化）
+node scripts/generate-feature-image-prompt.js docs/articles/my-article.md --json
+```
+
+### 輸出範例
+
+```
+🖼️  Feature Image Prompt Generator
+
+────────────────────────────────────────────────────────────
+📄 文章：Workday 併購 Pipedream：強化「可行動 AI」布局
+📁 Category：articles
+🏷️  Tags：Workday, Pipedream, AI, 併購, 企業軟體, 自動化
+────────────────────────────────────────────────────────────
+
+📝 Generated Prompt for Nano Banana Pro:
+
+[SCENE]: two corporate entities merging, represented by geometric shapes...
+
+[STYLE]: modern business illustration for a tech blog...
+
+[COMPOSITION]: centered focal point, 16:9 aspect ratio...
+
+[MOOD]: transformative, analytical
+
+[SPECIFIC ELEMENTS]: subtle AI neural network patterns...
+
+[AVOID]: text, words, letters, logos...
+```
+
+### Category 視覺風格
+
+| Category           | 視覺方向           | 風格特點                 |
+| ------------------ | ------------------ | ------------------------ |
+| `articles`         | 新聞感、時事性     | 編輯插畫風格、動態構圖   |
+| `company-research` | 企業識別、分析質感 | 顧問報告風格、數據視覺化 |
+| `topic-research`   | 深度研究、系統化   | 研究報告封面、產業地圖   |
+
+### 設計考量
+
+- **一致的視覺語言**：所有圖像使用深藍色 (#1a365d) 為主調，維持品牌一致性
+- **避免文字**：prompt 明確排除文字生成，確保圖像可用性
+- **關鍵詞映射**：自動將中文概念（如「併購」）轉化為英文視覺描述
+- **安全性**：使用 `execFileSync` 而非 shell 命令，避免注入風險
+
+### 相關文件
+
+- [Feature Image Prompt Template](../prompts/feature-image-prompt-template.md)：完整的 prompt 設計規範
+
+---
+
 ## 常見問題
 
 ### Q: 為什麼發布後需要手動 push？
 
 A: 設計上刻意不自動 push，原因：
+
 1. 讓使用者有機會在 M42 檢視變更
 2. 避免意外推送敏感內容
 3. 可以在 push 前合併多次發布
@@ -368,6 +465,7 @@ A: 設計上刻意不自動 push，原因：
 ### Q: 如何處理發布驗證失敗？
 
 A:
+
 1. 執行 `node scripts/validate-article.js <檔案>` 查看詳細錯誤
 2. 修正 frontmatter 中的問題
 3. 重新執行發布

@@ -8,6 +8,20 @@
 ## [Unreleased]
 
 ### Added
+
+- **Feature Image Prompt 自動生成系統**
+  - 新增 `scripts/generate-feature-image-prompt.js` 腳本
+  - 新增 `prompts/feature-image-prompt-template.md` 設計規範
+  - 支援從文章 frontmatter 自動生成 Nano Banana Pro 圖像 prompt
+  - 根據 category（articles/company-research/topic-research）選擇對應視覺風格
+  - 一致的視覺品牌語言：琥珀金色主調 (#f59e0b)、深黑背景 (#0a0a0f)
+  - 支援 `--copy` 複製到剪貼簿、`--json` 格式輸出
+
+- **Feature Image Prompt 模板整合**
+  - 7 個文章模板新增 `### Feature Image Prompt` 區塊
+  - 整合於 `## 元資料` 區塊內，發布時自動移除
+  - 更新模板：article、company-research、industry-research、note、topic-research、topic-research-lite、tutorial
+
 - VitePress 網站架構
 - 自動化 PR 驗證流水線
 - Research Memo 行動工作流模板
@@ -85,6 +99,7 @@
 ## [1.4.0] - 2026-01-12
 
 ### Added
+
 - **商業寫作風格章節** (WRITING_GUIDE.md)
   - 敘事性寫作技巧
   - 避免過度使用列點指南
@@ -108,10 +123,12 @@
   - 新增版本選擇指南（決策樹）
 
 ### Removed
+
 - `docs/.writing-guidelines.md`（內容已合併至 WRITING_GUIDE.md）
 - `publish` 欄位（由 `status` 取代）
 
 ### Changed
+
 - WRITING_GUIDE.md 更新至 v1.4.0
   - 整合 .writing-guidelines.md 的獨特內容
   - 更新 Frontmatter 欄位說明
@@ -130,6 +147,7 @@
 ## [1.3.0] - 2025-12-31
 
 ### Added
+
 - **產業研究模板** (`templates/industry-research-template.md`)
   - 7 大章節結構：市場概況、價值鏈、技術架構、競爭格局、應用案例、商業模式、未來展望
   - 專為產業/技術/市場深度研究設計
@@ -141,6 +159,7 @@
   - 支援三種 category：`articles`、`company-research`、`topic-research`
 
 ### Changed
+
 - **WRITING_GUIDE.md** 更新至 v1.3.0
   - 新增「產業研究（Topic Research）」文章類型規範
   - 新增 Category 對應的 M42 目標目錄說明表
@@ -158,6 +177,7 @@
 ## [1.2.0] - 2025-12-31
 
 ### Added
+
 - **Pensieve → Multivac42 發布系統**
   - 發布腳本 (`scripts/publish-to-multivac.js`)
   - 格式轉換：移除元資料區塊、自動補充 lastModified
@@ -170,21 +190,25 @@
   - `lastModified` 自動補充
 
 ### Changed
+
 - WRITING_GUIDE.md 新增發布到 Multivac42 規範
 
 ## [1.1.0] - 2025-12-30
 
 ### Added
+
 - 台灣繁體中文用語規範表（18 組詞彙對照）
 - 句型避免指南（避免「不是 X，而是 Y」句型）
 - 版本化標準文件管理
 
 ### Changed
+
 - WRITING_GUIDE.md 新增用語規範章節
 
 ## [1.0.0] - 2025-11-20
 
 ### Added
+
 - 初始 WRITING_GUIDE.md 寫作規範
 - CONTRIBUTING.md 貢獻指南
 - 基礎模板系統
