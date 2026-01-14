@@ -5,7 +5,7 @@ date: 2026-01-14
 author: "Clement Tang"
 tags: ["技術評論", "AI", "代理商務", "協議標準", "產業分析"]
 category: articles
-status: draft
+status: published
 ---
 
 # 當商務有了自己的 DNS：UCP 技術架構的產業史觀
