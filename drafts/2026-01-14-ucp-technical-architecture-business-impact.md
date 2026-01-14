@@ -102,6 +102,20 @@ UCP 與 ACP 的競爭，讓人想起過去幾十年的諸多標準戰爭。VHS �
 
 最後，標準戰爭的結果往往不是「贏家通吃」，而是「各有所長」的共存。TCP/IP 與 OSI 模型的競爭最終以 TCP/IP 主導網際網路、OSI 概念模型被廣泛教學的方式共存。UCP 與 ACP 很可能也會走向類似的結局，兩者服務不同的 AI 平台，商家同時支援兩個協議以最大化消費者觸及。
 
+## 從規格到實作的距離
+
+談完歷史類比與設計哲學，一個務實的問題浮現。UCP 目前究竟走到哪裡了？
+
+從 GitHub 上的官方 repository 來看，UCP 仍處於早期階段。主分支僅有約十個 commits，這意味著協議規格剛剛公開，距離大規模商業部署還有一段路要走。不過，這個早期階段恰恰是觀察協議走向的最佳時機，因為設計決策尚未固化，生態系參與者仍有機會影響協議的演進方向。
+
+技術實作層面，UCP 採用 transport agnostic 的設計，同時支援 REST API、MCP（Model Context Protocol）與 A2A（Agent-to-Agent）三種傳輸方式。這個選擇反映了務實的整合策略。已有 REST 基礎設施的商家可以快速接入，而原生支援 AI 代理通訊的新創企業則能直接採用 MCP 或 A2A。官方已釋出 Python 與 TypeScript SDK，並提供 Playground 環境供開發者測試。
+
+生態系的廣度是 UCP 目前最明顯的優勢。共同開發者包括 Google、Shopify、Etsy、Wayfair、Target、Walmart 這些零售巨頭。支付領域的參與者同樣陣容堅強，Adyen、American Express、Mastercard、PayPal、Stripe、Visa、Worldpay 都在合作名單上。零售商端則有 Best Buy、Carrefour、Kroger、Lowe's、Macy's、Sephora、The Home Depot、Zalando 等橫跨北美與歐洲的主要業者。這種跨產業、跨地區的聯盟規模，在開放協議的早期階段相當罕見。
+
+官方 roadmap 透露了協議的發展方向。短期內，UCP 將專注於購物場景的完善。中期目標是擴展至旅遊預訂與專業服務等新垂直領域。長期願景則包括標準化的會員忠誠計畫管理，以及更細緻的個人化信號傳遞機制。這個演進路徑與前述的 Capabilities 和 Extensions 架構相呼應，核心協議保持穩定，新功能透過擴展模組逐步加入。
+
+對於正在評估是否投入資源的企業來說，現階段的建議是「關注但不急於行動」。協議規格仍在快速演進，過早的深度整合可能需要在未來進行大幅調整。然而，這也是影響協議方向的最佳視窗。參與 GitHub 討論、提交使用情境回饋、甚至貢獻程式碼，都能讓企業在標準制定過程中發出自己的聲音。
+
 ## 協議決定權力
 
 每一代技術基礎設施的建立，都會重新分配產業價值鏈上的權力。HTTP 讓內容創作者擺脫了傳統媒體的守門人，OAuth 讓應用開發者能夠存取用戶資料而不需要獲取密碼，信用卡四方模式讓商家獲得了支付選擇權。
@@ -114,4 +128,4 @@ UCP 的技術設計，無論是去中心化發現、支付分離、模組化能�
 
 ---
 
-*本文基於 Google Developers Blog 技術文件及公開資料撰寫。*
+*本文基於 Google Developers Blog 技術文件、UCP 官方 GitHub repository 及公開資料撰寫。*
