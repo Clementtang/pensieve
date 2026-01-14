@@ -18,6 +18,29 @@ status: draft
 - **狀態：** 進行中
 - **來源：** 書籍/課程/文章/經驗
 
+### Feature Image Prompt
+
+> 複製以下 prompt 到 Gemini (gemini-3-pro-image-preview) 生成 16:9 圖片
+
+```
+[SCENE]: {根據文章主題描述場景}
+
+[STYLE]: modern business illustration, clean professional design,
+amber gold accent (#f59e0b) on deep dark background (#0a0a0f),
+minimalist composition, high-quality digital art,
+tech-forward aesthetic with warm golden highlights
+
+[COMPOSITION]: centered focal point, 16:9 aspect ratio,
+balanced composition with visual breathing room
+
+[MOOD]: {professional / innovative / analytical / transformative}
+
+[SPECIFIC ELEMENTS]: {從文章標籤轉化的 2-3 個視覺元素}
+
+[AVOID]: text, words, letters, logos, realistic human faces,
+cluttered composition, company branding
+```
+
 ---
 
 ## 核心概念
@@ -83,4 +106,4 @@ status: draft
 
 ---
 
-*最後更新：YYYY-MM-DD*
+_最後更新：YYYY-MM-DD_
