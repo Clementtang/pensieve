@@ -15,35 +15,40 @@ version: "1.0"
 
 ## 元資料
 
-- **建立日期：** YYYY-MM-DD
-- **更新日期：** YYYY-MM-DD
-- **研究者：** [姓名]
-- **標籤：** #議題研究 #[主題領域]
-- **狀態：** 草稿
-- **字數：** 約 X 字（目標：3,000-8,000 字）
+| 項目         | 內容                            |
+| ------------ | ------------------------------- |
+| **建立日期** | YYYY-MM-DD                      |
+| **更新日期** | YYYY-MM-DD                      |
+| **研究者**   | Clement Tang                    |
+| **標籤**     | #議題研究 #主題領域             |
+| **狀態**     | 草稿 / 撰寫中 / 已發布          |
+| **字數**     | 約 X 字（目標：2,000-5,000 字） |
 
 ### Feature Image Prompt
 
-> 複製以下 prompt 到 Gemini (gemini-3-pro-image-preview) 生成 16:9 圖片
+> 參見 [Feature Image Prompt Template](../prompts/feature-image-prompt-template.md)
 
-```
-[SCENE]: {根據文章主題描述場景}
+---
 
-[STYLE]: modern business illustration, clean professional design,
-amber gold accent (#f59e0b) on deep dark background (#0a0a0f),
-minimalist composition, high-quality digital art,
-tech-forward aesthetic with warm golden highlights
+## 快速啟動（可選擇只填這部分）
 
-[COMPOSITION]: centered focal point, 16:9 aspect ratio,
-balanced composition with visual breathing room
+> 如果時間有限，只填這個區塊也能形成完整的議題分析。
 
-[MOOD]: {professional / innovative / analytical / transformative}
+**核心問題：** [這個議題要回答什麼問題？]
 
-[SPECIFIC ELEMENTS]: {從文章標籤轉化的 2-3 個視覺元素}
+**關鍵發現：**
 
-[AVOID]: text, words, letters, logos, realistic human faces,
-cluttered composition, company branding
-```
+1. [發現 1]
+2. [發現 2]
+3. [發現 3]
+
+**我的立場：** [支持/反對/中立]，因為 [原因]
+
+**建議行動：** [給讀者的 1-2 個建議]
+
+---
+
+_如需更深入分析，請繼續填寫以下章節..._
 
 ---
 
@@ -315,14 +320,6 @@ cluttered composition, company branding
 ### 其他資料
 
 - [來源]
-
----
-
-## 更新記錄
-
-| 日期       | 版本 | 更新內容 |
-| ---------- | ---- | -------- |
-| YYYY-MM-DD | 1.0  | 初始版本 |
 
 ---
 
