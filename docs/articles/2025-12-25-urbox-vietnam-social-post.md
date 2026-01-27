@@ -1,3 +1,13 @@
+---
+title: "一個越南 92 年生創業家的「送禮革命」：UrBox 如何用 API 串起十億美元市場"
+description: "UrBox 創辦人 Trương Công Hiếu 從失敗的實體禮盒創業，轉型打造越南數位禮品市場領頭羊，揭示東南亞企業送禮數位化革命。"
+date: 2025-12-25
+author: "Clement Tang"
+tags: ["UrBox", "越南", "創業", "數位禮品", "B2B", "東南亞", "社群貼文"]
+category: articles
+status: published
+---
+
 # 一個越南 92 年生創業家的「送禮革命」：UrBox 如何用 API 串起十億美元市場
 
 2015 年，一個來自廣寧省的越南年輕人 Trương Công Hiếu 決定創業。他的第一個項目「Tô Quà」（禮品盒）在市場上碰了一鼻子灰，以失敗收場。但這位 1992 年出生的創業者沒有選擇回去找份安穩的工作，反而奉行一個殘酷的哲學：「改變，或者死亡。」
@@ -98,16 +108,18 @@ UrBox 的客戶策略也頗具巧思：先服務 Vietnam Airlines、VPBank 這�
 
 ---
 
-*作者按：本文為越南 UrBox 公司研究系列之社群觀點文章，完整企業研究報告請參閱〈UrBox 越南公司深度研究〉。*
+_作者按：本文為越南 UrBox 公司研究系列之社群觀點文章，完整企業研究報告請參閱〈UrBox 越南公司深度研究〉。_
 
 ---
 
 **延伸閱讀**
+
 - 越南數位經濟 2024 年規模達 360 億美元，電商市場年增 20%
 - 台灣 LINE 禮物三年送出五千萬份禮物，企業端應用成下一個戰場
 - Edenred 以 11.5 億英鎊收購 Reward Gateway，企業福利平台進入整合期
 
 **資料來源**
+
 - VnExpress、BaoDauTu、Brands Vietnam、CafeF 等越南媒體報導
 - ResearchAndMarkets 越南禮品卡市場報告
 - Touchstone Partners、Endeavor Vietnam 官方公告
