@@ -16,7 +16,7 @@ status: draft
 
 ## 4% 只是開始
 
-OpenAI 對每筆透過 ChatGPT Instant Checkout 完成的訂單收取 4% 的服務費。這個數字乍看之下不算驚人，畢竟 Amazon 的抽成高達 15% 甚至更多。但魔鬼藏在細節裡。
+根據 The Information 的報導，OpenAI 對每筆透過 ChatGPT Instant Checkout 完成的訂單收取 4% 的服務費。這個數字乍看之下不算驚人，畢竟 Amazon 的抽成高達 15% 甚至更多。但魔鬼藏在細節裡。
 
 這 4% 是疊加在 Shopify 原有費用之上的額外支出。
 
