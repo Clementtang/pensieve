@@ -34,50 +34,50 @@
  *   docs/topic-research/     - 產業研究（平面結構）
  */
 
-const fs = require('fs');
-const path = require('path');
+const fs = require("fs");
+const path = require("path");
 
 // 路徑設定
-const PENSIEVE_ROOT = path.resolve(__dirname, '..');
-const MULTIVAC_ROOT = path.resolve(PENSIEVE_ROOT, '..', 'multivac42');
+const PENSIEVE_ROOT = path.resolve(__dirname, "..");
+const MULTIVAC_ROOT = path.resolve(PENSIEVE_ROOT, "..", "multivac42");
 
 // 來源目錄設定（掃描這些目錄下的所有 .md 檔案）
 const SOURCE_DIRS = [
-  'docs/articles',
-  'docs/company-research',
-  'docs/topic-research'
+  "docs/articles",
+  "docs/company-research",
+  "docs/topic-research",
 ];
 
 // Category 對應的目標目錄與處理方式
 // type: 'flat' = 平面結構, 'by-company' = 依公司分類
 const CATEGORY_CONFIG = {
-  'articles': { dest: 'docs/articles', type: 'flat' },
-  'company-research': { dest: 'docs/company-research', type: 'by-company' },
-  'topic-research': { dest: 'docs/topic-research', type: 'flat' }
+  articles: { dest: "docs/articles", type: "flat" },
+  "company-research": { dest: "docs/company-research", type: "by-company" },
+  "topic-research": { dest: "docs/topic-research", type: "flat" },
 };
 
 // 公司名稱對應表（檔名關鍵字 → 資料夾名稱）
 // 若產品名知名度大於公司名，使用產品名
 const COMPANY_MAPPING = {
-  'airwallex': 'airwallex',
-  'manus': 'manus-ai',
-  'luckin': 'luckin-coffee',
-  'toast': 'toast',
-  'hotai': 'hotai',
-  'REDACTED': 'REDACTED',
-  'REDACTED': 'REDACTED'  // REDACTED也對應到 REDACTED
+  airwallex: "airwallex",
+  manus: "manus-ai",
+  luckin: "luckin-coffee",
+  toast: "toast",
+  hotai: "hotai",
+  REDACTED: "REDACTED",
+  REDACTED: "REDACTED", // REDACTED也對應到 REDACTED
 };
 
 // 預設作者
-const DEFAULT_AUTHOR = 'Clement Tang';
+const DEFAULT_AUTHOR = "Clement Tang";
 
 // 解析命令列參數
 const args = process.argv.slice(2);
-const isDryRun = args.includes('--dry-run');
-const statusOnly = args.includes('--status');
-const validateMode = args.includes('--validate');
-const verboseMode = args.includes('--verbose');
-const autoCommit = args.includes('--auto-commit');
+const isDryRun = args.includes("--dry-run");
+const statusOnly = args.includes("--status");
+const validateMode = args.includes("--validate");
+const verboseMode = args.includes("--verbose");
+const autoCommit = args.includes("--auto-commit");
 
 // 錯誤追蹤
 const processingErrors = [];
@@ -99,7 +99,7 @@ function logError(filePath, errorType, message, details = null) {
     file: path.relative(PENSIEVE_ROOT, filePath),
     type: errorType,
     message: message,
-    details: details
+    details: details,
   };
   processingErrors.push(error);
 
@@ -112,7 +112,12 @@ function logError(filePath, errorType, message, details = null) {
 }
 
 // 必填欄位（發布時驗證）
-const REQUIRED_FIELDS_FOR_PUBLISH = ['title', 'description', 'date', 'category'];
+const REQUIRED_FIELDS_FOR_PUBLISH = [
+  "title",
+  "description",
+  "date",
+  "category",
+];
 
 /**
  * 驗證文章是否符合發布要求
@@ -150,25 +155,29 @@ function validateForPublish(frontmatter, filePath) {
  * @param {string} filePath - 檔案路徑（用於錯誤報告）
  * @returns {{frontmatter: Object, body: string, parseError: string|null}}
  */
-function parseFrontmatter(content, filePath = 'unknown') {
+function parseFrontmatter(content, filePath = "unknown") {
   const match = content.match(/^---\n([\s\S]*?)\n---/);
   if (!match) {
-    return { frontmatter: {}, body: content, parseError: '檔案缺少 YAML frontmatter（--- 區塊）' };
+    return {
+      frontmatter: {},
+      body: content,
+      parseError: "檔案缺少 YAML frontmatter（--- 區塊）",
+    };
   }
 
   const frontmatterStr = match[1];
   const body = content.slice(match[0].length).trim();
 
   const frontmatter = {};
-  const lines = frontmatterStr.split('\n');
+  const lines = frontmatterStr.split("\n");
   let lineNumber = 0;
 
   for (const line of lines) {
     lineNumber++;
-    const colonIndex = line.indexOf(':');
+    const colonIndex = line.indexOf(":");
     if (colonIndex === -1) {
       // 空行或無效行，跳過
-      if (line.trim() !== '') {
+      if (line.trim() !== "") {
         verbose(`第 ${lineNumber} 行格式不正確，跳過：${line}`);
       }
       continue;
@@ -183,24 +192,31 @@ function parseFrontmatter(content, filePath = 'unknown') {
     }
 
     // 處理字串值（移除引號）
-    if ((value.startsWith('"') && value.endsWith('"')) ||
-        (value.startsWith("'") && value.endsWith("'"))) {
+    if (
+      (value.startsWith('"') && value.endsWith('"')) ||
+      (value.startsWith("'") && value.endsWith("'"))
+    ) {
       value = value.slice(1, -1);
     }
 
     // 處理陣列
-    if (value.startsWith('[') && value.endsWith(']')) {
+    if (value.startsWith("[") && value.endsWith("]")) {
       try {
         value = JSON.parse(value);
       } catch (e) {
-        logError(filePath, 'YAML_PARSE', `第 ${lineNumber} 行陣列解析失敗`, `key: ${key}, value: ${value}`);
+        logError(
+          filePath,
+          "YAML_PARSE",
+          `第 ${lineNumber} 行陣列解析失敗`,
+          `key: ${key}, value: ${value}`,
+        );
         // 保持原值
       }
     }
 
     // 處理布林值
-    if (value === 'true') value = true;
-    if (value === 'false') value = false;
+    if (value === "true") value = true;
+    if (value === "false") value = false;
 
     frontmatter[key] = value;
   }
@@ -212,19 +228,22 @@ function parseFrontmatter(content, filePath = 'unknown') {
  * 生成 YAML frontmatter
  */
 function generateFrontmatter(fm) {
-  let yaml = '---\n';
+  let yaml = "---\n";
 
   for (const [key, value] of Object.entries(fm)) {
     if (Array.isArray(value)) {
       yaml += `${key}: ${JSON.stringify(value)}\n`;
-    } else if (typeof value === 'string' && (value.includes(':') || value.includes('"'))) {
+    } else if (
+      typeof value === "string" &&
+      (value.includes(":") || value.includes('"'))
+    ) {
       yaml += `${key}: "${value}"\n`;
     } else {
       yaml += `${key}: ${value}\n`;
     }
   }
 
-  yaml += '---';
+  yaml += "---";
   return yaml;
 }
 
@@ -234,14 +253,15 @@ function generateFrontmatter(fm) {
 function removeMetadataSection(body) {
   // 匹配 ## 元資料 區塊（到下一個 ## 或 --- 為止）
   const pattern = /## 元資料\n\n[\s\S]*?(?=\n---|\n## |$)/;
-  return body.replace(pattern, '').trim();
+  return body.replace(pattern, "").trim();
 }
 
 /**
- * 移除文末的 *最後更新：...*
+ * 移除文末的 *最後更新：...* 或 _最後更新：..._
  */
 function removeLastUpdated(body) {
-  return body.replace(/\n\*最後更新：.*\*\s*$/, '').trim();
+  // 匹配兩種 Markdown 斜體格式：*...* 或 _..._
+  return body.replace(/\n[*_]最後更新：.*[*_]\s*$/, "").trim();
 }
 
 /**
@@ -259,7 +279,7 @@ function transformArticle(content, filePath) {
   if (!frontmatter.lastModified) {
     const stats = fs.statSync(filePath);
     const mtime = stats.mtime;
-    frontmatter.lastModified = mtime.toISOString().split('T')[0];
+    frontmatter.lastModified = mtime.toISOString().split("T")[0];
   }
 
   // 轉換內容
@@ -295,7 +315,12 @@ function scanMarkdownFiles(dir) {
   const entries = fs.readdirSync(dir, { withFileTypes: true });
 
   for (const entry of entries) {
-    if (entry.isFile() && entry.name.endsWith('.md') && entry.name !== 'index.md' && entry.name !== 'README.md') {
+    if (
+      entry.isFile() &&
+      entry.name.endsWith(".md") &&
+      entry.name !== "index.md" &&
+      entry.name !== "README.md"
+    ) {
       files.push(path.join(dir, entry.name));
     }
   }
@@ -321,7 +346,7 @@ function getCompanyFromFilename(filename) {
     return match[1].toLowerCase();
   }
 
-  return 'misc';  // 無法識別的放入 misc
+  return "misc"; // 無法識別的放入 misc
 }
 
 /**
@@ -331,8 +356,8 @@ function inferCategoryFromPath(srcDirRelative) {
   // docs/articles → articles
   // docs/company-research → company-research
   // docs/topic-research → topic-research
-  const parts = srcDirRelative.split('/');
-  return parts[parts.length - 1] || 'articles';
+  const parts = srcDirRelative.split("/");
+  return parts[parts.length - 1] || "articles";
 }
 
 /**
@@ -342,10 +367,10 @@ function getDestPath(filePath, category) {
   const fileName = path.basename(filePath);
 
   // 取得該 category 的設定，預設為 articles
-  const config = CATEGORY_CONFIG[category] || CATEGORY_CONFIG['articles'];
+  const config = CATEGORY_CONFIG[category] || CATEGORY_CONFIG["articles"];
   const { dest, type } = config;
 
-  if (type === 'by-company') {
+  if (type === "by-company") {
     const company = getCompanyFromFilename(fileName);
     return path.join(MULTIVAC_ROOT, dest, company, fileName);
   }
@@ -357,7 +382,7 @@ function getDestPath(filePath, category) {
  * 主程式
  */
 function main() {
-  console.log('🧠 Pensieve → Multivac42 發布腳本\n');
+  console.log("🧠 Pensieve → Multivac42 發布腳本\n");
 
   // 檢查 Multivac42 目錄
   if (!fs.existsSync(MULTIVAC_ROOT)) {
@@ -365,9 +390,9 @@ function main() {
     process.exit(1);
   }
 
-  const toPublish = [];      // 要發布的文章
-  const needsUpdate = [];    // 已發布但有更新的文章
-  const notPublished = [];   // 標記 status: published 但尚未發布的文章
+  const toPublish = []; // 要發布的文章
+  const needsUpdate = []; // 已發布但有更新的文章
+  const notPublished = []; // 標記 status: published 但尚未發布的文章
   const validationErrors = []; // 驗證錯誤
 
   // 掃描所有來源目錄
@@ -382,30 +407,33 @@ function main() {
       // 讀取檔案（含錯誤處理）
       let content;
       try {
-        content = fs.readFileSync(filePath, 'utf-8');
+        content = fs.readFileSync(filePath, "utf-8");
       } catch (err) {
-        logError(filePath, 'FILE_READ', `無法讀取檔案`, err.message);
+        logError(filePath, "FILE_READ", `無法讀取檔案`, err.message);
         continue;
       }
 
       const { frontmatter, parseError } = parseFrontmatter(content, filePath);
 
       if (parseError) {
-        logError(filePath, 'FRONTMATTER', parseError);
+        logError(filePath, "FRONTMATTER", parseError);
         continue;
       }
 
-      if (frontmatter.status !== 'published') continue;
+      if (frontmatter.status !== "published") continue;
 
       // 根據 frontmatter category 決定目標，若無則根據來源目錄推斷
-      const category = frontmatter.category || inferCategoryFromPath(srcDirRelative);
+      const category =
+        frontmatter.category || inferCategoryFromPath(srcDirRelative);
       const destPath = getDestPath(filePath, category);
 
       const srcModTime = getFileModTime(filePath);
       const destModTime = getFileModTime(destPath);
 
       // 驗證文章（如果啟用驗證模式）
-      const errors = validateMode ? validateForPublish(frontmatter, filePath) : [];
+      const errors = validateMode
+        ? validateForPublish(frontmatter, filePath)
+        : [];
 
       const article = {
         srcPath: filePath,
@@ -414,7 +442,7 @@ function main() {
         category: category,
         relativeSrc: path.relative(PENSIEVE_ROOT, filePath),
         relativeDest: path.relative(MULTIVAC_ROOT, destPath),
-        validationErrors: errors
+        validationErrors: errors,
       };
 
       if (errors.length > 0) {
@@ -434,7 +462,7 @@ function main() {
   }
 
   // 顯示狀態
-  console.log('📊 同步狀態：\n');
+  console.log("📊 同步狀態：\n");
 
   if (notPublished.length > 0) {
     console.log(`📝 新文章待發布 (${notPublished.length} 篇)：`);
@@ -453,7 +481,7 @@ function main() {
   }
 
   if (toPublish.length === 0) {
-    console.log('✅ 所有文章都已是最新狀態！\n');
+    console.log("✅ 所有文章都已是最新狀態！\n");
     return;
   }
 
@@ -467,23 +495,25 @@ function main() {
       }
     }
     console.log();
-    console.log('請修正上述問題後再發布。\n');
-    console.log('提示：使用 node scripts/validate-article.js <file> 進行詳細驗證。');
+    console.log("請修正上述問題後再發布。\n");
+    console.log(
+      "提示：使用 node scripts/validate-article.js <file> 進行詳細驗證。",
+    );
     process.exit(1);
   }
 
   // 如果只是查看狀態，到此結束
   if (statusOnly) {
     console.log(`共 ${toPublish.length} 篇文章需要處理。\n`);
-    console.log('使用 node scripts/publish-to-multivac.js 執行發布。');
+    console.log("使用 node scripts/publish-to-multivac.js 執行發布。");
     return;
   }
 
   // 執行發布
-  console.log('---\n');
+  console.log("---\n");
 
   if (isDryRun) {
-    console.log('🔍 Dry Run 模式（不會實際複製檔案）\n');
+    console.log("🔍 Dry Run 模式（不會實際複製檔案）\n");
   }
 
   console.log(`📤 開始發布 ${toPublish.length} 篇文章...\n`);
@@ -507,7 +537,7 @@ function main() {
 
         // 讀取、轉換、寫入
         verbose(`讀取來源檔案...`);
-        const content = fs.readFileSync(article.srcPath, 'utf-8');
+        const content = fs.readFileSync(article.srcPath, "utf-8");
 
         verbose(`轉換內容格式...`);
         const transformed = transformArticle(content, article.srcPath);
@@ -518,7 +548,7 @@ function main() {
         console.log(`   ✅ 完成`);
         successCount++;
       } catch (err) {
-        logError(article.srcPath, 'PUBLISH', `發布失敗`, err.message);
+        logError(article.srcPath, "PUBLISH", `發布失敗`, err.message);
         console.log(`   ❌ 失敗：${err.message}`);
         failCount++;
       }
@@ -529,7 +559,7 @@ function main() {
     console.log();
   }
 
-  console.log('---\n');
+  console.log("---\n");
 
   // 顯示處理摘要
   if (!isDryRun) {
@@ -559,49 +589,49 @@ function main() {
 
   // 自動 commit（如果有成功發布的文章）
   if (!isDryRun && successCount > 0 && autoCommit) {
-    console.log('🔄 執行自動 Git Commit...\n');
+    console.log("🔄 執行自動 Git Commit...\n");
 
     try {
-      const { execFileSync } = require('child_process');
+      const { execFileSync } = require("child_process");
 
       // 切換到 M42 目錄
       process.chdir(MULTIVAC_ROOT);
       verbose(`切換到目錄：${MULTIVAC_ROOT}`);
 
       // git add（使用 execFileSync 避免 shell injection）
-      verbose('執行 git add -A');
-      execFileSync('git', ['add', '-A'], { encoding: 'utf-8' });
+      verbose("執行 git add -A");
+      execFileSync("git", ["add", "-A"], { encoding: "utf-8" });
 
       // 生成 commit 訊息
-      const commitMsg = successCount === 1
-        ? `發布文章：${toPublish[0].title}`
-        : `發布/更新 ${successCount} 篇文章`;
+      const commitMsg =
+        successCount === 1
+          ? `發布文章：${toPublish[0].title}`
+          : `發布/更新 ${successCount} 篇文章`;
 
       // git commit（使用 execFileSync 避免 shell injection）
       verbose(`執行 git commit -m "${commitMsg}"`);
-      execFileSync('git', ['commit', '-m', commitMsg], { encoding: 'utf-8' });
+      execFileSync("git", ["commit", "-m", commitMsg], { encoding: "utf-8" });
 
       console.log(`   ✅ Git commit 完成：${commitMsg}\n`);
-      console.log('下一步：');
-      console.log('  cd ~/multivac42');
-      console.log('  git push');
-
+      console.log("下一步：");
+      console.log("  cd ~/multivac42");
+      console.log("  git push");
     } catch (err) {
       // 檢查是否是 "nothing to commit" 的情況
-      if (err.stderr && err.stderr.includes('nothing to commit')) {
-        console.log('   ℹ️  沒有變更需要 commit\n');
+      if (err.stderr && err.stderr.includes("nothing to commit")) {
+        console.log("   ℹ️  沒有變更需要 commit\n");
       } else {
-        logError(MULTIVAC_ROOT, 'GIT_COMMIT', 'Git commit 失敗', err.message);
+        logError(MULTIVAC_ROOT, "GIT_COMMIT", "Git commit 失敗", err.message);
         console.log(`   ❌ Git commit 失敗：${err.message}\n`);
       }
     }
   } else if (!isDryRun && failCount === 0 && successCount > 0) {
-    console.log('下一步：');
-    console.log('  cd ~/multivac42');
-    console.log('  git add -A');
+    console.log("下一步：");
+    console.log("  cd ~/multivac42");
+    console.log("  git add -A");
     console.log('  git commit -m "發布/更新文章"');
-    console.log('  git push');
-    console.log('\n💡 提示：使用 --auto-commit 可自動執行 git add + commit');
+    console.log("  git push");
+    console.log("\n💡 提示：使用 --auto-commit 可自動執行 git add + commit");
   }
 
   // 如果有失敗，退出碼為 1
