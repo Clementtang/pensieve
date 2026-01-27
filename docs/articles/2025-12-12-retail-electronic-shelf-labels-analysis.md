@@ -15,7 +15,7 @@ status: published
 ## 元資料
 
 - **建立日期：** 2025-12-12
-- **更新日期：** 2025-12-12
+- **更新日期：** 2025-12-12（修正日本 RFID 倡議相關表述）
 - **標籤：** #零售科技 #電子標籤 #ESL #數位轉型 #動態定價 #智慧零售
 - **狀態：** 已發布
 - **字數：** 約 4500 字
@@ -66,7 +66,7 @@ status: published
 **亞太地區**領導全球成長：
 - 2024 年佔市場份額 32.2%
 - 預計至 2030 年 CAGR 達 15.23%
-- 日本政府 2025 年自動化強制令推動 RFID/ESL 全面覆蓋
+- 日本 2017 年啟動「便利商店電子標籤1000億片宣言」，目標 2025 年全面採用 RFID（但進展低於預期）
 
 **全球市場分布：**
 - 北美：35%
@@ -91,9 +91,9 @@ status: published
    - AI 與 Gen AI 應用
    - IoT 生態系統整合
 
-4. **法規推動**
-   - 歐盟數位產品護照（Digital Product Passport）要求
-   - 日本 2025 年自動化法規
+4. **政策與產業倡議**
+   - 歐盟數位產品護照（Digital Product Passport）強制要求
+   - 日本 METI「便利商店電子標籤1000億片宣言」（2017-2025 產業自願協議）
    - 環保永續發展壓力
 
 ---
@@ -651,10 +651,11 @@ ESL → 感測器網路 → 邊緣運算 → 雲端平台 → AI 分析
 - 無需掃描條碼
 - 無縫購物體驗
 
-**日本 2025 法規：**
-- 強制便利商店無摩擦結帳
-- 推動 RFID/ESL 覆蓋
-- 加速無人化趨勢
+**日本 RFID 倡議（2017-2025）：**
+- **產業自願協議**：METI 與五大便利商店鏈（7-Eleven、FamilyMart、Lawson、Ministop、NewDays）達成協議
+- **目標**：2025 年為 1000 億件產品貼上 RFID 標籤，實現無人化結帳
+- **條件**：標籤成本需降至 1 日元以下、實現源頭貼標
+- **實際進展**：因成本與技術挑戰，全面部署進展低於預期
 
 ### 7. 超個人化零售
 
@@ -854,6 +855,13 @@ ESL 投資應被視為零售數位基礎設施的戰略投資，而非單純的�
 - [電子貨架標籤](https://www.arizonrfid.com/webls-zh-tw/category-esl-system.html) - Arizon RFID
 - [電子標籤 (ESL) 解決方案](https://www.edomtech.com/zh-tw/solution-detail/electronic-shelf-label-solution/) - 益登科技
 - [E Ink 元太科技 電子紙應用領域](https://tw.eink.com/application/detail/ESL) - E Ink 元太科技
+
+### 日本 RFID 倡議
+
+- [Japan Aims To Automate All Convenience Stores By 2025 With A New RFID Technology](https://therainalliance.org/japan-aims-to-automate-all-convenience-stores-by-2025-with-a-new-rfid-technology/) - The RAIN Alliance
+- [Better Convenience Through Automation: Five Japanese Convenience Store Chains Sign Up to Automate All Stores by 2025](https://coresight.com/research/better-convenience-through-automation-five-japanese-convenience-store-chains-sign-up-to-automate-all-stores-by-2025/) - Coresight Research
+- [RFID in Japan Convenience Stores: Big Dreams, Real-World Limits](https://viscovery.com/en/rfid-in-japan-convenience-stores-big-dreams-real-world-limits/) - Viscovery
+- [2025年までにコンビニの全商品をRFIDタグで管理、経産省がコンビニ運営5社と合意](https://sgforum.impress.co.jp/news/3851) - Smart Grid Forum（日文）
 
 ---
 
