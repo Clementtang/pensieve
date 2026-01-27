@@ -5,7 +5,7 @@ date: 2026-01-06
 author: "Clement Tang"
 tags: ["LEGO", "Smart Brick", "CES 2026", "玩具科技", "社群貼文"]
 category: articles
-publish: true
+status: published
 ---
 
 # LEGO 推出 Smart Brick，把一台電腦塞進積木裡
@@ -117,4 +117,4 @@ LEGO 已宣布將把 Smart Play 擴展到 City 和 Technic 系列。但真正有
 
 ---
 
-*最後更新：2026-01-07*
+_最後更新：2026-01-07_
