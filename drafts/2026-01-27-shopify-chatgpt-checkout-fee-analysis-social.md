@@ -16,9 +16,9 @@ status: published
 
 ## 4% 只是開始
 
-根據 The Information 的報導，OpenAI 對每筆透過 ChatGPT Instant Checkout 完成的訂單收取 4% 的服務費。這個數字乍看之下不算驚人，畢竟 Amazon 的抽成高達 15% 甚至更多。但魔鬼藏在細節裡，這 4% 是疊加在 Shopify 原有費用之上的額外支出。
+根據 [The Information 的報導](https://www.theinformation.com/briefings/chatgpt-checkouts-take-4-cut-shopify-merchant-sales)，OpenAI 對每筆透過 ChatGPT Instant Checkout 完成的訂單收取 4% 的服務費。這個數字乍看之下不算驚人，畢竟 Amazon 的抽成高達 15% 甚至更多。但魔鬼藏在細節裡，這 4% 是疊加在 Shopify 原有費用之上的額外支出。
 
-讓我算一筆帳。假設你是一家使用 Shopify Payments 的商家，原本每筆線上交易需要支付約 2.9% 的處理費，現在如果訂單是從 ChatGPT 來的，你還要再付 4% 給 OpenAI，總計約 7%。這個數字怎麼看？根據 Marketplace Pulse 的分析，一個在 Amazon 年銷售 100 萬美元的賣家，光是 referral fee 就要付約 15 萬美元，再加上為了維持曝光而不得不投入的廣告費 10 到 15 萬美元，總成本高達 25% 到 30%。相比之下，ChatGPT 加 Shopify 的 7% 確實便宜許多。
+讓我算一筆帳。假設你是一家使用 Shopify Payments 的商家，原本每筆線上交易需要支付約 2.9% 的處理費，現在如果訂單是從 ChatGPT 來的，你還要再付 4% 給 OpenAI，總計約 7%。這個數字怎麼看？根據 [Marketplace Pulse 的分析](https://www.marketplacepulse.com/articles/chatgpts-4-fee-confirms-marketplace-economics)，一個在 Amazon 年銷售 100 萬美元的賣家，光是 referral fee 就要付約 15 萬美元，再加上為了維持曝光而不得不投入的廣告費 10 到 15 萬美元，總成本高達 25% 到 30%。相比之下，ChatGPT 加 Shopify 的 7% 確實便宜許多。
 
 但這還沒算進去商家原本就要負擔的商品成本、物流費用、退貨損失。當這些層層疊加，利潤空間還是會被壓縮。
 
@@ -60,7 +60,7 @@ OpenAI 選擇了不同的路，從一開始就收費，用 4% 的抽成明確告
 
 還有一個值得關注的變數是廣告。OpenAI 已宣布將在 2 月開始測試廣告，雖然官方承諾「廣告不影響 ChatGPT 的回答」，但根據內部文件，OpenAI 的免費用戶變現目標是 2026 年 10 億美元，到 2029 年要成長到 250 億美元。這個規模的營收壓力下，「廣告不影響回答」的原則能維持多久？當年 Amazon 的 sponsored products 也是從「明確標示」開始，最終卻主導了整個搜尋結果。
 
-也有樂觀的看法。廣告產業分析師 Eric Seufert 認為，只要 OpenAI 採用「行為定向」而非「情境定向」，讓廣告基於使用者的購買歷史而非當下對話內容來投放，就能在結構上避免利益衝突。換句話說，當你問 ChatGPT 推薦跑鞋時，看到的廣告可能是你上週搜尋過的咖啡機，而非跑鞋品牌的付費推廣。這樣的設計確實能讓「廣告不影響回答」的承諾更可信。但問題在於，當 ChatGPT 成為主流購物入口，品牌商勢必會要求「情境相關」的廣告位，屆時 OpenAI 能否抵擋這個壓力，還有待觀察。
+也有樂觀的看法。廣告產業分析師 [Eric Seufert 認為](https://mobiledevmemo.com/openai-embraces-the-inevitable-ads-come-to-chatgpt/)，只要 OpenAI 採用「行為定向」而非「情境定向」，讓廣告基於使用者的購買歷史而非當下對話內容來投放，就能在結構上避免利益衝突。換句話說，當你問 ChatGPT 推薦跑鞋時，看到的廣告可能是你上週搜尋過的咖啡機，而非跑鞋品牌的付費推廣。這樣的設計確實能讓「廣告不影響回答」的承諾更可信。但問題在於，當 ChatGPT 成為主流購物入口，品牌商勢必會要求「情境相關」的廣告位，屆時 OpenAI 能否抵擋這個壓力，還有待觀察。
 
 ## 我的判斷
 
