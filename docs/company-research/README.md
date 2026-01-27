@@ -139,7 +139,7 @@ vim docs/company-research/YYYY-MM-DD-company-name-research.md
 
 | 公司 | 產業 | 日期 | 研究深度 |
 |------|------|------|---------|
-| *尚無研究* | | | |
+| [BASE 株式會社](./2025-11-23-base-inc-research.md) | 電子商務/SaaS | 2025-11-23 | 初步研究 |
 
 ---
 
