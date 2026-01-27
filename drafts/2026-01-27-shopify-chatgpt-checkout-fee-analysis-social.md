@@ -5,7 +5,7 @@ date: 2026-01-27
 author: "Clement Tang"
 tags: ["AI", "電子商務", "Shopify", "ChatGPT", "代理商務"]
 category: articles
-status: draft
+status: published
 ---
 
 # AI 購物的隱藏成本：Shopify 商家在 ChatGPT 賣東西，代價是多少？
