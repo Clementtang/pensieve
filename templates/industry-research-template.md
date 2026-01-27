@@ -16,36 +16,18 @@ version: "1.0"
 
 ## 元資料
 
-- **建立日期：** YYYY-MM-DD
-- **更新日期：** YYYY-MM-DD
-- **研究類型：** 產業分析 / 技術趨勢 / 市場研究
-- **標籤：** #標籤1 #標籤2
-- **狀態：** 草稿 / 已發布 / 更新中
-- **版本：** 1.0
-- **字數：** 約 X 字
+| 項目         | 內容                           |
+| ------------ | ------------------------------ |
+| **建立日期** | YYYY-MM-DD                     |
+| **更新日期** | YYYY-MM-DD                     |
+| **研究類型** | 產業分析 / 技術趨勢 / 市場研究 |
+| **標籤**     | #標籤1 #標籤2                  |
+| **狀態**     | 草稿 / 已發布 / 更新中         |
+| **字數**     | 約 X 字                        |
 
 ### Feature Image Prompt
 
-> 複製以下 prompt 到 Gemini (gemini-3-pro-image-preview) 生成 16:9 圖片
-
-```
-[SCENE]: {根據文章主題描述場景}
-
-[STYLE]: modern business illustration, clean professional design,
-amber gold accent (#f59e0b) on deep dark background (#0a0a0f),
-minimalist composition, high-quality digital art,
-tech-forward aesthetic with warm golden highlights
-
-[COMPOSITION]: centered focal point, 16:9 aspect ratio,
-balanced composition with visual breathing room
-
-[MOOD]: {professional / innovative / analytical / transformative}
-
-[SPECIFIC ELEMENTS]: {從文章標籤轉化的 2-3 個視覺元素}
-
-[AVOID]: text, words, letters, logos, realistic human faces,
-cluttered composition, company branding
-```
+> 參見 [Feature Image Prompt Template](../prompts/feature-image-prompt-template.md)
 
 ---
 
@@ -63,13 +45,13 @@ cluttered composition, company branding
 
 ### 關鍵發現
 
-| 面向       | 發現 | 重要性     |
-| ---------- | ---- | ---------- |
-| 市場規模   |      | ⭐⭐⭐⭐⭐ |
-| 成長趨勢   |      |            |
-| 技術演進   |      |            |
-| 競爭格局   |      |            |
-| 機會與風險 |      |            |
+| 面向       | 發現   | 信心程度 |
+| ---------- | ------ | -------- |
+| 市場規模   | [簡述] | 高/中/低 |
+| 成長趨勢   |        |          |
+| 技術演進   |        |          |
+| 競爭格局   |        |          |
+| 機會與風險 |        |          |
 
 ### 核心結論
 
@@ -372,22 +354,6 @@ cluttered composition, company branding
 ### 公司資料
 
 - [資料名稱](連結) - 公司, 日期
-
----
-
-## 更新記錄
-
-| 日期       | 版本 | 更新內容 |
-| ---------- | ---- | -------- |
-| YYYY-MM-DD | 1.0  | 初始版本 |
-
----
-
-## 相關研究
-
-- [相關主題研究 1](連結)
-- [相關公司研究](連結)
-- [相關時事評論](連結)
 
 ---
 

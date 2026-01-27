@@ -9,6 +9,50 @@
 
 ### Added
 
+- **社群貼文模板** (`templates/social-post-template.md`)
+  - 支援多平台版本：完整版（1,500-2,500 字）、精簡版（500-800 字）、極簡版（280 字）
+  - 包含發布指南：最佳時間、Hashtags、互動設計
+  - 連結原始研究，實現一次研究多平台發布
+
+### Changed
+
+- **模板全面優化**（基於實際使用情況分析）
+  - **Article Template 結構重構**
+    - 新增 The Big Picture、Why It Matters、What's Next 章節
+    - 移除低使用率章節：實作應用、常見問題、延伸閱讀、更新記錄
+    - 精簡結構從 138 行至約 84 行
+
+  - **Company Research Template 優化**
+    - 星等評分（⭐）改為敘事性評估（強勢/穩健/待觀察/薄弱）
+    - 新增「快速評估」區塊：值得關注的理由、主要疑慮、一句話結論
+    - SWOT 交叉策略矩陣標記為可選（適用深度研究）
+    - 移除附錄 A（詞彙表）、附錄 C（研究方法論）
+
+  - **Topic Research Lite Template 強化**
+    - 新增「快速啟動」區塊，時間有限時只填此區塊也可形成完整分析
+    - 目標字數調整為 2,000-5,000 字（原 3,000-8,000 字）
+    - 推薦作為主要議題研究模板
+
+  - **Topic Research Standard Template 精簡**
+    - 移除 0% 使用率框架：系統思考分析、倫理分析框架
+    - 多維度分析改為模組化選擇（PESTEL、經濟、社會文化、科技影響）
+    - 移除附錄 D（延伸閱讀）、更新記錄、研究方法論說明
+    - 新增深度版說明標記
+
+  - **Industry Research Template 優化**
+    - 星等評分改為敘事性評估（信心程度：高/中/低）
+    - 移除更新記錄、相關研究章節
+
+  - **所有模板統一化**
+    - 元資料區塊統一採用表格格式
+    - Feature Image Prompt 集中化為引用連結
+    - 統一結尾格式，移除獨立更新記錄
+
+- **templates/README.md 更新**
+  - 新增 Social Post Template 說明
+  - 更新各模板包含結構描述
+  - 新增模板使用提示
+
 - **Feature Image Prompt 自動生成系統**
   - 新增 `scripts/generate-feature-image-prompt.js` 腳本
   - 新增 `prompts/feature-image-prompt-template.md` 設計規範

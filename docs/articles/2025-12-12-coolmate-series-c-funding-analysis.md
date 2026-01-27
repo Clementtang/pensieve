@@ -5,7 +5,7 @@ date: 2025-12-12
 author: "Clement Tang"
 tags: ["Coolmate", "越南新創", "D2C品牌", "電商", "東南亞", "獨角獸"]
 category: articles
-status: draft
+status: published
 ---
 
 # 最難的決定：越南最火 D2C 品牌「主動踩剎車」，一年後融資翻倍
@@ -83,4 +83,4 @@ Coolmate 的故事給台灣創業者三個重要啟示。
 
 ---
 
-*最後更新：2025-12-14*
+_最後更新：2025-12-14_
