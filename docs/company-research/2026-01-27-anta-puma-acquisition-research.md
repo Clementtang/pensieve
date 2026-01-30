@@ -4,7 +4,7 @@ description: "分析中國安踏體育以 15 億歐元收購 PUMA 29% 股權的�
 date: 2026-01-27
 author: "Clement Tang"
 tags: ["議題研究", "運動產業", "併購", "安踏", "PUMA", "中國企業"]
-category: topic-research
+category: company-research
 status: published
 version: "1.0"
 ---
