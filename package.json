@@ -11,7 +11,7 @@
     "lint:fix": "markdownlint 'docs/**/*.md' 'drafts/**/*.md' --config .markdownlint.yml --fix"
   },
   "devDependencies": {
-    "markdownlint-cli": "^0.43.0"
+    "markdownlint-cli": "^0.47.0"
   },
   "keywords": [
     "research",
