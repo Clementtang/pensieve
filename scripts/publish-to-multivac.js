@@ -36,6 +36,7 @@
 
 const fs = require("fs");
 const path = require("path");
+const { parseFrontmatter, generateFrontmatter } = require("./lib/frontmatter");
 
 // 路徑設定
 const PENSIEVE_ROOT = path.resolve(__dirname, "..");
@@ -149,103 +150,7 @@ function validateForPublish(frontmatter, filePath) {
   return errors;
 }
 
-/**
- * 解析 YAML frontmatter
- * @param {string} content - 檔案內容
- * @param {string} filePath - 檔案路徑（用於錯誤報告）
- * @returns {{frontmatter: Object, body: string, parseError: string|null}}
- */
-function parseFrontmatter(content, filePath = "unknown") {
-  const match = content.match(/^---\n([\s\S]*?)\n---/);
-  if (!match) {
-    return {
-      frontmatter: {},
-      body: content,
-      parseError: "檔案缺少 YAML frontmatter（--- 區塊）",
-    };
-  }
-
-  const frontmatterStr = match[1];
-  const body = content.slice(match[0].length).trim();
-
-  const frontmatter = {};
-  const lines = frontmatterStr.split("\n");
-  let lineNumber = 0;
-
-  for (const line of lines) {
-    lineNumber++;
-    const colonIndex = line.indexOf(":");
-    if (colonIndex === -1) {
-      // 空行或無效行，跳過
-      if (line.trim() !== "") {
-        verbose(`第 ${lineNumber} 行格式不正確，跳過：${line}`);
-      }
-      continue;
-    }
-
-    const key = line.slice(0, colonIndex).trim();
-    let value = line.slice(colonIndex + 1).trim();
-
-    if (!key) {
-      verbose(`第 ${lineNumber} 行缺少 key，跳過`);
-      continue;
-    }
-
-    // 處理字串值（移除引號）
-    if (
-      (value.startsWith('"') && value.endsWith('"')) ||
-      (value.startsWith("'") && value.endsWith("'"))
-    ) {
-      value = value.slice(1, -1);
-    }
-
-    // 處理陣列
-    if (value.startsWith("[") && value.endsWith("]")) {
-      try {
-        value = JSON.parse(value);
-      } catch (e) {
-        logError(
-          filePath,
-          "YAML_PARSE",
-          `第 ${lineNumber} 行陣列解析失敗`,
-          `key: ${key}, value: ${value}`,
-        );
-        // 保持原值
-      }
-    }
-
-    // 處理布林值
-    if (value === "true") value = true;
-    if (value === "false") value = false;
-
-    frontmatter[key] = value;
-  }
-
-  return { frontmatter, body, parseError: null };
-}
-
-/**
- * 生成 YAML frontmatter
- */
-function generateFrontmatter(fm) {
-  let yaml = "---\n";
-
-  for (const [key, value] of Object.entries(fm)) {
-    if (Array.isArray(value)) {
-      yaml += `${key}: ${JSON.stringify(value)}\n`;
-    } else if (
-      typeof value === "string" &&
-      (value.includes(":") || value.includes('"'))
-    ) {
-      yaml += `${key}: "${value}"\n`;
-    } else {
-      yaml += `${key}: ${value}\n`;
-    }
-  }
-
-  yaml += "---";
-  return yaml;
-}
+// parseFrontmatter 和 generateFrontmatter 已移至 ./lib/frontmatter.js
 
 /**
  * 移除 ## 元資料 區塊
@@ -413,7 +318,11 @@ function main() {
         continue;
       }
 
-      const { frontmatter, parseError } = parseFrontmatter(content, filePath);
+      const { frontmatter, parseError } = parseFrontmatter(content, {
+        filePath,
+        verbose: verboseMode,
+        logError,
+      });
 
       if (parseError) {
         logError(filePath, "FRONTMATTER", parseError);

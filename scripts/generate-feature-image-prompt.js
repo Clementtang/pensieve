@@ -21,6 +21,7 @@
 const fs = require("fs");
 const path = require("path");
 const { execFileSync } = require("child_process");
+const { parseFrontmatter } = require("./lib/frontmatter");
 
 // 解析命令列參數
 const args = process.argv.slice(2);
@@ -79,45 +80,7 @@ tech-forward aesthetic with warm golden highlights`;
 const AVOID_ELEMENTS =
   "text, words, letters, logos, realistic human faces, cluttered composition, bright garish colors, company branding";
 
-/**
- * 解析 YAML frontmatter
- */
-function parseFrontmatter(content) {
-  const match = content.match(/^---\n([\s\S]*?)\n---/);
-  if (!match) return null;
-
-  const frontmatter = {};
-  const lines = match[1].split("\n");
-
-  for (const line of lines) {
-    const colonIndex = line.indexOf(":");
-    if (colonIndex === -1) continue;
-
-    const key = line.slice(0, colonIndex).trim();
-    let value = line.slice(colonIndex + 1).trim();
-
-    // 處理引號
-    if (
-      (value.startsWith('"') && value.endsWith('"')) ||
-      (value.startsWith("'") && value.endsWith("'"))
-    ) {
-      value = value.slice(1, -1);
-    }
-
-    // 處理陣列
-    if (value.startsWith("[") && value.endsWith("]")) {
-      try {
-        value = JSON.parse(value);
-      } catch {
-        // 保持原值
-      }
-    }
-
-    frontmatter[key] = value;
-  }
-
-  return frontmatter;
-}
+// parseFrontmatter 已移至 ./lib/frontmatter.js
 
 /**
  * 從標題提取核心概念，轉化為視覺場景
@@ -334,9 +297,9 @@ function main() {
 
   // 讀取並解析文章
   const content = fs.readFileSync(fullPath, "utf-8");
-  const frontmatter = parseFrontmatter(content);
+  const { frontmatter, hasFrontmatter } = parseFrontmatter(content);
 
-  if (!frontmatter) {
+  if (!hasFrontmatter) {
     console.error("❌ 無法解析文章 frontmatter");
     process.exit(1);
   }

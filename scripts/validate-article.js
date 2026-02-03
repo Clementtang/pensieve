@@ -21,24 +21,25 @@
  *   --quiet    只顯示錯誤，不顯示成功訊息
  */
 
-const fs = require('fs');
-const path = require('path');
+const fs = require("fs");
+const path = require("path");
+const { parseFrontmatter } = require("./lib/frontmatter");
 
 // 有效的 status 值
-const VALID_STATUS = ['draft', 'in-progress', 'published', 'archived'];
+const VALID_STATUS = ["draft", "in-progress", "published", "archived"];
 
 // 有效的 category 值
 const VALID_CATEGORIES = [
-  'articles',
-  'company-research',
-  'topic-research',
-  'tutorial',
-  'note',
-  'memo'
+  "articles",
+  "company-research",
+  "topic-research",
+  "tutorial",
+  "note",
+  "memo",
 ];
 
 // 必填欄位
-const REQUIRED_FIELDS = ['title', 'description', 'date', 'category', 'status'];
+const REQUIRED_FIELDS = ["title", "description", "date", "category", "status"];
 
 // 日期格式正則
 const DATE_REGEX = /^\d{4}-\d{2}-\d{2}$/;
@@ -48,65 +49,24 @@ const FILENAME_REGEX = /^\d{4}-\d{2}-\d{2}-[\w-]+\.md$/;
 
 // 解析命令列參數
 const args = process.argv.slice(2);
-const quietMode = args.includes('--quiet');
-const targetPath = args.find(arg => !arg.startsWith('--'));
+const quietMode = args.includes("--quiet");
+const targetPath = args.find((arg) => !arg.startsWith("--"));
 
 if (!targetPath) {
-  console.log('使用方式：node scripts/validate-article.js <file|directory>');
-  console.log('');
-  console.log('範例：');
-  console.log('  node scripts/validate-article.js docs/articles/2025-01-01-my-article.md');
-  console.log('  node scripts/validate-article.js docs/articles/');
-  console.log('');
-  console.log('選項：');
-  console.log('  --quiet    只顯示錯誤，不顯示成功訊息');
+  console.log("使用方式：node scripts/validate-article.js <file|directory>");
+  console.log("");
+  console.log("範例：");
+  console.log(
+    "  node scripts/validate-article.js docs/articles/2025-01-01-my-article.md",
+  );
+  console.log("  node scripts/validate-article.js docs/articles/");
+  console.log("");
+  console.log("選項：");
+  console.log("  --quiet    只顯示錯誤，不顯示成功訊息");
   process.exit(0);
 }
 
-/**
- * 解析 YAML frontmatter
- */
-function parseFrontmatter(content) {
-  const match = content.match(/^---\n([\s\S]*?)\n---/);
-  if (!match) return { frontmatter: null, body: content, hasFrontmatter: false };
-
-  const frontmatterStr = match[1];
-  const body = content.slice(match[0].length).trim();
-
-  const frontmatter = {};
-  const lines = frontmatterStr.split('\n');
-
-  for (const line of lines) {
-    const colonIndex = line.indexOf(':');
-    if (colonIndex === -1) continue;
-
-    const key = line.slice(0, colonIndex).trim();
-    let value = line.slice(colonIndex + 1).trim();
-
-    // 處理字串值（移除引號）
-    if ((value.startsWith('"') && value.endsWith('"')) ||
-        (value.startsWith("'") && value.endsWith("'"))) {
-      value = value.slice(1, -1);
-    }
-
-    // 處理陣列
-    if (value.startsWith('[') && value.endsWith(']')) {
-      try {
-        value = JSON.parse(value);
-      } catch (e) {
-        // 保持原值
-      }
-    }
-
-    // 處理布林值
-    if (value === 'true') value = true;
-    if (value === 'false') value = false;
-
-    frontmatter[key] = value;
-  }
-
-  return { frontmatter, body, hasFrontmatter: true };
-}
+// parseFrontmatter 已移至 ./lib/frontmatter.js
 
 /**
  * 驗證單一文章
@@ -119,13 +79,13 @@ function validateArticle(filePath) {
   // 讀取檔案
   let content;
   try {
-    content = fs.readFileSync(filePath, 'utf-8');
+    content = fs.readFileSync(filePath, "utf-8");
   } catch (err) {
     return { errors: [`無法讀取檔案：${err.message}`], warnings: [] };
   }
 
   // 跳過 index.md 和 README.md
-  if (fileName === 'index.md' || fileName === 'README.md') {
+  if (fileName === "index.md" || fileName === "README.md") {
     return { errors: [], warnings: [], skipped: true };
   }
 
@@ -138,7 +98,7 @@ function validateArticle(filePath) {
   const { frontmatter, body, hasFrontmatter } = parseFrontmatter(content);
 
   if (!hasFrontmatter) {
-    errors.push('缺少 YAML frontmatter（檔案開頭應有 --- 區塊）');
+    errors.push("缺少 YAML frontmatter（檔案開頭應有 --- 區塊）");
     return { errors, warnings };
   }
 
@@ -159,33 +119,45 @@ function validateArticle(filePath) {
 
   // 5. 驗證 status 值
   if (frontmatter.status && !VALID_STATUS.includes(frontmatter.status)) {
-    errors.push(`status 值無效：應為 ${VALID_STATUS.join('/')}, 目前為 ${frontmatter.status}`);
+    errors.push(
+      `status 值無效：應為 ${VALID_STATUS.join("/")}, 目前為 ${frontmatter.status}`,
+    );
   }
 
   // 6. 驗證 category 值
-  if (frontmatter.category && !VALID_CATEGORIES.includes(frontmatter.category)) {
-    warnings.push(`category 值不在建議清單中：${frontmatter.category}（建議：${VALID_CATEGORIES.join(', ')}）`);
+  if (
+    frontmatter.category &&
+    !VALID_CATEGORIES.includes(frontmatter.category)
+  ) {
+    warnings.push(
+      `category 值不在建議清單中：${frontmatter.category}（建議：${VALID_CATEGORIES.join(", ")}）`,
+    );
   }
 
   // 7. 檢查 H1 標題
   const h1Match = body.match(/^# .+$/m);
   if (!h1Match) {
-    warnings.push('內容中缺少 H1 標題（# 開頭的標題）');
+    warnings.push("內容中缺少 H1 標題（# 開頭的標題）");
   }
 
   // 8. 檢查多個 H1 標題
   const h1Matches = body.match(/^# .+$/gm);
   if (h1Matches && h1Matches.length > 1) {
-    warnings.push(`內容中有多個 H1 標題（${h1Matches.length} 個），建議只保留一個`);
+    warnings.push(
+      `內容中有多個 H1 標題（${h1Matches.length} 個），建議只保留一個`,
+    );
   }
 
   // 9. 建議欄位
   if (!frontmatter.author) {
-    warnings.push('建議填寫 author 欄位');
+    warnings.push("建議填寫 author 欄位");
   }
 
-  if (!frontmatter.tags || (Array.isArray(frontmatter.tags) && frontmatter.tags.length === 0)) {
-    warnings.push('建議填寫 tags 欄位');
+  if (
+    !frontmatter.tags ||
+    (Array.isArray(frontmatter.tags) && frontmatter.tags.length === 0)
+  ) {
+    warnings.push("建議填寫 tags 欄位");
   }
 
   return { errors, warnings };
@@ -206,9 +178,9 @@ function scanDirectory(dir) {
 
   for (const entry of entries) {
     const fullPath = path.join(dir, entry.name);
-    if (entry.isFile() && entry.name.endsWith('.md')) {
+    if (entry.isFile() && entry.name.endsWith(".md")) {
       files.push(fullPath);
-    } else if (entry.isDirectory() && !entry.name.startsWith('.')) {
+    } else if (entry.isDirectory() && !entry.name.startsWith(".")) {
       files.push(...scanDirectory(fullPath));
     }
   }
@@ -275,7 +247,7 @@ function main() {
   }
 
   // 摘要
-  console.log('\n---');
+  console.log("\n---");
   console.log(`📊 驗證摘要：`);
   console.log(`   檔案數：${files.length - totalSkipped}`);
   console.log(`   通過：${totalPassed}`);
