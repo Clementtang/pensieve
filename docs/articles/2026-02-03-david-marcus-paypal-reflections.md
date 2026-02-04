@@ -16,6 +16,22 @@ original_source: "https://x.com/davidmarcus"
 
 ---
 
+## 背景
+
+2026 年 2 月 3 日，PayPal 宣布了一項重大人事變動：執行長 Alex Chriss 遭到撤換，由前 HP（惠普）執行長 Enrique Lores 接任，預計於 3 月 1 日正式上任。
+
+這項決定的背後是一連串令人失望的數字。PayPal 第四季財報顯示，營收 86.8 億美元，低於市場預期的 88 億美元；調整後每股盈餘 1.23 美元，同樣未達分析師預測。更關鍵的是，作為核心業務的 branded checkout（品牌化結帳）成長僅 1%，相較去年同期的 6% 大幅減速。消息公布後，PayPal 股價重挫近 17%。
+
+董事會在聲明中表示，Chriss 的變革速度和執行力未達預期。Chriss 於 2023 年 9 月從 Intuit（財務軟體公司）加入 PayPal，接替任職近十年的 Dan Schulman，原本被寄望能重振公司的產品創新能力。僅僅一年多，這個實驗便宣告結束。
+
+新任執行長 Lores 已在 PayPal 董事會任職近五年，自 2024 年 7 月起擔任董事長。他在 HP 任職超過六年，帶領公司從傳統 PC 和列印業務轉型至服務、訂閱和 AI 領域。然而，他的背景是硬體製造，而非支付或金融科技。
+
+就在這則新聞公布的同一天，PayPal 前總裁 David Marcus 打破了十二年的沉默，在 Twitter 上發表長文，分享他對這家他曾深度參與的公司的觀察與反思。
+
+---
+
+## David Marcus 的反思
+
 關於 PayPal 的一些想法，距離我離開已經將近 12 年了。
 
 今天早上醒來，我收到了數十則來自前 PayPal 同事的訊息。這促使我終於決定開口說話。
@@ -113,6 +129,10 @@ Visa 巧妙地設計了一項交易，實際上終結了 PayPal 將客戶引導�
 ## 參考資料
 
 - [原文推文串](https://x.com/davidmarcus) - David Marcus Twitter
+- [PayPal replaces Alex Chriss with HP's Enrique Lores as CEO](https://www.americanbanker.com/payments/news/paypal-replaces-alex-chriss-with-hps-enrique-lores-as-ceo) - American Banker
+- [PayPal shares plunge nearly 20% on CEO exit, disappointing 2026 profit forecast](https://www.cnbc.com/2026/02/03/paypal-pypl-earnings-q4-2025.html) - CNBC
+- [PayPal names HP's Enrique Lores to replace CEO Alex Chriss](https://www.bloomberg.com/news/articles/2026-02-03/paypal-names-hp-s-enrique-lores-to-replace-ceo-alex-chriss) - Bloomberg
+- [PayPal Appoints Enrique Lores as Chief Executive Officer](https://newsroom.paypal-corp.com/2026-02-03-PayPal-Appoints-Enrique-Lores-as-Chief-Executive-Officer-and-David-W-Dorman-as-Independent-Board-Chair) - PayPal Newsroom
 
 ---
 
