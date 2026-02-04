@@ -21,6 +21,12 @@
   - 移除三個腳本中的重複程式碼（淨減少 ~156 行）
   - 受影響腳本：publish-to-multivac.js、validate-article.js、generate-feature-image-prompt.js
 
+### Maintenance
+
+- **清理已合併的 Claude Code Web 分支**（2026-02-04）
+  - 刪除 27 個已合併至 main 的 `claude/*` 遠端分支
+  - 保留 4 個未合併分支供後續處理
+
 ### Added
 
 - **社群貼文模板** (`templates/social-post-template.md`)
