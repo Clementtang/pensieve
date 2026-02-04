@@ -7,6 +7,20 @@
 
 ## [Unreleased]
 
+### Security
+
+- **修復 glob 高嚴重性安全漏洞** (GHSA-5j98-mcp5-4vw2)
+  - 升級 markdownlint-cli 0.43.0 → 0.47.0
+  - 修復命令注入漏洞
+
+### Changed
+
+- **重構 Frontmatter 解析為共用模組**
+  - 新增 `scripts/lib/frontmatter.js` 共用模組
+  - 統一 `parseFrontmatter()` 與 `generateFrontmatter()` 實作
+  - 移除三個腳本中的重複程式碼（淨減少 ~156 行）
+  - 受影響腳本：publish-to-multivac.js、validate-article.js、generate-feature-image-prompt.js
+
 ### Added
 
 - **社群貼文模板** (`templates/social-post-template.md`)
