@@ -14,7 +14,7 @@ tags:
     "企業轉型",
   ]
 category: articles
-status: draft
+status: published
 original_author: "David Marcus"
 original_source: "https://x.com/davidmarcus"
 ---
