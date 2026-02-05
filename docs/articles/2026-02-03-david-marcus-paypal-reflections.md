@@ -16,7 +16,7 @@ tags:
 category: articles
 status: published
 original_author: "David Marcus"
-original_source: "https://x.com/davidmarcus"
+original_source: "https://x.com/davidmarcus/status/2018809762708873443"
 ---
 
 # 十二年後打破沉默，David Marcus 談 PayPal 的衰落
@@ -42,6 +42,8 @@ Chriss 於 2023 年 9 月從財務軟體公司 Intuit 加入 PayPal，原本被�
 新任執行長 Lores 已在 PayPal 董事會任職近五年。他在惠普任職超過六年，帶領公司從傳統 PC 和列印業務轉型至服務、訂閱和 AI 領域。然而，他的背景是硬體製造，而非支付或金融科技。
 
 就在同一天，PayPal 前總裁 David Marcus 打破了十二年的沉默，在 Twitter 上發表長文。
+
+<blockquote class="twitter-tweet"><a href="https://x.com/davidmarcus/status/2018809762708873443"></a></blockquote>
 
 ---
 
@@ -123,7 +125,7 @@ Visa 巧妙地設計了一項交易，實際上終結了 PayPal 將客戶引導�
 
 ## 參考資料
 
-- [David Marcus 原文推文](https://x.com/davidmarcus) - Twitter
+- [David Marcus 原文推文](https://x.com/davidmarcus/status/2018809762708873443) - X
 - [PayPal replaces Alex Chriss with HP's Enrique Lores as CEO](https://www.americanbanker.com/payments/news/paypal-replaces-alex-chriss-with-hps-enrique-lores-as-ceo) - American Banker
 - [PayPal shares plunge nearly 20% on CEO exit](https://www.cnbc.com/2026/02/03/paypal-pypl-earnings-q4-2025.html) - CNBC
 - [PayPal names HP's Enrique Lores to replace CEO Alex Chriss](https://www.bloomberg.com/news/articles/2026-02-03/paypal-names-hp-s-enrique-lores-to-replace-ceo-alex-chriss) - Bloomberg
