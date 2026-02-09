@@ -84,13 +84,13 @@ status: published
 
 ## 參考資料
 
-- OECD Economic Surveys: Viet Nam 2025
-- IMF Vietnam Selected Issues 2025
-- World Bank Vietnam Development Report
-- Vietnam UNFPA Population Projections
-- Fitch Ratings: Vietnam BB+ (Stable)
-- J.P. Morgan Gold Price Forecast 2026-2027
-- S&P Global Copper Supply Study (January 2026)
+- [OECD Economic Surveys: Viet Nam 2025](https://www.oecd.org/en/publications/oecd-economic-surveys-viet-nam-2025_fb37254b-en.html)
+- [IMF Vietnam Selected Issues 2025](https://www.imf.org/en/publications/cr/issues/2025/10/03/vietnam-selected-issues-570900)
+- [World Bank Vietnam 2035: Toward Prosperity, Creativity, Equity, and Democracy](https://openknowledge.worldbank.org/handle/10986/23724)
+- [UNFPA Viet Nam Population Projection 2019-2069](https://vietnam.unfpa.org/en/publications/viet-nam-population-projection-period-2019-2069)
+- [Fitch Affirms Vietnam at 'BB+'; Outlook Stable (June 2025)](https://www.fitchratings.com/research/sovereigns/fitch-affirms-vietnam-at-bb-outlook-stable-20-06-2025)
+- [J.P. Morgan Gold Price Forecast 2026-2027](https://www.jpmorgan.com/insights/global-research/commodities/gold-prices)
+- [S&P Global: Copper in the Age of AI (January 2026)](https://press.spglobal.com/2026-01-08-Substantial-Shortfall-in-Copper-Supply-Widens-as-the-Race-for-AI-and-Growing-Defense-Spending-Add-to-Accelerating-Demand,-New-S-P-Global-Study-Finds)
 
 ---
 
