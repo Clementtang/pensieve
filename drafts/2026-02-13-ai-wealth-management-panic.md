@@ -3,7 +3,7 @@ title: "一週內三個板塊因 AI 回調，市場反應是否過頭了？"
 description: "2026 年 2 月第二週，AI 工具接連觸發保險經紀、財富管理、房地產服務三大板塊顯著回調，但基本面資料與分析師共識顯示市場反應過度。"
 date: 2026-02-13
 author: "Clement Tang"
-tags: ["社群貼文", "AI", "金融科技", "投資"]
+tags: ["社群貼文", "AI", "金融科技", "投資", "AI Agent", "Fee Compression"]
 category: articles
 status: draft
 related: "https://news.futunn.com/hk/post/68845127"
@@ -61,9 +61,11 @@ NVIDIA 執行長黃仁勳在思科 AI 活動上說得更直白：「很多軟體
 
 這個規律值得留意：賣壓像漣漪一樣從一個板塊擴散到另一個，但每一圈的影響力都在遞減。如果先前被拋售的板塊都能快速收復，這次的保險、財管和房地產服務，走出類似軌跡的機率不小。
 
-不過，我也不認為可以完全忽視 AI 的威脅。[Bloomberg Intelligence 的 Neil Sipes](https://www.bloomberg.com/news/articles/2026-02-10/wealth-manager-stocks-sink-as-new-ai-tool-sparks-disruption-fear) 點出了市場真正擔心的三件事：效率被競爭掉、長期費用壓縮、市佔率轉移。這些擔憂是有道理的。高收費、勞動密集的商業模式，確實是 AI 最容易切入的領域。
+不過，我也不認為可以完全忽視 AI 的威脅。[Bloomberg Intelligence 的 Neil Sipes](https://www.bloomberg.com/news/articles/2026-02-10/wealth-manager-stocks-sink-as-new-ai-tool-sparks-disruption-fear) 點出了市場真正擔心的三件事：效率被競爭掉、長期費用壓縮（Fee Compression）、市佔率轉移。這些擔憂是有道理的。高收費、勞動密集的商業模式，確實是 AI 最容易切入的領域。
 
-但問題在於「程度」和「節奏」。市場把長期風險壓縮成短期賣壓，把漸進式演化當成了即時衝擊。這中間的落差，可能正是值得關注的地方。
+這裡有一個更細緻的觀察：即使股價短期反彈，LPL Financial 等公司的商業模式本質是「按管理資產收費」（AUM Fee）。如果 AI 工具持續壓低市場對顧問費率的預期，這些公司的長期估值倍數（PE Ratio）可能會因為利潤率展望下修而被永久性調降。再加上巨頭們為了不被顛覆，勢必得加碼投入 AI 基礎建設，這又是一筆壓縮利潤率的開支。換句話說，股價也許會回來，但過去那個舒適的估值區間，未必回得來。
+
+所以問題在於「程度」和「節奏」。市場把長期風險壓縮成短期賣壓，把漸進式演化當成了即時衝擊。短期的拋售幅度顯然過頭，但長期的估值重新校準，或許才剛開始。
 
 ### 機器人理財的前車之鑑
 
@@ -75,7 +77,7 @@ NVIDIA 執行長黃仁勳在思科 AI 活動上說得更直白：「很多軟體
 
 Finn 的結論很乾脆，Morgan Stanley 的商業模式「是圍繞顧問與客戶的關係建立的，這種關係將持續存在，遠超新創建的 AI 互動工具。」
 
-### 信任，才是真正的護城河
+### 信任與責任歸屬，才是真正的護城河
 
 Raymond James 分析師 Wilma Burdis 說了一句樸素卻深刻的話：「我認為人們最終還是想把錢託付給某個人，一個真實的人。」
 
@@ -83,7 +85,9 @@ Raymond James 分析師 Wilma Burdis 說了一句樸素卻深刻的話：「我�
 
 AI 可以精準計算止損點，可以在奈秒內完成交易。但它無法在客戶深夜失眠時接起電話，說一句「我也經歷過這些」。
 
-而且，這些金融巨頭絕非坐以待斃。[嘉信理財正在開發「Agentic AI」顧問](https://www.klover.ai/charles-schwab-ai-strategy-analysis-of-dominance-in-financial-services/)，能自主執行稅損收割與遺產規劃。Morgan Stanley 也推出了 [AI 會議摘要工具](https://ctomagazine.com/ai-in-morgan-stanley-shaping-the-future-of-financial-services/)，自動整合至客戶管理系統。這些巨頭正主動將 AI 編入自己的護城河，而非被動等待被攻破。
+不過，光談信任可能還不夠。我認為財富管理更深層的護城河，其實是「責任歸屬」（Accountability）。沒錯，嘉信理財的 Agentic AI 也許能自動執行稅損收割，幫客戶省下可觀的稅負，這種實實在在的利潤確實有可能動搖「人類溫暖」的吸引力。但當投資組合出現重大虧損時，客戶需要的是一個能承擔專業責任、能被追責、能對決策負責的對象。在現行的法律與監管框架下，AI 無法擔任受託人，無法簽署合規文件，也無法在仲裁庭上為自己的建議辯護。這個責任歸屬的缺口，短期內很難被技術填補。
+
+與此同時，這些金融巨頭也絕非被動等待。[嘉信理財正在開發「Agentic AI」顧問](https://www.klover.ai/charles-schwab-ai-strategy-analysis-of-dominance-in-financial-services/)，能自主執行稅損收割與遺產規劃。Morgan Stanley 也推出了 [AI 會議摘要工具](https://ctomagazine.com/ai-in-morgan-stanley-shaping-the-future-of-financial-services/)，自動整合至客戶管理系統。它們的策略很清楚：讓 AI 做 AI 擅長的事，讓人類顧問專注在判斷、陪伴和承擔責任上。
 
 ### 恐慌之後，看見什麼？
 
