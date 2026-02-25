@@ -263,4 +263,16 @@ function main() {
   }
 }
 
-main();
+// Export for testing
+if (require.main === module) {
+  main();
+}
+
+module.exports = {
+  validateArticle,
+  VALID_STATUS,
+  VALID_CATEGORIES,
+  REQUIRED_FIELDS,
+  DATE_REGEX,
+  FILENAME_REGEX,
+};

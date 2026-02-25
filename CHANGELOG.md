@@ -7,11 +7,97 @@
 
 ## [Unreleased]
 
+## [1.5.0] - 2026-02-25
+
 ### Security
 
 - **修復 glob 高嚴重性安全漏洞** (GHSA-5j98-mcp5-4vw2)
   - 升級 markdownlint-cli 0.43.0 → 0.47.0
   - 修復命令注入漏洞
+
+### Added
+
+- **社群貼文模板** (`templates/social-post-template.md`)
+  - 支援多平台版本：完整版（1,500-2,500 字）、精簡版（500-800 字）、極簡版（280 字）
+  - 包含發布指南：最佳時間、Hashtags、互動設計
+  - 連結原始研究，實現一次研究多平台發布
+- **Feature Image Prompt 自動生成系統**
+  - 新增 `scripts/generate-feature-image-prompt.js` 腳本
+  - 新增 `prompts/feature-image-prompt-template.md` 設計規範
+  - 支援從文章 frontmatter 自動生成 Nano Banana Pro 圖像 prompt
+  - 根據 category（articles/company-research/topic-research）選擇對應視覺風格
+  - 一致的視覺品牌語言：琥珀金色主調 (#f59e0b)、深黑背景 (#0a0a0f)
+  - 支援 `--copy` 複製到剪貼簿、`--json` 格式輸出
+- **Feature Image Prompt 模板整合**
+  - 7 個文章模板新增 `### Feature Image Prompt` 區塊
+  - 整合於 `## 元資料` 區塊內，發布時自動移除
+  - 更新模板：article、company-research、industry-research、note、topic-research、topic-research-lite、tutorial
+- **腳本單元測試基礎**
+  - 新增 Vitest 測試框架
+  - `tests/lib/frontmatter.test.js`：Frontmatter 解析與生成測試
+  - `tests/validate-article.test.js`：文章驗證邏輯測試
+  - `tests/publish-to-multivac.test.js`：發布純函數測試
+- **GitHub Actions CI Pipeline** (`.github/workflows/validate.yml`)
+  - 自動執行 lint、validate、test
+  - Push/PR 至 main 時觸發
+- VitePress 網站架構
+- 自動化 PR 驗證流水線
+- Research Memo 行動工作流模板
+- **優化 Backlog 追蹤文件** (`docs/roadmap/optimization-backlog.md`)
+  - 識別 19 項優化項目（P0: 2, P1: 10, P2: 7）
+  - 涵蓋：模板與結構、工作流程、品質標準、自動化潛力、技術債務
+- **P0-001：清理目錄結構不一致**
+  - 建立 `docs/notes/` 目錄與 index.md
+  - 刪除空目錄 `docs/business-development/`
+  - 遷移 `content/` 文章至 `docs/articles/`
+- **P0-005：發布前驗證機制**
+  - 新增 `scripts/validate-article.js` 驗證腳本
+  - 整合至發布腳本：`publish-to-multivac.js --validate`
+  - 驗證項目：必填欄位、日期格式、檔名格式
+- **P1-002：模板使用文件化**
+  - `templates/README.md` 新增快速選擇指南
+  - 依內容類型與時間預算的決策樹
+- **P1-003：更新 README.md**
+  - 版本資訊更新至 v1.4.0
+  - 目錄結構新增 notes/、roadmap/、scripts/
+- **P1-006：模板初始化腳本**
+  - 新增 `scripts/new-article.js`
+  - 支援 8 種模板類型
+  - 自動生成檔名與預填 frontmatter
+- **P1-010：標籤分類法標準化**
+  - 新增 `docs/taxonomy.md`
+  - 定義內容類型、產業、主題、公司標籤分類
+- **P1-015：研究提示詞模板**
+  - 新增 `prompts/` 目錄
+  - 企業研究、新聞分析、社群貼文提示詞模板
+- **P1-008：M42 同步自動化**
+  - 發布腳本新增 `--auto-commit` 選項
+  - 自動執行 git add + commit（不 push）
+- **P1-011：Frontmatter 驗證腳本完善**
+  - `scripts/validate-article.js` 功能完整
+  - 驗證必填欄位、日期格式、status 值、category 值
+- **P1-014：Claude Hooks 整合**
+  - 新增 `.claude/hooks/validate-on-write.js`
+  - 寫入文章後自動驗證 frontmatter
+- **P1-018：發布腳本錯誤處理強化**
+  - 新增 `--verbose` 詳細輸出模式
+  - 新增錯誤摘要報告
+  - 改進 YAML 解析錯誤訊息
+- **技術文件完善**
+  - 新增 `scripts/README.md`：完整腳本使用指南
+  - 新增 `docs/guides/publishing-workflow.md`：發布流程文件
+  - 新增 `.claude/README.md`：Claude Code 整合說明
+  - 更新 `README.md`：新增技術文件索引
+- **P2-004：private 目錄管理規範**
+  - 新增 `private/README.md`
+  - 定義目錄結構與管理規範
+- **P2-012：內容品質檢查清單**
+  - WRITING_GUIDE.md 新增「發布前檢查清單」
+  - 涵蓋 Frontmatter、內容、風格、檔名檢查
+- **P2-013：Markdown Linting**
+  - 新增 `.markdownlint.yml` 配置
+  - 新增 `package.json` 含 lint 腳本
+  - 執行：`npm run lint` / `npm run lint:fix`
 
 ### Changed
 
@@ -20,145 +106,44 @@
   - 統一 `parseFrontmatter()` 與 `generateFrontmatter()` 實作
   - 移除三個腳本中的重複程式碼（淨減少 ~156 行）
   - 受影響腳本：publish-to-multivac.js、validate-article.js、generate-feature-image-prompt.js
+- **模板全面優化**（基於實際使用情況分析）
+  - **Article Template 結構重構**
+    - 新增 The Big Picture、Why It Matters、What's Next 章節
+    - 移除低使用率章節：實作應用、常見問題、延伸閱讀、更新記錄
+    - 精簡結構從 138 行至約 84 行
+  - **Company Research Template 優化**
+    - 星等評分（⭐）改為敘事性評估（強勢/穩健/待觀察/薄弱）
+    - 新增「快速評估」區塊：值得關注的理由、主要疑慮、一句話結論
+    - SWOT 交叉策略矩陣標記為可選（適用深度研究）
+    - 移除附錄 A（詞彙表）、附錄 C（研究方法論）
+  - **Topic Research Lite Template 強化**
+    - 新增「快速啟動」區塊，時間有限時只填此區塊也可形成完整分析
+    - 目標字數調整為 2,000-5,000 字（原 3,000-8,000 字）
+    - 推薦作為主要議題研究模板
+  - **Topic Research Standard Template 精簡**
+    - 移除 0% 使用率框架：系統思考分析、倫理分析框架
+    - 多維度分析改為模組化選擇（PESTEL、經濟、社會文化、科技影響）
+    - 移除附錄 D（延伸閱讀）、更新記錄、研究方法論說明
+    - 新增深度版說明標記
+  - **Industry Research Template 優化**
+    - 星等評分改為敘事性評估（信心程度：高/中/低）
+    - 移除更新記錄、相關研究章節
+  - **所有模板統一化**
+    - 元資料區塊統一採用表格格式
+    - Feature Image Prompt 集中化為引用連結
+    - 統一結尾格式，移除獨立更新記錄
+- **templates/README.md 更新**
+  - 新增 Social Post Template 說明
+  - 更新各模板包含結構描述
+  - 新增模板使用提示
 
 ### Maintenance
 
 - **清理已合併的 Claude Code Web 分支**（2026-02-04）
   - 刪除 27 個已合併至 main 的 `claude/*` 遠端分支
   - 保留 4 個未合併分支供後續處理
-
-### Added
-
-- **社群貼文模板** (`templates/social-post-template.md`)
-  - 支援多平台版本：完整版（1,500-2,500 字）、精簡版（500-800 字）、極簡版（280 字）
-  - 包含發布指南：最佳時間、Hashtags、互動設計
-  - 連結原始研究，實現一次研究多平台發布
-
-### Changed
-
-- **模板全面優化**（基於實際使用情況分析）
-  - **Article Template 結構重構**
-    - 新增 The Big Picture、Why It Matters、What's Next 章節
-    - 移除低使用率章節：實作應用、常見問題、延伸閱讀、更新記錄
-    - 精簡結構從 138 行至約 84 行
-
-  - **Company Research Template 優化**
-    - 星等評分（⭐）改為敘事性評估（強勢/穩健/待觀察/薄弱）
-    - 新增「快速評估」區塊：值得關注的理由、主要疑慮、一句話結論
-    - SWOT 交叉策略矩陣標記為可選（適用深度研究）
-    - 移除附錄 A（詞彙表）、附錄 C（研究方法論）
-
-  - **Topic Research Lite Template 強化**
-    - 新增「快速啟動」區塊，時間有限時只填此區塊也可形成完整分析
-    - 目標字數調整為 2,000-5,000 字（原 3,000-8,000 字）
-    - 推薦作為主要議題研究模板
-
-  - **Topic Research Standard Template 精簡**
-    - 移除 0% 使用率框架：系統思考分析、倫理分析框架
-    - 多維度分析改為模組化選擇（PESTEL、經濟、社會文化、科技影響）
-    - 移除附錄 D（延伸閱讀）、更新記錄、研究方法論說明
-    - 新增深度版說明標記
-
-  - **Industry Research Template 優化**
-    - 星等評分改為敘事性評估（信心程度：高/中/低）
-    - 移除更新記錄、相關研究章節
-
-  - **所有模板統一化**
-    - 元資料區塊統一採用表格格式
-    - Feature Image Prompt 集中化為引用連結
-    - 統一結尾格式，移除獨立更新記錄
-
-- **templates/README.md 更新**
-  - 新增 Social Post Template 說明
-  - 更新各模板包含結構描述
-  - 新增模板使用提示
-
-- **Feature Image Prompt 自動生成系統**
-  - 新增 `scripts/generate-feature-image-prompt.js` 腳本
-  - 新增 `prompts/feature-image-prompt-template.md` 設計規範
-  - 支援從文章 frontmatter 自動生成 Nano Banana Pro 圖像 prompt
-  - 根據 category（articles/company-research/topic-research）選擇對應視覺風格
-  - 一致的視覺品牌語言：琥珀金色主調 (#f59e0b)、深黑背景 (#0a0a0f)
-  - 支援 `--copy` 複製到剪貼簿、`--json` 格式輸出
-
-- **Feature Image Prompt 模板整合**
-  - 7 個文章模板新增 `### Feature Image Prompt` 區塊
-  - 整合於 `## 元資料` 區塊內，發布時自動移除
-  - 更新模板：article、company-research、industry-research、note、topic-research、topic-research-lite、tutorial
-
-- VitePress 網站架構
-- 自動化 PR 驗證流水線
-- Research Memo 行動工作流模板
-- **優化 Backlog 追蹤文件** (`docs/roadmap/optimization-backlog.md`)
-  - 識別 19 項優化項目（P0: 2, P1: 10, P2: 7）
-  - 涵蓋：模板與結構、工作流程、品質標準、自動化潛力、技術債務
-
-- **P0-001：清理目錄結構不一致**
-  - 建立 `docs/notes/` 目錄與 index.md
-  - 刪除空目錄 `docs/business-development/`
-  - 遷移 `content/` 文章至 `docs/articles/`
-
-- **P0-005：發布前驗證機制**
-  - 新增 `scripts/validate-article.js` 驗證腳本
-  - 整合至發布腳本：`publish-to-multivac.js --validate`
-  - 驗證項目：必填欄位、日期格式、檔名格式
-
-- **P1-002：模板使用文件化**
-  - `templates/README.md` 新增快速選擇指南
-  - 依內容類型與時間預算的決策樹
-
-- **P1-003：更新 README.md**
-  - 版本資訊更新至 v1.4.0
-  - 目錄結構新增 notes/、roadmap/、scripts/
-
-- **P1-006：模板初始化腳本**
-  - 新增 `scripts/new-article.js`
-  - 支援 8 種模板類型
-  - 自動生成檔名與預填 frontmatter
-
-- **P1-010：標籤分類法標準化**
-  - 新增 `docs/taxonomy.md`
-  - 定義內容類型、產業、主題、公司標籤分類
-
-- **P1-015：研究提示詞模板**
-  - 新增 `prompts/` 目錄
-  - 企業研究、新聞分析、社群貼文提示詞模板
-
-- **P1-008：M42 同步自動化**
-  - 發布腳本新增 `--auto-commit` 選項
-  - 自動執行 git add + commit（不 push）
-
-- **P1-011：Frontmatter 驗證腳本完善**
-  - `scripts/validate-article.js` 功能完整
-  - 驗證必填欄位、日期格式、status 值、category 值
-
-- **P1-014：Claude Hooks 整合**
-  - 新增 `.claude/hooks/validate-on-write.js`
-  - 寫入文章後自動驗證 frontmatter
-
-- **P1-018：發布腳本錯誤處理強化**
-  - 新增 `--verbose` 詳細輸出模式
-  - 新增錯誤摘要報告
-  - 改進 YAML 解析錯誤訊息
-
-- **技術文件完善**
-  - 新增 `scripts/README.md`：完整腳本使用指南
-  - 新增 `docs/guides/publishing-workflow.md`：發布流程文件
-  - 新增 `.claude/README.md`：Claude Code 整合說明
-  - 更新 `README.md`：新增技術文件索引
-
-- **P2-004：private 目錄管理規範**
-  - 新增 `private/README.md`
-  - 定義目錄結構與管理規範
-
-- **P2-012：內容品質檢查清單**
-  - WRITING_GUIDE.md 新增「發布前檢查清單」
-  - 涵蓋 Frontmatter、內容、風格、檔名檢查
-
-- **P2-013：Markdown Linting**
-  - 新增 `.markdownlint.yml` 配置
-  - 新增 `package.json` 含 lint 腳本
-  - 執行：`npm run lint` / `npm run lint:fix`
+- **清理過期草稿**
+  - 刪除 `drafts/2026-01-27-claude-code-project-aware-agents.md`（已發布至 docs/articles/）
 
 ## [1.4.0] - 2026-01-12
 
@@ -286,7 +271,8 @@
 
 ---
 
-[Unreleased]: https://github.com/Clementtang/pensieve/compare/v1.4.0...HEAD
+[Unreleased]: https://github.com/Clementtang/pensieve/compare/v1.5.0...HEAD
+[1.5.0]: https://github.com/Clementtang/pensieve/compare/v1.4.0...v1.5.0
 [1.4.0]: https://github.com/Clementtang/pensieve/compare/v1.3.0...v1.4.0
 [1.3.0]: https://github.com/Clementtang/pensieve/compare/v1.2.0...v1.3.0
 [1.2.0]: https://github.com/Clementtang/pensieve/compare/v1.1.0...v1.2.0

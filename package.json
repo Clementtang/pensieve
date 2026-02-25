@@ -1,6 +1,6 @@
 {
   "name": "pensieve",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "個人研究與寫作框架",
   "private": true,
   "scripts": {
@@ -8,10 +8,13 @@
     "validate": "node scripts/validate-article.js",
     "publish": "node scripts/publish-to-multivac.js",
     "lint": "markdownlint 'docs/**/*.md' 'drafts/**/*.md' --config .markdownlint.yml",
-    "lint:fix": "markdownlint 'docs/**/*.md' 'drafts/**/*.md' --config .markdownlint.yml --fix"
+    "lint:fix": "markdownlint 'docs/**/*.md' 'drafts/**/*.md' --config .markdownlint.yml --fix",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "devDependencies": {
-    "markdownlint-cli": "^0.47.0"
+    "markdownlint-cli": "^0.47.0",
+    "vitest": "^4.0.18"
   },
   "keywords": [
     "research",

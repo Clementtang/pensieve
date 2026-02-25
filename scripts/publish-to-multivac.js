@@ -549,4 +549,19 @@ function main() {
   }
 }
 
-main();
+// Export for testing
+if (require.main === module) {
+  main();
+}
+
+module.exports = {
+  validateForPublish,
+  removeMetadataSection,
+  removeLastUpdated,
+  getCompanyFromFilename,
+  inferCategoryFromPath,
+  getDestPath,
+  transformArticle,
+  CATEGORY_CONFIG,
+  COMPANY_MAPPING,
+};
