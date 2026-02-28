@@ -1,7 +1,7 @@
 ---
 title: "從 3,500 億到被收購：PayPal 的衰落，如何成就了 Stripe 的登頂？"
-description: "Bloomberg 報導 Stripe 正考慮收購 PayPal。從市值 3,500 億到 430 億美元，從支付霸主到潛在收購標的，PayPal 的故事是一堂關於產品信念與財務優化的殘酷教訓。"
-date: 2026-02-25
+description: "Bloomberg 報導 Stripe 正考慮收購 PayPal，兩天後遭 PayPal 否認。但從市值 3,500 億到 430 億美元，從支付霸主到被收購的話題對象，PayPal 的故事是一堂關於產品信念與財務優化的殘酷教訓。"
+date: 2026-02-28
 author: "Clement Tang"
 tags:
   [
@@ -21,19 +21,19 @@ related: "../company-research/2026-02-25-stripe-paypal-acquisition-research.md"
 
 # 從 3,500 億到被收購：PayPal 的衰落，如何成就了 Stripe 的登頂？
 
-> Bloomberg 報導 Stripe 正考慮收購 PayPal 全部或部分資產。五年前 PayPal 市值是 Stripe 的四倍，如今 Stripe 估值是 PayPal 的近四倍。一場支付產業權力的徹底翻轉，正在我們眼前上演。
+> Bloomberg 報導 Stripe 正考慮收購 PayPal，兩天後 PayPal 否認。但真正值得關注的不是這筆交易會不會成真，而是支付產業的權力結構已經徹底翻轉——五年前 PayPal 市值是 Stripe 的四倍，如今 Stripe 估值是 PayPal 的近四倍。
 
 ---
 
-上週 2/24，滑新聞看到 Bloomberg 上的一篇消息，我反覆讀了三遍才確認自己沒看錯。
+上週 2/24，滑新聞看到 Bloomberg 上的一篇消息，我反覆讀了三遍才確認自己沒看錯。報導引述知情人士表示，Stripe 正在考慮收購 PayPal 的全部或部分資產。消息一出 PayPal 股價單日反彈近 7%，成交量暴增至三個月均量的近三倍。而就在前一天，Bloomberg 才剛報導 PayPal 正吸引多方收購興趣，換言之 Stripe 並非唯一的潛在買家，但無疑是最具話題性的一個。
 
-報導引述知情人士表示，Stripe 正在考慮收購 PayPal 的全部或部分資產。消息一出，PayPal 股價兩日內反彈超過 13%，成交量暴增至三個月均量的近三倍。而就在前一天，Bloomberg 才剛報導 PayPal 正吸引多方收購興趣。換言之，Stripe 並非唯一的潛在買家，但無疑是最具話題性的一個。
+兩天後劇情反轉。2/26 Semafor 獨家報導確認，PayPal 和 Stripe **沒有在進行任何談判**，PayPal 也沒有主動尋求出售。但同一篇報導也揭露了另一個值得注意的細節——PayPal 早在前任 CEO Alex Chriss 任內就已經**和投行合作數月**，準備應對敵意收購和激進股東的防禦方案。否認歸否認，防線卻早就在架了。
 
-同一天，Stripe 宣布最新的員工流動性要約，估值飆升至 1,590 億美元，較一年前的 915 億美元成長了 74%。
+消息否認後股價回吐漲幅，2/27 收在 $45.54。但把這些數字攤開來看，真正刺眼的對比是估值。同一週，Stripe 宣布最新員工流動性要約，估值飆升至 1,590 億美元，較一年前的 915 億美元成長了 74%。
 
-讓這兩個數字並排一下：**Stripe 1,590 億美元，PayPal 430 億美元。**
+**Stripe 1,590 億美元，PayPal 430 億美元。**
 
-五年前，PayPal 的市值超過 3,500 億美元，是 Stripe 當時估值的將近四倍。今天角色完全互換，曾經的支付巨頭可能成為曾經的小弟的收購標的。這到底是怎麼發生的？
+五年前，PayPal 的市值超過 3,500 億美元，是 Stripe 當時估值的將近四倍。今天角色完全互換，曾經的支付巨頭成了被收購的話題對象。即使這筆交易大概率不會發生，更值得問的問題是：PayPal 是怎麼走到這一步的？
 
 ---
 
@@ -81,7 +81,9 @@ Venmo 則填補了 Stripe 最大的缺口：消費者端。Stripe 是 B2B 支付
 
 ---
 
-## 但這筆交易要成真，還有很長的路
+## 這筆交易為什麼大概率不會發生
+
+PayPal 已經否認了，但即使沒有這個否認，這筆交易本身就面臨極高的結構性障礙。
 
 第一道關卡是對價結構。即使 PayPal 市值已經大幅縮水，以目前股價加上收購溢價，這仍然可能是一筆 500 至 600 億美元的交易，而 Stripe 雖然估值高達 1,590 億美元，卻是一家未上市公司，沒有公開股票可以用來支付收購，現金流和股權流動性都是難題。私有公司收購大型上市公司，在金融史上從來不是容易的事。
 
@@ -89,11 +91,11 @@ Venmo 則填補了 Stripe 最大的缺口：消費者端。Stripe 是 B2B 支付
 
 最後也可能是最棘手的一環，是文化與技術的整合。Stripe 是一家工程驅動、以現代化 API 文化著稱的公司，PayPal 則在過去十年逐漸累積了大量遺留系統（Legacy Systems）和以財務優化為核心的組織慣性，兩者融合所產生的技術債可能遠超帳面上的收購價格。
 
-此外，Rawat 也指出 Stripe 並非 PayPal 唯一的潛在買家，JPMorgan Chase、私募股權公司、Revolut、American Express 都可能對 PayPal 的全部或部分資產感興趣。
+而且 PayPal 不會坐以待斃。前面提到他們已經和投行準備了數月的防禦方案，新任 CEO Enrique Lores 也在 3 月 1 日正式上任。Payments Dive 的分析則指出，對 PayPal 感興趣的不只 Stripe——Apple、Google、Visa/Mastercard、Adyen、甚至 Elon Musk 的 X 平台都被列為潛在買家，Bloomberg 也透露至少有一家大型競爭對手正在評估收購整間公司。Rawat 同樣指出 JPMorgan Chase、私募股權公司、Revolut、American Express 都可能對 PayPal 的全部或部分資產感興趣。換言之，即使 PayPal 最終真的被收購，買家也未必是 Stripe。
 
 ---
 
-## 不管交易是否成真，象徵意義已經足夠
+## 交易大概率不會成真，但象徵意義已經足夠
 
 PayPal 的前瞻本益比目前僅約 8.3 倍，遠低於 Visa 的 23.2 倍和 Mastercard 的 25.4 倍，市場用價格做出了清楚的判斷——PayPal 的成長故事已經破滅。2021 年市值衝上 3,500 億美元的巔峰時，沒有人會想到這家擁有全球最大數位錢包、最廣泛商家網路、最強品牌認知度的公司，有一天會成為別人的收購標的。
 
@@ -119,4 +121,4 @@ PayPal 的前瞻本益比目前僅約 8.3 倍，遠低於 Visa 的 23.2 倍和 M
 
 _基於研究：[Stripe 探詢收購 PayPal 企業研究](../company-research/2026-02-25-stripe-paypal-acquisition-research.md)_
 
-_最後更新：2026-02-25_
+_最後更新：2026-03-01_
