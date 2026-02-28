@@ -25,7 +25,7 @@ related: "../company-research/2026-02-25-stripe-paypal-acquisition-research.md"
 
 ---
 
-2 月 24 日，Bloomberg 投下一顆震撼彈，我反覆讀了三遍才確認自己沒看錯。
+上週 2/24，滑新聞看到 Bloomberg 上的一篇消息，我反覆讀了三遍才確認自己沒看錯。
 
 報導引述知情人士表示，Stripe 正在考慮收購 PayPal 的全部或部分資產。消息一出，PayPal 股價兩日內反彈超過 13%，成交量暴增至三個月均量的近三倍。而就在前一天，Bloomberg 才剛報導 PayPal 正吸引多方收購興趣。換言之，Stripe 並非唯一的潛在買家，但無疑是最具話題性的一個。
 
