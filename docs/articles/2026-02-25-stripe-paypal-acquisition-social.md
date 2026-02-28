@@ -15,7 +15,7 @@ tags:
     "David Marcus",
   ]
 category: articles
-status: draft
+status: published
 related: "../company-research/2026-02-25-stripe-paypal-acquisition-research.md"
 ---
 
