@@ -16,7 +16,7 @@ tags:
   ]
 category: articles
 status: published
-related: "../company-research/2026-02-25-stripe-paypal-acquisition-research.md"
+related: "../topic-research/2026-02-25-stripe-paypal-acquisition-rumor.md"
 ---
 
 # 從 3,500 億到被收購：PayPal 的衰落，如何成就了 Stripe 的登頂？

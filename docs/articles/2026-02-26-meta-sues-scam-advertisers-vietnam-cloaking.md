@@ -5,7 +5,7 @@ date: 2026-02-26
 author: "Clement Tang"
 tags: ["Meta", "廣告詐騙", "Cloaking", "越南", "深偽", "平台治理", "AI"]
 category: articles
-status: draft
+status: published
 ---
 
 # Meta 一口氣告了四組詐騙廣告商，但真正有趣的是那個越南人的技術
