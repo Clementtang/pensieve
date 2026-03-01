@@ -23,5 +23,8 @@
     "pensieve"
   ],
   "author": "Clement Tang",
-  "license": "MIT"
+  "license": "MIT",
+  "overrides": {
+    "minimatch": ">=10.2.3"
+  }
 }
