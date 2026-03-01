@@ -117,8 +117,4 @@ PayPal 的前瞻本益比目前僅約 8.3 倍，遠低於 Visa 的 23.2 倍和 M
 
 **#Stripe #PayPal #金融科技 #併購 #支付產業 #Venmo #FinTech #DavidMarcus**
 
----
-
-_基於研究：[Stripe 探詢收購 PayPal 企業研究](../company-research/2026-02-25-stripe-paypal-acquisition-research.md)_
-
 _最後更新：2026-03-01_
