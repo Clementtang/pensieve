@@ -65,8 +65,6 @@ const COMPANY_MAPPING = {
   luckin: "luckin-coffee",
   toast: "toast",
   hotai: "hotai",
-  REDACTED: "REDACTED",
-  REDACTED: "REDACTED", // REDACTED也對應到 REDACTED
 };
 
 // 預設作者

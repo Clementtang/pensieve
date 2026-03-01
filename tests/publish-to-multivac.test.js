@@ -216,12 +216,6 @@ describe("getCompanyFromFilename", () => {
     );
   });
 
-  it("should map 'REDACTED' keyword to 'REDACTED'", () => {
-    expect(getCompanyFromFilename("2026-01-15-REDACTED-report.md")).toBe(
-      "REDACTED",
-    );
-  });
-
   it("should extract first word after date for unknown companies", () => {
     expect(getCompanyFromFilename("2026-01-15-newcorp-earnings.md")).toBe(
       "newcorp",
@@ -315,6 +309,5 @@ describe("COMPANY_MAPPING", () => {
     expect(COMPANY_MAPPING.manus).toBe("manus-ai");
     expect(COMPANY_MAPPING.luckin).toBe("luckin-coffee");
     expect(COMPANY_MAPPING.toast).toBe("toast");
-    expect(COMPANY_MAPPING.REDACTED).toBe("REDACTED");
   });
 });
