@@ -24,7 +24,7 @@ status: published
 
 ## The Big Picture
 
-Workday 於 **2025 年 11 月 19 日**宣布簽署協議收購 **Pipedream**，這是一個擁有 3,000+ 連接器的 AI agent 整合平台。此舉讓 AI agent 能跨 Workday 及第三方系統發起工作流程、提取數據並執行任務。
+Workday 於 **2025 年 11 月 19 日** 宣布簽署協議收購 **Pipedream**，這是一個擁有 3,000+ 連接器的 AI agent 整合平台。此舉讓 AI agent 能跨 Workday 及第三方系統發起工作流程、提取數據並執行任務。
 
 這不僅是一次企業併購，更標誌著企業 AI 應用從「提供洞察」進化到「採取行動」的重要轉折點。
 
@@ -69,7 +69,7 @@ Pipedream 團隊將完整加入 Workday，加速 AI agent 平台的創新與開�
 
 ## 策略背景：併購三部曲
 
-Pipedream 是 Workday 在 2025 年的**第三次重要併購**，形成了一個完整的 AI agent 生態系統：
+Pipedream 是 Workday 在 2025 年的 **第三次重要併購**，形成了一個完整的 AI agent 生態系統：
 
 1. **Sana**：提供 AI 智能層，賦予 agent 理解和推理能力
 2. **Flowise**：提供 agent 編排能力，協調多個 AI agent 協同工作
