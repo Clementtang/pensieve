@@ -17,13 +17,13 @@
  *   node scripts/validate-article.js docs/articles/
  *
  * 選項：
- *   --fix      自動修復可修復的問題（目前未實作）
+ *   --fix      自動修復可修復的問題（author, tags, status, date, category）
  *   --quiet    只顯示錯誤，不顯示成功訊息
  */
 
 const fs = require("fs");
 const path = require("path");
-const { parseFrontmatter } = require("./lib/frontmatter");
+const { parseFrontmatter, generateFrontmatter } = require("./lib/frontmatter");
 
 // 有效的 status 值
 const VALID_STATUS = ["draft", "in-progress", "published", "archived"];
@@ -47,9 +47,22 @@ const DATE_REGEX = /^\d{4}-\d{2}-\d{2}$/;
 // 檔名格式正則
 const FILENAME_REGEX = /^\d{4}-\d{2}-\d{2}-[\w-]+\.md$/;
 
+// 預設作者
+const DEFAULT_AUTHOR = "Clement Tang";
+
+// 目錄名稱對應 category
+const DIR_CATEGORY_MAP = {
+  articles: "articles",
+  "company-research": "company-research",
+  "topic-research": "topic-research",
+  notes: "note",
+  tutorial: "tutorial",
+};
+
 // 解析命令列參數
 const args = process.argv.slice(2);
 const quietMode = args.includes("--quiet");
+const fixMode = args.includes("--fix");
 const targetPath = args.find((arg) => !arg.startsWith("--"));
 
 if (!targetPath) {
@@ -62,6 +75,7 @@ if (!targetPath) {
   console.log("  node scripts/validate-article.js docs/articles/");
   console.log("");
   console.log("選項：");
+  console.log("  --fix      自動修復可修復的問題（author, tags, status, date, category）");
   console.log("  --quiet    只顯示錯誤，不顯示成功訊息");
   process.exit(0);
 }
@@ -164,6 +178,111 @@ function validateArticle(filePath) {
 }
 
 /**
+ * 從檔案路徑推斷 category
+ */
+function inferCategoryFromPath(filePath) {
+  const parts = filePath.split(path.sep);
+  for (let i = parts.length - 2; i >= 0; i--) {
+    if (DIR_CATEGORY_MAP[parts[i]]) {
+      return DIR_CATEGORY_MAP[parts[i]];
+    }
+  }
+  return null;
+}
+
+/**
+ * 自動修復可修復的 frontmatter 問題
+ */
+function fixArticle(filePath) {
+  const fixes = [];
+  const fileName = path.basename(filePath);
+
+  let content;
+  try {
+    content = fs.readFileSync(filePath, "utf-8");
+  } catch (err) {
+    return { fixes: [], modified: false };
+  }
+
+  // 跳過 index.md 和 README.md
+  if (fileName === "index.md" || fileName === "README.md") {
+    return { fixes: [], modified: false };
+  }
+
+  const { frontmatter, body, hasFrontmatter } = parseFrontmatter(content);
+
+  if (!hasFrontmatter) {
+    return { fixes: [], modified: false };
+  }
+
+  let modified = false;
+
+  // 修復缺少的 author
+  if (!frontmatter.author) {
+    frontmatter.author = DEFAULT_AUTHOR;
+    fixes.push(`新增 author: "${DEFAULT_AUTHOR}"`);
+    modified = true;
+  }
+
+  // 修復缺少的 tags
+  if (!frontmatter.tags) {
+    frontmatter.tags = [];
+    fixes.push("新增 tags: []");
+    modified = true;
+  }
+
+  // 修復缺少的 status
+  if (!frontmatter.status) {
+    frontmatter.status = "draft";
+    fixes.push("新增 status: draft");
+    modified = true;
+  }
+
+  // 修復缺少的 date（從檔名推斷）
+  if (!frontmatter.date) {
+    const dateMatch = fileName.match(/^(\d{4}-\d{2}-\d{2})/);
+    if (dateMatch) {
+      frontmatter.date = dateMatch[1];
+      fixes.push(`新增 date: ${dateMatch[1]}（從檔名推斷）`);
+      modified = true;
+    }
+  }
+
+  // 修復 date 格式
+  if (frontmatter.date) {
+    const dateStr = String(frontmatter.date);
+    if (!DATE_REGEX.test(dateStr)) {
+      const d = new Date(frontmatter.date);
+      if (!isNaN(d.getTime())) {
+        const fixed = d.toISOString().split("T")[0];
+        fixes.push(`修正 date 格式：${dateStr} → ${fixed}`);
+        frontmatter.date = fixed;
+        modified = true;
+      }
+    }
+  }
+
+  // 修復缺少的 category（從路徑推斷）
+  if (!frontmatter.category) {
+    const category = inferCategoryFromPath(filePath);
+    if (category) {
+      frontmatter.category = category;
+      fixes.push(`新增 category: ${category}（從路徑推斷）`);
+      modified = true;
+    }
+  }
+
+  // 寫回檔案
+  if (modified) {
+    const newFrontmatter = generateFrontmatter(frontmatter);
+    const newContent = `${newFrontmatter}\n\n${body}\n`;
+    fs.writeFileSync(filePath, newContent);
+  }
+
+  return { fixes, modified };
+}
+
+/**
  * 掃描目錄中的 Markdown 檔案
  */
 function scanDirectory(dir) {
@@ -210,9 +329,23 @@ function main() {
   let totalWarnings = 0;
   let totalPassed = 0;
   let totalSkipped = 0;
+  let totalFixed = 0;
 
   for (const file of files) {
     const relativePath = path.relative(process.cwd(), file);
+
+    // --fix 模式：先嘗試修復，再驗證
+    if (fixMode) {
+      const fixResult = fixArticle(file);
+      if (fixResult.fixes.length > 0) {
+        console.log(`🔧 ${relativePath}`);
+        for (const fix of fixResult.fixes) {
+          console.log(`   修復：${fix}`);
+        }
+        totalFixed += fixResult.fixes.length;
+      }
+    }
+
     const result = validateArticle(file);
 
     if (result.skipped) {
@@ -253,6 +386,9 @@ function main() {
   console.log(`   通過：${totalPassed}`);
   console.log(`   錯誤：${totalErrors}`);
   console.log(`   警告：${totalWarnings}`);
+  if (fixMode) {
+    console.log(`   修復：${totalFixed}`);
+  }
   if (totalSkipped > 0) {
     console.log(`   跳過：${totalSkipped}（index.md / README.md）`);
   }
