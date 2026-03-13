@@ -7,6 +7,14 @@
 
 ## [Unreleased]
 
+### Changed
+
+- **SEO 優化：重寫 3 篇高曝光文章的 title 和 description**
+  - 基於 Thufir MCP server 的 Search Console 數據分析
+  - Manus AI 研究（173 次曝光 / 0 點擊）：標題從文學敘事改為具體事實
+  - 越南經濟分析（76 次曝光 / 0 點擊）：標題加入具體數據點（TFP、人口紅利）
+  - UCP vs ACP 協議比較（18 次曝光 / 0 點擊）：移除「議題研究 (Lite)」後綴，加入年份
+
 ## [1.5.0] - 2026-02-25
 
 ### Security
