@@ -1,6 +1,6 @@
 ---
-title: "Manus AI 被 Meta 收購：8 個月達成 1 億美元 ARR 的完整分析"
-description: "深度分析 Manus AI 從「套殼」Claude 爭議到被 Meta 數十億美元收購的歷程，涵蓋技術架構、商業模式、出海策略及併購估值邏輯。"
+title: "Manus AI 被 Meta 收購全解析：8 個月 $1 億 ARR 的秘密"
+description: "18,000 字深度研究：Manus AI 如何用 Claude 套殼打造 AI Agent、8 個月達 $1 億營收，最終被 Meta 數十億美元收購的完整故事。"
 date: 2025-12-30
 author: "Clement Tang"
 tags: ["企業研究", "Manus", "AI Agent", "Meta併購", "中國出海"]
