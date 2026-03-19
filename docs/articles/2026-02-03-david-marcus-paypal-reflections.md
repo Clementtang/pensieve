@@ -1,6 +1,7 @@
 ---
-title: "十二年後打破沉默，David Marcus 談 PayPal 的衰落"
-description: "PayPal 前總裁 David Marcus 在公司再度換帥之際首度發聲，剖析這家支付巨頭如何從產品驅動走向財務優化，一步步失去產業領先地位。"
+title: "PayPal 前總裁 David Marcus 首度剖析：支付巨頭為何衰落"
+description: "從市值3,500億跌至600億，PayPal前總裁David Marcus在公司再度換帥之際首度發聲，揭露從產品驅動走向財務優化的致命轉折，以及Stripe如何趁勢崛起。"
+lastModified: 2026-03-18
 date: 2026-02-03
 author: "Clement Tang"
 tags:
