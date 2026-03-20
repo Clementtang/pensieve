@@ -9,11 +9,26 @@
 
 ### Changed
 
-- **SEO 優化：重寫 3 篇高曝光文章的 title 和 description**
-  - 基於 Thufir MCP server 的 Search Console 數據分析
+- **SEO 優化 Round 2：重寫越南經濟、David Marcus 文章 title/description**
+  - 越南經濟（78 impressions / 1 click）：移除 TFP 術語，加入「閉門會議」情緒鉤子
+  - David Marcus（33 impressions / 1 click）：前置 PayPal/David Marcus 關鍵字，加市值數據
+- **內部交叉連結：5 篇文章新增 8 條延伸閱讀連結**
+  - David Marcus ↔ Stripe 社群、Airwallex 研究
+  - 越南經濟 ↔ Meta 越南詐騙（雙向）
+  - Airwallex 研究 → Jack Zhang 社群、David Marcus
+  - 瑞幸研究 → 瑞幸台灣分析
+
+### Added
+
+- **文章系列導覽 frontmatter（4 系列 9 篇）**
+  - Airwallex 跨境支付系列（3 篇）
+  - Manus AI 收購案系列（2 篇）
+  - 瑞幸咖啡系列（2 篇）
+  - PayPal 與支付生態系列（2 篇）
+- **SEO 優化 Round 1：重寫 3 篇高曝光文章的 title 和 description**
   - Manus AI 研究（173 次曝光 / 0 點擊）：標題從文學敘事改為具體事實
-  - 越南經濟分析（76 次曝光 / 0 點擊）：標題加入具體數據點（TFP、人口紅利）
-  - UCP vs ACP 協議比較（18 次曝光 / 0 點擊）：移除「議題研究 (Lite)」後綴，加入年份
+  - 瑞幸咖啡研究：加入造假金額與營收數據
+  - Airwallex 分析：加入估值、營收、SWIFT/IPO 關鍵字
 
 ## [1.5.0] - 2026-02-25
 
