@@ -18,6 +18,9 @@ category: articles
 status: published
 original_author: "David Marcus"
 original_source: "https://x.com/davidmarcus/status/2018809762708873443"
+series: paypal-stripe
+seriesTitle: "PayPal 與支付生態系列"
+seriesIndex: 1
 ---
 
 # 十二年後打破沉默，David Marcus 談 PayPal 的衰落

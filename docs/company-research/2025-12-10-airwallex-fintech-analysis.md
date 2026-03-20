@@ -6,6 +6,9 @@ author: "Clement Tang"
 tags: ["企業研究", "Airwallex", "金融科技", "跨境支付", "B2B金融"]
 category: company-research
 status: published
+series: airwallex
+seriesTitle: "Airwallex 跨境支付系列"
+seriesIndex: 1
 ---
 
 # Airwallex：從跨境支付到全球金融操作系統的崛起

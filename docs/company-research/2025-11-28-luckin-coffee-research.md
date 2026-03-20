@@ -6,6 +6,9 @@ author: "Clement Tang"
 tags: ["企業研究", "瑞幸咖啡", "中國", "咖啡產業", "財務造假", "企業翻轉"]
 category: company-research
 status: published
+series: luckin-coffee
+seriesTitle: "瑞幸咖啡系列"
+seriesIndex: 1
 ---
 
 # 瑞幸咖啡：從22億造假醜聞到年營收48億美元的商業史上最大逆轉
