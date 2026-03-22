@@ -9,7 +9,7 @@
 
 ### Changed
 
-- **SEO 優化 Round 2：重寫越南經濟、David Marcus 文章 title/description**
+- **SEO 優化 Round 2：越南經濟、David Marcus 文章 title/description**
   - 越南經濟（78 impressions / 1 click）：移除 TFP 術語，加入「閉門會議」情緒鉤子
   - David Marcus（33 impressions / 1 click）：前置 PayPal/David Marcus 關鍵字，加市值數據
 - **內部交叉連結：5 篇文章新增 8 條延伸閱讀連結**
