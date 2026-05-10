@@ -6,6 +6,9 @@ author: "Clement Tang"
 tags: ["瑞幸咖啡", "台灣市場", "便利商店咖啡", "商業分析", "社群貼文"]
 category: articles
 status: published
+series: luckin-coffee
+seriesTitle: "瑞幸咖啡系列"
+seriesIndex: 2
 ---
 
 # 瑞幸咖啡12月登台：中國咖啡巨頭能否攻下台灣超商咖啡的鐵壁？
