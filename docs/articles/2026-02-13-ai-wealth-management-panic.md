@@ -3,9 +3,9 @@ title: "一週內三個板塊因 AI 回調，市場反應是否過頭了？"
 description: "2026 年 2 月第二週，AI 工具接連觸發保險經紀、財富管理、房地產服務三大板塊顯著回調，但基本面資料與分析師共識顯示市場反應過度。"
 date: 2026-02-13
 author: "Clement Tang"
-tags: ["社群貼文", "AI", "金融科技", "投資", "AI Agent", "Fee Compression"]
+tags: ["AI", "金融科技", "投資", "AI Agent", "Fee Compression"]
 category: articles
-status: draft
+status: published
 related: "https://news.futunn.com/hk/post/68845127"
 ---
 
