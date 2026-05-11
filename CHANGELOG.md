@@ -7,28 +7,60 @@
 
 ## [Unreleased]
 
-### Changed
-
-- **SEO 優化 Round 2：越南經濟、David Marcus 文章 title/description**
-  - 越南經濟（78 impressions / 1 click）：移除 TFP 術語，加入「閉門會議」情緒鉤子
-  - David Marcus（33 impressions / 1 click）：前置 PayPal/David Marcus 關鍵字，加市值數據
-- **內部交叉連結：5 篇文章新增 8 條延伸閱讀連結**
-  - David Marcus ↔ Stripe 社群、Airwallex 研究
-  - 越南經濟 ↔ Meta 越南詐騙（雙向）
-  - Airwallex 研究 → Jack Zhang 社群、David Marcus
-  - 瑞幸研究 → 瑞幸台灣分析
+## [1.6.0] - 2026-05-11
 
 ### Added
 
+- **新文章：阿里巴巴悟空 AI Agent 平台研究**（articles + 社群貼文）
+  - 涵蓋 ATH 事業群成立、Token 計費模式、釘釘 AI 2.0 發布會
+  - 融入 Q4 財報資訊：市場反應、財務數據、AI 投資代價
+- **新文章：AI 財富管理板塊回調分析**（2026-02-13）
+  - 涵蓋 Insurify、Altruist Hazel AI 觸發的板塊賣壓與基本面對比
+  - 從 drafts/ 升級至 docs/articles/
+- **新研究：越南科技與東南亞企業**
+  - SmartOSC 越南企業研究
+  - 91APP-SmartOSC 合作分析
+  - Sun Group 越南企業研究
+  - Meta 起訴越南 cloaking 詐騙廣告
+- **新研究：Shannon AI Pentester**（topic-research + social）
+- **新研究：Stripe/PayPal 收購傳聞分析**（topic-research + social）
 - **文章系列導覽 frontmatter（4 系列 9 篇）**
   - Airwallex 跨境支付系列（3 篇）
   - Manus AI 收購案系列（2 篇）
   - 瑞幸咖啡系列（2 篇）
   - PayPal 與支付生態系列（2 篇）
-- **SEO 優化 Round 1：重寫 3 篇高曝光文章的 title 和 description**
-  - Manus AI 研究（173 次曝光 / 0 點擊）：標題從文學敘事改為具體事實
-  - 瑞幸咖啡研究：加入造假金額與營收數據
-  - Airwallex 分析：加入估值、營收、SWIFT/IPO 關鍵字
+
+### Changed
+
+- **SEO 優化（3 輪累計 8 篇文章 title/description）**
+  - Round 1：Manus AI（173 次曝光）、瑞幸咖啡、Airwallex 重寫，加入具體數據與關鍵字
+  - Round 2：越南經濟（78 impressions）、David Marcus（33 impressions），加情緒鉤子
+  - 額外 batch：3 篇高曝光文章 title 與 description 優化
+- **內部交叉連結：5 篇文章新增 8 條延伸閱讀連結**
+  - David Marcus ↔ Stripe 社群、Airwallex 研究
+  - 越南經濟 ↔ Meta 越南詐騙（雙向）
+  - Airwallex 研究 → Jack Zhang 社群、David Marcus
+  - 瑞幸研究 → 瑞幸台灣分析
+- **文體規範統一**
+  - 減少冒號使用、合併無逗號短句為自然中文段落
+  - 移除全文破折號（——），改用句號 / 冒號 / 逗號
+  - 加入第一人稱觀點、開場改為更口語的敘事語氣
+  - 移除社群貼文 Hashtags
+
+### Fixed
+
+- 批量修復所有已發布文章在 CJK 字元旁 markdown 粗體的渲染問題
+- 移除文末 404 的內部研究連結
+- 中國用語「大概率」改為台灣用語「高機率」
+- 重新套用被 markdown linter 覆蓋的 SEO title/description 優化
+- 解決全部 npm audit 漏洞
+
+### Removed
+
+- **棄用 Threads/X 社群版分檔 pattern**
+  - 改為單一完整版，移除版本 2（Threads）、版本 3（X）、發布指南段落
+  - 刪除舊 Stripe/PayPal 社群版本草稿（pattern 已廢棄）
+- 移除 publish script 與測試中的內部公司引用
 
 ## [1.5.0] - 2026-02-25
 
