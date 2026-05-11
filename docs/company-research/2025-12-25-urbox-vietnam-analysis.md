@@ -70,7 +70,7 @@ UrBox 是越南領先的 B2B 數位禮品與忠誠度平台，透過 API 技術�
 | 成立時間   | 2015 年（前身 Tô Quà 計畫）/ 2017 年（UrBox 品牌）                       |
 | 總部地點   | 越南胡志明市                                                             |
 | 員工人數   | 約 50-100 人（估計）                                                     |
-| 官方網站   | https://urbox.vn/                                                        |
+| 官方網站   | <https://urbox.vn/>                                                        |
 | 創辦人     | Trương Công Hiếu (Hieu Truong)、Bui Hoai Nam、Bảo Đoàn、Minh Nguyen Tuan |
 | 現任執行長 | Trương Công Hiếu (Hieu Truong)                                           |
 | 融資階段   | Series A                                                                 |
@@ -837,16 +837,16 @@ UrBox 的客戶拓展策略是先服務大型企業，再向下滲透：
 
 | 類型          | 來源                      | 連結                                                                                                                                           | 取得日期   |
 | ------------- | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
-| 公司資訊      | UrBox 官網                | https://urbox.vn/                                                                                                                              | 2025-12-25 |
-| 融資資訊      | Touchstone Partners       | https://touchstone.vc/news/ur-box-vietnam-b2-b-e-reward-platform-raises-2-2-million-in-pre-series-a-financing-round-led-by-touchstone-partners | 2025-12-25 |
-| 公司資料      | Crunchbase                | https://www.crunchbase.com/organization/urbox                                                                                                  | 2025-12-25 |
-| 市場報告      | ResearchAndMarkets        | https://www.researchandmarkets.com/reports/4751512/vietnam-gift-card-and-incentive-card-market                                                 | 2025-12-25 |
-| 市場報告      | GlobalNewswire            | https://www.globenewswire.com/news-release/2025/03/11/3040390/28124/en/Vietnam-Gift-and-Incentive-Card-Market-Report-2025                      | 2025-12-25 |
-| 新聞報導      | Vietnam Investment Review | https://vir.com.vn/urbox-becomes-sole-partner-of-starbucks-in-vietnam-to-optimise-customer-service-88181.html                                  | 2025-12-25 |
-| Endeavor 資訊 | Endeavor Vietnam          | https://vietnam.endeavor.org/urbox-new-high-impact-entrepreneurs-join-endeavor-in-july/                                                        | 2025-12-25 |
-| 市場報告      | BusinessWire              | https://www.businesswire.com/news/home/20250324835799/en/Vietnam-Gift-Card-Future-Growth-Dynamics-Databook-2025                                | 2025-12-25 |
-| 競爭者資訊    | Got It 官網               | https://www.gotit.vn/                                                                                                                          | 2025-12-25 |
-| 電商數據      | Vietnam Briefing          | https://www.vietnam-briefing.com/news/vietnams-e-commerce-sector-outlook-in-2024.html/                                                         | 2025-12-25 |
+| 公司資訊      | UrBox 官網                | <https://urbox.vn/>                                                                                                                              | 2025-12-25 |
+| 融資資訊      | Touchstone Partners       | <https://touchstone.vc/news/ur-box-vietnam-b2-b-e-reward-platform-raises-2-2-million-in-pre-series-a-financing-round-led-by-touchstone-partners> | 2025-12-25 |
+| 公司資料      | Crunchbase                | <https://www.crunchbase.com/organization/urbox>                                                                                                  | 2025-12-25 |
+| 市場報告      | ResearchAndMarkets        | <https://www.researchandmarkets.com/reports/4751512/vietnam-gift-card-and-incentive-card-market>                                                 | 2025-12-25 |
+| 市場報告      | GlobalNewswire            | <https://www.globenewswire.com/news-release/2025/03/11/3040390/28124/en/Vietnam-Gift-and-Incentive-Card-Market-Report-2025>                      | 2025-12-25 |
+| 新聞報導      | Vietnam Investment Review | <https://vir.com.vn/urbox-becomes-sole-partner-of-starbucks-in-vietnam-to-optimise-customer-service-88181.html>                                  | 2025-12-25 |
+| Endeavor 資訊 | Endeavor Vietnam          | <https://vietnam.endeavor.org/urbox-new-high-impact-entrepreneurs-join-endeavor-in-july/>                                                        | 2025-12-25 |
+| 市場報告      | BusinessWire              | <https://www.businesswire.com/news/home/20250324835799/en/Vietnam-Gift-Card-Future-Growth-Dynamics-Databook-2025>                                | 2025-12-25 |
+| 競爭者資訊    | Got It 官網               | <https://www.gotit.vn/>                                                                                                                          | 2025-12-25 |
+| 電商數據      | Vietnam Briefing          | <https://www.vietnam-briefing.com/news/vietnams-e-commerce-sector-outlook-in-2024.html/>                                                         | 2025-12-25 |
 
 ### 附錄 C：研究方法論
 
@@ -882,6 +882,6 @@ UrBox 的客戶拓展策略是先服務大型企業，再向下滲透：
 
 ---
 
-_本研究報告僅供參考，不構成任何投資建議。投資人應自行評估風險並諮詢專業顧問。_
+*本研究報告僅供參考，不構成任何投資建議。投資人應自行評估風險並諮詢專業顧問。*
 
-_最後更新：2025-12-25_
+*最後更新：2025-12-25*

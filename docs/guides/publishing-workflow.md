@@ -196,6 +196,7 @@ node scripts/publish-to-multivac.js --dry-run
 ```
 
 輸出範例：
+
 ```
    處理：ESL 零售科技趨勢
    來源：docs/articles/2026-01-10-esl-retail-tech.md
@@ -212,6 +213,7 @@ node scripts/publish-to-multivac.js --verbose
 ```
 
 輸出範例：
+
 ```
    [詳細] 處理檔案：docs/articles/2026-01-10-esl-retail-tech.md
    [詳細] 讀取來源檔案...
@@ -252,6 +254,7 @@ node scripts/publish-to-multivac.js --validate --verbose --dry-run
 **問題**：`缺少必填欄位：description`
 
 **解決**：在 frontmatter 中補充 description 欄位：
+
 ```yaml
 ---
 title: "文章標題"
@@ -264,6 +267,7 @@ description: "補充這裡的摘要說明"
 **問題**：`date 格式錯誤：應為 YYYY-MM-DD`
 
 **解決**：確保日期格式正確：
+
 ```yaml
 ---
 date: 2026-01-13    # ✅ 正確
@@ -278,6 +282,7 @@ date: Jan 13, 2026  # ❌ 錯誤
 **問題**：`找不到 Multivac42 目錄`
 
 **解決**：確認 M42 倉庫位置正確：
+
 ```bash
 # 預設路徑：~/multivac42
 ls ~/multivac42
@@ -290,11 +295,13 @@ ls ~/multivac42
 **問題**：`Git commit 失敗`
 
 **可能原因**：
+
 1. M42 目錄不是 git 倉庫
 2. 沒有變更需要 commit
 3. Git 未設定使用者資訊
 
 **解決**：
+
 ```bash
 cd ~/multivac42
 git status  # 檢查狀態
@@ -307,11 +314,13 @@ git config user.email "your@email.com"
 **問題**：文章設為 `status: published` 但未出現在發布清單
 
 **可能原因**：
+
 1. 文章不在來源目錄（docs/articles, docs/company-research, docs/topic-research）
 2. Frontmatter 解析失敗
 3. 檔名為 index.md 或 README.md（會被跳過）
 
 **解決**：
+
 ```bash
 # 使用 verbose 模式檢查
 node scripts/publish-to-multivac.js --verbose --status

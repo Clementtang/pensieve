@@ -63,7 +63,7 @@ status: published
 
 **全瀏覽器 3D 駕駛艙體驗**
 
-- **網址**：https://bfcm.shopify.com
+- **網址**：<https://bfcm.shopify.com>
 - **技術架構**：
   - Three.js 和 React-three-fiber
   - 完全基於瀏覽器的 3D 渲染
@@ -146,4 +146,4 @@ status: published
 
 ---
 
-_最後更新：2025-01-22_
+*最後更新：2025-01-22*

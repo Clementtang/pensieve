@@ -145,4 +145,4 @@ vim docs/company-research/YYYY-MM-DD-company-name-research.md
 
 ---
 
-_本分類持續更新中。歡迎貢獻新的企業研究案例。_
+*本分類持續更新中。歡迎貢獻新的企業研究案例。*

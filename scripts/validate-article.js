@@ -41,6 +41,14 @@ const VALID_CATEGORIES = [
 // 必填欄位
 const REQUIRED_FIELDS = ["title", "description", "date", "category", "status"];
 
+// 跳過驗證的路徑（非文章類文件：ADR、指南、roadmap、taxonomy）
+const SKIP_PATH_PATTERNS = [
+  /[/\\]docs[/\\]adr[/\\]/,
+  /[/\\]docs[/\\]guides[/\\]/,
+  /[/\\]docs[/\\]roadmap[/\\]/,
+  /[/\\]docs[/\\]taxonomy\.md$/,
+];
+
 // 日期格式正則
 const DATE_REGEX = /^\d{4}-\d{2}-\d{2}$/;
 
@@ -75,7 +83,9 @@ if (!targetPath) {
   console.log("  node scripts/validate-article.js docs/articles/");
   console.log("");
   console.log("選項：");
-  console.log("  --fix      自動修復可修復的問題（author, tags, status, date, category）");
+  console.log(
+    "  --fix      自動修復可修復的問題（author, tags, status, date, category）",
+  );
   console.log("  --quiet    只顯示錯誤，不顯示成功訊息");
   process.exit(0);
 }
@@ -100,6 +110,11 @@ function validateArticle(filePath) {
 
   // 跳過 index.md 和 README.md
   if (fileName === "index.md" || fileName === "README.md") {
+    return { errors: [], warnings: [], skipped: true };
+  }
+
+  // 跳過非文章類路徑（ADR、guides、roadmap、taxonomy）
+  if (SKIP_PATH_PATTERNS.some((pattern) => pattern.test(filePath))) {
     return { errors: [], warnings: [], skipped: true };
   }
 

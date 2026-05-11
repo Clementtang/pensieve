@@ -31,7 +31,7 @@ status: published
 
 這次 Series C 的投資陣容史無前例：淡馬錫旗下的 Vertex Growth Fund、日本政府支持的 Cool Japan Fund，以及韓國 Top 3 服飾集團 YoungOne CVC。為什麼這些國際資本同時押注一個越南本土品牌？
 
-## 投資人看到了什麼？
+## 投資人看到了什麼
 
 Vertex Growth 合夥人 James Lee 一語道破：「Coolmate 的特別之處，不是追逐時尚趨勢，而是建立了一個營運模型（operating model）。垂直整合和 SKU 紀律比 logo 更難複製。」
 
@@ -83,4 +83,4 @@ Coolmate 的故事給台灣創業者三個重要啟示。
 
 ---
 
-_最後更新：2025-12-14_
+*最後更新：2025-12-14*

@@ -22,7 +22,7 @@ seriesTitle: "PayPal 與支付生態系列"
 seriesIndex: 2
 ---
 
-# 從 3,500 億到被收購：PayPal 的衰落，如何成就了 Stripe 的登頂？
+# 從 3,500 億到被收購：PayPal 的衰落，如何成就了 Stripe 的登頂
 
 > Bloomberg 報導 Stripe 正考慮收購 PayPal，兩天後 PayPal 否認。但真正值得關注的不是這筆交易會不會成真，而是支付產業的權力結構已經徹底翻轉。五年前 PayPal 市值是 Stripe 的四倍，如今 Stripe 估值是 PayPal 的近四倍。
 
@@ -58,7 +58,7 @@ Marcus 最殘酷的一段話是這樣的：
 
 ---
 
-## Stripe 在這五年間做了什麼？
+## Stripe 在這五年間做了什麼
 
 幾乎一切都做對了。2025 年，Stripe 處理了 1.9 兆美元的交易量，年增 34%，相當於全球 GDP 的 1.6%。淨營收（Net Revenue，即扣除銀行端交換成本後）估計約 51 億美元，年增 28%，連續第二年實現穩健獲利。超過 500 萬家企業使用 Stripe，包括 80% 的 Nasdaq 100 和 90% 的道瓊成分股。
 
@@ -72,7 +72,7 @@ Marcus 最殘酷的一段話是這樣的：
 
 ---
 
-## Stripe 看上了 PayPal 的什麼？
+## Stripe 看上了 PayPal 的什麼
 
 Bernstein 分析師 Harshita Rawat 做了一個有意思的分部估值分析。她把 PayPal 拆解成幾塊：核心 PayPal 品牌（200 至 250 億美元）、Braintree 企業支付處理（100 至 150 億美元）、Venmo 消費者支付（約 50 億美元），再加上先買後付業務、PYUSD 穩定幣、全球牌照等資產。
 
@@ -120,4 +120,4 @@ PayPal 的前瞻本益比目前僅約 8.3 倍，遠低於 Visa 的 23.2 倍和 M
 
 **#Stripe #PayPal #金融科技 #併購 #支付產業 #Venmo #FinTech #DavidMarcus**
 
-_最後更新：2026-03-01_
+*最後更新：2026-03-01*

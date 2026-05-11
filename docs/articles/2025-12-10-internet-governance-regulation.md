@@ -39,7 +39,7 @@ status: published
 
 ## 一、數據落地：全球趨勢與政策演變
 
-### 1.1 什麼是數據落地？
+### 1.1 什麼是數據落地
 
 數據落地（Data Localization）是指要求在一國境內收集的數據必須儲存、處理或保留在該國境內的政策。截至 2025 年，**全球約 75% 的國家已實施某種形式的數據落地規定**。
 
@@ -674,92 +674,92 @@ DMA 要求守門人：
 
 ### 中國數據監管
 
-6. [数据出境安全管理政策问答（2025年4月）| 中央网络安全和信息化委员会办公室](https://www.cac.gov.cn/2025-04/09/c_1745906286623776.htm)
-7. [2024数据合规立法监管的回顾与2025年展望 | 锦天城律师事务所](https://www.allbrightlaw.com/CN/10475/63efeb45f0af5dbe.aspx)
-8. [网络数据安全管理条例 | 中国政府网](https://www.gov.cn/zhengce/content/202409/content_6977766.htm)
-9. [《促进和规范数据跨境流动规定》实施一周年 | 中央网络安全和信息化委员会办公室](https://www.cac.gov.cn/2025-03/21/c_1744174598705025.htm)
+1. [数据出境安全管理政策问答（2025年4月）| 中央网络安全和信息化委员会办公室](https://www.cac.gov.cn/2025-04/09/c_1745906286623776.htm)
+2. [2024数据合规立法监管的回顾与2025年展望 | 锦天城律师事务所](https://www.allbrightlaw.com/CN/10475/63efeb45f0af5dbe.aspx)
+3. [网络数据安全管理条例 | 中国政府网](https://www.gov.cn/zhengce/content/202409/content_6977766.htm)
+4. [《促进和规范数据跨境流动规定》实施一周年 | 中央网络安全和信息化委员会办公室](https://www.cac.gov.cn/2025-03/21/c_1744174598705025.htm)
 
 ### 台灣監管政策
 
-10. [詐騙猖獗，電商應加強網購安全及個資管理 | KPMG](https://kpmg.com/tw/zh/home/insights/2024/08/online-shopping-security-and-personal-data-management.html)
-11. [「打詐四法草案」是法律特效藥？| 法律白話文運動](https://plainlaw.me/posts/legal-miracle-drug)
-12. [打詐四法是甚麼？| 臺灣高等檢察署](https://www.tph.moj.gov.tw/4421/4475/632364/1205402/post)
+1. [詐騙猖獗，電商應加強網購安全及個資管理 | KPMG](https://kpmg.com/tw/zh/home/insights/2024/08/online-shopping-security-and-personal-data-management.html)
+2. [「打詐四法草案」是法律特效藥？| 法律白話文運動](https://plainlaw.me/posts/legal-miracle-drug)
+3. [打詐四法是甚麼？| 臺灣高等檢察署](https://www.tph.moj.gov.tw/4421/4475/632364/1205402/post)
 
 ### 印尼 TikTok Shop 案例
 
-13. [TikTok halts e-commerce service in Indonesia following ban | CNBC](https://www.cnbc.com/2023/10/04/tiktok-halts-e-commerce-service-in-indonesia-following-ban.html)
-14. [Indonesia's New E-commerce Regulations Take a Bite Out of TikTok's Market Share | Asia Pacific Foundation](https://www.asiapacific.ca/publication/indonesias-new-e-commerce-regulations-take-bite-out-tiktoks)
-15. [Indonesia's Social Media E-Commerce Ban | ASEAN Briefing](https://www.aseanbriefing.com/news/indonesias-social-media-e-commerce-ban/)
+1. [TikTok halts e-commerce service in Indonesia following ban | CNBC](https://www.cnbc.com/2023/10/04/tiktok-halts-e-commerce-service-in-indonesia-following-ban.html)
+2. [Indonesia's New E-commerce Regulations Take a Bite Out of TikTok's Market Share | Asia Pacific Foundation](https://www.asiapacific.ca/publication/indonesias-new-e-commerce-regulations-take-bite-out-tiktoks)
+3. [Indonesia's Social Media E-Commerce Ban | ASEAN Briefing](https://www.aseanbriefing.com/news/indonesias-social-media-e-commerce-ban/)
 
 ### 越南跨境電商案例
 
-16. [Regulatory hurdles stall Temu in Vietnam | KrAsia](https://kr-asia.com/regulatory-hurdles-stall-temu-in-vietnam-amid-southeast-asia-e-commerce-boom)
-17. [Temu Suffers First Big Setback as Vietnam Suspends Its Operations | Caixin Global](https://www.caixinglobal.com/2024-12-17/temu-suffers-first-big-setback-as-vietnam-suspends-its-operations-102268732.html)
-18. [Vietnam suspends operations of Temu | Digital Watch Observatory](https://dig.watch/updates/vietnam-suspends-operations-of-temu-intensifying-scrutiny-of-foreign-e-commerce-platforms)
+1. [Regulatory hurdles stall Temu in Vietnam | KrAsia](https://kr-asia.com/regulatory-hurdles-stall-temu-in-vietnam-amid-southeast-asia-e-commerce-boom)
+2. [Temu Suffers First Big Setback as Vietnam Suspends Its Operations | Caixin Global](https://www.caixinglobal.com/2024-12-17/temu-suffers-first-big-setback-as-vietnam-suspends-its-operations-102268732.html)
+3. [Vietnam suspends operations of Temu | Digital Watch Observatory](https://dig.watch/updates/vietnam-suspends-operations-of-temu-intensifying-scrutiny-of-foreign-e-commerce-platforms)
 
 ### GDPR 與歐盟監管
 
-19. [Cross Border Data Transfers: 2025 Guide | SecurePrivacy](https://secureprivacy.ai/blog/cross-border-data-transfers-2025-guide)
-20. [Guide to GDPR Fines and Penalties | CookieYes](https://www.cookieyes.com/blog/gdpr-fines/)
-21. [GDPR 2025 Updates | ComplianceHub](https://www.compliancehub.wiki/gdpr-2025-updates-navigating-cross-border-transfers-and-stricter-breach-reporting/)
+1. [Cross Border Data Transfers: 2025 Guide | SecurePrivacy](https://secureprivacy.ai/blog/cross-border-data-transfers-2025-guide)
+2. [Guide to GDPR Fines and Penalties | CookieYes](https://www.cookieyes.com/blog/gdpr-fines/)
+3. [GDPR 2025 Updates | ComplianceHub](https://www.compliancehub.wiki/gdpr-2025-updates-navigating-cross-border-transfers-and-stricter-breach-reporting/)
 
 ### 印度 DPDPA
 
-22. [India's New Personal Data Protection Law | American Bar Association](https://www.americanbar.org/groups/business_law/resources/business-law-today/2025-may/india-data-protection-law/)
-23. [The Draft Digital Personal Data Protection Rules, 2025 | Trilegal](https://trilegal.com/dataprotection/the-draft-digital-personal-data-protection-rules-2025-operationalising-indias-data-protection-law/)
-24. [India notifies Digital Personal Data Protection rules | Biometric Update](https://www.biometricupdate.com/202511/india-notifies-its-sweeping-digital-personal-data-protection-rules)
+1. [India's New Personal Data Protection Law | American Bar Association](https://www.americanbar.org/groups/business_law/resources/business-law-today/2025-may/india-data-protection-law/)
+2. [The Draft Digital Personal Data Protection Rules, 2025 | Trilegal](https://trilegal.com/dataprotection/the-draft-digital-personal-data-protection-rules-2025-operationalising-indias-data-protection-law/)
+3. [India notifies Digital Personal Data Protection rules | Biometric Update](https://www.biometricupdate.com/202511/india-notifies-its-sweeping-digital-personal-data-protection-rules)
 
 ### 俄羅斯數據在地化
 
-25. [Russia is weaponizing its data laws | Brookings](https://www.brookings.edu/articles/russia-is-weaponizing-its-data-laws-against-foreign-organizations/)
-26. [New requirements for localization of personal data in Russia | Konsu](https://konsugroup.com/en/news/new-requirements-personal-data-protection-russia-2025-07/)
-27. [Russia Data Localization Law: 2025 Guide | Captain Compliance](https://captaincompliance.com/education/russia-data-localization-law/)
+1. [Russia is weaponizing its data laws | Brookings](https://www.brookings.edu/articles/russia-is-weaponizing-its-data-laws-against-foreign-organizations/)
+2. [New requirements for localization of personal data in Russia | Konsu](https://konsugroup.com/en/news/new-requirements-personal-data-protection-russia-2025-07/)
+3. [Russia Data Localization Law: 2025 Guide | Captain Compliance](https://captaincompliance.com/education/russia-data-localization-law/)
 
 ### 歐盟數位市場法 (DMA)
 
-28. [Digital Markets Act | European Commission](https://digital-markets-act.ec.europa.eu/index_en)
-29. [DMA designated Gatekeepers | European Commission](https://digital-markets-act.ec.europa.eu/gatekeepers_en)
-30. [Digital Markets Act (DMA) Explained [2025] | SecurePrivacy](https://secureprivacy.ai/blog/digital-markets-act-dma-explained-2025)
+1. [Digital Markets Act | European Commission](https://digital-markets-act.ec.europa.eu/index_en)
+2. [DMA designated Gatekeepers | European Commission](https://digital-markets-act.ec.europa.eu/gatekeepers_en)
+3. [Digital Markets Act (DMA) Explained [2025] | SecurePrivacy](https://secureprivacy.ai/blog/digital-markets-act-dma-explained-2025)
 
 ### 美國 TikTok 禁令
 
-31. [Restrictions on TikTok in the United States | Wikipedia](https://en.wikipedia.org/wiki/Restrictions_on_TikTok_in_the_United_States)
-32. [TikTok Is a Threat to National Security | RAND](https://www.rand.org/pubs/commentary/2024/08/tiktok-is-a-threat-to-national-security-but-not-for.html)
-33. [U.S. TikTok Ban: National Security and Civil Liberties | University of Washington](https://jsis.washington.edu/news/u-s-tiktok-ban-national-security-and-civil-liberties-concerns/)
+1. [Restrictions on TikTok in the United States | Wikipedia](https://en.wikipedia.org/wiki/Restrictions_on_TikTok_in_the_United_States)
+2. [TikTok Is a Threat to National Security | RAND](https://www.rand.org/pubs/commentary/2024/08/tiktok-is-a-threat-to-national-security-but-not-for.html)
+3. [U.S. TikTok Ban: National Security and Civil Liberties | University of Washington](https://jsis.washington.edu/news/u-s-tiktok-ban-national-security-and-civil-liberties-concerns/)
 
 ### 巴西 LGPD
 
-34. [Brazil's New Rules on International Data Transfers | U.S. Trade](https://www.trade.gov/market-intelligence/brazils-new-rules-international-data-transfers)
-35. [Brazil Issues New Regulation on International Data Transfers | Inside Privacy](https://www.insideprivacy.com/data-transfers/brazil-issues-new-regulation-on-international-data-transfers/)
+1. [Brazil's New Rules on International Data Transfers | U.S. Trade](https://www.trade.gov/market-intelligence/brazils-new-rules-international-data-transfers)
+2. [Brazil Issues New Regulation on International Data Transfers | Inside Privacy](https://www.insideprivacy.com/data-transfers/brazil-issues-new-regulation-on-international-data-transfers/)
 
 ### 澳洲隱私法改革
 
-36. [Privacy and Other Legislation Amendment Act 2024 | OAIC](https://www.oaic.gov.au/news/media-centre/pasing-of-bill-a-significant-step-for-australias-privacy-law)
-37. [What Australia Privacy Act Reforms Mean 2025 | SecurePrivacy](https://secureprivacy.ai/blog/what-australia-privacy-act-reforms-mean-for-your-business-2025)
-38. [First Tranche of Reforms to Australian Privacy Law | Privacy World](https://www.privacyworld.blog/2024/12/first-tranche-of-reforms-to-australian-privacy-law-passed-with-amendments/)
+1. [Privacy and Other Legislation Amendment Act 2024 | OAIC](https://www.oaic.gov.au/news/media-centre/pasing-of-bill-a-significant-step-for-australias-privacy-law)
+2. [What Australia Privacy Act Reforms Mean 2025 | SecurePrivacy](https://secureprivacy.ai/blog/what-australia-privacy-act-reforms-mean-for-your-business-2025)
+3. [First Tranche of Reforms to Australian Privacy Law | Privacy World](https://www.privacyworld.blog/2024/12/first-tranche-of-reforms-to-australian-privacy-law-passed-with-amendments/)
 
 ### 南韓 PIPA
 
-39. [Data Privacy Law Updates in Asia-Pacific 2024 | Truendo](https://www.truendo.com/en-US/blog/data-privacy-law-updates-in-asia-pacific)
-40. [South Korea Amended PIPA | Library of Congress](https://www.loc.gov/item/global-legal-monitor/2025-06-23/south-korea-amended-personal-information-protection-act-expands-individuals-control-over-personal-data)
+1. [Data Privacy Law Updates in Asia-Pacific 2024 | Truendo](https://www.truendo.com/en-US/blog/data-privacy-law-updates-in-asia-pacific)
+2. [South Korea Amended PIPA | Library of Congress](https://www.loc.gov/item/global-legal-monitor/2025-06-23/south-korea-amended-personal-information-protection-act-expands-individuals-control-over-personal-data)
 
 ### 泰國稅收監管
 
-41. [New Tax Regulations for E-commerce in Thailand | VATupdate](https://www.vatupdate.com/2024/09/05/new-tax-regulations-for-e-commerce-businesses-and-foreign-online-platforms-in-thailand/)
-42. [Navigating Thailand's E-commerce Tax Regulations | Gorioux Siam](https://goriouxsiam.com/2024/06/17/navigating-thailands-e-commerce-tax-regulations/)
+1. [New Tax Regulations for E-commerce in Thailand | VATupdate](https://www.vatupdate.com/2024/09/05/new-tax-regulations-for-e-commerce-businesses-and-foreign-online-platforms-in-thailand/)
+2. [Navigating Thailand's E-commerce Tax Regulations | Gorioux Siam](https://goriouxsiam.com/2024/06/17/navigating-thailands-e-commerce-tax-regulations/)
 
 ### 法國數位服務稅
 
-43. [France - Increase of Digital Services Tax 2025 | 1stopVAT](https://1stopvat.com/france-increase-of-digital-services-tax-2025/)
-44. [France Plans to Increase DST to 5% | VATupdate](https://www.vatupdate.com/2024/11/27/france-plans-to-increase-digital-services-tax-rate-to-5-in-2025/)
-45. [France's Digital Tax Policy | ITIF](https://itif.org/publications/2025/02/11/france-digital-tax-policy/)
+1. [France - Increase of Digital Services Tax 2025 | 1stopVAT](https://1stopvat.com/france-increase-of-digital-services-tax-2025/)
+2. [France Plans to Increase DST to 5% | VATupdate](https://www.vatupdate.com/2024/11/27/france-plans-to-increase-digital-services-tax-rate-to-5-in-2025/)
+3. [France's Digital Tax Policy | ITIF](https://itif.org/publications/2025/02/11/france-digital-tax-policy/)
 
 ### 數位主權與保護主義
 
-46. [The Global Spread of Protectionist Policies | ITIF](https://itif.org/publications/2025/03/07/the-global-spread-of-protectionist-policies-that-squeeze-american-tech-companies/)
-47. [Digital Sovereignty: protectionism or autonomy? | Hinrich Foundation](https://www.wita.org/wp-content/uploads/2021/09/Digital-sovereignty-protectionism-or-autonomy-Hinrich-Foundation-Deborah-Elms-September-2021.pdf)
-48. [What is digital sovereignty? | World Economic Forum](https://www.weforum.org/stories/2025/01/europe-digital-sovereignty/)
+1. [The Global Spread of Protectionist Policies | ITIF](https://itif.org/publications/2025/03/07/the-global-spread-of-protectionist-policies-that-squeeze-american-tech-companies/)
+2. [Digital Sovereignty: protectionism or autonomy? | Hinrich Foundation](https://www.wita.org/wp-content/uploads/2021/09/Digital-sovereignty-protectionism-or-autonomy-Hinrich-Foundation-Deborah-Elms-September-2021.pdf)
+3. [What is digital sovereignty? | World Economic Forum](https://www.weforum.org/stories/2025/01/europe-digital-sovereignty/)
 
 ---
 
-_最後更新：2025-12-10_
+*最後更新：2025-12-10*

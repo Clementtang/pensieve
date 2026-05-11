@@ -2,8 +2,10 @@
 title: "歡迎使用 Pensieve 寫作儲存庫"
 description: "這是一個範例文章，展示如何使用 Pensieve 儲存庫進行寫作。"
 date: 2025-11-20
+author: "Clement Tang"
 tags: ["寫作", "指南", "Pensieve"]
 category: articles
+status: published
 ---
 
 # 歡迎使用 Pensieve 寫作儲存庫
@@ -25,13 +27,14 @@ category: articles
 歡迎來到 Pensieve！這是一個專門為與 Claude AI 協作寫作而設計的儲存庫。透過規範的檔案組織和寫作標準，你可以高效地建立、管理和發布各類內容。
 
 **本文將介紹：**
+
 - Pensieve 儲存庫的基本結構
 - 如何開始第一篇文章
 - 與 Claude 協作的最佳實踐
 
 ---
 
-## Pensieve 是什麼？
+## Pensieve 是什麼
 
 Pensieve 是一個寫作管理系統，它結合了：
 
@@ -99,6 +102,7 @@ mv drafts/2025-11-20-my-article.md docs/articles/
 ### 2. 利用規範
 
 所有規範都在儲存庫中，Claude 可以參考：
+
 - `WRITING_GUIDE.md` - 寫作規範
 - `README.md` - 儲存庫說明
 - 模板檔案 - 文章結構

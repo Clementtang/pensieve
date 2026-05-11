@@ -23,7 +23,7 @@ ul-indent:
 
 # MD009: 行尾空格
 no-trailing-spaces:
-  br_spaces: 2  # 允許 2 個空格作為換行
+  br_spaces: 2 # 允許 2 個空格作為換行
 
 # MD012: 連續空行（最多 1 行）
 no-multiple-blanks:
@@ -36,8 +36,8 @@ line-length: false
 no-duplicate-heading:
   siblings_only: true
 
-# MD025: 只允許一個 H1
-single-h1: true
+# MD025: 多個 H1 限制（停用，研究文件常將主章節各立 H1）
+single-h1: false
 
 # MD026: 標題結尾不加標點
 no-trailing-punctuation:
@@ -45,7 +45,7 @@ no-trailing-punctuation:
 
 # MD029: 有序列表編號風格
 ol-prefix:
-  style: ordered  # 1. 2. 3. 而非全部 1.
+  style: ordered # 1. 2. 3. 而非全部 1.
 
 # MD033: 允許部分 HTML 標籤
 no-inline-html:
@@ -55,15 +55,20 @@ no-inline-html:
     - summary
     - sup
     - sub
+    - a
+    - blockquote
 
 # MD034: 裸露 URL 應使用連結語法
 no-bare-urls: true
 
-# MD036: 不要用粗體/斜體代替標題
-no-emphasis-as-heading: true
+# MD036: 不要用粗體/斜體代替標題（停用，專案慣用 **粗體：** 作為小標題前綴）
+no-emphasis-as-heading: false
 
-# MD040: 程式碼區塊應指定語言
-fenced-code-language: true
+# MD040: 程式碼區塊應指定語言（停用，研究文件大量使用 ASCII 圖表/示意圖區塊）
+fenced-code-language: false
+
+# MD060: 表格欄位對齊風格（停用，現有研究文件對齊風格不統一，純美學差異）
+table-column-style: false
 
 # MD041: 文件應以 H1 開頭（停用，因為有 frontmatter）
 first-line-h1: false
@@ -79,9 +84,9 @@ single-trailing-newline: true
 code-fence-style:
   style: backtick
 
-# MD049: 斜體風格（使用 *）
+# MD049: 斜體風格（接受任一風格，因 Prettier 與 markdownlint 預設不一致）
 emphasis-style:
-  style: asterisk
+  style: consistent
 
 # MD050: 粗體風格（使用 **）
 strong-style:

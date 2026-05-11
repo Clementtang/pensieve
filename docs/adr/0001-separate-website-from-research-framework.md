@@ -48,6 +48,7 @@ Pensieve（私有研究框架）    Multivac42（公開網站）
 | **Multivac42** | ✅ 最終選擇 |
 
 **Multivac42** 的意義：
+
 - **Multivac**：阿西莫夫科幻小說中的超級電腦，首次出現於 1955 年《The Last Question》
 - **42**：道格拉斯·亞當斯《銀河便車指南》中「生命、宇宙與萬物的終極答案」
 - 向兩位科幻大師致敬，象徵對知識與答案的追求
@@ -104,8 +105,8 @@ Pensieve（私有研究框架）    Multivac42（公開網站）
 
 ## 參考資源
 
-- Multivac42 倉庫：https://github.com/Clementtang/multivac42
-- Multivac42 網站：https://multivac42.vercel.app
+- Multivac42 倉庫：<https://github.com/Clementtang/multivac42>
+- Multivac42 網站：<https://multivac42.vercel.app>
 - 阿西莫夫《The Last Question》：1955 年
 - 道格拉斯·亞當斯《銀河便車指南》：1979 年
 
