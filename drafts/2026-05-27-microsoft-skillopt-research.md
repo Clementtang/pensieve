@@ -5,7 +5,7 @@ date: 2026-05-27
 author: "Clement Tang"
 tags: ["AI", "LLM", "Agent", "Microsoft", "技術解析", "Prompt Engineering"]
 category: articles
-status: draft
+status: published
 ---
 
 # 當 AI 開始自己寫筆記：Microsoft SkillOpt 如何讓語言模型的技能像神經網路一樣可訓練
