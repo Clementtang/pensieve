@@ -1,0 +1,68 @@
+name: Publish to Multivac42
+
+# 當 docs/ 內的文章 merge 進 main 時，自動把標記為 status: published 的文章
+# 發布到 Multivac42 公開網站儲存庫。
+#
+# 架構原則：Pensieve 是唯一編輯來源，Multivac42 只是發布快照。
+# 本流程沿用 scripts/publish-to-multivac.js，將兩個 repo 並排 checkout，
+# 跑發布腳本後再 push 到 Multivac42。
+#
+# 前置設定：
+#   - secrets.MULTIVAC_PUBLISH_TOKEN：能寫入 Multivac42 repo 的 token
+#     （建議使用 fine-grained PAT 或 GitHub App installation token，
+#      權限限定 contents: write，scope 只給 multivac42）
+#   - vars.MULTIVAC_REPO：Multivac42 的 owner/repo（例如 clementtang/multivac42）
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "docs/articles/**"
+      - "docs/company-research/**"
+      - "docs/topic-research/**"
+  workflow_dispatch: # 允許手動觸發，方便補發或重跑
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Pensieve
+        uses: actions/checkout@v4
+        with:
+          path: pensieve
+
+      - name: Checkout Multivac42
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ vars.MULTIVAC_REPO }}
+          token: ${{ secrets.MULTIVAC_PUBLISH_TOKEN }}
+          path: multivac42
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: pensieve/package-lock.json
+
+      - name: Install dependencies
+        working-directory: pensieve
+        run: npm ci
+
+      # --auto-commit 會在 multivac42 執行 git commit，需先設定 commit 身分
+      - name: Configure git for Multivac42
+        working-directory: multivac42
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      # 腳本以 ../multivac42 作為 MULTIVAC_ROOT，並排 checkout 即可運作。
+      # --validate 確保必填欄位齊全，--auto-commit 在 M42 自動產生 commit。
+      - name: Run publish script
+        working-directory: pensieve
+        run: node scripts/publish-to-multivac.js --validate --auto-commit
+
+      # 若沒有新文章，腳本不會產生 commit，push 會是 "up-to-date"，不影響結果
+      - name: Push to Multivac42
+        working-directory: multivac42
+        run: git push
