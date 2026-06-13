@@ -715,7 +715,7 @@ status: published   # 設為 published 才會被發布
 | `company-research` | `docs/company-research/{公司名}/` | 依公司分類 |
 | `topic-research` | `docs/topic-research/` | 平面結構 |
 
-> **注意：** Pensieve 內文章可放在任何目錄，發布腳本會根據 `category` 欄位決定 M42 的目標位置。
+> **注意：** 發布腳本只會掃描 `docs/articles/`、`docs/company-research/`、`docs/topic-research/` 這三個來源目錄，因此要發布的文章必須放在其中之一（`drafts/` 內的草稿不會被掃描）。腳本會再依 `category` 欄位決定 M42 的目標位置。
 
 ### 發布流程
 
