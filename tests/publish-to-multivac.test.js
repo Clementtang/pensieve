@@ -6,6 +6,7 @@ import {
   getCompanyFromFilename,
   inferCategoryFromPath,
   getDestPath,
+  getContentHash,
   CATEGORY_CONFIG,
   COMPANY_MAPPING,
 } from "../scripts/publish-to-multivac.js";
@@ -309,5 +310,47 @@ describe("COMPANY_MAPPING", () => {
     expect(COMPANY_MAPPING.manus).toBe("manus-ai");
     expect(COMPANY_MAPPING.luckin).toBe("luckin-coffee");
     expect(COMPANY_MAPPING.toast).toBe("toast");
+  });
+});
+
+describe("getContentHash", () => {
+  const buildContent = (lastModified, body = "Body content.") =>
+    `---
+title: Test
+description: Desc
+date: 2026-01-15
+category: articles
+status: published
+lastModified: ${lastModified}
+---
+
+${body}`;
+
+  it("should return identical hash when only lastModified differs", () => {
+    const a = buildContent("2026-01-15");
+    const b = buildContent("2026-06-17");
+    expect(getContentHash(a)).toBe(getContentHash(b));
+  });
+
+  it("should return different hash when body differs", () => {
+    const a = buildContent("2026-01-15", "Original body.");
+    const b = buildContent("2026-01-15", "Modified body.");
+    expect(getContentHash(a)).not.toBe(getContentHash(b));
+  });
+
+  it("should return different hash when non-lastModified frontmatter differs", () => {
+    const a = buildContent("2026-01-15");
+    const b = a.replace("title: Test", "title: Renamed");
+    expect(getContentHash(a)).not.toBe(getContentHash(b));
+  });
+
+  it("should return identical hash regardless of trailing whitespace in body", () => {
+    const a = buildContent("2026-01-15", "Body content.\n\n");
+    const b = buildContent("2026-01-15", "Body content.");
+    expect(getContentHash(a)).toBe(getContentHash(b));
+  });
+
+  it("should return null for content without valid frontmatter", () => {
+    expect(getContentHash("no frontmatter here")).toBe(null);
   });
 });

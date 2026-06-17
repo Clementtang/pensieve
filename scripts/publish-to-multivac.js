@@ -36,6 +36,7 @@
 
 const fs = require("fs");
 const path = require("path");
+const crypto = require("crypto");
 const { parseFrontmatter, generateFrontmatter } = require("./lib/frontmatter");
 
 // 路徑設定
@@ -208,6 +209,45 @@ function getFileModTime(filePath) {
 }
 
 /**
+ * 計算內容的標準化 hash（排除 lastModified 欄位）
+ *
+ * lastModified 每次發布都會根據 mtime 重設，若納入會造成偽差異 ——
+ * CI 環境每次 checkout 都產生新 mtime，導致內容明明相同卻被當成「有更新」，
+ * 或反之，content 改了但 mtime 沒前進就被誤判「無變化」。
+ */
+function getContentHash(content) {
+  try {
+    const { frontmatter, body, hasFrontmatter } = parseFrontmatter(content);
+    if (!hasFrontmatter) return null;
+    const normalized = { ...frontmatter };
+    delete normalized.lastModified;
+    const normalizedContent = `${generateFrontmatter(normalized)}\n\n${body.trim()}\n`;
+    return crypto.createHash("sha256").update(normalizedContent).digest("hex");
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * 比較來源（經過 transform 後）與目標檔案內容是否有實質差異
+ *
+ * 回傳 true 表示需要更新（目標不存在或內容不同）。
+ * 用 content hash 取代 mtime 比較，避免 CI checkout 時間誤導判斷。
+ */
+function hasContentChanged(srcPath, destPath) {
+  if (!fs.existsSync(destPath)) return true;
+
+  try {
+    const srcContent = fs.readFileSync(srcPath, "utf-8");
+    const destContent = fs.readFileSync(destPath, "utf-8");
+    const srcTransformed = transformArticle(srcContent, srcPath);
+    return getContentHash(srcTransformed) !== getContentHash(destContent);
+  } catch {
+    return true;
+  }
+}
+
+/**
  * 掃描目錄中的 Markdown 檔案
  */
 function scanMarkdownFiles(dir) {
@@ -334,9 +374,6 @@ function main() {
         frontmatter.category || inferCategoryFromPath(srcDirRelative);
       const destPath = getDestPath(filePath, category);
 
-      const srcModTime = getFileModTime(filePath);
-      const destModTime = getFileModTime(destPath);
-
       // 驗證文章（如果啟用驗證模式）
       const errors = validateMode
         ? validateForPublish(frontmatter, filePath)
@@ -356,12 +393,12 @@ function main() {
         validationErrors.push(article);
       }
 
-      if (destModTime === 0) {
+      if (!fs.existsSync(destPath)) {
         // 目標不存在，需要發布
         notPublished.push(article);
         toPublish.push(article);
-      } else if (srcModTime > destModTime) {
-        // 來源較新，需要更新
+      } else if (hasContentChanged(filePath, destPath)) {
+        // 來源內容與目標不同（排除 lastModified），需要更新
         needsUpdate.push(article);
         toPublish.push(article);
       }
@@ -560,6 +597,8 @@ module.exports = {
   inferCategoryFromPath,
   getDestPath,
   transformArticle,
+  getContentHash,
+  hasContentChanged,
   CATEGORY_CONFIG,
   COMPANY_MAPPING,
 };
