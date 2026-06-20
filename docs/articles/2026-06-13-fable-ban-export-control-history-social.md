@@ -5,8 +5,8 @@ date: 2026-06-13
 author: "Clement Tang"
 tags: ["社群貼文", "AI 治理", "出口管制", "地緣政治", "資安"]
 category: articles
-status: draft
-related: "drafts/2026-06-13-code-as-munitions-ai-export-control.md"
+status: published
+related: "docs/topic-research/2026-06-13-code-as-munitions-ai-export-control.md"
 ---
 
 # 當 AI 模型被當成軍火管制
@@ -18,7 +18,7 @@ related: "drafts/2026-06-13-code-as-munitions-ai-export-control.md"
 | 項目         | 內容                                                       |
 | ------------ | ---------------------------------------------------------- |
 | **日期**     | 2026-06-13                                                 |
-| **原始研究** | drafts/2026-06-13-code-as-munitions-ai-export-control.md   |
+| **原始研究** | docs/topic-research/2026-06-13-code-as-munitions-ai-export-control.md |
 | **目標平台** | Facebook / LinkedIn / Threads / X                          |
 
 ---
@@ -99,7 +99,7 @@ related: "drafts/2026-06-13-code-as-munitions-ai-export-control.md"
 - **圖片**：四起事件時間軸圖（1991 PGP → 2019 華為 → 2022 EDA → 2026 Fable），或 1990 年代 Netscape 出口版加密強度示意
 - **連結**：
   - Phil Zimmermann 親述 PGP 與密碼學戰爭：<https://www.mit.edu/~prz/EN/essays/Testimony.html>
-  - 長文版議題研究（發布後補連結）
+  - 長文版議題研究：docs/topic-research/2026-06-13-code-as-munitions-ai-export-control.md
 
 ### 互動設計
 
@@ -108,14 +108,6 @@ related: "drafts/2026-06-13-code-as-munitions-ai-export-control.md"
 
 ---
 
-## 查證說明（內部備註，發布時移除）
+> **情境聲明：** Fable 5 / Mythos 5 禁令屬使用者提供的假設情節，尚未獨立查證；文中對照的歷史案例（密碼學戰爭、視同出口、2022 EDA 管制、2019 華為、2025 AI 擴散框架）均已查證為真實。
 
-- **PGP / 密碼學戰爭**：1991 年釋出；美國海關與司法部自 1993 年 2 月起調查；1996 年 1 月撤案未起訴。ITAR 將強加密列為軍火清單項目。Netscape 國內 128 位元、出口 40 位元屬實。
-- **視同出口（Deemed Export）**：EAR 既有概念，向美國境內外國國民釋出受管制技術／原始碼即視同出口至其母國。
-- **EDA 管制**：BIS 於 2022-08-12 發布臨時最終規則，新增 ECCN 3D006，管制用於 GAAFET（3nm 以下）的 ECAD 軟體；針對中國的整套先進半導體管制於 2022-10-07 發布。
-- **華為**：2019 年 5 月列入實體清單，Google 隨後切斷新機海外 GMS 存取。
-- **Fable 5 / Mythos 5 禁令**：依使用者提供之情境，屬尚未獨立查證的前提事件，歷史對照案例均已查證為真實。
-
----
-
-*基於研究：drafts/2026-06-13-code-as-munitions-ai-export-control.md*
+*基於研究：docs/topic-research/2026-06-13-code-as-munitions-ai-export-control.md*
