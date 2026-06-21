@@ -1247,7 +1247,7 @@ seriesIndex: 1
 
 ## 延伸閱讀
 
-- [瑞幸咖啡進軍台灣：便利商店咖啡王國的破局之戰](../../articles/2025-11-28-luckin-coffee-taiwan-analysis.md) — 以本研究為基礎的台灣市場深度分析
+- [瑞幸咖啡進軍台灣：便利商店咖啡王國的破局之戰](../articles/2025-11-28-luckin-coffee-taiwan-analysis.md) — 以本研究為基礎的台灣市場深度分析
 
 ---
 

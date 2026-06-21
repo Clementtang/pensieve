@@ -1,4 +1,5 @@
 import { describe, it, expect } from "vitest";
+import path from "path";
 import {
   validateForPublish,
   removeMetadataSection,
@@ -7,9 +8,15 @@ import {
   inferCategoryFromPath,
   getDestPath,
   getContentHash,
+  inferCategoryFromAbsPath,
+  rewriteInternalLinks,
   CATEGORY_CONFIG,
   COMPANY_MAPPING,
 } from "../scripts/publish-to-multivac.js";
+
+// vitest 由 repo 根目錄執行，與腳本內 PENSIEVE_ROOT 一致
+const ROOT = process.cwd();
+const srcOf = (category, name) => path.join(ROOT, "docs", category, name);
 
 describe("validateForPublish", () => {
   it("should return empty array for valid input", () => {
@@ -352,5 +359,118 @@ ${body}`;
 
   it("should return null for content without valid frontmatter", () => {
     expect(getContentHash("no frontmatter here")).toBe(null);
+  });
+});
+
+describe("inferCategoryFromAbsPath", () => {
+  it("should infer category from docs subdirectory", () => {
+    expect(inferCategoryFromAbsPath(srcOf("articles", "x.md"))).toBe(
+      "articles",
+    );
+    expect(inferCategoryFromAbsPath(srcOf("company-research", "y.md"))).toBe(
+      "company-research",
+    );
+    expect(inferCategoryFromAbsPath(srcOf("topic-research", "z.md"))).toBe(
+      "topic-research",
+    );
+  });
+
+  it("should return null for paths outside known docs categories", () => {
+    expect(inferCategoryFromAbsPath(path.join(ROOT, "README.md"))).toBe(null);
+    expect(
+      inferCategoryFromAbsPath(path.join(ROOT, "docs", "guides", "x.md")),
+    ).toBe(null);
+  });
+});
+
+describe("rewriteInternalLinks", () => {
+  const linkOf = (body, category, name) =>
+    rewriteInternalLinks(
+      body,
+      srcOf(category, name),
+      getDestPath(srcOf(category, name), category),
+    );
+
+  it("should rewrite article → company-research link to by-company subdir", () => {
+    const body =
+      "見 [Airwallex 研究](../company-research/2025-12-10-airwallex-fintech-analysis.md)。";
+    const result = linkOf(
+      body,
+      "articles",
+      "2026-02-03-david-marcus-paypal-reflections.md",
+    );
+    expect(result).toContain(
+      "](../company-research/airwallex/2025-12-10-airwallex-fintech-analysis.md)",
+    );
+  });
+
+  it("should rewrite company-research → article link with extra ../ level", () => {
+    const body =
+      "延伸 [David Marcus](../articles/2026-02-03-david-marcus-paypal-reflections.md)。";
+    const result = linkOf(
+      body,
+      "company-research",
+      "2025-12-10-airwallex-fintech-analysis.md",
+    );
+    expect(result).toContain(
+      "](../../articles/2026-02-03-david-marcus-paypal-reflections.md)",
+    );
+  });
+
+  it("should rewrite same-dir company-research link across company subdirs", () => {
+    const body =
+      "參考 [SmartOSC 研究](./2025-11-25-smartosc-vietnam-research.md)。";
+    const result = linkOf(
+      body,
+      "company-research",
+      "2025-11-25-91app-smartosc-partnership-analysis.md",
+    );
+    // 91app-... 落在 misc/，smartosc-... 落在 smartosc/
+    expect(result).toContain(
+      "](../smartosc/2025-11-25-smartosc-vietnam-research.md)",
+    );
+  });
+
+  it("should preserve anchor fragments when rewriting", () => {
+    const body =
+      "見 [第二部分](./2025-11-25-smartosc-vietnam-research.md#第二部分)。";
+    const result = linkOf(
+      body,
+      "company-research",
+      "2025-11-25-91app-smartosc-partnership-analysis.md",
+    );
+    expect(result).toContain(
+      "](../smartosc/2025-11-25-smartosc-vietnam-research.md#第二部分)",
+    );
+  });
+
+  it("should leave external links unchanged", () => {
+    const body = "見 [官網](https://example.com/page.md)。";
+    const result = linkOf(body, "articles", "2026-02-03-test.md");
+    expect(result).toBe(body);
+  });
+
+  it("should leave links pointing outside docs categories unchanged", () => {
+    const body = "見 [README](../../README.md)。";
+    const result = linkOf(body, "articles", "2026-02-03-test.md");
+    expect(result).toBe(body);
+  });
+
+  it("should return body unchanged when destPath is missing", () => {
+    const body =
+      "見 [x](../company-research/2025-12-10-airwallex-fintech-analysis.md)。";
+    expect(
+      rewriteInternalLinks(body, srcOf("articles", "x.md"), undefined),
+    ).toBe(body);
+  });
+
+  it("should leave same-category flat article links resolvable", () => {
+    const body =
+      "見 [另一篇](./2026-02-25-stripe-paypal-acquisition-social.md)。";
+    const result = linkOf(body, "articles", "2026-02-03-test.md");
+    // 同為 articles 平面結構，路徑維持指向同目錄檔案
+    expect(result).toContain(
+      "](./2026-02-25-stripe-paypal-acquisition-social.md)",
+    );
   });
 });

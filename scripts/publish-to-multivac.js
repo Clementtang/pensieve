@@ -169,9 +169,55 @@ function removeLastUpdated(body) {
 }
 
 /**
+ * 從 Pensieve 內絕對路徑推斷 category（docs/<category>/...）
+ *
+ * 回傳該檔所屬的 category key，若不在已知 docs 子目錄下則回傳 null。
+ */
+function inferCategoryFromAbsPath(absPath) {
+  const docsRoot = path.join(PENSIEVE_ROOT, "docs");
+  const rel = path.relative(docsRoot, absPath);
+  if (rel.startsWith("..") || path.isAbsolute(rel)) return null;
+  const seg = rel.split(path.sep)[0];
+  return CATEGORY_CONFIG[seg] ? seg : null;
+}
+
+/**
+ * 將 Pensieve flat 結構的內部連結改寫為 M42 by-company 結構的相對路徑
+ *
+ * Pensieve 所有文章平放在 docs/<category>/，但 M42 的 company-research
+ * 依公司分子目錄（airwallex/、luckin-coffee/ …）。跨檔相對連結若沿用
+ * Pensieve 原生路徑，在 M42 巢狀結構下會解析失敗造成 dead link。
+ *
+ * 本函式在發布時依「來源與目標各自在 M42 的落點」重算相對路徑，
+ * 讓 source 端維持簡單的 flat 連結，結構差異全由發布腳本吸收。
+ */
+function rewriteInternalLinks(body, srcPath, destPath) {
+  if (!destPath) return body;
+
+  // 匹配相對的 .md 連結（含可選 #anchor），略過 http(s) 等絕對連結
+  const linkPattern = /\]\((\.[^)]*?\.md)(#[^)]*)?\)/g;
+
+  return body.replace(linkPattern, (match, linkPath, anchor) => {
+    // 解析連結目標在 Pensieve（flat 結構）的絕對路徑
+    const targetSrc = path.resolve(path.dirname(srcPath), linkPath);
+    const targetCategory = inferCategoryFromAbsPath(targetSrc);
+
+    // 無法判斷目標類別（例如指向 README / docs 外）→ 保持原樣
+    if (!targetCategory) return match;
+
+    // 依目標在 M42 的落點，重算從本檔 M42 位置出發的相對路徑
+    const targetDest = getDestPath(targetSrc, targetCategory);
+    let rel = path.relative(path.dirname(destPath), targetDest);
+    if (!rel.startsWith(".")) rel = `./${rel}`;
+
+    return `](${rel}${anchor || ""})`;
+  });
+}
+
+/**
  * 轉換文章格式
  */
-function transformArticle(content, filePath) {
+function transformArticle(content, filePath, destPath) {
   const { frontmatter, body } = parseFrontmatter(content);
 
   // 確保必要欄位
@@ -190,6 +236,7 @@ function transformArticle(content, filePath) {
   let transformedBody = body;
   transformedBody = removeMetadataSection(transformedBody);
   transformedBody = removeLastUpdated(transformedBody);
+  transformedBody = rewriteInternalLinks(transformedBody, filePath, destPath);
 
   // 組合最終內容
   const newFrontmatter = generateFrontmatter(frontmatter);
@@ -240,7 +287,7 @@ function hasContentChanged(srcPath, destPath) {
   try {
     const srcContent = fs.readFileSync(srcPath, "utf-8");
     const destContent = fs.readFileSync(destPath, "utf-8");
-    const srcTransformed = transformArticle(srcContent, srcPath);
+    const srcTransformed = transformArticle(srcContent, srcPath, destPath);
     return getContentHash(srcTransformed) !== getContentHash(destContent);
   } catch {
     return true;
@@ -484,7 +531,11 @@ function main() {
         const content = fs.readFileSync(article.srcPath, "utf-8");
 
         verbose(`轉換內容格式...`);
-        const transformed = transformArticle(content, article.srcPath);
+        const transformed = transformArticle(
+          content,
+          article.srcPath,
+          article.destPath,
+        );
 
         verbose(`寫入目標檔案...`);
         fs.writeFileSync(article.destPath, transformed);
@@ -599,6 +650,8 @@ module.exports = {
   transformArticle,
   getContentHash,
   hasContentChanged,
+  inferCategoryFromAbsPath,
+  rewriteInternalLinks,
   CATEGORY_CONFIG,
   COMPANY_MAPPING,
 };

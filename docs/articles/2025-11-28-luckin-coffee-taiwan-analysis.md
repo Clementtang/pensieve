@@ -331,7 +331,7 @@ seriesIndex: 2
 - 打敗星巴克的5大核心競爭優勢
 - 台灣市場詳細分析與數據
 
-完整2.5萬字深度研究報告：[瑞幸咖啡企業研究](../company-research/luckin-coffee/2025-11-28-luckin-coffee-research.md)
+完整2.5萬字深度研究報告：[瑞幸咖啡企業研究](../company-research/2025-11-28-luckin-coffee-research.md)
 
 ---
 
