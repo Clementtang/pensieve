@@ -7,6 +7,39 @@
 
 ## [Unreleased]
 
+## [1.7.0] - 2026-06-25
+
+### Added
+
+- **發布管線（publish-to-multivac.js）三層強化**
+  - 變更偵測由 mtime 改為 content hash（sha256，排除 lastModified），解決 CI checkout 時間失準導致漏發或誤發
+  - `rewriteInternalLinks()`：source 維持 Pensieve flat 連結，發布時自動改寫為 M42 by-company 巢狀結構，根治跨類別 dead link
+  - `filterFrontmatter()`：依 `MULTIVAC_FRONTMATTER_FIELDS` 白名單只輸出 M42 schema 欄位，strip 掉 status/category/related/version（保留 lastModified）
+- **發布前 lint gate**：`--validate` 對每篇 transform 後輸出跑 markdownlint（同 `.markdownlint.yml`），攔截「源檔 lint 過、發布後爆」的問題（如 MD001-after-strip），有違規即 block + exit 1
+- **新研究文章（draft，整合自三條 feature branch）**
+  - AI 編程工具對 SaaS 產業的顛覆效應分析
+  - Timo 越南數位銀行被 Kredivo 收購研究
+- **GOOG 投資全景報告**：合併 4 篇重疊草稿為單一報告並發布至 M42（多空論述、美伊衝突、非農下修、技術估值、情境研判、全年展望）
+
+### Changed
+
+- **社群多版本文章清理**：移除「同篇內文寫多平台版本」的不適合 M42 呈現格式
+  - Shannon AI Pentester：保留完整敘事版、改寫為散文、去 `-social` 後綴
+  - Shopify BFCM 2024、Amazon Leo Ultra：刪除（主文已涵蓋）
+- **markdownlint 規則放寬以符合中文內容平台**：停用 MD025/MD036/MD040/MD060，MD049 改 consistent，MD033 允許 a/blockquote
+
+### Fixed
+
+- **CI 紅燈修復（連紅逾一個月）**：lint 1620→0、validate 10→0
+  - validate-article.js 加路徑白名單，跳過 ADR/guides/roadmap/taxonomy 等非文章類文件
+  - 補齊 3 篇越南企業研究與 welcome 文章的 frontmatter
+- **悟空 social 貼文 MD001 標題跳級**：內容區段 h3 → h2，避免發布 strip 元資料後 h1→h3
+- **跨類別內部連結 dead link**：SmartOSC、Airwallex、Luckin、Manus 等改用正確的 M42 子目錄相對路徑（後由 transform 自動化取代手改）
+
+### Memory
+
+- 新增專屬 project memory：`project_pensieve`、`reference_vitest_cjs`、`reference_publish_pipeline`（記錄 CI 自動推送、frontmatter 白名單、lint gate 與 MD001-after-strip 陷阱）
+
 ## [1.6.0] - 2026-05-11
 
 ### Added
