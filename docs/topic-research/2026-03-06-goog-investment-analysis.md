@@ -16,7 +16,7 @@ tags:
     "總體經濟",
   ]
 category: topic-research
-status: draft
+status: published
 ---
 
 # $GOOG 投資研究：美伊戰事、非農下修與 AI 軍備競賽下的多空全景
@@ -31,7 +31,7 @@ status: draft
 | **更新日期** | 2026-03-06                                        |
 | **研究者**   | Clement Tang                                      |
 | **標籤**     | #議題研究 #美股 #GOOG #AI #科技股 #地緣政治 #總經 |
-| **狀態**     | 草稿                                              |
+| **狀態**     | 已發布                                            |
 | **字數**     | 約 13,000 字                                      |
 
 ---
