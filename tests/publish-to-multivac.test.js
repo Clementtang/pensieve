@@ -10,8 +10,10 @@ import {
   getContentHash,
   inferCategoryFromAbsPath,
   rewriteInternalLinks,
+  filterFrontmatter,
   CATEGORY_CONFIG,
   COMPANY_MAPPING,
+  MULTIVAC_FRONTMATTER_FIELDS,
 } from "../scripts/publish-to-multivac.js";
 
 // vitest 由 repo 根目錄執行，與腳本內 PENSIEVE_ROOT 一致
@@ -472,5 +474,81 @@ describe("rewriteInternalLinks", () => {
     expect(result).toContain(
       "](./2026-02-25-stripe-paypal-acquisition-social.md)",
     );
+  });
+});
+
+describe("filterFrontmatter", () => {
+  it("should strip schema-undefined fields (status, category, related, version)", () => {
+    const fm = {
+      title: "Test",
+      description: "Desc",
+      date: "2026-03-06",
+      tags: ["a", "b"],
+      author: "Clement Tang",
+      status: "published",
+      category: "topic-research",
+      related: "https://example.com",
+      version: "1.0",
+      lastModified: "2026-06-25",
+    };
+    const result = filterFrontmatter(fm);
+    expect(result).not.toHaveProperty("status");
+    expect(result).not.toHaveProperty("category");
+    expect(result).not.toHaveProperty("related");
+    expect(result).not.toHaveProperty("version");
+  });
+
+  it("should preserve lastModified (multivac config.ts reads it)", () => {
+    const result = filterFrontmatter({
+      title: "T",
+      lastModified: "2026-06-25",
+      status: "published",
+    });
+    expect(result.lastModified).toBe("2026-06-25");
+  });
+
+  it("should preserve all whitelisted multivac fields", () => {
+    const fm = {
+      title: "T",
+      description: "D",
+      date: "2026-03-06",
+      tags: ["x"],
+      author: "Clement Tang",
+      cover: "/img.png",
+      featured: true,
+      draft: false,
+      series: "goog",
+      seriesTitle: "GOOG 系列",
+      seriesIndex: 1,
+      lastModified: "2026-06-25",
+    };
+    const result = filterFrontmatter(fm);
+    for (const key of Object.keys(fm)) {
+      expect(result).toHaveProperty(key);
+    }
+  });
+
+  it("should output fields in schema order regardless of input order", () => {
+    const result = filterFrontmatter({
+      lastModified: "2026-06-25",
+      author: "Clement Tang",
+      title: "T",
+      date: "2026-03-06",
+    });
+    const keys = Object.keys(result);
+    expect(keys).toEqual(["title", "date", "author", "lastModified"]);
+  });
+
+  it("should omit whitelisted fields that are absent from input", () => {
+    const result = filterFrontmatter({ title: "T", date: "2026-03-06" });
+    expect(Object.keys(result)).toEqual(["title", "date"]);
+    expect(result).not.toHaveProperty("tags");
+  });
+
+  it("MULTIVAC_FRONTMATTER_FIELDS should match multivac schema and exclude status/category", () => {
+    expect(MULTIVAC_FRONTMATTER_FIELDS).toContain("lastModified");
+    expect(MULTIVAC_FRONTMATTER_FIELDS).toContain("series");
+    expect(MULTIVAC_FRONTMATTER_FIELDS).not.toContain("status");
+    expect(MULTIVAC_FRONTMATTER_FIELDS).not.toContain("category");
   });
 });

@@ -71,6 +71,25 @@ const COMPANY_MAPPING = {
 // 預設作者
 const DEFAULT_AUTHOR = "Clement Tang";
 
+// Multivac42 frontmatter schema 白名單（依其 .claude/CLAUDE.md 定義）
+// 發布時只輸出這些欄位，其餘（status / category / related / version 等）一律 strip，
+// 避免全域 schema drift。陣列順序即為輸出順序。
+// 注意：lastModified 必須保留——multivac 的 config.ts 會讀它當 dateModified。
+const MULTIVAC_FRONTMATTER_FIELDS = [
+  "title",
+  "description",
+  "date",
+  "tags",
+  "author",
+  "cover",
+  "featured",
+  "draft",
+  "series",
+  "seriesTitle",
+  "seriesIndex",
+  "lastModified",
+];
+
 // 解析命令列參數
 const args = process.argv.slice(2);
 const isDryRun = args.includes("--dry-run");
@@ -238,9 +257,29 @@ function transformArticle(content, filePath, destPath) {
   transformedBody = removeLastUpdated(transformedBody);
   transformedBody = rewriteInternalLinks(transformedBody, filePath, destPath);
 
+  // 套用 Multivac42 frontmatter 白名單：只輸出 schema 定義的欄位，
+  // strip 掉 status / category / related 等未定義欄位，依 schema 順序輸出。
+  const filteredFrontmatter = filterFrontmatter(frontmatter);
+
   // 組合最終內容
-  const newFrontmatter = generateFrontmatter(frontmatter);
+  const newFrontmatter = generateFrontmatter(filteredFrontmatter);
   return `${newFrontmatter}\n\n${transformedBody}\n`;
+}
+
+/**
+ * 過濾 frontmatter，只保留 Multivac42 schema 白名單欄位
+ *
+ * 依 MULTIVAC_FRONTMATTER_FIELDS 順序重建物件，確保輸出欄位順序穩定，
+ * 且不含 status / category / related / version 等 multivac loader 不讀取的欄位。
+ */
+function filterFrontmatter(frontmatter) {
+  const filtered = {};
+  for (const field of MULTIVAC_FRONTMATTER_FIELDS) {
+    if (frontmatter[field] !== undefined) {
+      filtered[field] = frontmatter[field];
+    }
+  }
+  return filtered;
 }
 
 /**
@@ -652,6 +691,8 @@ module.exports = {
   hasContentChanged,
   inferCategoryFromAbsPath,
   rewriteInternalLinks,
+  filterFrontmatter,
   CATEGORY_CONFIG,
   COMPANY_MAPPING,
+  MULTIVAC_FRONTMATTER_FIELDS,
 };
