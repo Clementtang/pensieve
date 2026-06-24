@@ -11,6 +11,7 @@ import {
   inferCategoryFromAbsPath,
   rewriteInternalLinks,
   filterFrontmatter,
+  lintMarkdown,
   CATEGORY_CONFIG,
   COMPANY_MAPPING,
   MULTIVAC_FRONTMATTER_FIELDS,
@@ -550,5 +551,54 @@ describe("filterFrontmatter", () => {
     expect(MULTIVAC_FRONTMATTER_FIELDS).toContain("series");
     expect(MULTIVAC_FRONTMATTER_FIELDS).not.toContain("status");
     expect(MULTIVAC_FRONTMATTER_FIELDS).not.toContain("category");
+  });
+});
+
+describe("lintMarkdown", () => {
+  it("should return [] for clean transformed output (h1 → h2)", () => {
+    const content = `---
+title: Test
+---
+
+# 標題
+
+## 第一節
+
+內容。
+`;
+    expect(lintMarkdown(content)).toEqual([]);
+  });
+
+  it("should catch MD001 heading jump (h1 → h3) that appears after metadata strip", () => {
+    const content = `---
+title: Test
+---
+
+# 標題
+
+### 跳級小節
+
+內容。
+`;
+    const errors = lintMarkdown(content);
+    expect(errors.length).toBeGreaterThan(0);
+    expect(errors.join("\n")).toContain("MD001");
+  });
+
+  it("should strip the temp file path prefix from error lines", () => {
+    const content = `---
+title: Test
+---
+
+# 標題
+
+### 跳級
+
+內容。
+`;
+    const errors = lintMarkdown(content);
+    // 暫存檔絕對路徑前綴應已移除：訊息以行號開頭、不含 .md: 路徑片段
+    expect(errors[0]).toMatch(/^\d+ error /);
+    expect(errors.some((e) => e.includes(".md:"))).toBe(false);
   });
 });

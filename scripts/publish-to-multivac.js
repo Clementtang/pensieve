@@ -36,7 +36,9 @@
 
 const fs = require("fs");
 const path = require("path");
+const os = require("os");
 const crypto = require("crypto");
+const { execFileSync } = require("child_process");
 const { parseFrontmatter, generateFrontmatter } = require("./lib/frontmatter");
 
 // 路徑設定
@@ -89,6 +91,52 @@ const MULTIVAC_FRONTMATTER_FIELDS = [
   "seriesIndex",
   "lastModified",
 ];
+
+// markdownlint 設定與執行檔（與 npm run lint 同一支、同 config）
+const LINT_CONFIG_PATH = path.join(PENSIEVE_ROOT, ".markdownlint.yml");
+const MARKDOWNLINT_BIN = path.join(
+  PENSIEVE_ROOT,
+  "node_modules",
+  ".bin",
+  "markdownlint",
+);
+
+/**
+ * 對「transform 後的內容字串」跑 markdownlint
+ *
+ * 為什麼需要：Pensieve 的 npm run lint 檢查的是「源檔」，但源檔的
+ * `## 元資料` 區塊會在發布時被 strip，導致 h1→h3 跳級等問題只在發布後
+ * 才浮現（觸發 M42 的 blocking lint）。此函式對 transform 輸出跑同一套
+ * markdownlint 規則，把這類「源檔過、發布後爆」的問題擋在發布前。
+ *
+ * @param {string} content - transform 後的完整內容（含 frontmatter）
+ * @returns {string[]} 違規訊息陣列（已去除暫存檔路徑前綴）；無違規回 []
+ */
+function lintMarkdown(content) {
+  const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), "pensieve-lint-"));
+  const tmpFile = path.join(tmpDir, "transformed.md");
+  try {
+    fs.writeFileSync(tmpFile, content);
+    execFileSync(MARKDOWNLINT_BIN, ["--config", LINT_CONFIG_PATH, tmpFile], {
+      encoding: "utf-8",
+      stdio: ["ignore", "pipe", "pipe"],
+    });
+    return []; // exit 0：無違規
+  } catch (err) {
+    // markdownlint 有違規時 exit 1，違規列在 stderr（部分版本在 stdout）
+    const raw = `${err.stderr || ""}${err.stdout || ""}`.trim();
+    if (!raw) {
+      // 非預期錯誤（例如執行檔不存在）→ 往上拋，不要靜默吞掉
+      throw err;
+    }
+    return raw
+      .split("\n")
+      .map((line) => line.replace(tmpFile, "").replace(/^:/, "").trim())
+      .filter(Boolean);
+  } finally {
+    fs.rmSync(tmpDir, { recursive: true, force: true });
+  }
+}
 
 // 解析命令列參數
 const args = process.argv.slice(2);
@@ -515,16 +563,65 @@ function main() {
     return;
   }
 
-  // 顯示驗證錯誤（如果有）
-  if (validateMode && validationErrors.length > 0) {
-    console.log(`⚠️  驗證錯誤 (${validationErrors.length} 篇)：\n`);
-    for (const a of validationErrors) {
-      console.log(`   ❌ ${a.title}`);
-      for (const err of a.validationErrors) {
-        console.log(`      - ${err}`);
+  // 對 transform 後的輸出跑 markdownlint（攔截「源檔過、發布後爆」的問題）
+  const lintErrors = []; // { title, relativeSrc, errors[] }
+  if (validateMode) {
+    for (const article of toPublish) {
+      let transformed;
+      try {
+        const content = fs.readFileSync(article.srcPath, "utf-8");
+        transformed = transformArticle(
+          content,
+          article.srcPath,
+          article.destPath,
+        );
+      } catch (err) {
+        logError(article.srcPath, "TRANSFORM", "轉換失敗", err.message);
+        continue;
+      }
+      const errors = lintMarkdown(transformed);
+      if (errors.length > 0) {
+        lintErrors.push({
+          title: article.title,
+          relativeSrc: article.relativeSrc,
+          errors,
+        });
       }
     }
-    console.log();
+  }
+
+  // 顯示驗證錯誤（如果有）
+  if (validateMode && (validationErrors.length > 0 || lintErrors.length > 0)) {
+    if (validationErrors.length > 0) {
+      console.log(
+        `⚠️  Frontmatter 驗證錯誤 (${validationErrors.length} 篇)：\n`,
+      );
+      for (const a of validationErrors) {
+        console.log(`   ❌ ${a.title}`);
+        for (const err of a.validationErrors) {
+          console.log(`      - ${err}`);
+        }
+      }
+      console.log();
+    }
+
+    if (lintErrors.length > 0) {
+      console.log(
+        `⚠️  發布輸出 markdownlint 錯誤 (${lintErrors.length} 篇)：\n`,
+      );
+      console.log(
+        "   （以下違規出現在 transform 後的內容，會擋住 M42 的 blocking lint）\n",
+      );
+      for (const a of lintErrors) {
+        console.log(`   ❌ ${a.title}`);
+        console.log(`      ${a.relativeSrc}`);
+        for (const err of a.errors) {
+          console.log(`      - ${err}`);
+        }
+      }
+      console.log();
+    }
+
     console.log("請修正上述問題後再發布。\n");
     console.log(
       "提示：使用 node scripts/validate-article.js <file> 進行詳細驗證。",
@@ -626,8 +723,6 @@ function main() {
     console.log("🔄 執行自動 Git Commit...\n");
 
     try {
-      const { execFileSync } = require("child_process");
-
       // 切換到 M42 目錄
       process.chdir(MULTIVAC_ROOT);
       verbose(`切換到目錄：${MULTIVAC_ROOT}`);
@@ -692,6 +787,7 @@ module.exports = {
   inferCategoryFromAbsPath,
   rewriteInternalLinks,
   filterFrontmatter,
+  lintMarkdown,
   CATEGORY_CONFIG,
   COMPANY_MAPPING,
   MULTIVAC_FRONTMATTER_FIELDS,
