@@ -36,6 +36,9 @@ build/
 *.pyc
 __pycache__/
 
+# drafts 為 markdown 源，html 為可再生的預覽產出，不進版控
+drafts/*.html
+
 # 其他
 .env
 .env.local
