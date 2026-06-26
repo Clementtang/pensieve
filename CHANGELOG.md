@@ -7,6 +7,8 @@
 
 ## [Unreleased]
 
+## [1.8.0] - 2026-06-27
+
 ### Added
 
 - **發布前多版本社群偵測 gate**：`publish --validate` 新增 `detectMultiVersionSocial()`，偵測「版本 1/2/3、完整版/精簡版/極簡版、短版本/超短版本」多版本段落與「發布指南/使用建議/搭配素材建議」發布輔助段落，命中即 block + exit 1（提示改 status 為 draft/archived 或收斂為單一版本）。門檻設計避免誤報單篇文章與單一敘事社群貼文。
