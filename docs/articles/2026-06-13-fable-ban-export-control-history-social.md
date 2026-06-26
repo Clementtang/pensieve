@@ -5,7 +5,7 @@ date: 2026-06-13
 author: "Clement Tang"
 tags: ["社群貼文", "AI 治理", "出口管制", "地緣政治", "資安"]
 category: articles
-status: published
+status: archived
 related: "docs/topic-research/2026-06-13-code-as-munitions-ai-export-control.md"
 ---
 
@@ -15,11 +15,11 @@ related: "docs/topic-research/2026-06-13-code-as-munitions-ai-export-control.md"
 
 ## 元資料
 
-| 項目         | 內容                                                       |
-| ------------ | ---------------------------------------------------------- |
-| **日期**     | 2026-06-13                                                 |
+| 項目         | 內容                                                                  |
+| ------------ | --------------------------------------------------------------------- |
+| **日期**     | 2026-06-13                                                            |
 | **原始研究** | docs/topic-research/2026-06-13-code-as-munitions-ai-export-control.md |
-| **目標平台** | Facebook / LinkedIn / Threads / X                          |
+| **目標平台** | Facebook / LinkedIn / Threads / X                                     |
 
 ---
 
@@ -110,4 +110,4 @@ related: "docs/topic-research/2026-06-13-code-as-munitions-ai-export-control.md"
 
 > **情境聲明：** Fable 5 / Mythos 5 禁令屬使用者提供的假設情節，尚未獨立查證；文中對照的歷史案例（密碼學戰爭、視同出口、2022 EDA 管制、2019 華為、2025 AI 擴散框架）均已查證為真實。
 
-*基於研究：docs/topic-research/2026-06-13-code-as-munitions-ai-export-control.md*
+_基於研究：docs/topic-research/2026-06-13-code-as-munitions-ai-export-control.md_
