@@ -12,6 +12,7 @@ import {
   rewriteInternalLinks,
   filterFrontmatter,
   lintMarkdown,
+  detectMultiVersionSocial,
   CATEGORY_CONFIG,
   COMPANY_MAPPING,
   MULTIVAC_FRONTMATTER_FIELDS,
@@ -600,5 +601,118 @@ title: Test
     // 暫存檔絕對路徑前綴應已移除：訊息以行號開頭、不含 .md: 路徑片段
     expect(errors[0]).toMatch(/^\d+ error /);
     expect(errors.some((e) => e.includes(".md:"))).toBe(false);
+  });
+});
+
+describe("detectMultiVersionSocial", () => {
+  it("should flag a multi-version social post (版本 1/2/3 + 發布指南)", () => {
+    const content = `---
+title: 社群貼文
+---
+
+# 標題
+
+## 版本 1：完整版（Facebook / LinkedIn）
+
+內容。
+
+## 版本 2：精簡版（Threads）
+
+內容。
+
+## 版本 3：極簡版（Twitter/X）
+
+內容。
+
+## 發布指南
+
+### 最佳發布時間
+`;
+    const issues = detectMultiVersionSocial(content);
+    expect(issues.length).toBeGreaterThan(0);
+    expect(issues.join("\n")).toContain("多版本段落");
+    expect(issues.join("\n")).toContain("發布輔助段落");
+  });
+
+  it("should flag 短版本 / 超短版本 variants", () => {
+    const content = `# T
+
+## 貼文內容
+
+x
+
+## 短版本（Twitter/X 適用）
+
+x
+
+## 超短版本（適用 Twitter/X 限制）
+
+x
+`;
+    expect(detectMultiVersionSocial(content).length).toBeGreaterThan(0);
+  });
+
+  it("should flag a 發布指南 section even with one version heading", () => {
+    const content = `# T
+
+## 貼文內容
+
+x
+
+## 發布指南
+
+x
+`;
+    const issues = detectMultiVersionSocial(content);
+    expect(issues.join("\n")).toContain("發布輔助段落");
+  });
+
+  it("should NOT flag a normal single-version article", () => {
+    const content = `---
+title: GOOG 投資研究
+---
+
+# 標題
+
+## 執行摘要
+
+x
+
+## 多頭論述
+
+x
+
+## 結語
+
+x
+`;
+    expect(detectMultiVersionSocial(content)).toEqual([]);
+  });
+
+  it("should NOT flag a single narrative social post (no version splits)", () => {
+    const content = `# 當 AI 把滲透測試從三萬美元降到五十美元
+
+開場。
+
+## 背景
+
+內容。
+
+## 結論
+
+內容。
+`;
+    expect(detectMultiVersionSocial(content)).toEqual([]);
+  });
+
+  it("should not over-trigger on a single 版本 heading alone", () => {
+    const content = `# T
+
+## 版本演進史
+
+某產品的版本演進，非多平台社群版本。
+`;
+    // 只有 1 個「版本」開頭標題且非發布輔助段落 → 不應 block
+    expect(detectMultiVersionSocial(content)).toEqual([]);
   });
 });

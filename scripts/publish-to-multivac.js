@@ -138,6 +138,46 @@ function lintMarkdown(content) {
   }
 }
 
+/**
+ * 偵測「多版本社群貼文」pattern
+ *
+ * 這類檔把同一則內容拆成完整版/精簡版/極簡版等多個平台版本，外加發布指南，
+ * 是給作者自己挑版本用的草稿，不適合當單篇公開文章發布到 M42。
+ * 若被標成 status: published 會整份多版本內容露出。
+ *
+ * 回傳問題描述陣列（空陣列表示不是這種檔）。
+ *
+ * @param {string} content - 文章完整內容（含 frontmatter）
+ * @returns {string[]}
+ */
+function detectMultiVersionSocial(content) {
+  const issues = [];
+  const headings = content.match(/^#{2,3} .+$/gm) || [];
+  const strip = (h) => h.replace(/^#+\s*/, "").trim();
+
+  const versionHeadings = headings.filter((h) =>
+    /^#{2,3}\s+(版本\s*[0-9０-９]|完整版|精簡版|極簡版|短版本|超短版本|長文版|短文版)/.test(
+      h,
+    ),
+  );
+  if (versionHeadings.length >= 2) {
+    issues.push(
+      `偵測到 ${versionHeadings.length} 個多版本段落（${versionHeadings.map(strip).join("、")}）`,
+    );
+  }
+
+  const guideHeadings = headings.filter((h) =>
+    /^#{2,3}\s+(發布指南|使用建議|搭配素材建議)/.test(h),
+  );
+  if (guideHeadings.length > 0) {
+    issues.push(
+      `偵測到社群發布輔助段落（${guideHeadings.map(strip).join("、")}），非公開文章內容`,
+    );
+  }
+
+  return issues;
+}
+
 // 解析命令列參數
 const args = process.argv.slice(2);
 const isDryRun = args.includes("--dry-run");
@@ -564,12 +604,15 @@ function main() {
   }
 
   // 對 transform 後的輸出跑 markdownlint（攔截「源檔過、發布後爆」的問題）
+  // 同時偵測多版本社群貼文 pattern（不該以單篇公開文章發布）
   const lintErrors = []; // { title, relativeSrc, errors[] }
+  const socialErrors = []; // { title, relativeSrc, errors[] }
   if (validateMode) {
     for (const article of toPublish) {
+      let content;
       let transformed;
       try {
-        const content = fs.readFileSync(article.srcPath, "utf-8");
+        content = fs.readFileSync(article.srcPath, "utf-8");
         transformed = transformArticle(
           content,
           article.srcPath,
@@ -579,6 +622,7 @@ function main() {
         logError(article.srcPath, "TRANSFORM", "轉換失敗", err.message);
         continue;
       }
+
       const errors = lintMarkdown(transformed);
       if (errors.length > 0) {
         lintErrors.push({
@@ -587,11 +631,25 @@ function main() {
           errors,
         });
       }
+
+      const socialIssues = detectMultiVersionSocial(content);
+      if (socialIssues.length > 0) {
+        socialErrors.push({
+          title: article.title,
+          relativeSrc: article.relativeSrc,
+          errors: socialIssues,
+        });
+      }
     }
   }
 
   // 顯示驗證錯誤（如果有）
-  if (validateMode && (validationErrors.length > 0 || lintErrors.length > 0)) {
+  if (
+    validateMode &&
+    (validationErrors.length > 0 ||
+      lintErrors.length > 0 ||
+      socialErrors.length > 0)
+  ) {
     if (validationErrors.length > 0) {
       console.log(
         `⚠️  Frontmatter 驗證錯誤 (${validationErrors.length} 篇)：\n`,
@@ -620,6 +678,22 @@ function main() {
         }
       }
       console.log();
+    }
+
+    if (socialErrors.length > 0) {
+      console.log(
+        `⚠️  多版本社群貼文 (${socialErrors.length} 篇)：不適合以單篇公開文章發布\n`,
+      );
+      for (const a of socialErrors) {
+        console.log(`   ❌ ${a.title}`);
+        console.log(`      ${a.relativeSrc}`);
+        for (const err of a.errors) {
+          console.log(`      - ${err}`);
+        }
+      }
+      console.log(
+        "   處理方式：改 status 為 draft/archived 不發布，或收斂成單一版本後再發布。\n",
+      );
     }
 
     console.log("請修正上述問題後再發布。\n");
@@ -788,6 +862,7 @@ module.exports = {
   rewriteInternalLinks,
   filterFrontmatter,
   lintMarkdown,
+  detectMultiVersionSocial,
   CATEGORY_CONFIG,
   COMPANY_MAPPING,
   MULTIVAC_FRONTMATTER_FIELDS,
