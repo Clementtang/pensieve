@@ -5,7 +5,7 @@ date: 2026-05-07
 author: "Clement Tang"
 tags: ["phpbb", "claude-code", "docker", "self-hosting", "blog-series"]
 category: articles
-status: 進行中
+status: in-progress
 ---
 
 # phpBB Restore 系列文骨架 outline
