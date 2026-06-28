@@ -7,6 +7,14 @@
 
 ## [Unreleased]
 
+### Added
+
+- **回溯補打全部版本 git tag（v1.0.0–v1.8.0）**：先前專案從未打 tag，CHANGELOG 底部 compare 連結因此全數指向不存在的 tag。補上 annotated tag 並推送 origin；早期（1.0–1.3）CHANGELOG 為回溯補寫，tag 釘在各版內容對應的實作 commit，1.4.0+ 釘在各自的 Release commit。已驗證 GitHub compare 連結可正常解析。
+
+### Changed
+
+- **CHANGELOG 版本比較連結補齊**：`[Unreleased]` 指向 `v1.8.0...HEAD`，補回先前漏更新的 1.6.0 / 1.7.0 / 1.8.0 compare 連結。
+
 ## [1.8.0] - 2026-06-27
 
 ### Added
