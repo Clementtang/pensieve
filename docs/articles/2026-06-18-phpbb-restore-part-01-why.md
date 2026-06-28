@@ -1,14 +1,15 @@
 ---
 title: "為什麼我花 33 天救一個 23 年的舊論壇"
 description: "公會論壇 2015 年就停更了。為什麼 2026 年才動手？真正的觸發點是 AI 工具終於成熟到讓非工程師能自己做這件事，Bluehost 退場只是順便。"
-date: 2026-05-09
+date: 2026-06-18
 author: "Clement Tang"
 tags:
   ["phpbb", "self-hosting", "claude-code", "everquest", "guild", "blog-series"]
 category: articles
-status: draft
+status: published
 series: "phpBB Restore Series"
-seriesPart: 1
+seriesTitle: "phpBB Restore 系列"
+seriesIndex: 1
 ---
 
 # 為什麼我花 33 天救一個 23 年的舊論壇
@@ -59,7 +60,7 @@ Bluehost 的續約通知是 4 月 25 日才寄來的，那時候我已經在 php
 
 WordPress Plus Hosting 加 3D-OLG.NET 一年 $203.88、加上 SiteLock Lite（免費附帶）、含稅 **$214.07**，續約日 5 月 25 日、到期日 6 月 9 日。這個價錢不算貴，但跟 DigitalOcean 對照就有差。Bluehost 是 shared hosting，cPanel 加 FTP，平均一個月 $17.84。DigitalOcean SGP1 同樣價位的方案是一台 1 GB RAM、1 vCPU、25 GB SSD 的 VPS，月費 $6，年費 $72，加上 root SSH 的完全控制權。一年下來差 $142，差不多等於 DigitalOcean 兩年的訂閱費。技術上 1 GB RAM 跑得動 phpBB 兩站加 WordPress 加 MySQL 兩個 instance 加 Traefik 嗎？跑得動，但要小心調 swap、要 build container 時錯開、要把 WordPress DB 拆成獨立 instance 避免單點故障，這些是 #4「部署架構」的內容。
 
-省 $142 還不到啟動專案的程度，但有了具體日期之後整個退場時間表就清晰了。5 月 25 日是 Bluehost 續約日（auto-renew 已關），6 月 9 日訂閱實際到期，在這之前所有 cutover 都要完成。Bluehost 把模糊的「遲早要做」變成清晰的「6 月 9 日前要做完」，它讓我認真，但啟動專案的原因不在那封通知信。
+省 $142 還不到啟動專案的程度，但有了具體日期之後整個退場時間表就清晰了。5 月 25 日是 Bluehost 續約日（auto-renew 已關），6 月 9 日訂閱實際到期。後來時間表如期走完，訂閱在 6 月 9 日自然失效，6 月 11 日我把最後的 DNS 殘留清乾淨、留好封存證據，整個 Bluehost 退場才算正式收尾。Bluehost 把模糊的「遲早要做」變成清晰的「6 月 9 日前要做完」，它讓我認真，但啟動專案的原因不在那封通知信。
 
 ## 33 天值不值得
 

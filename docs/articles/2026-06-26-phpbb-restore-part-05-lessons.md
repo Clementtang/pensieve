@@ -1,13 +1,14 @@
 ---
 title: "6 週踩雷集錦，那些卡了我半天的小事"
 description: "1Password SSH agent 撞 MaxAuthTries=3、phpBB 顯示成功訊息但根本沒寄信、sed 解析 .env 密碼含等號被截斷、Prettier 把 phpBB 模板搞壞，每個都是 1 到 3 小時 debug 的小坑，集合起來才是真實的 6 週體感。"
-date: 2026-05-17
+date: 2026-06-26
 author: "Clement Tang"
 tags: ["debugging", "phpbb", "docker", "mysql", "blog-series"]
 category: articles
-status: draft
+status: published
 series: "phpBB Restore Series"
-seriesPart: 5
+seriesTitle: "phpBB Restore 系列"
+seriesIndex: 5
 ---
 
 # 6 週踩雷集錦，那些卡了我半天的小事
@@ -16,7 +17,7 @@ seriesPart: 5
 
 ## 為什麼要記 debug 過程
 
-[#4 那篇](2026-05-15-phpbb-restore-part-04-infrastructure)寫完了部署架構。整個 phpbb-restore 系列的「主軸」基本就那四篇，這篇是收尾，記錄前面文章因為篇幅與主題沒有展開的那些小事。
+[#4 那篇](2026-06-24-phpbb-restore-part-04-infrastructure)寫完了部署架構。整個 phpbb-restore 系列的「主軸」基本就那四篇，這篇是收尾，記錄前面文章因為篇幅與主題沒有展開的那些小事。
 
 寫 debug 過程通常被認為瑣碎、沒人想看，但實務上這些小坑加起來的時間佔了整個專案的一大半。如果只看完成的成品，會以為這 6 週是順順跑下來的；事實上每天晚上有一半時間在 debug 看似不該存在的問題，看到一個錯誤訊息要花 1 到 3 小時才能挖到根因。把它們記下來有兩個好處，一是公開讓踩過同樣坑的人少花一輪時間 Google，二是給自己未來重看當作 debug pattern 的對照。
 

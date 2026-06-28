@@ -1,13 +1,14 @@
 ---
 title: "資料復原，phpBB 與 WordPress 的多代升級鏈"
 description: "phpBB 從 2.0 升到 3.3.15 跨 5 個 major version、WordPress 從 1.5 升到 6.9 跨十多個 schema 版本。中文編碼、附件路徑、prefix 差異、私版破圖救援，每一步怎麼做、怎麼證明資料沒掉。"
-date: 2026-05-13
+date: 2026-06-22
 author: "Clement Tang"
 tags: ["phpbb", "wordpress", "data-migration", "mysql", "blog-series"]
 category: articles
-status: draft
+status: published
 series: "phpBB Restore Series"
-seriesPart: 3
+seriesTitle: "phpBB Restore 系列"
+seriesIndex: 3
 ---
 
 # 資料復原，phpBB 與 WordPress 的多代升級鏈
@@ -16,7 +17,7 @@ seriesPart: 3
 
 ## 兩個資料層、四個 schema 版本、3,159 個附件
 
-[#2 那篇](2026-05-11-phpbb-restore-part-02-claude-code)講了「怎麼自己做」的工作節奏與委託邊界。實際做下去，第一個要解決的就是資料復原這一塊，這也是這 6 週裡 debug 量最大的環節。
+[#2 那篇](2026-06-20-phpbb-restore-part-02-claude-code)講了「怎麼自己做」的工作節奏與委託邊界。實際做下去，第一個要解決的就是資料復原這一塊，這也是這 6 週裡 debug 量最大的環節。
 
 這個專案要救的有兩個資料層。一個是兩個 phpBB 站，eq2.3d-olg.net（公會主站）和 eq.3d-olg.net（EQ 1 那邊的舊站），兩站都從 phpBB 3.0.14 升到 3.3.15。另一個是 WordPress archive，eq2 域名根目錄底下的部落格區，從 2015 年 dump 出來的 1.5 / 2.7 時代資料庫升到 6.9.4。
 

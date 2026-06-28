@@ -9,6 +9,7 @@
 
 ### Added
 
+- **phpBB Restore 系列 5 篇正式發布**：`status: draft → published`，自 `drafts/` 移入 `docs/articles/`（2026-06-18 ~ 06-26），改由 `publish-to-multivac.js` pipeline 發布到 M42。修正先前手動 `mv` 進 M42 造成的問題：(a) 重建 Pensieve 為單一編輯來源；(b) series 導覽欄位由錯誤的 `seriesPart` 改為主題實際讀取的 `seriesTitle` + `seriesIndex`，修好 `SeriesNav` 排序；(c) 透過白名單 strip 掉 M42 不該有的 `status`/`draft` 等內部欄位。outline 留在 `drafts/` 為內部規劃稿（in-progress，不發布）。
 - **回溯補打全部版本 git tag（v1.0.0–v1.8.0）**：先前專案從未打 tag，CHANGELOG 底部 compare 連結因此全數指向不存在的 tag。補上 annotated tag 並推送 origin；早期（1.0–1.3）CHANGELOG 為回溯補寫，tag 釘在各版內容對應的實作 commit，1.4.0+ 釘在各自的 Release commit。已驗證 GitHub compare 連結可正常解析。
 
 ### Changed
