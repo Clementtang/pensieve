@@ -66,6 +66,7 @@ const COMPANY_MAPPING = {
   airwallex: "airwallex",
   manus: "manus-ai",
   luckin: "luckin-coffee",
+  louisa: "louisa-coffee",
   toast: "toast",
   hotai: "hotai",
 };
