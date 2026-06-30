@@ -13,6 +13,18 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # 防止內容檔散落在 repo 根目錄（會逃過 lint/validate 的 docs/、drafts/ glob）。
+      # 內容一律放 docs/ 或 drafts/；根目錄只允許下列專案文件。
+      - name: Guard against stray root-level Markdown
+        run: |
+          stray=$(ls *.md 2>/dev/null | grep -vxE 'README\.md|CHANGELOG\.md|CONTRIBUTING\.md|WRITING_GUIDE\.md' || true)
+          if [ -n "$stray" ]; then
+            echo "❌ 根目錄出現未預期的 Markdown 檔（應放入 docs/ 或 drafts/）："
+            echo "$stray"
+            exit 1
+          fi
+          echo "✅ 根目錄無孤兒 Markdown 檔"
+
       - uses: actions/setup-node@v4
         with:
           node-version: 20

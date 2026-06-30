@@ -122,11 +122,11 @@ function parseFrontmatter(content, options = {}) {
     }
 
     // 處理字串值（移除引號）
-    if (
-      (value.startsWith('"') && value.endsWith('"')) ||
-      (value.startsWith("'") && value.endsWith("'"))
-    ) {
+    if (value.startsWith('"') && value.endsWith('"')) {
       value = value.slice(1, -1);
+    } else if (value.startsWith("'") && value.endsWith("'")) {
+      // 單引號值：將 YAML 的 '' 跳脫還原為單一單引號
+      value = value.slice(1, -1).replace(/''/g, "'");
     }
 
     // 處理單行陣列
@@ -182,7 +182,13 @@ function generateFrontmatter(fm) {
       typeof value === "string" &&
       (value.includes(":") || value.includes('"'))
     ) {
-      yaml += `${key}: "${value}"\n`;
+      if (value.includes('"')) {
+        // 值含雙引號時改用單引號包，單引號本身以 '' 跳脫。
+        // 避免 `key: "say "hi""` 這種非法 YAML 導致 round-trip 損壞。
+        yaml += `${key}: '${value.replace(/'/g, "''")}'\n`;
+      } else {
+        yaml += `${key}: "${value}"\n`;
+      }
     } else {
       yaml += `${key}: ${value}\n`;
     }

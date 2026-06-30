@@ -303,14 +303,15 @@ describe("generateFrontmatter", () => {
     expect(result).toContain('description: "This is: a test"');
   });
 
-  it("should quote strings containing double quotes", () => {
+  it("should quote strings containing double quotes with single quotes (valid YAML)", () => {
     const fm = {
       title: 'Said "hello"',
     };
 
     const result = generateFrontmatter(fm);
 
-    expect(result).toContain('title: "Said "hello""');
+    // 不可產出 `title: "Said "hello""`（非法 YAML）；改用單引號包
+    expect(result).toContain(`title: 'Said "hello"'`);
   });
 
   it("should handle boolean values", () => {
@@ -348,5 +349,41 @@ describe("generateFrontmatter", () => {
     expect(parsed.frontmatter.status).toBe(original.status);
     expect(parsed.frontmatter.category).toBe(original.category);
     expect(parsed.frontmatter.tags).toEqual(original.tags);
+  });
+
+  it("should roundtrip values containing double quotes", () => {
+    const original = { title: 'Said "hello" loudly' };
+
+    const generated = generateFrontmatter(original);
+    const parsed = parseFrontmatter(generated + "\n\nBody.");
+
+    expect(parsed.frontmatter.title).toBe(original.title);
+  });
+
+  it("should roundtrip values containing both colons and double quotes", () => {
+    const original = { description: 'He said: "go now"' };
+
+    const generated = generateFrontmatter(original);
+    const parsed = parseFrontmatter(generated + "\n\nBody.");
+
+    expect(parsed.frontmatter.description).toBe(original.description);
+  });
+
+  it("should roundtrip values containing both single and double quotes", () => {
+    const original = { title: `it's "great"` };
+
+    const generated = generateFrontmatter(original);
+    const parsed = parseFrontmatter(generated + "\n\nBody.");
+
+    expect(parsed.frontmatter.title).toBe(original.title);
+  });
+
+  it("should roundtrip values containing a lone single quote", () => {
+    const original = { title: "it's fine" };
+
+    const generated = generateFrontmatter(original);
+    const parsed = parseFrontmatter(generated + "\n\nBody.");
+
+    expect(parsed.frontmatter.title).toBe(original.title);
   });
 });

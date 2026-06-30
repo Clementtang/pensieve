@@ -13,9 +13,15 @@
 - **phpBB Restore 系列 5 篇正式發布**：`status: draft → published`，自 `drafts/` 移入 `docs/articles/`（2026-06-18 ~ 06-26），改由 `publish-to-multivac.js` pipeline 發布到 M42。修正先前手動 `mv` 進 M42 造成的問題：(a) 重建 Pensieve 為單一編輯來源；(b) series 導覽欄位由錯誤的 `seriesPart` 改為主題實際讀取的 `seriesTitle` + `seriesIndex`，修好 `SeriesNav` 排序；(c) 透過白名單 strip 掉 M42 不該有的 `status`/`draft` 等內部欄位。outline 留在 `drafts/` 為內部規劃稿（in-progress，不發布）。
 - **回溯補打全部版本 git tag（v1.0.0–v1.8.0）**：先前專案從未打 tag，CHANGELOG 底部 compare 連結因此全數指向不存在的 tag。補上 annotated tag 並推送 origin；早期（1.0–1.3）CHANGELOG 為回溯補寫，tag 釘在各版內容對應的實作 commit，1.4.0+ 釘在各自的 Release commit。已驗證 GitHub compare 連結可正常解析。
 
+- **發布管線新增根目錄孤兒 Markdown guard**：`validate.yml` 在 lint/validate 前先擋下散落於 repo 根目錄、未列入白名單（README/CHANGELOG/CONTRIBUTING/WRITING_GUIDE）的 `.md`，防止內容檔逃過 `docs/`、`drafts/` glob（即路易莎孤兒檔的成因）再次發生。
+
 ### Changed
 
 - **CHANGELOG 版本比較連結補齊**：`[Unreleased]` 指向 `v1.8.0...HEAD`，補回先前漏更新的 1.6.0 / 1.7.0 / 1.8.0 compare 連結。
+
+### Fixed
+
+- **`generateFrontmatter` 含雙引號值的 round-trip 損壞**：先前對含 `"` 的字串值用雙引號包卻不跳脫，產出 `key: "say "hi""` 這種非法 YAML，經 `--fix`／發布重寫會默默毀損 frontmatter。改為含 `"` 時用單引號包、單引號以 `''` 跳脫，`parseFrontmatter` 對應還原；新增 4 個 round-trip 測試（含雙引號、冒號+雙引號、單+雙引號混用、單一單引號），並修正先前把錯誤輸出寫死的測試。
 
 ## [1.8.0] - 2026-06-27
 
