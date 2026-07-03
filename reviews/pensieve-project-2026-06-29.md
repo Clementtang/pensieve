@@ -1,5 +1,18 @@
 # Pensieve 專案審查（2026-06-29）
 
+> **[處理完成 2026-07-03]** 全部項目已收束。逐項處置：
+>
+> | #   | 項目                              | 處置                                                                                                             | Commit                                              |
+> | --- | --------------------------------- | ---------------------------------------------------------------------------------------------------------------- | --------------------------------------------------- |
+> | 1   | 路易莎孤兒檔（HIGH）              | ✅ 改名+補 frontmatter，pipeline 發布到 M42 `company-research/louisa-coffee/`；並加 CI guard 防復發              | Pensieve `5be472a` / M42 `45e91b0`；guard `db716e2` |
+> | 2   | phpBB drafts vs CHANGELOG（HIGH） | ✅ 走 pipeline 重發（draft→published），修好 `seriesPart→seriesIndex` 的 SeriesNav bug，outline 留 drafts 內部稿 | Pensieve `131aef3` / M42 `38b31c0`                  |
+> | 3   | YAML parser round-trip（MEDIUM）  | ✅ 含 `"` 值改單引號+`''` 跳脫，parser 對應還原；+4 round-trip 測試，修掉寫死 bug 的舊測試（109→113）            | `db716e2`                                           |
+> | 4   | 驗證 gate 落差                    | ✅ 根目錄孤兒 `.md` guard 已加；drafts 硬性 validate 評估後**不做**（會擋正常草稿流程）                          | `db716e2`                                           |
+> | 5   | category 兩張表不一致（LOW）      | ⏭ 評估後**不改**：目前資料一致（DIR_CATEGORY_MAP 值皆 ∈ VALID_CATEGORIES，note/memo 無實檔），強抽共用層為 YAGNI |
+> | 6   | 低風險整理（LOW）                 | ✅ stray `.DS_Store` 已清；CI 註解 boilerplate 評估後**不動**（無謂 churn）                                      |
+>
+> 以下為原始審查內容，保留供對照。
+
 Profile: tech（PM / 架構師 / 程式設計師三角色輪替）
 Target: 整個 Pensieve 專案現況（無單一決策文件，故採 standalone review file）
 Scope: 工作區狀態、發布管線程式碼、驗證 gate、內容檔案治理
