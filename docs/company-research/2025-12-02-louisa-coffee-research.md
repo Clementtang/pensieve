@@ -724,7 +724,7 @@ status: published
 - [向路易莎、星巴克、cama 咖啡學行銷！- 經理人](https://www.managertoday.com.tw/articles/view/58633)
 - [咖啡店龍頭換人做！路易莎上位 星巴克年賺110億稱霸 - 聯合新聞網](https://udn.com/news/story/7241/4244821)
 - [2025 最新超商咖啡優惠 - Money101](https://www.money101.com.tw/blog/超商-咖啡-優惠-7-11-全家-超商咖啡)
-- [咖啡豆飆漲的咖啡店生存戰：路易莎咖啡、統一星巴克只是假繁榮？- Yahoo股市](https://tw.stock.yahoo.com/news/咖啡豆飆漲的咖啡店生存戰-下-路易莎咖啡-統一-星巴克只是假繁榮-102537088.html)
+- [咖啡豆飆漲的咖啡店生存戰：路易莎咖啡、統一星巴克只是假繁榮？- Yahoo股市](https://tw.stock.yahoo.com/news/咖啡豆飆漲的咖啡店生存戰-下-路易莎咖啡-統-星巴克只是假繁榮-102537088.html)
 
 ### 風險與挑戰
 
