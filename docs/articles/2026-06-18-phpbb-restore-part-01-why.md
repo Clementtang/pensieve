@@ -7,6 +7,7 @@ tags:
   ["phpbb", "self-hosting", "claude-code", "everquest", "guild", "blog-series"]
 category: articles
 status: published
+draft: true
 series: "phpBB Restore Series"
 seriesTitle: "phpBB Restore 系列"
 seriesIndex: 1
