@@ -20,6 +20,7 @@ on:
       - "docs/articles/**"
       - "docs/company-research/**"
       - "docs/topic-research/**"
+      - "docs/public/images/**" # 文章圖片變更也要觸發同步（只改圖也發布）
   workflow_dispatch: # 允許手動觸發，方便補發或重跑
 
 jobs:
