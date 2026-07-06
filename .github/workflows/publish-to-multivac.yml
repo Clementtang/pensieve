@@ -28,19 +28,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Pensieve
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           path: pensieve
 
       - name: Checkout Multivac42
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           repository: ${{ vars.MULTIVAC_REPO }}
           token: ${{ secrets.MULTIVAC_PUBLISH_TOKEN }}
           path: multivac42
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: 20
           cache: npm

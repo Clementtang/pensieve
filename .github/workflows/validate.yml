@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       # 防止內容檔散落在 repo 根目錄（會逃過 lint/validate 的 docs/、drafts/ glob）。
       # 內容一律放 docs/ 或 drafts/；根目錄只允許下列專案文件。
@@ -25,7 +25,7 @@ jobs:
           fi
           echo "✅ 根目錄無孤兒 Markdown 檔"
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
           node-version: 20
           cache: npm
