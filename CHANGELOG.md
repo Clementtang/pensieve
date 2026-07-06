@@ -7,6 +7,8 @@
 
 ## [Unreleased]
 
+## [1.9.0] - 2026-07-07
+
 ### Added
 
 - **發布管線新增文章圖片同步**：`publish-to-multivac.js` 加 `syncImages()`，把 Pensieve `docs/public/images/` 複製到 M42 對應目錄（只增修、不刪 orphan），使圖片也納入 Pensieve 單一來源、不再需手動放 M42。同步獨立於文章變更（early-return 前先跑），`--auto-commit` 下「只改圖」也會 commit（抽出 `commitMultivac()` helper 共用）。phpBB Restore 系列 3 張特色圖已納入 `docs/public/images/posts/phpbb-restore/`。新增 6 個 `syncImages` 測試（新增/覆寫/略過/不刪 orphan/dry-run/來源不存在）。
@@ -390,7 +392,8 @@
 
 ---
 
-[Unreleased]: https://github.com/Clementtang/pensieve/compare/v1.8.0...HEAD
+[Unreleased]: https://github.com/Clementtang/pensieve/compare/v1.9.0...HEAD
+[1.9.0]: https://github.com/Clementtang/pensieve/compare/v1.8.0...v1.9.0
 [1.8.0]: https://github.com/Clementtang/pensieve/compare/v1.7.0...v1.8.0
 [1.7.0]: https://github.com/Clementtang/pensieve/compare/v1.6.0...v1.7.0
 [1.6.0]: https://github.com/Clementtang/pensieve/compare/v1.5.0...v1.6.0

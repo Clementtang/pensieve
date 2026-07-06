@@ -1,6 +1,6 @@
 {
   "name": "pensieve",
-  "version": "1.8.0",
+  "version": "1.9.0",
   "description": "個人研究與寫作框架",
   "private": true,
   "scripts": {
