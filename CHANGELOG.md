@@ -19,6 +19,8 @@
 
 ### Changed
 
+- **CI 執行環境升級**：GitHub Actions `actions/checkout` 與 `actions/setup-node` 由 v4 升到 v5（v4 的 action runtime 為 Node 20，被強制跑在 Node 24 上會噴 deprecation annotation；v5 改用 Node 24），共 7 處；測試用 `node-version` 由 20 升到 22（現行 LTS），validate 與 publish 兩個 workflow 皆調整。已實跑確認兩 workflow 綠、Node 20 deprecation 警告消除、119 測試在 Node 22 通過。
+- **發布 workflow 觸發路徑補 `docs/public/images/**`**：讓「只改圖、不動 markdown」的 push 也能觸發 CI 圖片同步（配合上述 `syncImages`）。
 - **CHANGELOG 版本比較連結補齊**：`[Unreleased]` 指向 `v1.8.0...HEAD`，補回先前漏更新的 1.6.0 / 1.7.0 / 1.8.0 compare 連結。
 
 ### Fixed
