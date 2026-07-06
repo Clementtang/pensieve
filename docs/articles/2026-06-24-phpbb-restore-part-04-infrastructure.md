@@ -6,7 +6,6 @@ author: "Clement Tang"
 tags: ["docker", "traefik", "mysql", "smtp", "self-hosting", "blog-series"]
 category: articles
 status: published
-draft: true
 series: "phpBB Restore Series"
 seriesTitle: "phpBB Restore 系列"
 seriesIndex: 4

@@ -10,6 +10,7 @@
 ### Added
 
 - **路易莎咖啡研究報告正式發布**：原為根目錄中文檔名、無 frontmatter 的孤兒檔（違反 English-filename 規則且逃過所有 lint/validate gate）。改名為 `docs/company-research/2025-12-02-louisa-coffee-research.md`、補齊 frontmatter（`status: published`）、`markdownlint --fix` 修正 57 處 MD032，經 pipeline 發布到 M42 `company-research/louisa-coffee/`。`COMPANY_MAPPING` 新增 `louisa → louisa-coffee` 使資料夾命名與 `luckin-coffee` 一致。
+- **phpBB Restore 系列 5 篇正式上線**：補上 part-01 三張特色圖（M42 `public/images/posts/phpbb-restore/`）、移除 M42 config 的 `srcExclude`、source 端拿掉先前為擋 build 而加的 `draft: true`，經 pipeline 重發。先前因缺圖 build 失敗被 srcExclude + draft 雙重排除，導致線上不顯示；補圖後解除。已本機 build 驗證 exit 0、五篇 `SeriesNav` 排序正常（第 N 篇/共 5 篇、目前閱讀標示）、圖片路徑解析正確。
 - **phpBB Restore 系列 5 篇正式發布**：`status: draft → published`，自 `drafts/` 移入 `docs/articles/`（2026-06-18 ~ 06-26），改由 `publish-to-multivac.js` pipeline 發布到 M42。修正先前手動 `mv` 進 M42 造成的問題：(a) 重建 Pensieve 為單一編輯來源；(b) series 導覽欄位由錯誤的 `seriesPart` 改為主題實際讀取的 `seriesTitle` + `seriesIndex`，修好 `SeriesNav` 排序；(c) 透過白名單 strip 掉 M42 不該有的 `status`/`draft` 等內部欄位。outline 留在 `drafts/` 為內部規劃稿（in-progress，不發布）。
 - **回溯補打全部版本 git tag（v1.0.0–v1.8.0）**：先前專案從未打 tag，CHANGELOG 底部 compare 連結因此全數指向不存在的 tag。補上 annotated tag 並推送 origin；早期（1.0–1.3）CHANGELOG 為回溯補寫，tag 釘在各版內容對應的實作 commit，1.4.0+ 釘在各自的 Release commit。已驗證 GitHub compare 連結可正常解析。
 
