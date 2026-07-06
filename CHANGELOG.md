@@ -9,6 +9,7 @@
 
 ### Added
 
+- **發布管線新增文章圖片同步**：`publish-to-multivac.js` 加 `syncImages()`，把 Pensieve `docs/public/images/` 複製到 M42 對應目錄（只增修、不刪 orphan），使圖片也納入 Pensieve 單一來源、不再需手動放 M42。同步獨立於文章變更（early-return 前先跑），`--auto-commit` 下「只改圖」也會 commit（抽出 `commitMultivac()` helper 共用）。phpBB Restore 系列 3 張特色圖已納入 `docs/public/images/posts/phpbb-restore/`。新增 6 個 `syncImages` 測試（新增/覆寫/略過/不刪 orphan/dry-run/來源不存在）。
 - **路易莎咖啡研究報告正式發布**：原為根目錄中文檔名、無 frontmatter 的孤兒檔（違反 English-filename 規則且逃過所有 lint/validate gate）。改名為 `docs/company-research/2025-12-02-louisa-coffee-research.md`、補齊 frontmatter（`status: published`）、`markdownlint --fix` 修正 57 處 MD032，經 pipeline 發布到 M42 `company-research/louisa-coffee/`。`COMPANY_MAPPING` 新增 `louisa → louisa-coffee` 使資料夾命名與 `luckin-coffee` 一致。
 - **phpBB Restore 系列 5 篇正式上線**：補上 part-01 三張特色圖（M42 `public/images/posts/phpbb-restore/`）、移除 M42 config 的 `srcExclude`、source 端拿掉先前為擋 build 而加的 `draft: true`，經 pipeline 重發。先前因缺圖 build 失敗被 srcExclude + draft 雙重排除，導致線上不顯示；補圖後解除。已本機 build 驗證 exit 0、五篇 `SeriesNav` 排序正常（第 N 篇/共 5 篇、目前閱讀標示）、圖片路徑解析正確。
 - **phpBB Restore 系列 5 篇正式發布**：`status: draft → published`，自 `drafts/` 移入 `docs/articles/`（2026-06-18 ~ 06-26），改由 `publish-to-multivac.js` pipeline 發布到 M42。修正先前手動 `mv` 進 M42 造成的問題：(a) 重建 Pensieve 為單一編輯來源；(b) series 導覽欄位由錯誤的 `seriesPart` 改為主題實際讀取的 `seriesTitle` + `seriesIndex`，修好 `SeriesNav` 排序；(c) 透過白名單 strip 掉 M42 不該有的 `status`/`draft` 等內部欄位。outline 留在 `drafts/` 為內部規劃稿（in-progress，不發布）。

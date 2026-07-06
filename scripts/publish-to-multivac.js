@@ -446,6 +446,97 @@ function scanMarkdownFiles(dir) {
   return files;
 }
 
+// 文章圖片來源（Pensieve）與目標（M42），皆位於各自的 docs/public/images。
+// 文章以 /images/... 絕對路徑引用，兩邊同路徑，發布時零改寫。
+const PENSIEVE_IMAGES_DIR = path.join(
+  PENSIEVE_ROOT,
+  "docs",
+  "public",
+  "images",
+);
+const MULTIVAC_IMAGES_DIR = path.join(
+  MULTIVAC_ROOT,
+  "docs",
+  "public",
+  "images",
+);
+
+/**
+ * 判斷來源與目標檔內容是否不同（先比大小、再比 bytes；目標不存在視為不同）
+ */
+function filesDiffer(srcFile, destFile) {
+  if (!fs.existsSync(destFile)) return true;
+  if (fs.statSync(srcFile).size !== fs.statSync(destFile).size) return true;
+  return !fs.readFileSync(srcFile).equals(fs.readFileSync(destFile));
+}
+
+/**
+ * 遞迴收集目錄下所有檔案，回傳相對 baseDir 的路徑
+ */
+function collectFiles(dir, baseDir = dir) {
+  const out = [];
+  if (!fs.existsSync(dir)) return out;
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    const full = path.join(dir, entry.name);
+    if (entry.isDirectory()) {
+      out.push(...collectFiles(full, baseDir));
+    } else if (entry.isFile()) {
+      out.push(path.relative(baseDir, full));
+    }
+  }
+  return out;
+}
+
+/**
+ * 同步文章圖片：把 srcDir 內容複製到 destDir，只增修、不刪除 orphan
+ * （Pensieve 為單一來源，但保守起見不刪 M42 端多出的檔）。
+ * @returns {{copied: string[], unchanged: number}}
+ */
+function syncImages(srcDir, destDir, { dryRun = false } = {}) {
+  const copied = [];
+  let unchanged = 0;
+
+  for (const rel of collectFiles(srcDir)) {
+    const srcFile = path.join(srcDir, rel);
+    const destFile = path.join(destDir, rel);
+    if (filesDiffer(srcFile, destFile)) {
+      copied.push(rel);
+      if (!dryRun) {
+        fs.mkdirSync(path.dirname(destFile), { recursive: true });
+        fs.copyFileSync(srcFile, destFile);
+      }
+    } else {
+      unchanged++;
+    }
+  }
+
+  return { copied, unchanged };
+}
+
+/**
+ * 在 M42 目錄執行 git add -A + commit（供 --auto-commit 使用）。
+ * "nothing to commit" 視為正常，不報錯。
+ */
+function commitMultivac(commitMsg) {
+  console.log("🔄 執行自動 Git Commit...\n");
+  try {
+    process.chdir(MULTIVAC_ROOT);
+    verbose(`切換到目錄：${MULTIVAC_ROOT}`);
+    verbose("執行 git add -A");
+    execFileSync("git", ["add", "-A"], { encoding: "utf-8" });
+    verbose(`執行 git commit -m "${commitMsg}"`);
+    execFileSync("git", ["commit", "-m", commitMsg], { encoding: "utf-8" });
+    console.log(`   ✅ Git commit 完成：${commitMsg}\n`);
+  } catch (err) {
+    if (err.stderr && err.stderr.includes("nothing to commit")) {
+      console.log("   ℹ️  沒有變更需要 commit\n");
+    } else {
+      logError(MULTIVAC_ROOT, "GIT_COMMIT", "Git commit 失敗", err.message);
+      console.log(`   ❌ Git commit 失敗：${err.message}\n`);
+    }
+  }
+}
+
 /**
  * 從檔名推測公司名稱
  */
@@ -599,8 +690,24 @@ function main() {
     console.log();
   }
 
+  // 同步文章圖片（獨立於文章變更，只增修不刪 orphan）
+  const imgResult = syncImages(PENSIEVE_IMAGES_DIR, MULTIVAC_IMAGES_DIR, {
+    dryRun: isDryRun,
+  });
+  if (imgResult.copied.length > 0) {
+    console.log(
+      `🖼️  圖片同步 (${imgResult.copied.length} 個${isDryRun ? "，dry-run 未寫入" : ""})：`,
+    );
+    for (const rel of imgResult.copied) console.log(`   - ${rel}`);
+    console.log();
+  }
+
   if (toPublish.length === 0) {
-    console.log("✅ 所有文章都已是最新狀態！\n");
+    // 沒有文章要發布，但圖片可能有同步；有同步就走到 auto-commit，否則收工
+    if (imgResult.copied.length > 0 && !isDryRun && autoCommit) {
+      commitMultivac(`同步文章圖片（${imgResult.copied.length} 個）`);
+    }
+    console.log("✅ 文章都已是最新狀態！\n");
     return;
   }
 
@@ -795,40 +902,14 @@ function main() {
 
   // 自動 commit（如果有成功發布的文章）
   if (!isDryRun && successCount > 0 && autoCommit) {
-    console.log("🔄 執行自動 Git Commit...\n");
-
-    try {
-      // 切換到 M42 目錄
-      process.chdir(MULTIVAC_ROOT);
-      verbose(`切換到目錄：${MULTIVAC_ROOT}`);
-
-      // git add（使用 execFileSync 避免 shell injection）
-      verbose("執行 git add -A");
-      execFileSync("git", ["add", "-A"], { encoding: "utf-8" });
-
-      // 生成 commit 訊息
-      const commitMsg =
-        successCount === 1
-          ? `發布文章：${toPublish[0].title}`
-          : `發布/更新 ${successCount} 篇文章`;
-
-      // git commit（使用 execFileSync 避免 shell injection）
-      verbose(`執行 git commit -m "${commitMsg}"`);
-      execFileSync("git", ["commit", "-m", commitMsg], { encoding: "utf-8" });
-
-      console.log(`   ✅ Git commit 完成：${commitMsg}\n`);
-      console.log("下一步：");
-      console.log("  cd ~/multivac42");
-      console.log("  git push");
-    } catch (err) {
-      // 檢查是否是 "nothing to commit" 的情況
-      if (err.stderr && err.stderr.includes("nothing to commit")) {
-        console.log("   ℹ️  沒有變更需要 commit\n");
-      } else {
-        logError(MULTIVAC_ROOT, "GIT_COMMIT", "Git commit 失敗", err.message);
-        console.log(`   ❌ Git commit 失敗：${err.message}\n`);
-      }
-    }
+    const commitMsg =
+      successCount === 1
+        ? `發布文章：${toPublish[0].title}`
+        : `發布/更新 ${successCount} 篇文章`;
+    commitMultivac(commitMsg);
+    console.log("下一步：");
+    console.log("  cd ~/multivac42");
+    console.log("  git push");
   } else if (!isDryRun && failCount === 0 && successCount > 0) {
     console.log("下一步：");
     console.log("  cd ~/multivac42");
@@ -850,6 +931,7 @@ if (require.main === module) {
 }
 
 module.exports = {
+  syncImages,
   validateForPublish,
   removeMetadataSection,
   removeLastUpdated,

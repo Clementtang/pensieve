@@ -1,6 +1,9 @@
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, beforeEach, afterEach } from "vitest";
 import path from "path";
+import fs from "fs";
+import os from "os";
 import {
+  syncImages,
   validateForPublish,
   removeMetadataSection,
   removeLastUpdated,
@@ -714,5 +717,84 @@ x
 `;
     // 只有 1 個「版本」開頭標題且非發布輔助段落 → 不應 block
     expect(detectMultiVersionSocial(content)).toEqual([]);
+  });
+});
+
+describe("syncImages", () => {
+  let src;
+  let dest;
+
+  beforeEach(() => {
+    const base = fs.mkdtempSync(path.join(os.tmpdir(), "pensieve-imgsync-"));
+    src = path.join(base, "src");
+    dest = path.join(base, "dest");
+    fs.mkdirSync(src, { recursive: true });
+    fs.mkdirSync(dest, { recursive: true });
+  });
+
+  afterEach(() => {
+    fs.rmSync(path.dirname(src), { recursive: true, force: true });
+  });
+
+  const writeFile = (root, rel, content) => {
+    const full = path.join(root, rel);
+    fs.mkdirSync(path.dirname(full), { recursive: true });
+    fs.writeFileSync(full, content);
+  };
+
+  it("should return empty result when source dir does not exist", () => {
+    const result = syncImages(path.join(src, "nope"), dest);
+    expect(result).toEqual({ copied: [], unchanged: 0 });
+  });
+
+  it("should copy a new image when destination is missing", () => {
+    writeFile(src, "posts/phpbb/01.png", "PNGDATA");
+
+    const result = syncImages(src, dest);
+
+    expect(result.copied).toEqual(["posts/phpbb/01.png"]);
+    expect(
+      fs.readFileSync(path.join(dest, "posts/phpbb/01.png"), "utf-8"),
+    ).toBe("PNGDATA");
+  });
+
+  it("should overwrite when content differs", () => {
+    writeFile(src, "posts/a.png", "NEW");
+    writeFile(dest, "posts/a.png", "OLD");
+
+    const result = syncImages(src, dest);
+
+    expect(result.copied).toEqual(["posts/a.png"]);
+    expect(fs.readFileSync(path.join(dest, "posts/a.png"), "utf-8")).toBe(
+      "NEW",
+    );
+  });
+
+  it("should skip when content is identical", () => {
+    writeFile(src, "posts/a.png", "SAME");
+    writeFile(dest, "posts/a.png", "SAME");
+
+    const result = syncImages(src, dest);
+
+    expect(result.copied).toEqual([]);
+    expect(result.unchanged).toBe(1);
+  });
+
+  it("should not delete orphan files present only in destination", () => {
+    writeFile(src, "posts/a.png", "A");
+    writeFile(dest, "posts/orphan.png", "ORPHAN");
+
+    syncImages(src, dest);
+
+    expect(fs.existsSync(path.join(dest, "posts/orphan.png"))).toBe(true);
+  });
+
+  it("should not write anything when dryRun is true", () => {
+    writeFile(src, "posts/a.png", "A");
+
+    const result = syncImages(src, dest, { dryRun: true });
+
+    expect(result.copied).toEqual(["posts/a.png"]);
+    expect(fs.existsSync(path.join(dest, "posts/a.png"))).toBe(false);
   });
 });

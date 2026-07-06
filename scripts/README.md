@@ -231,7 +231,10 @@ node scripts/validate-article.js docs/ --quiet
 2. 根據 category 決定目標目錄
 3. 格式轉換（移除元資料區塊等）
 4. 複製到 Multivac42
-5. 可選：自動執行 git commit
+5. 同步文章圖片：`docs/public/images/` → M42 對應目錄（只增修、不刪 orphan；獨立於文章變更，只改圖也會同步）
+6. 可選：自動執行 git commit
+
+> 圖片放在 Pensieve `docs/public/images/posts/<slug>/`，文章以 `/images/posts/<slug>/…` 絕對路徑引用。Pensieve 與 M42 同路徑，發布時零改寫。Pensieve 是唯一來源，圖片一律放這裡、不要直接放 M42。
 
 ### 使用方式
 
