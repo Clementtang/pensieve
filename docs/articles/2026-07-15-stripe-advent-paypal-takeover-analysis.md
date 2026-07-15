@@ -31,7 +31,7 @@ seriesIndex: 3
 
 消息曝光後，PayPal 股價隔夜大漲近 15%。截至本文撰寫時，PayPal 尚未正式回應，三方對媒體詢問均拒絕置評。據報導，買方最初在 4 月上旬接觸 PayPal，正式報價於 7 月稍早提交，並希望在 7 月底前推進協議。
 
-還記得今年 2 月嗎？當時 Bloomberg 報導 Stripe 有意收購 PayPal，兩天後 PayPal 透過 Semafor 否認任何談判。我在當時的[議題研究](../topic-research/2026-02-25-stripe-paypal-acquisition-rumor.md)中判斷，全面併購的機率只有兩成。五個月後，劇本朝著機率最低的方向走去，而且多了一個當時沒人預料到的角色：私募基金。
+還記得今年 2 月嗎？當時 Bloomberg 報導 Stripe 有意收購 PayPal，兩天後 PayPal 透過 Semafor 否認任何談判。我在當時的[研究分析](./2026-02-25-stripe-paypal-acquisition-social.md)中判斷，全面併購的機率只有兩成。五個月後，劇本朝著機率最低的方向走去，而且多了一個當時沒人預料到的角色：私募基金。
 
 ## Why It Matters
 
@@ -146,8 +146,7 @@ David Marcus 在 2 月的長文裡哀嘆，PayPal 一次又一次選擇可預測
 本文是「PayPal 與支付生態系列」第三篇，前情脈絡推薦搭配閱讀：
 
 - [十二年後打破沉默，David Marcus 談 PayPal 的衰落](./2026-02-03-david-marcus-paypal-reflections.md)：前總裁視角的病理報告，理解 PayPal 為何走到今天。
-- [從 3,500 億到被收購：PayPal 的衰落，如何成就了 Stripe 的登頂](./2026-02-25-stripe-paypal-acquisition-social.md)：2 月謠言階段的社群分析。
-- [Stripe 併購 PayPal？一場可能改寫支付產業版圖的世紀交易](../topic-research/2026-02-25-stripe-paypal-acquisition-rumor.md)：謠言階段的完整議題研究，本文的情境判斷即出自於此。
+- [從 3,500 億到被收購：PayPal 的衰落，如何成就了 Stripe 的登頂](./2026-02-25-stripe-paypal-acquisition-social.md)：2 月謠言階段的分析，本文回顧的情境判斷即出自當時的研究。
 
 ---
 
