@@ -5,7 +5,7 @@ date: 2026-02-25
 author: "Clement Tang"
 tags: ["議題研究", "金融科技", "支付產業", "併購", "Stripe", "PayPal", "穩定幣"]
 category: topic-research
-status: draft
+status: published
 version: "1.0"
 ---
 
