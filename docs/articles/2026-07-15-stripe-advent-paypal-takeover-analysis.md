@@ -5,7 +5,7 @@ date: 2026-07-15
 author: "Clement Tang"
 tags: ["議題研究", "金融科技", "併購", "投資", "Stripe", "PayPal"]
 category: articles
-status: draft
+status: published
 related: "../topic-research/2026-02-25-stripe-paypal-acquisition-rumor.md"
 series: paypal-stripe
 seriesTitle: "PayPal 與支付生態系列"
