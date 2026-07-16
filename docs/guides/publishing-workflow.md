@@ -2,8 +2,8 @@
 
 > 本文件說明如何將 Pensieve 中的文章發布到 Multivac42 網站。
 
-**最後更新：** 2026-01-13
-**版本：** 1.0.0
+**最後更新：** 2026-07-11
+**版本：** 2.0.0
 **相關優化項目：** P0-005, P1-008, P1-018
 
 ---
@@ -58,12 +58,12 @@ draft ──▶ in-progress ──▶ published ──▶ archived
 
 ### 狀態說明
 
-| 狀態 | 說明 | 會發布？ |
-|------|------|---------|
-| `draft` | 草稿，尚未開始或暫停 | 否 |
-| `in-progress` | 撰寫中，持續更新 | 否 |
-| `published` | 已完成，可發布 | 是 |
-| `archived` | 已歸檔，不再更新 | 否 |
+| 狀態          | 說明                 | 會發布？ |
+| ------------- | -------------------- | -------- |
+| `draft`       | 草稿，尚未開始或暫停 | 否       |
+| `in-progress` | 撰寫中，持續更新     | 否       |
+| `published`   | 已完成，可發布       | 是       |
+| `archived`    | 已歸檔，不再更新     | 否       |
 
 ### 典型工作流程
 
@@ -80,11 +80,15 @@ node scripts/validate-article.js drafts/2026-01-13-我的文章.md
 # 5. 移動到正確目錄
 mv drafts/2026-01-13-我的文章.md docs/articles/
 
-# 6. 發布到 M42
-node scripts/publish-to-multivac.js --validate --auto-commit
+# 6. 發布前本地驗證（dry-run，不實際複製）
+node scripts/publish-to-multivac.js --validate --dry-run
 
-# 7. 推送到 M42 遠端
-cd ~/multivac42 && git push
+# 7. commit 並 push Pensieve —— CI 自動發布到 M42 並觸發 Vercel 部署
+git add docs/articles/2026-01-13-我的文章.md
+git commit -m "content: 發布我的文章"
+git push
+
+# 8. 發布後實地驗證線上（見「發布流程 › 步驟 4」）
 ```
 
 ---
@@ -107,21 +111,21 @@ status: published
 
 ### 欄位說明
 
-| 欄位 | 類型 | 說明 | 範例 |
-|------|------|------|------|
-| `title` | string | 文章標題 | `"ESL 零售科技趨勢"` |
+| 欄位          | 類型   | 說明               | 範例                    |
+| ------------- | ------ | ------------------ | ----------------------- |
+| `title`       | string | 文章標題           | `"ESL 零售科技趨勢"`    |
 | `description` | string | 摘要說明（SEO 用） | `"探討電子貨架標籤..."` |
-| `date` | date | 建立日期 | `2026-01-13` |
-| `category` | string | 文章分類 | `articles` |
-| `status` | string | 發布狀態 | `published` |
+| `date`        | date   | 建立日期           | `2026-01-13`            |
+| `category`    | string | 文章分類           | `articles`              |
+| `status`      | string | 發布狀態           | `published`             |
 
 ### 有效的 Category 值
 
-| Category | 說明 | M42 目標目錄 |
-|----------|------|-------------|
-| `articles` | 時事評論、分析文章 | docs/articles/ |
-| `company-research` | 企業深度研究 | docs/company-research/{company}/ |
-| `topic-research` | 產業/議題研究 | docs/topic-research/ |
+| Category           | 說明               | M42 目標目錄                     |
+| ------------------ | ------------------ | -------------------------------- |
+| `articles`         | 時事評論、分析文章 | docs/articles/                   |
+| `company-research` | 企業深度研究       | docs/company-research/{company}/ |
+| `topic-research`   | 產業/議題研究      | docs/topic-research/             |
 
 ### 檔名規範
 
@@ -138,7 +142,11 @@ status: published
 
 ## 發布流程
 
-### 標準發布流程
+### 發布機制：CI 自動發布（2026-07 起）
+
+Pensieve `main` 每次 push 到 GitHub 後，`.github/workflows/publish-to-multivac.yml` 會自動：轉換 → `--validate --auto-commit` → push 到 M42 origin；M42 再由 **Vercel Git integration** 自動建置並部署到 <https://multivac42.com> 。
+
+因此**內容發布 = push Pensieve**，不需要也不應該手動 `cd ~/multivac42 && git push` 內容檔——那會與 CI 撞 commit。M42 端只在改 config / theme / infra 時才自己 commit，且開工前先 `git pull --ff-only` 對齊。
 
 #### 步驟 1：驗證文章
 
@@ -148,39 +156,41 @@ node scripts/validate-article.js docs/articles/2026-01-13-my-article.md
 
 確認輸出為 ✅，無錯誤。
 
-#### 步驟 2：查看同步狀態
+#### 步驟 2：發布前本地驗證（dry-run，不實際複製）
 
 ```bash
-node scripts/publish-to-multivac.js --status
+node scripts/publish-to-multivac.js --validate --dry-run
 ```
 
-確認要發布的文章清單正確。
+確認同步清單正確；`--validate` 會一併跑 markdownlint 與多版本社群偵測，把「源檔過、發布後爆」的問題擋在 push 前。
 
-#### 步驟 3：執行發布
-
-```bash
-node scripts/publish-to-multivac.js --validate
-```
-
-#### 步驟 4：提交變更
+#### 步驟 3：commit 並 push Pensieve
 
 ```bash
-cd ~/multivac42
-git add -A
-git commit -m "發布文章：ESL 零售科技趨勢"
+git add docs/articles/2026-01-13-my-article.md
+git commit -m "content: 發布 ESL 零售科技趨勢"
 git push
+# push 後 CI 自動發布到 M42、Vercel 隨即部署
 ```
 
-### 一鍵發布流程
+#### 步驟 4：發布後驗證線上（必做）
 
-使用 `--auto-commit` 可簡化步驟 3-4：
+**CI workflow 綠燈不代表文章上線。** M42 走 Vercel 建置，缺圖、`config.ts` 的 `srcExclude`、frontmatter `draft: true` 都會讓 `status: published` 的文章**靜默不進 build**（頁面 404、SeriesNav / RSS / llms 一併消失），而 Pensieve 端的 CI 完全看不到。phpBB 系列即因此「發布成功」卻線上 404 一週才發現。
+
+因此每次發布後：
+
+1. 確認 **Vercel 最新 production deployment 為 `READY` 而非 `ERROR`**（team `clement-tangs-projects`、project `multivac42`，<https://vercel.com/clement-tangs-projects/multivac42> ）。
+2. 實地開目標頁確認回 **200**、關鍵元件（如 SeriesNav）出現、圖片載入。
+3. deployment READY 後 CDN 可能再滯後數十秒。
+
+不要用 `gh run watch` 或任何 GitHub workflow 結論判斷是否上線——那些訊號與 Vercel 部署互相獨立（workflow 紅但站台正常、workflow 綠但部署 ERROR 都實際發生過）。
+
+### 手動發布（例外）
+
+僅在 CI 不可用或需補發舊文時使用。優先用 `workflow_dispatch` 手動觸發，避免本地 `--auto-commit` 與 CI 雙寫撞 commit：
 
 ```bash
-# 驗證 + 發布 + 自動 commit
-node scripts/publish-to-multivac.js --validate --auto-commit
-
-# 只需手動 push
-cd ~/multivac42 && git push
+gh workflow run publish-to-multivac.yml --repo Clementtang/pensieve
 ```
 
 ---
@@ -238,11 +248,11 @@ node scripts/validate-article.js docs/ --quiet
 ### 組合選項
 
 ```bash
-# 完整流程：驗證 + 詳細輸出 + 自動 commit
-node scripts/publish-to-multivac.js --validate --verbose --auto-commit
-
-# 預覽完整流程
+# 發布前本地完整檢查：驗證 + 詳細輸出 + 預覽（日常用這個）
 node scripts/publish-to-multivac.js --validate --verbose --dry-run
+
+# 手動例外發布（僅 CI 不可用時；平常交給 CI，勿與 CI 雙寫）
+node scripts/publish-to-multivac.js --validate --verbose --auto-commit
 ```
 
 ---
@@ -270,10 +280,10 @@ description: "補充這裡的摘要說明"
 
 ```yaml
 ---
-date: 2026-01-13    # ✅ 正確
-date: "2026-01-13"  # ✅ 正確
-date: 2026/01/13    # ❌ 錯誤
-date: Jan 13, 2026  # ❌ 錯誤
+date: 2026-01-13 # ✅ 正確
+date: "2026-01-13" # ✅ 正確
+date: 2026/01/13 # ❌ 錯誤
+date: Jan 13, 2026 # ❌ 錯誤
 ---
 ```
 

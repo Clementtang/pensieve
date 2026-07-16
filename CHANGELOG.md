@@ -7,6 +7,11 @@
 
 ## [Unreleased]
 
+### Changed
+
+- **修正發布後的驗證訊號：CI 綠燈不等於文章上線**（以下 commit SHA 均為 M42 repo）。M42 的建置與部署走 **Vercel Git integration**（`vercel.json`：build `npm run docs:build`、output `.vitepress/dist`），**未啟用 GitHub Pages**（`gh api repos/Clementtang/multivac42/pages` 回 404）；M42 repo 唯一的 workflow「驗證內容」只驗內容、不做部署。實測確認三種訊號彼此獨立、任一方都推不出另一方：`45e91b0`（發布路易莎）當時 Pensieve 的 publish CI 是 **success**（run 28458446517），但該 commit 在 M42 的 Vercel production deployment 卻是 **`ERROR`**——三張特色圖缺檔讓 Vite build 失敗、整站部署被擋，而 Pensieve 端完全看不到。反向亦然：`ad274be`／`4186001`／`394517c`／`d3d3fb5` 四個 commit 的 M42 workflow 是 **failure**，Vercel 卻是 **`READY`**（站台其實正常）。結論：判斷文章是否真的上線只有一條路——確認 Vercel 最新 production deployment 為 `READY` 而非 `ERROR`，再實地驗證目標頁回 200；`gh run watch` 與任何 workflow 綠燈都不是部署訊號。此教訓即 phpBB Restore 系列「pipeline 發布成功、線上 404 近一週」的成因。
+- **`docs/guides/publishing-workflow.md` 對齊 CI 自動發布現況（v1.0.0 → 2.0.0）**：原文件教手動 `publish --auto-commit` + `cd ~/multivac42 && git push`，與 2026-07 起的 CI 自動發布矛盾（照舊做會與 CI 撞 commit）。改為「發布 = push Pensieve，CI 自動轉換並部署」，並新增**步驟 4「發布後驗證線上」**（查 Vercel deployment `READY`＋目標頁 200，不靠 workflow 綠燈）；手動 `--auto-commit` 降為 CI 不可用時的例外路徑。對齊 M42 端 `a5d63a9` 的同步修正。
+
 ## [1.9.0] - 2026-07-07
 
 ### Added
