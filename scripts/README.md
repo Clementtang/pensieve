@@ -44,6 +44,7 @@ node scripts/publish-to-multivac.js --validate --auto-commit
 | `publish-to-multivac.js`           | 發布文章到 Multivac42                | P0-005, P1-008, P1-018 |
 | `generate-feature-image-prompt.js` | 生成 Feature Image 的 AI 圖像 Prompt | NEW                    |
 | `review-drafts.js`                 | 列出草稿年齡、標記過期草稿           | P2-009                 |
+| `check-links.js`                   | 掃描 markdown 連結，可選 HTTP 探測   | P2-016                 |
 
 ---
 
@@ -475,6 +476,20 @@ npm run review-drafts
 | ------------ | ------------------------------------ |
 | `--days <n>` | 超過 n 天未更新視為過期（預設 30）   |
 | `--json`     | JSON 輸出，方便腳本串接              |
+
+---
+
+## check-links.js
+
+### 功能說明
+
+掃描 `.md` 中的 markdown 連結與 bare URL；可選 `--check` 對 http(s) 做 HEAD/GET 探測。
+
+```bash
+node scripts/check-links.js docs/articles/2026-05-19-gemini-spark-vs-openclaw-hermes.md
+node scripts/check-links.js docs/topic-research/ --check
+npm run check-links -- drafts/
+```
 
 ---
 

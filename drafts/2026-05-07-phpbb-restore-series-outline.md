@@ -5,7 +5,13 @@ date: 2026-05-07
 author: "Clement Tang"
 tags: ["phpbb", "claude-code", "docker", "self-hosting", "blog-series"]
 category: articles
-status: in-progress
+status: archived
+related:
+  - "docs/articles/2026-06-18-phpbb-restore-part-01-why.md"
+  - "docs/articles/2026-06-20-phpbb-restore-part-02-claude-code.md"
+  - "docs/articles/2026-06-22-phpbb-restore-part-03-data-recovery.md"
+  - "docs/articles/2026-06-24-phpbb-restore-part-04-infrastructure.md"
+  - "docs/articles/2026-06-26-phpbb-restore-part-05-lessons.md"
 ---
 
 # phpBB Restore 系列文骨架 outline

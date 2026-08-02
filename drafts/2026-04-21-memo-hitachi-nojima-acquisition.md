@@ -1,6 +1,18 @@
+---
+title: "Research Memo：日立家電部門出售給野島集團"
+description: "日立 GLS 出售給野島的研究備忘（交易速覽、市場與情境推演），已擴寫為 topic-research 後歸檔"
+date: 2026-04-21
+author: "Clement Tang"
+tags: ["research-memo", "日立", "野島", "日本家電", "併購"]
+category: memo
+status: archived
+related:
+  - "docs/topic-research/2026-04-21-japan-home-appliance-industry-decline.md"
+---
+
 # Research Memo：日立家電部門出售給野島集團
 
-> 內部研究備忘錄，供後續研究報告撰寫使用。資料截至 2026-04-21。
+> 內部研究備忘錄，供後續研究報告撰寫使用。資料截至 2026-04-21。已擴寫為正式議題研究（見 related）。
 
 ## 一、交易速覽
 

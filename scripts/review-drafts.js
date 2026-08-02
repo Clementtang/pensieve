@@ -71,7 +71,10 @@ function reviewDrafts(options = {}) {
       // 讀取失敗仍回報檔案基本資訊
     }
 
-    const stale = ageDays >= daysThreshold;
+    // archived / published 不計入「過期草稿」告警
+    const isClosed =
+      status === "archived" || status === "published";
+    const stale = !isClosed && ageDays >= daysThreshold;
 
     drafts.push({
       file: entry.name,
@@ -82,9 +85,11 @@ function reviewDrafts(options = {}) {
       mtime: stats.mtime.toISOString(),
       ageDays,
       stale,
-      suggestion: stale
-        ? "超過門檻未更新：考慮完成發布、移入 private、或刪除"
-        : "持續撰寫中",
+      suggestion: isClosed
+        ? "已結案（archived/published），可保留作底稿"
+        : stale
+          ? "超過門檻未更新：考慮完成發布、移入 private、或刪除"
+          : "持續撰寫中",
     });
   }
 

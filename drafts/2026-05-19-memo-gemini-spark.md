@@ -1,11 +1,13 @@
 ---
 title: "Research Memo: Gemini Spark 與開源 AI Agent 比較"
-description: "Google I/O 2026 發布的個人 AI agent Gemini Spark 深度研究，並與開源 agent OpenClaw、Hermes Agent 對照分析"
+description: "Google I/O 2026 發布的個人 AI agent Gemini Spark 研究交接備忘，已擴寫為正式文章後歸檔"
 date: 2026-05-19
 author: "Clement Tang"
-tags: ["research-memo"]
+tags: ["research-memo", "Google", "Gemini", "AI Agent"]
 category: memo
-status: draft
+status: archived
+related:
+  - "docs/articles/2026-05-19-gemini-spark-vs-openclaw-hermes.md"
 ---
 
 # Research Memo: Gemini Spark 與開源 AI Agent 比較

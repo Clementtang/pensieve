@@ -29,15 +29,18 @@
 - 保持草稿數量合理，定期清理
 - 長期未完成的草稿考慮歸檔或刪除
 
-## 草稿狀態
+## 草稿狀態（frontmatter `status`）
 
-草稿可以有以下狀態（在文件元資料中標記）：
+- `draft`：剛開始
+- `in-progress`：積極撰寫中
+- `published`：不應長期留在 drafts（應移到 `docs/`）
+- `archived`：已結案底稿（例如已擴寫上線的 Research Memo）；`npm run review-drafts` 不計入過期告警
 
-- **草稿：** 剛開始寫作
-- **進行中：** 正在積極編寫
-- **待審閱：** 寫作完成，等待審閱
-- **暫停：** 暫時擱置
+## 生命週期
 
-## 提示
+1. `npm run new` 或複製模板 → `drafts/`
+2. 完成後移到 `docs/{articles|company-research|topic-research}/` 並 `status: published`
+3. Research Memo 等交接底稿：正式文上線後改 `archived`，`related` 指向正式文
+4. 定期：`npm run review-drafts`
 
-💡 定期回顧這個目錄，確保草稿不會積壓太久。
+詳見 [mobile-research-workflow.md](../docs/guides/mobile-research-workflow.md)。

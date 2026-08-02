@@ -9,6 +9,7 @@
 | 指南 | 說明 |
 |------|------|
 | [發布工作流程](./publishing-workflow.md) | 文章發布到 Multivac42 的完整流程 |
+| [Research Memo Web↔CLI 工作流](./mobile-research-workflow.md) | 手機研究備忘 → 桌機擴寫 → 歸檔（P1-007） |
 
 ---
 

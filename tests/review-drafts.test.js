@@ -116,6 +116,22 @@ status: ${status}
     expect(report.staleCount).toBe(1);
   });
 
+  it("should not mark archived drafts as stale even when old", () => {
+    const dir = makeDraftsDir();
+    const oldMs = new Date("2026-05-01T00:00:00Z").getTime();
+    writeDraft(dir, "old-archived.md", sampleFm("Done", "archived"), oldMs);
+
+    const report = reviewDrafts({
+      draftsDir: dir,
+      daysThreshold: 30,
+      now: new Date("2026-08-02T00:00:00Z"),
+    });
+
+    expect(report.drafts[0].stale).toBe(false);
+    expect(report.staleCount).toBe(0);
+    expect(report.drafts[0].suggestion).toMatch(/已結案/);
+  });
+
   it("should return empty when directory missing", () => {
     const report = reviewDrafts({
       draftsDir: path.join(os.tmpdir(), "pensieve-no-such-dir-xyz"),
