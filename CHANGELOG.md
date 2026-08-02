@@ -11,11 +11,20 @@
 
 - **Validate CI 紅燈（lint）**：日立家電 topic-research 標題尾問號（MD026）；`drafts/memo-hitachi-nojima-acquisition.md` 參考資料 bare URL 改為 markdown 連結（MD034），與已發布長文格式對齊。main 上 Validate workflow 自 2026-07-16 起持續 failure，修後 `npm run lint` 通過。
 
+### Added
+
+- **`new-article.js` / `generate-feature-image-prompt.js` 單元測試**：抽出可 require 的純函式（`createArticle`、`generatePrompt` 等）；連同 review-drafts／description 長度測試，全套件 119 → 158。
+- **`validate-on-write` hook 改用共用 `validateArticle`**：不再手刻 frontmatter 解析；`validate-article.js` CLI 參數移入 `main()`，require 時不再 `process.exit`。
+- **`scripts/review-drafts.js`（P2-009）**：列出 drafts 年齡、標記超過門檻（預設 30 天）未更新者；`npm run review-drafts`；含單元測試。
+- **description 撰寫指引（P2-017）**：`WRITING_GUIDE.md` v1.7.0 新增長度／句數／好壞例子；`validate-article` 對 <20 或 >200 字發出警告。
+
 ### Changed
 
 - **README 版本資訊對齊現況**：移除寫死的「寫作規範 v1.5.0」，改指 package.json / WRITING_GUIDE / CHANGELOG；最後更新日期改 2026-08-02。
 - **工作區與 ignore**：`.gitignore` 加入本機 `.mcp.json`；移除過期 `.claude/*.bak-20260705`。
-- **Roadmap 對齊 v1.9.0**：`docs/roadmap/optimization-backlog.md` 標 P2-019／CI 自動發布完成、待處理縮為 1 P1 + 3 P2；`private/roadmap.md` 標記 4-A 自動發布與 3-C 系列欄位已上線。
+- **Roadmap 對齊**：optimization-backlog 完成 P2-009／P2-017，待處理剩 P1-007 + P2-016；測試數更新為 158。
+- **腳本引號風格統一**：`new-article.js` 與 hook 改為雙引號，與其餘 scripts 一致。
+- **scripts/README**：新增 review-drafts；FAQ 對齊 CI 自動發布路徑。
 
 - **修正發布後的驗證訊號：CI 綠燈不等於文章上線**（以下 commit SHA 均為 M42 repo）。M42 的建置與部署走 **Vercel Git integration**（`vercel.json`：build `npm run docs:build`、output `.vitepress/dist`），**未啟用 GitHub Pages**（`gh api repos/Clementtang/multivac42/pages` 回 404）；M42 repo 唯一的 workflow「驗證內容」只驗內容、不做部署。實測確認三種訊號彼此獨立、任一方都推不出另一方：`45e91b0`（發布路易莎）當時 Pensieve 的 publish CI 是 **success**（run 28458446517），但該 commit 在 M42 的 Vercel production deployment 卻是 **`ERROR`**——三張特色圖缺檔讓 Vite build 失敗、整站部署被擋，而 Pensieve 端完全看不到。反向亦然：`ad274be`／`4186001`／`394517c`／`d3d3fb5` 四個 commit 的 M42 workflow 是 **failure**，Vercel 卻是 **`READY`**（站台其實正常）。結論：判斷文章是否真的上線只有一條路——確認 Vercel 最新 production deployment 為 `READY` 而非 `ERROR`，再實地驗證目標頁回 200；`gh run watch` 與任何 workflow 綠燈都不是部署訊號。此教訓即 phpBB Restore 系列「pipeline 發布成功、線上 404 近一週」的成因。
 - **`docs/guides/publishing-workflow.md` 對齊 CI 自動發布現況（v1.0.0 → 2.0.0）**：原文件教手動 `publish --auto-commit` + `cd ~/multivac42 && git push`，與 2026-07 起的 CI 自動發布矛盾（照舊做會與 CI 撞 commit）。改為「發布 = push Pensieve，CI 自動轉換並部署」，並新增**步驟 4「發布後驗證線上」**（查 Vercel deployment `READY`＋目標頁 200，不靠 workflow 綠燈）；手動 `--auto-commit` 降為 CI 不可用時的例外路徑。對齊 M42 端 `a5d63a9` 的同步修正。

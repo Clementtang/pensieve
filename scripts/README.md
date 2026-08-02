@@ -2,8 +2,8 @@
 
 > 本目錄包含 Pensieve 專案的自動化腳本，用於文章管理、驗證與發布。
 
-**最後更新：** 2026-01-13
-**版本：** 1.0.0
+**最後更新：** 2026-08-02
+**版本：** 1.1.0
 
 ---
 
@@ -15,6 +15,7 @@
 - [validate-article.js](#validate-articlejs)
 - [publish-to-multivac.js](#publish-to-multivacjs)
 - [generate-feature-image-prompt.js](#generate-feature-image-promptjs)
+- [review-drafts.js](#review-draftsjs)
 - [常見問題](#常見問題)
 
 ---
@@ -42,6 +43,7 @@ node scripts/publish-to-multivac.js --validate --auto-commit
 | `validate-article.js`              | 驗證文章格式與 frontmatter           | P0-005, P1-011         |
 | `publish-to-multivac.js`           | 發布文章到 Multivac42                | P0-005, P1-008, P1-018 |
 | `generate-feature-image-prompt.js` | 生成 Feature Image 的 AI 圖像 Prompt | NEW                    |
+| `review-drafts.js`                 | 列出草稿年齡、標記過期草稿           | P2-009                 |
 
 ---
 
@@ -455,14 +457,32 @@ node scripts/generate-feature-image-prompt.js docs/articles/my-article.md --json
 
 ---
 
+## review-drafts.js
+
+### 功能說明
+
+列出 `drafts/` 下草稿的 mtime 年齡，標記超過門檻（預設 30 天）未更新者，方便定期清理或推進發布。
+
+### 使用方式
+
+```bash
+node scripts/review-drafts.js [--days 30] [--json]
+# 或
+npm run review-drafts
+```
+
+| 選項         | 說明                                 |
+| ------------ | ------------------------------------ |
+| `--days <n>` | 超過 n 天未更新視為過期（預設 30）   |
+| `--json`     | JSON 輸出，方便腳本串接              |
+
+---
+
 ## 常見問題
 
-### Q: 為什麼發布後需要手動 push？
+### Q: 發布後還要手動 push M42 嗎？
 
-A: 設計上刻意不自動 push，原因：
-
-1. 讓使用者有機會在 M42 檢視變更
-2. 避免意外推送敏感內容
+A: 一般不必。`main` 上符合路徑的 push 會觸發 `publish-to-multivac.yml`，CI 會在 M42 自動 commit 並 push。手動 `--auto-commit` 僅在 CI 不可用時使用；線上是否成功請查 Vercel production 與目標頁 200，見 `docs/guides/publishing-workflow.md`。
 3. 可以在 push 前合併多次發布
 
 ### Q: 如何處理發布驗證失敗？
