@@ -46,7 +46,7 @@ pensieve/
 │   └── settings.local.json  # 本地設定
 ├── CHANGELOG.md             # 變更記錄
 ├── CONTRIBUTING.md          # 貢獻指南
-├── WRITING_GUIDE.md         # 寫作規範（v1.5.0）
+├── WRITING_GUIDE.md         # 寫作規範
 └── README.md                # 本檔案
 ```
 
@@ -168,12 +168,13 @@ node scripts/new-article.js --type article --title "文章標題"
 
 ---
 
-## 📌 版本資訊
+## 版本資訊
 
-- **寫作規範版本：** v1.5.0
+- **框架版本：** 見 [package.json](./package.json)（目前 1.9.0）
+- **寫作規範：** [WRITING_GUIDE.md](./WRITING_GUIDE.md)（內文標示版本號）
 - **變更記錄：** [CHANGELOG.md](./CHANGELOG.md)
 - **優化追蹤：** [docs/roadmap/optimization-backlog.md](./docs/roadmap/optimization-backlog.md)
 
 ---
 
-_最後更新：2026-02-25_
+_最後更新：2026-08-02_

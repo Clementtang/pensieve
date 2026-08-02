@@ -180,23 +180,23 @@
 
 ## 八、參考資料
 
-1. 日本經濟新聞〈ノジマ、日立の家電事業1000億円超で買収〉— https://www.nikkei.com/article/DGXZQOUC081Y60Y6A400C2000000/
-2. 時事通信〈ノジマ、日立製作所の家電事業買収を検討 １０００億円超か〉— https://www.jiji.com/jc/article?k=2026042100442&g=eco
-3. 共同通信／Yahoo!ニュース〈日立、白物家電売却を検討 韓国企業が買収意向か〉— https://news.yahoo.co.jp/articles/49d7f95d8bacee86fbbda40f200f3fb2fed83eda
-4. XenoSpectrum〈Samsung・LGが日立家電買収か？〉— https://xenospectrum.com/samsung-and-lg-to-acquire-hitachi-home-appliances/
-5. 東京新聞〈日の丸家電、もう買えなくなる？ 日立まで「白物」売却検討〉— https://www.tokyo-np.co.jp/article/431505
-6. 日立 GLS 公司概要 — https://corp.hitachi-gls.co.jp/about/outline
-7. 日立 GLS 沿革 — https://corp.hitachi-gls.co.jp/about/outline/history
-8. 日本經濟新聞〈日立、家庭用エアコン事業の売却と業務用空調拠点の取得を完了〉— https://www.nikkei.com/article/DGXZQOUC01BJR0R00C25A8000000/
-9. Bloomberg〈日立、ＪＣＩとの空調合弁株の保有分を独ボッシュに売却－1950億円で〉— https://www.bloomberg.co.jp/news/articles/2024-07-23/SH28AHT0AFB400
-10. 日本經濟新聞〈日立、トルコ大手に海外家電売却〉— https://www.nikkei.com/article/DGXZQODZ164NY0W0A211C2000000/
-11. 野島 公司沿革（英文）— https://www.nojima.co.jp/en/company-history/
-12. 日本經濟新聞〈ノジマ、ひらめきM&A 野島広司社長「下手な鉄砲、数撃ちゃ」〉— https://www.nikkei.com/article/DGXZQOUC0310I0T01C24A2000000/
-13. 時事通信／Yahoo!ニュース〈ノジマ社長、大型買収に最大3000億円〉— https://news.yahoo.co.jp/articles/d28a6c3722e01bcd23ca94e0de1e4c6f9a6c907a
-14. PC Watch〈ノジマ、VAIOを111億円で買収〉— https://pc.watch.impress.co.jp/docs/news/1638347.html
-15. M&A Online〈中国企業による日本企業のM&A－美的集団が東芝の白物家電事業を買収〉— https://maonline.jp/articles/midea-corporation
-16. M&A Online〈中国企業による日本企業のM&A－ハイアール、三洋電機の白物家電事業を買収〉— https://maonline.jp/articles/haier
-17. 日本經濟新聞〈三洋、ハイアールに白物家電売却 正式発表〉— https://www.nikkei.com/article/DGXNASDD180GN_Y1A011C1000000/
-18. TMTPOST〈China's Appliance Giants Power Global Expansion with Record Overseas Sales in 2024〉— https://en.tmtpost.com/post/7582277
-19. 富士經濟〈グローバル家電市場総調査 2025〉— https://www.fuji-keizai.co.jp/report/detail.html?code=112407801
-20. 經理人〈日立宣布出售家用空調業務！為何要從市場撤退？〉— https://www.managertoday.com.tw/articles/view/68932
+1. [日本經濟新聞〈ノジマ、日立の家電事業1000億円超で買収〉](https://www.nikkei.com/article/DGXZQOUC081Y60Y6A400C2000000/)
+2. [時事通信〈ノジマ、日立製作所の家電事業買収を検討 １０００億円超か〉](https://www.jiji.com/jc/article?k=2026042100442&g=eco)
+3. [共同通信／Yahoo!ニュース〈日立、白物家電売却を検討 韓国企業が買収意向か〉](https://news.yahoo.co.jp/articles/49d7f95d8bacee86fbbda40f200f3fb2fed83eda)
+4. [XenoSpectrum〈Samsung・LGが日立家電買収か？〉](https://xenospectrum.com/samsung-and-lg-to-acquire-hitachi-home-appliances/)
+5. [東京新聞〈日の丸家電、もう買えなくなる？ 日立まで「白物」売却検討〉](https://www.tokyo-np.co.jp/article/431505)
+6. [日立 GLS 公司概要](https://corp.hitachi-gls.co.jp/about/outline)
+7. [日立 GLS 沿革](https://corp.hitachi-gls.co.jp/about/outline/history)
+8. [日本經濟新聞〈日立、家庭用エアコン事業の売却と業務用空調拠点の取得を完了〉](https://www.nikkei.com/article/DGXZQOUC01BJR0R00C25A8000000/)
+9. [Bloomberg〈日立、ＪＣＩとの空調合弁株の保有分を独ボッシュに売却－1950億円で〉](https://www.bloomberg.co.jp/news/articles/2024-07-23/SH28AHT0AFB400)
+10. [日本經濟新聞〈日立、トルコ大手に海外家電売却〉](https://www.nikkei.com/article/DGXZQODZ164NY0W0A211C2000000/)
+11. [野島 公司沿革（英文）](https://www.nojima.co.jp/en/company-history/)
+12. [日本經濟新聞〈ノジマ、ひらめきM&A 野島広司社長「下手な鉄砲、数撃ちゃ」〉](https://www.nikkei.com/article/DGXZQOUC0310I0T01C24A2000000/)
+13. [時事通信／Yahoo!ニュース〈ノジマ社長、大型買収に最大3000億円〉](https://news.yahoo.co.jp/articles/d28a6c3722e01bcd23ca94e0de1e4c6f9a6c907a)
+14. [PC Watch〈ノジマ、VAIOを111億円で買収〉](https://pc.watch.impress.co.jp/docs/news/1638347.html)
+15. [M&A Online〈中国企業による日本企業のM&A－美的集団が東芝の白物家電事業を買収〉](https://maonline.jp/articles/midea-corporation)
+16. [M&A Online〈中国企業による日本企業のM&A－ハイアール、三洋電機の白物家電事業を買収〉](https://maonline.jp/articles/haier)
+17. [日本經濟新聞〈三洋、ハイアールに白物家電売却 正式発表〉](https://www.nikkei.com/article/DGXNASDD180GN_Y1A011C1000000/)
+18. [TMTPOST〈China's Appliance Giants Power Global Expansion with Record Overseas Sales in 2024〉](https://en.tmtpost.com/post/7582277)
+19. [富士經濟〈グローバル家電市場総調査 2025〉](https://www.fuji-keizai.co.jp/report/detail.html?code=112407801)
+20. [經理人〈日立宣布出售家用空調業務！為何要從市場撤退？〉](https://www.managertoday.com.tw/articles/view/68932)

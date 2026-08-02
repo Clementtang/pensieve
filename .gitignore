@@ -42,3 +42,6 @@ drafts/*.html
 # 其他
 .env
 .env.local
+
+# 本機 MCP 覆寫（全域 MCP 在 ~/.claude.json；此檔僅本機實驗用）
+.mcp.json
