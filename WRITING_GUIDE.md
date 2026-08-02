@@ -1,6 +1,6 @@
 # 寫作規範指南
 
-> **版本：** 1.6.0 | **更新：** 2026-01-13 | **變更記錄：** [CHANGELOG.md](./CHANGELOG.md)
+> **版本：** 1.7.0 | **更新：** 2026-08-02 | **變更記錄：** [CHANGELOG.md](./CHANGELOG.md)
 
 本文件定義了 Pensieve 儲存庫的寫作規範，確保所有內容保持一致的格式和品質。
 
@@ -693,13 +693,35 @@ status: published   # 設為 published 才會被發布
 | 欄位 | 必填 | 說明 |
 |------|------|------|
 | `title` | ✅ | 文章標題 |
-| `description` | ✅ | 文章摘要，用於 SEO 和預覽 |
+| `description` | ✅ | 文章摘要，用於 SEO 和預覽（見下節） |
 | `date` | ✅ | 發布日期（YYYY-MM-DD） |
 | `author` | ✅ | 作者名稱 |
 | `tags` | ✅ | 標籤陣列 |
 | `category` | ✅ | 分類（決定 M42 目標目錄，見下表） |
 | `status` | ✅ | 文章狀態（draft / in-progress / published / archived） |
 | `lastModified` | ⚪ | 最後修改日期（可選，腳本會自動補充） |
+
+#### description 撰寫指引
+
+`description` 會出現在站台列表、搜尋結果摘要與社群分享預覽，請當成「一句話說清楚這篇在講什麼」。
+
+| 項目 | 建議 |
+|------|------|
+| 長度 | 約 20–160 字（中文以字元計）；`validate-article` 低於 20 或超過 200 會警告 |
+| 句數 | 1–2 句完整句，避免只貼標題或關鍵字堆疊 |
+| 內容 | 含主題 + 核心主張或數據鉤子；勿寫「本文介紹…」這類空泛開頭 |
+| 語氣 | 與正文一致，可用第一人稱，但避免破折號與口號腔 |
+| 與標題 | 可補充標題未涵蓋的細節，不要整句複製 `title` |
+
+**好的例子：**
+
+- `Stripe 與 Advent 聯手提案收購 PayPal，支付雙巨頭整合將如何改寫跨境與電商金流格局。`
+- `從野島收購日立 GLS 看日本白物家電退場路徑，以及對台灣品牌定位的啟示。`
+
+**較弱的例子：**
+
+- `分析`（過短、無資訊）
+- 把整段導言貼上超過 200 字（列表與 SEO 會被截斷，且驗證會警告）
 
 **Status 欄位說明：**
 - `draft` - 草稿，尚未完成
@@ -755,7 +777,7 @@ status: published   # 設為 published 才會被發布
 
 **Frontmatter 檢查：**
 - [ ] `title` 填寫完整且準確
-- [ ] `description` 為 1-2 句摘要（用於 SEO）
+- [ ] `description` 為 1–2 句、約 20–160 字（見 description 撰寫指引）
 - [ ] `date` 格式正確（YYYY-MM-DD）
 - [ ] `category` 設定正確（articles / company-research / topic-research）
 - [ ] `tags` 標籤符合 [taxonomy.md](./docs/taxonomy.md) 規範
@@ -786,6 +808,7 @@ node scripts/validate-article.js <檔案路徑>
 
 ## 更新記錄
 
+- **2026-08-02：** 新增 description 撰寫指引與長度建議；對齊 validate 警告門檻（v1.7.0）
 - **2026-01-13：** 新增人名使用原則，當代人物使用英文原名（v1.6.0）
 - **2026-01-13：** 強化破折號規範，改為「避免使用」並提供替代方案對照表（v1.5.0）
 - **2026-01-12：** 新增商業寫作風格章節、強化句型改寫指引（v1.4.0）
