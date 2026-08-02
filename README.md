@@ -110,22 +110,11 @@ node scripts/new-article.js --type article --title "文章標題"
 
 ### 行動端工作流（Web↔CLI）
 
-使用 Research Memo 模板進行跨平台協作：
+完整步驟、檢查清單與實測案例見 [docs/guides/mobile-research-workflow.md](./docs/guides/mobile-research-workflow.md)。
 
-**手機（Claude Code Web）：**
+**手機（Claude Code Web）：** 用 `templates/research-memo-template.md` 建立 `drafts/YYYY-MM-DD-memo-*.md`（`status: draft`）。
 
-```
-我正在為 [主題] 進行前期研究。
-請建立 Research Memo（參考 templates/research-memo-template.md）
-保持 memo 在 1000 字以內。
-```
-
-**電腦（Claude Code CLI）：**
-
-```
-請讀取 drafts/memo-[topic].md，根據對應模板撰寫完整文章。
-遵循 WRITING_GUIDE.md 的台灣用語規範。
-```
+**電腦（Claude Code CLI）：** 讀 memo 擴寫進 `docs/`，正式文 `status: published`；memo 改 `archived` 並用 `related` 連回正式文。
 
 ---
 
