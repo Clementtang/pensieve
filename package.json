@@ -7,6 +7,7 @@
     "new": "node scripts/new-article.js",
     "validate": "node scripts/validate-article.js",
     "publish": "node scripts/publish-to-multivac.js",
+    "review-drafts": "node scripts/review-drafts.js",
     "lint": "markdownlint 'docs/**/*.md' 'drafts/**/*.md' --config .markdownlint.yml",
     "lint:fix": "markdownlint 'docs/**/*.md' 'drafts/**/*.md' --config .markdownlint.yml --fix",
     "test": "vitest run",
