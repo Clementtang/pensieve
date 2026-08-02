@@ -482,8 +482,10 @@ description 欄位目前手動撰寫。
 | P2-004 | private 目錄管理規範 | 2026-01-13 | private/README.md |
 | P2-012 | 內容品質檢查清單 | 2026-01-13 | WRITING_GUIDE.md 新增檢查清單 |
 | P2-013 | Markdown Linting | 2026-01-13 | .markdownlint.yml + package.json |
-| P2-019 | 測試覆蓋 | 2026-02-25 | Vitest + CI；後續擴至 119 tests（含 round-trip、syncImages） |
+| P2-019 | 測試覆蓋 | 2026-02-25 | Vitest + CI；2026-08-02 擴至 158 tests |
 | P1-008 延伸 | CI 自動發布至 M42 | 2026-07 | `.github/workflows/publish-to-multivac.yml`（push main 觸發） |
+| P2-009 | 草稿生命週期管理 | 2026-08-02 | `scripts/review-drafts.js` |
+| P2-017 | description 撰寫指引 | 2026-08-02 | WRITING_GUIDE + validate 長度警告 |
 
 ### 進行中
 
@@ -496,9 +498,7 @@ description 欄位目前手動撰寫。
 | ID | 優先級 | 項目 | 備註 |
 |----|--------|------|------|
 | P1-007 | P1 | Research Memo 工作流驗證 | 產出 `docs/guides/mobile-research-workflow.md` |
-| P2-009 | P2 | 草稿生命週期管理 | `scripts/review-drafts.js` |
 | P2-016 | P2 | 參考資料管理 / 連結檢查 | `scripts/check-links.js` |
-| P2-017 | P2 | description 撰寫指引 | WRITING_GUIDE + validate 長度警告 |
 
 ### 已由後續版本覆蓋（不必再開）
 
@@ -506,6 +506,8 @@ description 欄位目前手動撰寫。
 |--------|------|
 | P1-008 手動 --auto-commit | 已由 GitHub Actions 自動 push M42 取代為主路徑 |
 | series 欄位（roadmap 3-C） | `series` / `seriesTitle` / `seriesIndex` 已在管線與 phpBB 系列使用 |
+| P2-009 草稿生命週期 | 2026-08-02：`scripts/review-drafts.js` + `npm run review-drafts` |
+| P2-017 description 指引 | 2026-08-02：WRITING_GUIDE v1.7.0 + validate 長度警告 |
 
 ### 待處理計數
 
@@ -513,7 +515,7 @@ description 欄位目前手動撰寫。
 |-------|------|
 | P0 | 0 |
 | P1 | 1（P1-007） |
-| P2 | 3（P2-009、P2-016、P2-017） |
+| P2 | 1（P2-016） |
 
 ---
 
@@ -527,6 +529,7 @@ description 欄位目前手動撰寫。
 | 2026-01-13 | 1.3.0 | 完成 P1-008、P1-011、P1-014、P1-018 |
 | 2026-01-13 | 1.4.0 | 完成 P2-004、P2-012、P2-013 |
 | 2026-08-02 | 1.5.0 | 對齊 v1.9.0 現況：P2-019／CI 自動發布標完成；待處理縮為 1 P1 + 3 P2 |
+| 2026-08-02 | 1.6.0 | 完成 P2-009、P2-017；待處理剩 P1-007 + P2-016 |
 
 ---
 

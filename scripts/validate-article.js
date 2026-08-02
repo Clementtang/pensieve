@@ -67,30 +67,8 @@ const DIR_CATEGORY_MAP = {
   tutorial: "tutorial",
 };
 
-// 解析命令列參數
-const args = process.argv.slice(2);
-const quietMode = args.includes("--quiet");
-const fixMode = args.includes("--fix");
-const targetPath = args.find((arg) => !arg.startsWith("--"));
-
-if (!targetPath) {
-  console.log("使用方式：node scripts/validate-article.js <file|directory>");
-  console.log("");
-  console.log("範例：");
-  console.log(
-    "  node scripts/validate-article.js docs/articles/2025-01-01-my-article.md",
-  );
-  console.log("  node scripts/validate-article.js docs/articles/");
-  console.log("");
-  console.log("選項：");
-  console.log(
-    "  --fix      自動修復可修復的問題（author, tags, status, date, category）",
-  );
-  console.log("  --quiet    只顯示錯誤，不顯示成功訊息");
-  process.exit(0);
-}
-
 // parseFrontmatter 已移至 ./lib/frontmatter.js
+// CLI 參數在 main() 內解析，避免 require 時 process.exit
 
 /**
  * 驗證單一文章
@@ -187,6 +165,20 @@ function validateArticle(filePath) {
     (Array.isArray(frontmatter.tags) && frontmatter.tags.length === 0)
   ) {
     warnings.push("建議填寫 tags 欄位");
+  }
+
+  // 10. description 長度（SEO 與列表預覽；必填已在上方檢查）
+  if (frontmatter.description) {
+    const descLen = String(frontmatter.description).length;
+    if (descLen < 20) {
+      warnings.push(
+        `description 過短（${descLen} 字），建議 20–160 字以利 SEO 與預覽`,
+      );
+    } else if (descLen > 200) {
+      warnings.push(
+        `description 過長（${descLen} 字），建議壓在 160 字內（上限提醒 200）`,
+      );
+    }
   }
 
   return { errors, warnings };
@@ -326,6 +318,28 @@ function scanDirectory(dir) {
  * 主程式
  */
 function main() {
+  const args = process.argv.slice(2);
+  const quietMode = args.includes("--quiet");
+  const fixMode = args.includes("--fix");
+  const targetPath = args.find((arg) => !arg.startsWith("--"));
+
+  if (!targetPath) {
+    console.log("使用方式：node scripts/validate-article.js <file|directory>");
+    console.log("");
+    console.log("範例：");
+    console.log(
+      "  node scripts/validate-article.js docs/articles/2025-01-01-my-article.md",
+    );
+    console.log("  node scripts/validate-article.js docs/articles/");
+    console.log("");
+    console.log("選項：");
+    console.log(
+      "  --fix      自動修復可修復的問題（author, tags, status, date, category）",
+    );
+    console.log("  --quiet    只顯示錯誤，不顯示成功訊息");
+    process.exit(0);
+  }
+
   const resolvedPath = path.resolve(targetPath);
 
   let files = [];

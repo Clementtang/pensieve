@@ -1,31 +1,14 @@
-import { describe, it, expect, beforeAll, afterEach } from "vitest";
+import { describe, it, expect, afterEach } from "vitest";
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
-
-// The source file inspects process.argv at the top level and calls
-// process.exit(0) when no target path is found. Inject a dummy arg so the
-// guard is satisfied, then dynamically import the module.
-let validateArticle;
-let VALID_STATUS;
-let VALID_CATEGORIES;
-let REQUIRED_FIELDS;
-
-beforeAll(async () => {
-  // Temporarily add a dummy arg so the top-level CLI guard in the source
-  // file finds a targetPath and skips process.exit(0).
-  const originalArgv = [...process.argv];
-  process.argv = [...originalArgv, "__vitest_dummy__"];
-
-  const mod = await import("../scripts/validate-article.js");
-
-  validateArticle = mod.validateArticle;
-  VALID_STATUS = mod.VALID_STATUS;
-  VALID_CATEGORIES = mod.VALID_CATEGORIES;
-  REQUIRED_FIELDS = mod.REQUIRED_FIELDS;
-
-  process.argv = originalArgv;
-});
+// CLI 參數已移入 main()，require/import 不再 process.exit
+import {
+  validateArticle,
+  VALID_STATUS,
+  VALID_CATEGORIES,
+  REQUIRED_FIELDS,
+} from "../scripts/validate-article.js";
 
 const VALID_FRONTMATTER = `---
 title: Test Article
@@ -218,6 +201,69 @@ status: ${status}
         expect(result.errors.some((e) => e.includes("status"))).toBe(false);
       },
     );
+  });
+
+  describe("description length", () => {
+    it("should warn when description is shorter than 20 characters", () => {
+      const content = `---
+title: Short Desc
+description: 太短了
+date: 2026-01-01
+category: articles
+status: published
+author: Clement
+tags: ["test"]
+---
+
+# Heading`;
+      const filePath = makeTempArticle(content);
+      const result = validateArticle(filePath);
+
+      expect(result.warnings.some((w) => w.includes("description 過短"))).toBe(
+        true,
+      );
+    });
+
+    it("should warn when description is longer than 200 characters", () => {
+      const longDesc = "這".repeat(201);
+      const content = `---
+title: Long Desc
+description: "${longDesc}"
+date: 2026-01-01
+category: articles
+status: published
+author: Clement
+tags: ["test"]
+---
+
+# Heading`;
+      const filePath = makeTempArticle(content);
+      const result = validateArticle(filePath);
+
+      expect(result.warnings.some((w) => w.includes("description 過長"))).toBe(
+        true,
+      );
+    });
+
+    it("should not warn for description in the recommended range", () => {
+      const content = `---
+title: Good Desc
+description: Stripe 與 Advent 聯手提案收購 PayPal 的策略分析與市場影響。
+date: 2026-01-01
+category: articles
+status: published
+author: Clement
+tags: ["test"]
+---
+
+# Heading`;
+      const filePath = makeTempArticle(content);
+      const result = validateArticle(filePath);
+
+      expect(result.warnings.some((w) => w.includes("description 過"))).toBe(
+        false,
+      );
+    });
   });
 
   describe("category validation", () => {
