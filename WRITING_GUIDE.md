@@ -539,6 +539,29 @@ console.log(greeting);
 範例：[Claude AI](https://claude.ai)
 ```
 
+**禁止 bare URL**（markdownlint MD034）：參考資料與正文一律用 `[標題](https://...)`，不要寫成 `標題 — https://...`。
+
+### 參考資料格式
+
+文章末「參考資料」建議：
+
+```markdown
+## 參考資料
+
+1. [來源標題或媒體名〈文章標題〉](https://example.com/path)
+2. [機構報告名](https://example.com/report)
+```
+
+| 規則 | 說明 |
+|------|------|
+| 編號清單 | 有序 1. 2. 3.，與正文引用順序大致對齊 |
+| 可點連結 | 必須是 markdown 連結，勿裸 URL |
+| 標題可讀 | 連結文字含媒體或篇名，勿只寫「連結」 |
+| 日期 | 新聞類可在句中或表內註 YYYY-MM；frontmatter 的 `date` 是文章日 |
+| 驗證 | `node scripts/check-links.js docs/articles/foo.md` 列出連結；加 `--check` 做 HTTP 探測 |
+
+研究 memo 交接時的來源欄亦同格式，方便 CLI 擴寫時直接搬進正式文。
+
 ### 圖片
 
 ```markdown
