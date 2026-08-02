@@ -23,16 +23,6 @@ const path = require("path");
 const { execFileSync } = require("child_process");
 const { parseFrontmatter } = require("./lib/frontmatter");
 
-// 解析命令列參數
-const args = process.argv.slice(2);
-const copyToClipboard = args.includes("--copy");
-const jsonOutput = args.includes("--json");
-const outputIndex = args.indexOf("--output");
-const outputPath = outputIndex !== -1 ? args[outputIndex + 1] : null;
-const articlePath = args.find(
-  (arg) => arg.endsWith(".md") && !arg.startsWith("--"),
-);
-
 // Category 對應的視覺風格
 const CATEGORY_STYLES = {
   articles: {
@@ -264,7 +254,15 @@ function copyToClipboardMac(text) {
 /**
  * 主程式
  */
-function main() {
+function main(argv = process.argv.slice(2)) {
+  const copyToClipboard = argv.includes("--copy");
+  const jsonOutput = argv.includes("--json");
+  const outputIndex = argv.indexOf("--output");
+  const outputPath = outputIndex !== -1 ? argv[outputIndex + 1] : null;
+  const articlePath = argv.find(
+    (arg) => arg.endsWith(".md") && !arg.startsWith("--"),
+  );
+
   if (!articlePath) {
     console.log("🖼️  Feature Image Prompt Generator\n");
     console.log("使用方式：");
@@ -359,4 +357,16 @@ function main() {
   }
 }
 
-main();
+if (require.main === module) {
+  main();
+}
+
+module.exports = {
+  CATEGORY_STYLES,
+  BASE_STYLE,
+  AVOID_ELEMENTS,
+  extractSceneConcept,
+  selectMood,
+  generateVisualElements,
+  generatePrompt,
+};
