@@ -482,10 +482,12 @@ description 欄位目前手動撰寫。
 | P2-004 | private 目錄管理規範 | 2026-01-13 | private/README.md |
 | P2-012 | 內容品質檢查清單 | 2026-01-13 | WRITING_GUIDE.md 新增檢查清單 |
 | P2-013 | Markdown Linting | 2026-01-13 | .markdownlint.yml + package.json |
-| P2-019 | 測試覆蓋 | 2026-02-25 | Vitest + CI；2026-08-02 擴至 158 tests |
+| P2-019 | 測試覆蓋 | 2026-02-25 | Vitest + CI；2026-08-02 擴至 163 tests |
 | P1-008 延伸 | CI 自動發布至 M42 | 2026-07 | `.github/workflows/publish-to-multivac.yml`（push main 觸發） |
 | P2-009 | 草稿生命週期管理 | 2026-08-02 | `scripts/review-drafts.js` |
 | P2-017 | description 撰寫指引 | 2026-08-02 | WRITING_GUIDE + validate 長度警告 |
+| P1-007 | Research Memo 工作流驗證 | 2026-08-02 | `docs/guides/mobile-research-workflow.md` |
+| P2-016 | 參考資料管理 / 連結檢查 | 2026-08-02 | WRITING_GUIDE 格式 + `scripts/check-links.js` |
 
 ### 進行中
 
@@ -497,8 +499,7 @@ description 欄位目前手動撰寫。
 
 | ID | 優先級 | 項目 | 備註 |
 |----|--------|------|------|
-| P1-007 | P1 | Research Memo 工作流驗證 | 產出 `docs/guides/mobile-research-workflow.md` |
-| P2-016 | P2 | 參考資料管理 / 連結檢查 | `scripts/check-links.js` |
+| - | - | （原始 19 項優化 backlog 已全部收斂或覆蓋） | 新需求另開項目 |
 
 ### 已由後續版本覆蓋（不必再開）
 
@@ -508,14 +509,16 @@ description 欄位目前手動撰寫。
 | series 欄位（roadmap 3-C） | `series` / `seriesTitle` / `seriesIndex` 已在管線與 phpBB 系列使用 |
 | P2-009 草稿生命週期 | 2026-08-02：`scripts/review-drafts.js` + `npm run review-drafts` |
 | P2-017 description 指引 | 2026-08-02：WRITING_GUIDE v1.7.0 + validate 長度警告 |
+| P1-007 Memo 工作流 | 2026-08-02：mobile-research-workflow.md + 兩則實測歸檔 |
+| P2-016 參考資料 | 2026-08-02：格式規範 + check-links.js |
 
 ### 待處理計數
 
 | 優先級 | 數量 |
 |-------|------|
 | P0 | 0 |
-| P1 | 1（P1-007） |
-| P2 | 1（P2-016） |
+| P1 | 0 |
+| P2 | 0 |
 
 ---
 
@@ -530,6 +533,7 @@ description 欄位目前手動撰寫。
 | 2026-01-13 | 1.4.0 | 完成 P2-004、P2-012、P2-013 |
 | 2026-08-02 | 1.5.0 | 對齊 v1.9.0 現況：P2-019／CI 自動發布標完成；待處理縮為 1 P1 + 3 P2 |
 | 2026-08-02 | 1.6.0 | 完成 P2-009、P2-017；待處理剩 P1-007 + P2-016 |
+| 2026-08-02 | 1.7.0 | 完成 P1-007、P2-016；原始 backlog 待處理歸零 |
 
 ---
 
