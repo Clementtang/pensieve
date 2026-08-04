@@ -13,6 +13,7 @@
 
 ### Added
 
+- **新文章：YC 開源 QM multiplayer agent harness**（`docs/articles/2026-08-02-yc-qm-multiplayer-agent-harness.md`，`status: published`）：萃取 91app-map 研究中的 QM 本體，並以官方 repo／SECURITY／policy 補齊；刻意不對標 91APP／AgentOne。Publish CI 已跑通。
 - **`new-article.js` / `generate-feature-image-prompt.js` 單元測試**：抽出可 require 的純函式（`createArticle`、`generatePrompt` 等）；連同 review-drafts／description 長度測試，全套件 119 → 158。
 - **`validate-on-write` hook 改用共用 `validateArticle`**：不再手刻 frontmatter 解析；`validate-article.js` CLI 參數移入 `main()`，require 時不再 `process.exit`。
 - **`scripts/review-drafts.js`（P2-009）**：列出 drafts 年齡、標記超過門檻（預設 30 天）未更新者；`npm run review-drafts`；含單元測試。
