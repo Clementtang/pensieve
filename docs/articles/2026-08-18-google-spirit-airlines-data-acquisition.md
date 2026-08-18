@@ -3,7 +3,7 @@ title: "Google 花一千萬美元，買下一家倒閉航空公司的全部內�
 description: "Google 在 Spirit Airlines 破產拍賣中以 1,000 萬美元標下上億封員工 email 與五億則 Teams 訊息，這筆交易揭露了 AI 資料稀缺時代的新定價邏輯，也暴露破產法對員工隱私的保護空白。"
 date: 2026-08-18
 author: "Clement Tang"
-tags: ["Google", "AI 訓練資料", "破產法", "資料隱私", "agentic AI"]
+tags: ["議題研究", "AI", "Google", "併購", "個資保護"]
 category: articles
 status: draft
 ---
@@ -18,7 +18,7 @@ status: draft
 | ------------ | -------------------------------------------------------------- |
 | **建立日期** | 2026-08-18                                                      |
 | **更新日期** | 2026-08-18                                                      |
-| **標籤**     | #Google #AI訓練資料 #破產法 #資料隱私 #agenticAI                |
+| **標籤**     | #議題研究 #AI #Google #併購 #個資保護                            |
 | **狀態**     | 草稿                                                             |
 | **字數**     | 約 2,800 字                                                      |
 
