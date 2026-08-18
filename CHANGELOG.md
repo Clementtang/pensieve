@@ -7,6 +7,11 @@
 
 ## [Unreleased]
 
+### Added
+
+- **新文章：Google 買下 Spirit Airlines 內部資料**（`docs/articles/2026-08-18-google-spirit-airlines-data-acquisition.md`，`status: published`）：1,000 萬美元破產拍賣案的介紹與分析，涵蓋交易事實、資料範疇、價格錨定、agentic AI 訓練用途，以及破產法第 363 條對員工資料的保護空白。研究筆記見 `drafts/2026-08-18-research-google-spirit-airlines-data.md`。
+- **taxonomy 新增主題標籤 `AI 訓練資料`**：涵蓋 AI 訓練資料的來源、授權與交易，供資料授權／版權類題目重複使用。
+
 ### Fixed
 
 - **Validate CI 紅燈（lint）**：日立家電 topic-research 標題尾問號（MD026）；`drafts/memo-hitachi-nojima-acquisition.md` 參考資料 bare URL 改為 markdown 連結（MD034），與已發布長文格式對齊。main 上 Validate workflow 自 2026-07-16 起持續 failure，修後 `npm run lint` 通過。
