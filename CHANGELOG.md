@@ -7,6 +7,11 @@
 
 ## [Unreleased]
 
+### Added
+
+- **新文章：Google 買下 Spirit Airlines 內部資料**（`docs/articles/2026-08-18-google-spirit-airlines-data-acquisition.md`，`status: published`）：1,000 萬美元破產拍賣案的介紹與分析，涵蓋交易事實、資料範疇、價格錨定、agentic AI 訓練用途，以及破產法第 363 條對員工資料的保護空白。研究筆記見 `drafts/2026-08-18-research-google-spirit-airlines-data.md`。
+- **taxonomy 新增主題標籤 `AI 訓練資料`**：涵蓋 AI 訓練資料的來源、授權與交易，供資料授權／版權類題目重複使用。
+
 ### Fixed
 
 - **Validate CI 紅燈（lint）：Meta Muse Code 社群貼文**：`docs/articles/2026-08-06-meta-muse-code-social.md` 七處 markdownlint 錯誤。標題尾問號去除（MD026）；行首 hashtag 區塊改為粗體，與其他社群貼文一致（MD018）；安裝指令改行內程式碼、素材連結改 markdown 連結（MD034）。修後 `npm run lint` 通過、`npm test` 163 項全數通過。
