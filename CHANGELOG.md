@@ -14,6 +14,7 @@
 
 ### Fixed
 
+- **Validate CI 紅燈（lint）：Meta Muse Code 社群貼文**：`docs/articles/2026-08-06-meta-muse-code-social.md` 七處 markdownlint 錯誤。標題尾問號去除（MD026）；行首 hashtag 區塊改為粗體，與其他社群貼文一致（MD018）；安裝指令改行內程式碼、素材連結改 markdown 連結（MD034）。修後 `npm run lint` 通過、`npm test` 163 項全數通過。
 - **Validate CI 紅燈（lint）**：日立家電 topic-research 標題尾問號（MD026）；`drafts/memo-hitachi-nojima-acquisition.md` 參考資料 bare URL 改為 markdown 連結（MD034），與已發布長文格式對齊。main 上 Validate workflow 自 2026-07-16 起持續 failure，修後 `npm run lint` 通過。
 
 ### Added

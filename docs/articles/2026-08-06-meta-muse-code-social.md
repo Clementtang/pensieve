@@ -32,7 +32,7 @@ Meta 正式釋出 **Muse Code（beta）**，一款跑在終端機的 AI coding a
 
 這不是「幫你補幾行程式碼」的聊天助手，而是被定位成能獨立扛長時程、多步驟工程任務的 Agent。
 
-### 為什麼這次值得注意？
+### 為什麼這次值得注意
 
 過去一年，Anthropic 的 Claude Code 與 OpenAI 的 Codex 幾乎定義了「終端機裡的 AI 工程師」這個品類。Meta 在模型層面一直有 Llama 的開源影響力，但在「可安裝、可付費、可長期跑」的封閉 Agent 產品上，相對慢半拍。這次 Muse Code 的釋出，等於正式宣示：Meta Superintelligence Labs（由 Alexandr Wang 領軍）要把產品化腳步加快。
 
@@ -102,12 +102,12 @@ Meta 顯然不想只靠「再高一點的分數」取勝，而是用：
 安裝方式也很直接（macOS / Linux）：
 
 ```bash
-curl -fsSL https://dev.meta.ai/install.sh | bash
+`curl -fsSL https://dev.meta.ai/install.sh | bash`
 ```
 
 目前仍是 beta，沒有獨立桌面 App，主打終端機體驗。
 
-### 這代表什麼？
+### 這代表什麼
 
 第一，coding agent 的戰場已經從「誰的模型分數最高」擴展到「誰能讓開發者真的敢把長任務丟進去跑、誰能用價格搶到早期使用者與軌跡資料」。
 
@@ -148,7 +148,7 @@ coding agent 的戰爭，從分數競賽進入「誰敢放手、誰付得起、�
 
 你會先試哪一個？
 
-#Meta #MuseCode #AI #CodingAgent
+**#Meta #MuseCode #AI #CodingAgent**
 
 ---
 
@@ -195,13 +195,13 @@ Meta 在美國員工筆電錄鍵盤／滑鼠／螢幕以訓練 agent，1,600+ �
 
 **6/6**
 安裝（macOS/Linux）：
-curl -fsSL https://dev.meta.ai/install.sh | bash
+`curl -fsSL https://dev.meta.ai/install.sh | bash`
 
 coding agent 戰場已從「分數」轉成「敢不敢放手、付不付得起、願不願意交資料」。
 
 你會先試 Muse Code，還是繼續 Claude Code / Codex？
 
-#Meta #MuseCode #AI
+**#Meta #MuseCode #AI**
 
 ---
 
@@ -219,8 +219,8 @@ coding agent 戰場已從「分數」轉成「敢不敢放手、付不付得起�
 ### 搭配素材建議
 
 - 官方安裝指令截圖或 Zuckerberg 原推截圖
-- 官方 blog 連結：https://research.meta.ai/blog/introducing-muse-code-and-muse-spark-1-2
-- 安裝頁：https://dev.meta.ai
+- [官方 blog 連結](https://research.meta.ai/blog/introducing-muse-code-and-muse-spark-1-2)
+- [安裝頁](https://dev.meta.ai)
 
 ### 互動設計
 
