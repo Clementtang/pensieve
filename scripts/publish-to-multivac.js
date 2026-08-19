@@ -265,7 +265,12 @@ function validateForPublish(frontmatter, filePath) {
 function removeMetadataSection(body) {
   // 匹配 ## 元資料 區塊（到下一個 ## 或 --- 為止）
   const pattern = /## 元資料\n\n[\s\S]*?(?=\n---|\n## |$)/;
-  return body.replace(pattern, "").trim();
+  // 區塊移除後，其前後各自留下的空行會相連成連續空行，觸發 MD012。
+  // 收斂成單一空行，避免轉換輸出被 M42 的 blocking lint 擋下。
+  return body
+    .replace(pattern, "")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
 }
 
 /**

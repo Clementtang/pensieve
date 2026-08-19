@@ -97,6 +97,29 @@ describe("validateForPublish", () => {
 });
 
 describe("removeMetadataSection", () => {
+  it("should not leave consecutive blank lines where the section was", () => {
+    const body = `> 引言。
+
+## 元資料
+
+| 項目 | 內容 |
+| ---- | ---- |
+| **狀態** | 已發布 |
+
+---
+
+## The Big Picture
+
+內容。`;
+
+    const result = removeMetadataSection(body);
+    expect(result).not.toMatch(/\n{3,}/);
+    expect(result).toContain("> 引言。");
+    expect(result).toContain("## The Big Picture");
+    expect(result).not.toContain("元資料");
+  });
+
+
   it("should remove metadata section followed by another heading", () => {
     const body = `## Introduction
 
