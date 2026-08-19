@@ -9,6 +9,7 @@
 
 ### Added
 
+- **更新：Google／Spirit 資料交易一文補上 8/19 聽證延期**：原訂 8 月 19 日的核准聽證未舉行，Spirit 空服員工會 AFA-CWA 提出異議，法院延至 9 月 9 日；美國受託人已指派獨立消費者隱私監察人。文章的 Big Picture、拍賣段落、員工資料保護段落與 What's Next 均已更新，並補上「核准」與「實際交付」兩階段時間點；新增 4 則來源。此發展正好印證原文對員工資料保護空白的論點。
 - **新文章：Google 買下 Spirit Airlines 內部資料**（`docs/articles/2026-08-18-google-spirit-airlines-data-acquisition.md`，`status: published`）：1,000 萬美元破產拍賣案的介紹與分析，涵蓋交易事實、資料範疇、價格錨定、agentic AI 訓練用途，以及破產法第 363 條對員工資料的保護空白。研究筆記見 `drafts/2026-08-18-research-google-spirit-airlines-data.md`。
 - **taxonomy 新增主題標籤 `AI 訓練資料`**：涵蓋 AI 訓練資料的來源、授權與交易，供資料授權／版權類題目重複使用。
 
