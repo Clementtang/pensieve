@@ -17,18 +17,18 @@ status: published
 | 項目         | 內容                                                         |
 | ------------ | -------------------------------------------------------------- |
 | **建立日期** | 2026-08-18                                                      |
-| **更新日期** | 2026-08-18                                                      |
+| **更新日期** | 2026-08-19                                                      |
 | **標籤**     | #議題研究 #AI #AI訓練資料 #Google #併購 #個資保護                |
 | **狀態**     | 已發布                                                             |
-| **字數**     | 約 2,800 字                                                      |
+| **字數**     | 約 3,300 字                                                      |
 
 ---
 
 ## The Big Picture
 
-2026 年 8 月 19 日上午 11 時，紐約南區破產法院將以 Zoom 舉行一場聽證。主持的 Sean H. Lane 法官要決定的事情，聽起來平淡無奇：核准一筆資產出售協議。這筆資產聽起來該是飛機或機場時間帶，實際上是一家已經停飛的航空公司留下的數位遺骸，約一億封員工 email、五億則 Teams 訊息、數千萬份雲端文件，買家是 Google，成交價 1,000 萬美元。
+2026 年 8 月 19 日上午 11 時，紐約南區破產法院原訂以 Zoom 舉行一場聽證。主持的 Sean H. Lane 法官要決定的事情，聽起來平淡無奇：核准一筆資產出售協議。這筆資產聽起來該是飛機或機場時間帶，實際上是一家已經停飛的航空公司留下的數位遺骸，約一億封員工 email、五億則 Teams 訊息、數千萬份雲端文件，買家是 Google，成交價 1,000 萬美元。
 
-這起交易在 8 月 14 日隨法院文件曝光，但截至本文完成，聽證尚未舉行，法院尚未核准，結論仍有變數。即便如此，這筆交易已經足以成為一個座標，標定出 AI 產業正在進入的新階段。當網路上的公開文字快被榨乾，科技巨頭開始把目光投向那些從未打算公開的地方，企業內部的真實工作紀錄。而讓這些紀錄流入市場的鑰匙，是破產。
+這起交易在 8 月 14 日隨法院文件曝光，原訂的聽證卻沒有如期舉行。Spirit 空服員所屬的工會 AFA-CWA 趕在期限前提出異議，法院隨即把聽證延至 9 月 9 日，交易至今尚未獲得核准。即便如此，這筆交易已經足以成為一個座標，標定出 AI 產業正在進入的新階段。當網路上的公開文字快被榨乾，科技巨頭開始把目光投向那些從未打算公開的地方，企業內部的真實工作紀錄。而讓這些紀錄流入市場的鑰匙，是破產。
 
 ## Why It Matters
 
@@ -42,7 +42,7 @@ status: published
 
 ### 一場翻倍加價的拍賣
 
-事實層面相對清楚。根據 8 月 14 日提交給紐約南區破產法院的文件，Google 最初以 500 萬美元出價，對手 Mercor.io Corp（一家專門為前沿 AI 實驗室媒合訓練資料的新創，2025 年才完成 3.5 億美元募資）加碼至 750 萬美元，Google 隨即封盤至 1,000 萬美元成交，Mercor 則成為若交易未能完成時的備位買家。案號 1:25-bk-11897，異議截止時間是 8 月 17 日下午 4 時，聽證訂於 8 月 19 日上午 11 時。換句話說，寫這篇文章的當下，這筆交易的法律地位仍然是「待核准」，而不是「已完成」。
+事實層面相對清楚。根據 8 月 14 日提交給紐約南區破產法院的文件，Google 最初以 500 萬美元出價，對手 Mercor.io Corp（一家專門為前沿 AI 實驗室媒合訓練資料的新創，2025 年才完成 3.5 億美元募資）加碼至 750 萬美元，Google 隨即封盤至 1,000 萬美元成交，Mercor 則成為若交易未能完成時的備位買家。案號 1:25-bk-11897，異議截止時間是 8 月 17 日下午 4 時，聽證原訂 8 月 19 日上午 11 時，因工會異議而延至 9 月 9 日。換句話說，這筆交易的法律地位仍然是「待核准」，而不是「已完成」。
 
 拍賣本身只是 Spirit 漫長破產歷程的最後一幕。這家超低成本航空公司在 2024 年 1 月與 JetBlue 的 38 億美元併購案遭聯邦法官阻擋後，同年 11 月首次聲請 Chapter 11，2025 年 3 月脫離保護，卻在同年 8 月以 81 億美元負債二度聲請。2026 年 5 月 2 日，Spirit 宣布立即結束營運，34 年的航空史畫下句點。此後機隊、LaGuardia 機場時間帶、Free Spirit 忠誠計畫、園區不動產一項項被送上拍賣台，而 Google 買下的，是這場拆解中最不像傳統資產的一項，公司的數位神經系統。
 
@@ -74,15 +74,21 @@ status: published
 
 更根本的問題出在法律框架本身。美國破產法第 363 條規定，若出售涉及依隱私政策蒐集的個人資料，法院須先指派「消費者隱私監察人」（Consumer Privacy Ombudsman, CPO）審查是否違反適用隱私法。這套機制在 2025 年的 23andMe 破產案中發揮了作用，CPO 提交的兩百多頁報告直指要害：極不可能有任何一位理性的顧客，真正理解自己在隱私聲明中就「破產時的資料出售」同意了什麼。但這套保護傘的設計對象是消費者，而不是員工。Spirit 案裡，約 8 萬個員工信箱、340 萬筆薪資紀錄，根本不落在任何隱私政策的保護框架之內，因為員工從未被要求同意任何東西，更談不上事先被告知。歷史上的 RadioShack 案曾因監管介入而大幅限縮消費者資料出售，Caesars 案則證明忠誠會員資料本身可以價值十億美元，兩者都在保護「顧客」。輪到「員工」的溝通紀錄被打包出售時，法律幾乎一片空白。
 
+這個空白在 8 月 19 日被人當庭補上。原訂當天的聽證沒有開成，代表 Spirit 空服員的工會 AFA-CWA 在異議期限前遞狀反對，法院將聽證延至 9 月 9 日。工會的核心論點正是條款的技術細節：協議要求跨資料集之間維持關聯性，這讓個人或小群體有被反向還原的風險，而受影響的是雇用與薪資紀錄、email 與內部通訊。工會要求法院駁回這筆交易，除非把空服員的所有資料排除在外，包括訓練紀錄、工時卡、薪資，以及任何含有空服員資料的 Microsoft 365 內容；退一步的話，也要對勞資與懲處紀錄設立審查程序，並明文禁止用這批資料側寫任何可識別的空服員群體。工會把這項計畫形容為「outrageous」，並表示會用一切可能的方式反對到底。
+
+值得注意的是，美國受託人（U.S. Trustee）確實已在 Spirit 的資產出售案中指派了獨立的消費者隱私監察人。只是這套機制的設計對象仍然是消費者，而且監察人沒有否決權，法院必須考量其報告，卻不必照單全收。換句話說，員工資料的保護，目前靠的不是法律內建的守門人，而是工會自己站出來。
+
 ---
 
 ## What's Next
 
-眼下最直接的變數是 8 月 19 日的聽證結果。法院是否核准交易、是否附加額外條件、是否有債權人委員會或州檢察長在異議截止前提出反對，都會決定這筆交易最終能否落地。除此之外，值得持續觀察的還有去識別化執行廠商的身分是否公開、Google 對這批資料的使用是否有轉售或保存期限的合約限制，以及 Spirit 的工會是否會就前員工通訊紀錄被出售一事做出正式回應。
+眼下最直接的變數是 9 月 9 日的聽證。法院會不會接受工會的訴求把空服員資料整批排除、會不會退而要求審查程序與側寫禁令、或是駁回異議直接核准，三種結果對這筆交易的價值差距不小。還有一層時間差值得留意：即使法院核准，交付仍以去識別化完成認證為前提，因此「核准」與「Google 實際拿到資料」是兩個分開的時間點，中間可能隔上一段不短的距離。除此之外，去識別化執行廠商的身分是否公開、Google 對這批資料的使用是否有轉售或保存期限的合約限制，同樣值得追蹤。
 
 **值得關注的發展：**
 
-- 8 月 19 日聽證結果，以及是否有隱私監察人被指派審查
+- 9 月 9 日聽證結果，以及法院如何回應工會對空服員資料的排除訴求
+- 消費者隱私監察人的報告內容，以及法院採納到什麼程度
+- 從法院核准到資料實際交付之間，去識別化認證需要多久
 - Free Spirit 忠誠計畫的最終拍賣結果與買家
 - 是否有立法者或監管機構借本案推動「破產程序中員工資料保護」的新規則
 
@@ -106,9 +112,13 @@ status: published
 8. [Loeb & Loeb〈23andMe Bankruptcy: The Privacy Ombudsman's Report〉（2025-07）](https://www.loeb.com/en/insights/publications/2025/07/23andme-bankruptcy-the-privacy-ombudsmans-report)
 9. [Jimerson Birr〈Data Sales Under Section 363: Privacy Policies, Consumer Data, and the Role of the Consumer Privacy Ombudsman〉（2026-06）](https://www.jimersonfirm.com/blog/2026/06/data-sales-under-section-363-privacy-policies-consumer-data-and-the-role-of-the-consumer-privacy-ombudsman/)
 10. [Chapter11Cases〈From Reorganization to Wind-Down: Spirit Airlines Moves to Auction Its Remaining Assets〉](https://chapter11cases.com/blogs/news/from-reorganization-to-wind-down-spirit-airlines-moves-to-auction-its-remaining-assets)
-11. [Quartz〈The price of AI training data, from $5M to $250M〉](https://qz.com/ai-training-data-pricing-licensing-deals-market-052126)
-12. [VentureBeat〈Google's Gemini 3.7 Flash targets coding and agents with a 50% introductory price cut〉](https://venturebeat.com/technology/googles-gemini-3-7-flash-targets-coding-and-agents-with-a-50-introductory-price-cut)
+11. [Reuters／NY Daily Record〈US court delays hearing on Google's purchase of Spirit Airlines data as union objects〉（2026-08-19）](https://nydailyrecord.com/2026/08/19/us-court-delays-hearing-on-googles-purchase-of-spirit-airlines-data-as-union-objects/)
+12. [Bloomberg Law〈Spirit Data Sale to Google Prompts Flight Attendants' Objection〉](https://news.bloomberglaw.com/ip-law/spirit-data-sale-to-google-prompts-flight-attendants-objection)
+13. [Forbes〈Google's 'Outrageous' Plan To Train AI Using Spirit Airlines' Data Blasted By Flight Attendant Union〉（2026-08-18）](https://www.forbes.com/sites/suzannerowankelleher/2026/08/18/google-train-ai-spirit-airlines-data/)
+14. [AFA-CWA〈Spirit Bankruptcy: Objection to Sale of Your Data〉](https://afacwa.org/spirit-objection-sale-your-data/)
+15. [Quartz〈The price of AI training data, from $5M to $250M〉](https://qz.com/ai-training-data-pricing-licensing-deals-market-052126)
+16. [VentureBeat〈Google's Gemini 3.7 Flash targets coding and agents with a 50% introductory price cut〉](https://venturebeat.com/technology/googles-gemini-3-7-flash-targets-coding-and-agents-with-a-50-introductory-price-cut)
 
 ---
 
-_最後更新：2026-08-18_
+_最後更新：2026-08-19_
