@@ -20,7 +20,7 @@ status: draft
 | **更新日期** | 2026-08-27                                                       |
 | **標籤**     | #議題研究 #AI #企業軟體 #Salesforce #Anthropic #OpenAI #競爭分析 |
 | **狀態**     | 草稿                                                              |
-| **字數**     | 約 4,600 字                                                       |
+| **字數**     | 約 5,000 字                                                       |
 
 ---
 
@@ -42,6 +42,14 @@ Marc Benioff 在同一場法說會上，用一句話回應過去半年市場對�
 
 ## 主要內容
 
+### Claudeforce 到底是什麼：一個外掛，加上一整層預設模型的更換
+
+在追問 Claudeforce 代表什麼之前，有必要先說清楚它實際上是什麼。首發產品名為「Salesforce in Claude」，形式是 Claude 裡的一個 plugin，底層技術走 MCP 與 MCP Apps，內建 37 個預建銷售技能，涵蓋會議準備、成交健康度檢視、pipeline 檢視等業務日常工作。官方把它形容成業務人員的「AI CRO」，賣點是可以在 Claude 的對話視窗裡直接查詢、更新 live CRM 資料並採取行動，完全不必打開 Salesforce 本身；但所有動作最終仍會路由回 Salesforce 執行，確保既有的商業規則被強制套用。上市時程分成三段：2026 年 8 月 26 日起先開放給精選的 pilot 客戶，2026 年 9 月進入 open beta，涵蓋其他職能的技能則預計自第三季起陸續推出。Salesforce 目前未公布任何定價資訊。
+
+把 Claudeforce 只理解成一個外掛，會低估這件事的規模。它其實是一個傘狀合作品牌，Claude 同時成為 Slack AI 與 Slackbot 的預設模型，並透過 Claude Tag 支援團隊決策；在 Agentforce 這一側，Claude 是 Atlas Reasoning Engine 可選用的推理模型之一，同時是 Agentforce Vibes 與 Agentforce Coworker 的預設模型；在 Headless 360 裡，Claude 同樣是預設模型。Salesforce 甚至把 Claude Code 部署到自己全球的工程組織內部使用。Claudeforce 牽動的是整條產品線，把 Claude 塞進 Salesforce 幾乎每一個會用到模型推理的位置，範圍遠遠超出單一產品的單一功能。
+
+Anthropic 執行長 Dario Amodei 在新聞稿裡的說法，恰好與 Benioff 的高調形成對照：「我們相信前沿智慧應該是安全、可信、且能力深厚的，這正是全球頂尖企業把最重要的工作交給 Claude 的原因。Salesforce in Claude 把同樣的前沿智慧帶進全世界大多數商業活動實際發生的系統裡。透過這個合作，企業可以把 Claude 指向他們在 Salesforce 裡累積數十年的客戶資訊與商業脈絡，並真正用它來經營與成長。」
+
 ### 從 Agentforce 到 Agentforce 360：一路狂奔，又一路被質疑的兩年
 
 Salesforce 的 agentic AI 產品線始於 2024 年 10 月的 Agentforce 1.0，第一代企業 AI agent 平台。此後版本更新的速度幾乎是每季一次：2024 年 12 月推出 Agentforce 2，強化 Atlas Reasoning Engine，追求更可預測、有依據的推理結果；2025 年 3 月的 Agentforce 2dx 讓 agent 可以嵌入任何工作流，支援主動觸發與跨職能協作；2025 年 6 月的 Agentforce 3 補上互通性與治理能力，為規模化部署鋪路；最終在 2025 年 10 月 13 日的 Dreamforce 大會上，Agentforce 360 正式全面上線，被定位為「連結人與 AI agent 的單一可信系統」。
@@ -50,15 +58,15 @@ Salesforce 的 agentic AI 產品線始於 2024 年 10 月的 Agentforce 1.0，�
 
 但這份成績單裡藏著一個值得放慢速度看的細節。Salesforce 在 FY27 第二季財報中揭露，「自本季起，Agentforce ARR 的計算範圍納入 AI offerings、Slackbot 與 Headless 360」，換句話說，這一季才把 Slackbot 與 Headless 360 這兩項產品的 ARR 併入 Agentforce 這個口徑。這不代表數字造假，Slackbot 與 Headless 360 本來就是 Claudeforce 傘狀品牌下的一員，把它們算進 Agentforce ARR 也有其邏輯。但這也意味著，15 億美元、年增 240% 這組被市場反覆引用的數字，並非在同一個統計基礎上與去年同期比較。任何想拿這個數字做逐季趨勢推論的人，都應該先意識到分母在這一季被動過。
 
-Salesforce 也持續把 agent 取代人力的敘事講得很直接。Benioff 在 2025 年 9 月證實，公司客服團隊已從約 9,000 人縮減至約 5,000 人，減幅高達 44%，AI agent 目前處理約一半的客戶對話，客服成本因此下降 17%。他當時的說法是「I need less heads」。2026 年 2 月與 6 月又各有一輪裁員，2 月那次不到 1,000 人，Benioff 表示除了業務團隊以外，公司幾乎全面凍結招募。工程組織的生產力據稱提升逾三成，FY26 全年工程人力持平，靠生產力成長取代新增人力。
+Salesforce 也持續把 agent 取代人力的敘事講得很直接。Benioff 在 2025 年 9 月證實，公司客服團隊已從約 9,000 人縮減至約 5,000 人，減幅高達 44%，AI agent 目前處理約一半的客戶對話，客服成本因此下降 17%。他當時的說法是「I need less heads」。2026 年 2 月與 6 月又各有一輪裁員，Benioff 表示除了業務團隊以外，公司幾乎全面凍結招募。
 
-然而外界的評價並不一致。2026 年 7 月，KeyBanc 將 Salesforce 的評等從 Overweight 降至 Sector Weight，理由來自一份 CIO 調查，結論相當直白，「a standout for the wrong reasons」。客戶回饋集中在兩個共通點：資料還沒整理好，做不了有意義的 AI；以及 Agentforce 這個產品「就是還沒到位」（isn't there yet）。調查同時發現，多數客戶不願意透過 CRM 供應商付費購買 AI 能力，同時抱怨 Salesforce 的漲價幅度過於激進。更值得注意的是，調查中預期未來 12 個月會調降 Salesforce 預算優先序的 CIO，人數多於打算提高預算的 CIO。
+然而外界的評價並不一致。2026 年 7 月，KeyBanc 將 Salesforce 的評等從 Overweight 降至 Sector Weight，理由來自一份 CIO 調查，結論相當直白，「a standout for the wrong reasons」。客戶回饋集中在兩個共通點：資料還沒整理好，做不了有意義的 AI；以及 Agentforce 這個產品「就是還沒到位」（isn't there yet）。調查同時發現，多數客戶不願意透過 CRM 供應商付費購買 AI 能力，並抱怨漲價幅度過於激進；預期未來 12 個月會調降 Salesforce 預算優先序的 CIO，人數也多於打算提高預算的 CIO。
 
 這種落差不是 Salesforce 獨有的問題。研究機構 Gartner 預測，到 2027 年底，超過 40% 的 agentic AI 專案會被取消，原因是成本失控、商業價值不明、風險控管不足，並預期 2026 年將有三分之一企業因為過早部署 AI 而傷害了客戶體驗。把這兩組訊息放在一起看，Salesforce 財報上的高速成長曲線，與客戶端「產品還沒準備好」的抱怨，很可能同時為真。一家公司完全可以一邊靠著擴大計算口徑交出漂亮的年增率，一邊還在補齊產品本身的完成度。Claudeforce，某種程度上正是 Salesforce 對這道落差給出的答案，用外部最強的模型，去填補自研 agent 目前還填不滿的那塊空缺。
 
 ### Slack 的兩段式操作：先關門，再發鑰匙
 
-要理解 Claudeforce 為什麼會長成現在這個樣子，繞不開 Slack。Slack 手上握有企業內部最稀缺的一種資產，對話式資料與 work graph，也就是誰在跟誰討論什麼、一筆交易卡在哪個環節、一個決策是怎麼被做出來的。這些脈絡不存在於 CRM 的欄位裡，卻恰恰是 AI agent 判斷「這件事到底進行到哪一步」所需要的關鍵資訊。規模上，Slack 在 2025 年初的日活躍使用者超過 4,200 萬，2026 財年營收約 30 億美元，近八成的 Fortune 100 企業都在使用，即便如此，它在企業通訊市場的份額約 13%，仍遠遠落後 Microsoft Teams 的約 37%。
+要理解 Claudeforce 為什麼會長成現在這個樣子，繞不開 Slack。Slack 手上握有企業內部最稀缺的一種資產，對話式資料與 work graph，也就是誰在跟誰討論什麼、一筆交易卡在哪個環節、一個決策是怎麼被做出來的。這些脈絡不存在於 CRM 的欄位裡，卻恰恰是 AI agent 判斷「這件事到底進行到哪一步」所需要的關鍵資訊。規模上，Slack 在 2025 年初的日活躍使用者超過 4,200 萬，近八成的 Fortune 100 企業都在使用，但它在企業通訊市場的份額約 13%，仍遠遠落後 Microsoft Teams 的約 37%。
 
 Slack 對第三方存取這批資料的態度，在過去一年裡經歷了一次明顯的反轉。2025 年 5 月 29 日，Slack 更新服務條款，新增資料使用章節，明文禁止透過 API 大量匯出資料，也禁止用 Slack API 取得的資料訓練大型語言模型。像 Glean 這類企業搜尋業者因此無法再長期索引或儲存 Slack 資料，只能暫時取用後刪除，Glean 當時甚至對客戶發信警告，這項政策會「妨礙你把資料用在自選的企業 AI 平台上」。Salesforce 官方的解釋是，「當 AI 帶來客戶資料如何被處理的關鍵考量時，我們正在強化 Slack API 資料如何被儲存、使用與分享的防護措施」。
 
@@ -78,9 +86,9 @@ Salesforce 選擇 Anthropic，有幾條線索可以追溯。最直接的是合�
 
 最後一條線索，也是最容易被忽略的一條，是資本關係。Salesforce Ventures 自 2023 年 5 月的 Series C 起，連續參與 Anthropic 之後每一輪募資，到 2026 年 6 月，這筆持股價值約 50 億美元，據報導約占 Salesforce 整個策略投資組合的三分之二。這意味著 Salesforce 在自己最大的技術依賴對象身上，早已下了一筆重注。當 Anthropic 表現好，Salesforce 的帳面回報跟著漂亮；當 Claudeforce 成功，Anthropic 的估值故事也更有說服力。兩家公司的利益，早在品牌合作發生之前，就已經透過股權緊緊綁在一起。
 
-讓 Claudeforce 顯得特殊的，其實是命名這個動作本身。技術整合的深度，在企業軟體業並不罕見，真正罕見的是品牌的公開讓渡。Salesforce 過去 27 年來，`-force` 這個字尾只留給自己的產品，從沒有分享給任何合作夥伴，即便是與它關係同樣深厚的 AWS，也從未擁有過這樣的待遇。多家報導指出，這是它第一次把這項命名資產讓渡給另一家公司。這個決定背後有一層不容易迴避的張力，一家把品牌辨識度看得極重的企業，願意在市場面前承認，這一代 CRM 的價值主張，已經需要靠別人的模型來背書。VentureBeat 用一個更直白的標題點出這個邏輯，Salesforce 讓客戶「不用打開 Salesforce 也能用 Salesforce」，這句話幾乎是自我去中介化的公開宣言。Benioff 選擇主動把入口讓給 Claude，賭的是資料與治理層的價值終究會高於介面層，這是一種與其抵抗、不如擁抱的姿態。
+讓 Claudeforce 顯得特殊的，其實是命名這個動作本身。技術整合的深度在企業軟體業並不罕見，真正罕見的是品牌的公開讓渡。Salesforce 過去 27 年來，`-force` 這個字尾只留給自己的產品，即便是與它關係同樣深厚的 AWS，也從未擁有過這樣的待遇；多家報導指出，這是它第一次把這項命名資產讓渡給另一家公司。這個決定背後有一層不容易迴避的張力，一家把品牌辨識度看得極重的企業，願意在市場面前承認，這一代 CRM 的價值主張已經需要靠別人的模型來背書。VentureBeat 用一個更直白的標題點出這個邏輯，Salesforce 讓客戶「不用打開 Salesforce 也能用 Salesforce」，這句話幾乎是自我去中介化的公開宣言。Benioff 選擇主動把入口讓給 Claude，賭的是資料與治理層的價值終究會高於介面層。
 
-當然，SaaSpocalypse 帶來的敘事壓力也不能忽視。過去一年，市場對 AI 是否會繞過既有 SaaS 介面、直接吞下企業軟體的價值，展開了激烈的辯論，CNBC 在 2026 年 8 月初就以「SaaSpocalypse debate intensifies」為題，記錄軟體股在這場辯論中劇烈震盪的走勢。Benioff 在財報電話會上選擇正面反擊，而 Claudeforce 正是這場反擊最具體的產品化答案，它把「AI 會取代 Salesforce」這個假設，改寫成「AI 需要透過 Salesforce 才能運作」。耶魯大學的 Jeffrey Sonnenfeld 在財報同日於 Fortune 撰文〈The SaaSpocalypse that wasn't〉，論證 Salesforce、Booking Holdings、IBM 這類公司的護城河在 AI 時代反而更加穩固，某種程度上呼應了 Benioff 的立場。
+SaaSpocalypse 帶來的敘事壓力也不能忽視。過去一年，市場對 AI 是否會繞過既有 SaaS 介面、直接吞下企業軟體的價值展開激烈辯論，CNBC 在 2026 年 8 月初就以「SaaSpocalypse debate intensifies」為題，記錄軟體股在這場辯論中劇烈震盪的走勢。Claudeforce 是 Benioff 對這場辯論最具體的產品化反擊，它把「AI 會取代 Salesforce」這個假設，改寫成「AI 需要透過 Salesforce 才能運作」。耶魯大學的 Jeffrey Sonnenfeld 在財報同日於 Fortune 撰文〈The SaaSpocalypse that wasn't〉，論證 Salesforce、Booking Holdings、IBM 這類公司的護城河在 AI 時代反而更加穩固，呼應了 Benioff 的立場。
 
 ### 鏡像的另一半：OpenAI 走的是完全相反的路
 
@@ -109,58 +117,60 @@ OpenAI 在其他企業 SaaS 身上的佈局同樣清楚。2026 年 1 月 20 日�
 1. [Salesforce〈Salesforce and Anthropic Announce Claudeforce: The #1 AI Meets the #1 AI CRM〉（2026-08-26）](https://www.salesforce.com/news/press-releases/2026/08/26/salesforce-and-anthropic-announce-claudeforce/)
 2. [Salesforce Claudeforce 產品頁](https://www.salesforce.com/claudeforce/)
 3. [Marc Benioff on X：Claudeforce is here（2026-08-26）](https://x.com/Benioff/status/2092705110082347011)
-4. [Salesforce Delivers Record Second Quarter Fiscal 2027 Results（投資人關係，2026-08-26）](https://investor.salesforce.com/news/news-details/2026/Salesforce-Delivers-Record-Second-Quarter-Fiscal-2027-Results/default.aspx)
-5. [Salesforce FY27 Q2 8-K（SEC）](https://www.sec.gov/Archives/edgar/data/0001108524/000110852426000187/crm-q2fy27xexhibit991.htm)
-6. [Salesforce FY27 Q1 8-K（SEC）](https://www.sec.gov/Archives/edgar/data/0001108524/000110852426000125/crm-q1fy27xexhibit991.htm)
-7. [CNBC〈Salesforce (CRM) Q2 earnings report 2027〉（2026-08-26）](https://www.cnbc.com/2026/08/26/salesforce-crm-q2-earnings-report-2027.html)
-8. [Investing.com〈Earnings call transcript: Salesforce tops Q2 2026 profit forecasts, shares jump〉](https://in.investing.com/news/stock-market-news/earnings-call-transcript-salesforce-tops-q2-2026-profit-forecasts-shares-jump-93CH-5572995)
-9. [CNBC〈Salesforce, Anthropic expand partnership as Benioff responds to 'SaaSpocalypse' concerns〉（2026-08-26）](https://www.cnbc.com/2026/08/26/salesforce-anthropic-partnership-claudeforce.html)
-10. [CNBC〈Salesforce CEO Marc Benioff says the 'SaaSpocalypse' is nonsense〉（2026-08-26）](https://www.cnbc.com/2026/08/26/salesforce-ceo-marc-benioff-saaspocalypse-nonsense.html)
-11. [CNBC〈'SaaSpocalypse' debate intensifies as software stocks swing wildly〉（2026-08-07）](https://www.cnbc.com/2026/08/07/saaspocalypse-debate-intensifies-as-software-stocks-swing-wildly.html)
-12. [Fortune〈The SaaSpocalypse that wasn't〉by Jeffrey Sonnenfeld（2026-08-26）](https://fortune.com/2026/08/26/saaspocalypse-salesforce-booking-ibm-sonnenfeld/)
-13. [Salesforce Ben〈Salesforce and Anthropic Announce 'Claudeforce' in Q2 '27 Earnings〉（2026-08-26）](https://www.salesforceben.com/salesforce-and-anthropic-announce-claudeforce-in-q2-27-earnings/)
-14. [Salesforce Ben〈From 1.0 to 3: How Agentforce has Evolved Since Its Launch〉](https://www.salesforceben.com/from-1-0-to-3-how-agentforce-has-evolved-since-its-launch/)
-15. [TechCrunch〈Salesforce announces Agentforce 360 as enterprise AI competition heats up〉（2025-10-13）](https://techcrunch.com/2025/10/13/salesforce-announces-agentforce-360-as-enterprise-ai-competition-heats-up/)
-16. [Salesforce〈Welcome to the Agentic Enterprise: Agentforce 360〉（2025-10-13）](https://www.salesforce.com/news/press-releases/2025/10/13/agentic-enterprise-announcement/)
-17. [Fortune〈Salesforce CEO Marc Benioff says his company has cut 4,000 customer service jobs〉（2025-09-02）](https://fortune.com/2025/09/02/salesforce-ceo-billionaire-marc-benioff-ai-agents-jobs-layoffs-customer-service-sales/)
-18. [Fortune〈AI slashes white-collar jobs; Salesforce CEO Marc Benioff says one department is still hiring〉（2026-05-28）](https://fortune.com/2026/05/28/ai-slashes-white-collar-jobs-salesforce-ceo-marc-benioff-one-department-still-hiring-sales/)
-19. [The Register〈Salesforce's Agentforce isn't winning over clients, KeyBanc analysts claim〉（2026-07-15）](https://www.theregister.com/saas/2026/07/15/salesforces-agentforce-isnt-winning-over-clients-keybanc-analysts-claim/5271866)
-20. [CIO.com〈Salesforce's Agentforce product maturity questioned as KeyBanc cites weak customer traction〉（2026-07）](https://www.cio.com/article/4198127/salesforces-agentforce-product-maturity-questioned-as-keybanc-cites-weak-customer-traction.html)
-21. [MarTech〈Gartner: 40% of agentic AI projects will fail, making humans indispensable〉](https://martech.org/gartner-40-of-agentic-ai-projects-will-fail-making-humans-indispensable/)
-22. [Forbes〈Why 40% Of Agentic AI Projects May Be Canceled By 2027〉（2026-07-07）](https://www.forbes.com/sites/robertszczerba/2026/07/07/why-40-of-agentic-ai-projects-may-be-canceled-by-2027/)
-23. [Business of Apps〈Slack Revenue and Usage Statistics (2026)〉](https://www.businessofapps.com/data/slack-statistics/)
-24. [Computerworld〈Salesforce changes Slack API terms to block bulk data access for LLMs〉（2025-06）](https://www.computerworld.com/article/4005509/salesforce-changes-slack-api-terms-to-block-bulk-data-access-for-llms.html)
-25. [Slack Developer Docs〈Announcing the Slack MCP server and Real-time Search API〉（2026-02-17）](https://docs.slack.dev/changelog/2026/02/17/slack-mcp/)
-26. [Slack〈Slack Securely Powers Your Third-Party Agents With Your Business Context〉（2026-02）](https://slack.com/blog/news/mcp-real-time-search-api-now-available)
-27. [CNBC〈Salesforce releases updated Slackbot powered by Anthropic's AI model〉（2026-01-13）](https://www.cnbc.com/2026/01/13/salesforce-releases-updated-slackbot-powered-by-anthropics-ai-model.html)
-28. [TechRepublic〈Slack Powers Up Slackbot to AI Assistant〉（2026-01）](https://www.techrepublic.com/article/news-salesforce-turns-slack-into-ai-hub/)
-29. [Anthropic〈Introducing Claude Tag〉（2026-06-23）](https://www.anthropic.com/news/introducing-claude-tag)
-30. [TechRepublic〈Anthropic Launches Claude Tag, Bringing AI Agents Into Slack〉（2026-06）](https://www.techrepublic.com/article/news-anthropic-claude-tag-ai-agent-slack/)
-31. [Salesforce Ben〈Why Does Sam Altman Want to Kill Slack?〉](https://www.salesforceben.com/why-does-sam-altman-want-to-kill-slack/)
-32. [TechCrunch〈Slack CEO Denise Dresser to join OpenAI as chief revenue officer〉（2025-12-09）](https://techcrunch.com/2025/12/09/slack-ceo-denise-dresser-to-join-openai-as-chief-revenue-officer/)
-33. [CNBC〈OpenAI hires Slack CEO Denise Dresser as chief revenue officer〉（2025-12-09）](https://www.cnbc.com/2025/12/09/openai-slack-ceo-denise-dresser-chief-revenue-officer.html)
-34. [OpenAI〈OpenAI appoints Denise Dresser〉（2025-12-09）](https://openai.com/index/openai-appoints-denise-dresser/)
-35. [Salesforce〈Anthropic and Salesforce Expand Strategic Partnership to Deliver Trusted AI for Regulated Industries〉（2025-10-14）](https://www.salesforce.com/news/press-releases/2025/10/14/anthropic-regulated-industries-partnership-expansion-announcement/)
-36. [Anthropic〈Anthropic and Salesforce expand partnership to bring Claude to regulated industries〉（2025-10）](https://www.anthropic.com/news/salesforce-anthropic-expanded-partnership)
-37. [AWS Partner Network Blog〈Salesforce and AWS Accelerate Agentic AI Transformation for Agentic Enterprises〉](https://aws.amazon.com/blogs/apn/salesforce-and-aws-accelerate-agentic-ai-transformation-for-agentic-enterprises/)
-38. [VentureBeat〈Salesforce CEO Marc Benioff slams Microsoft Copilot as 'Clippy 2.0'〉（2024-10）](https://venturebeat.com/ai/salesforce-ceo-marc-beinoff-slams-microsoft-copilot-as-clippy-2-0)
-39. [Salesforce Ventures〈Behind the Investment: Anthropic〉](https://salesforceventures.com/perspectives/behind-the-investment-anthropic/)
-40. [Bloomberg〈Salesforce Investment in Anthropic Is Valued at About $5 Billion〉（2026-06-01）](https://www.bloomberg.com/news/articles/2026-06-01/salesforce-investment-in-anthropic-is-valued-at-about-5-billion)
-41. [Salesforce Ben〈Could Anthropic Acquire Salesforce?〉](https://www.salesforceben.com/could-anthropic-acquire-salesforce/)
-42. [VentureBeat〈Salesforce just put its entire CRM inside Claude and says you'll never need its app again〉（2026-08-26）](https://venturebeat.com/orchestration/salesforce-just-put-its-entire-crm-inside-claude-and-says-youll-never-need-its-app-again)
-43. [Salesforce〈Salesforce and OpenAI announce strategic partnership expansion〉（2025-10-14）](https://www.salesforce.com/news/press-releases/2025/10/14/openai-partnership-expansion-announcement/)
-44. [CNBC〈Salesforce will bring Agentforce to OpenAI's ChatGPT〉（2025-10-14）](https://www.cnbc.com/2025/10/14/salesforce-will-bring-agentforce-to-openais-chatgpt.html)
-45. [OpenAI〈ServiceNow powers actionable enterprise AI with OpenAI〉（2026-01-20）](https://openai.com/index/servicenow-powers-actionable-enterprise-ai-with-openai/)
-46. [ServiceNow Newsroom〈ServiceNow and OpenAI collaborate to deepen and accelerate enterprise AI outcomes〉（2026-01-20）](https://newsroom.servicenow.com/press-releases/details/2026/ServiceNow-and-OpenAI-collaborate-to-deepen-and-accelerate-enterprise-AI-outcomes/default.aspx)
-47. [OpenAI〈Introducing company knowledge〉](https://openai.com/index/introducing-company-knowledge/)
-48. [OpenAI〈Target partnership〉](https://openai.com/index/target-partnership/)
-49. [CNBC〈OpenAI launches new enterprise platform Frontier〉（2026-02-05）](https://www.cnbc.com/2026/02/05/open-ai-frontier-enterprise-customers.html)
-50. [TechCrunch〈OpenAI launches a way for enterprises to build and manage AI agents〉（2026-02-05）](https://techcrunch.com/2026/02/05/openai-launches-a-way-for-enterprises-to-build-and-manage-ai-agents/)
-51. [Menlo Ventures〈2025 Mid-Year LLM Market Update〉](https://menlovc.com/perspective/2025-mid-year-llm-market-update/)
-52. [Menlo Ventures 2025 State of Generative AI Report（Yahoo Finance 轉載）](https://finance.yahoo.com/news/menlo-ventures-2025-state-generative-123000623.html)
-53. [Bloomberg〈OpenAI's Revenue Run Rate Tops $40 Billion Ahead of IPO〉（2026-08-13）](https://www.bloomberg.com/news/articles/2026-08-13/openai-s-revenue-run-rate-tops-40-billion-ahead-of-ipo)
-54. [Motley Fool〈Anthropic's Revenue Run Rate Just Hit $65 Billion〉（2026-08-20）](https://www.fool.com/investing/2026/08/20/anthropics-revenue-run-rate-just-hit-65-billion-amazon-and-spacex-may-be-the-biggest-winners/)
-55. [Fortune〈Anthropic confidentially files for IPO after raising $65 billion at a $965 billion valuation〉（2026-06-01）](https://fortune.com/2026/06/01/anthropic-confidentially-files-ipo-965-billion-valuation/)
+4. [itbrief〈Salesforce & Anthropic launch Claudeforce partnership〉（2026-08-26）](https://itbrief.co.nz/story/salesforce-anthropic-launch-claudeforce-partnership)
+5. [channellife〈Salesforce & Anthropic launch Claudeforce partnership〉（2026-08-26）](https://channellife.co.nz/story/salesforce-anthropic-launch-claudeforce-partnership)
+6. [Salesforce Delivers Record Second Quarter Fiscal 2027 Results（投資人關係，2026-08-26）](https://investor.salesforce.com/news/news-details/2026/Salesforce-Delivers-Record-Second-Quarter-Fiscal-2027-Results/default.aspx)
+7. [Salesforce FY27 Q2 8-K（SEC）](https://www.sec.gov/Archives/edgar/data/0001108524/000110852426000187/crm-q2fy27xexhibit991.htm)
+8. [Salesforce FY27 Q1 8-K（SEC）](https://www.sec.gov/Archives/edgar/data/0001108524/000110852426000125/crm-q1fy27xexhibit991.htm)
+9. [CNBC〈Salesforce (CRM) Q2 earnings report 2027〉（2026-08-26）](https://www.cnbc.com/2026/08/26/salesforce-crm-q2-earnings-report-2027.html)
+10. [Investing.com〈Earnings call transcript: Salesforce tops Q2 2026 profit forecasts, shares jump〉](https://in.investing.com/news/stock-market-news/earnings-call-transcript-salesforce-tops-q2-2026-profit-forecasts-shares-jump-93CH-5572995)
+11. [CNBC〈Salesforce, Anthropic expand partnership as Benioff responds to 'SaaSpocalypse' concerns〉（2026-08-26）](https://www.cnbc.com/2026/08/26/salesforce-anthropic-partnership-claudeforce.html)
+12. [CNBC〈Salesforce CEO Marc Benioff says the 'SaaSpocalypse' is nonsense〉（2026-08-26）](https://www.cnbc.com/2026/08/26/salesforce-ceo-marc-benioff-saaspocalypse-nonsense.html)
+13. [CNBC〈'SaaSpocalypse' debate intensifies as software stocks swing wildly〉（2026-08-07）](https://www.cnbc.com/2026/08/07/saaspocalypse-debate-intensifies-as-software-stocks-swing-wildly.html)
+14. [Fortune〈The SaaSpocalypse that wasn't〉by Jeffrey Sonnenfeld（2026-08-26）](https://fortune.com/2026/08/26/saaspocalypse-salesforce-booking-ibm-sonnenfeld/)
+15. [Salesforce Ben〈Salesforce and Anthropic Announce 'Claudeforce' in Q2 '27 Earnings〉（2026-08-26）](https://www.salesforceben.com/salesforce-and-anthropic-announce-claudeforce-in-q2-27-earnings/)
+16. [Salesforce Ben〈From 1.0 to 3: How Agentforce has Evolved Since Its Launch〉](https://www.salesforceben.com/from-1-0-to-3-how-agentforce-has-evolved-since-its-launch/)
+17. [TechCrunch〈Salesforce announces Agentforce 360 as enterprise AI competition heats up〉（2025-10-13）](https://techcrunch.com/2025/10/13/salesforce-announces-agentforce-360-as-enterprise-ai-competition-heats-up/)
+18. [Salesforce〈Welcome to the Agentic Enterprise: Agentforce 360〉（2025-10-13）](https://www.salesforce.com/news/press-releases/2025/10/13/agentic-enterprise-announcement/)
+19. [Fortune〈Salesforce CEO Marc Benioff says his company has cut 4,000 customer service jobs〉（2025-09-02）](https://fortune.com/2025/09/02/salesforce-ceo-billionaire-marc-benioff-ai-agents-jobs-layoffs-customer-service-sales/)
+20. [Fortune〈AI slashes white-collar jobs; Salesforce CEO Marc Benioff says one department is still hiring〉（2026-05-28）](https://fortune.com/2026/05/28/ai-slashes-white-collar-jobs-salesforce-ceo-marc-benioff-one-department-still-hiring-sales/)
+21. [The Register〈Salesforce's Agentforce isn't winning over clients, KeyBanc analysts claim〉（2026-07-15）](https://www.theregister.com/saas/2026/07/15/salesforces-agentforce-isnt-winning-over-clients-keybanc-analysts-claim/5271866)
+22. [CIO.com〈Salesforce's Agentforce product maturity questioned as KeyBanc cites weak customer traction〉（2026-07）](https://www.cio.com/article/4198127/salesforces-agentforce-product-maturity-questioned-as-keybanc-cites-weak-customer-traction.html)
+23. [MarTech〈Gartner: 40% of agentic AI projects will fail, making humans indispensable〉](https://martech.org/gartner-40-of-agentic-ai-projects-will-fail-making-humans-indispensable/)
+24. [Forbes〈Why 40% Of Agentic AI Projects May Be Canceled By 2027〉（2026-07-07）](https://www.forbes.com/sites/robertszczerba/2026/07/07/why-40-of-agentic-ai-projects-may-be-canceled-by-2027/)
+25. [Business of Apps〈Slack Revenue and Usage Statistics (2026)〉](https://www.businessofapps.com/data/slack-statistics/)
+26. [Computerworld〈Salesforce changes Slack API terms to block bulk data access for LLMs〉（2025-06）](https://www.computerworld.com/article/4005509/salesforce-changes-slack-api-terms-to-block-bulk-data-access-for-llms.html)
+27. [Slack Developer Docs〈Announcing the Slack MCP server and Real-time Search API〉（2026-02-17）](https://docs.slack.dev/changelog/2026/02/17/slack-mcp/)
+28. [Slack〈Slack Securely Powers Your Third-Party Agents With Your Business Context〉（2026-02）](https://slack.com/blog/news/mcp-real-time-search-api-now-available)
+29. [CNBC〈Salesforce releases updated Slackbot powered by Anthropic's AI model〉（2026-01-13）](https://www.cnbc.com/2026/01/13/salesforce-releases-updated-slackbot-powered-by-anthropics-ai-model.html)
+30. [TechRepublic〈Slack Powers Up Slackbot to AI Assistant〉（2026-01）](https://www.techrepublic.com/article/news-salesforce-turns-slack-into-ai-hub/)
+31. [Anthropic〈Introducing Claude Tag〉（2026-06-23）](https://www.anthropic.com/news/introducing-claude-tag)
+32. [TechRepublic〈Anthropic Launches Claude Tag, Bringing AI Agents Into Slack〉（2026-06）](https://www.techrepublic.com/article/news-anthropic-claude-tag-ai-agent-slack/)
+33. [Salesforce Ben〈Why Does Sam Altman Want to Kill Slack?〉](https://www.salesforceben.com/why-does-sam-altman-want-to-kill-slack/)
+34. [TechCrunch〈Slack CEO Denise Dresser to join OpenAI as chief revenue officer〉（2025-12-09）](https://techcrunch.com/2025/12/09/slack-ceo-denise-dresser-to-join-openai-as-chief-revenue-officer/)
+35. [CNBC〈OpenAI hires Slack CEO Denise Dresser as chief revenue officer〉（2025-12-09）](https://www.cnbc.com/2025/12/09/openai-slack-ceo-denise-dresser-chief-revenue-officer.html)
+36. [OpenAI〈OpenAI appoints Denise Dresser〉（2025-12-09）](https://openai.com/index/openai-appoints-denise-dresser/)
+37. [Salesforce〈Anthropic and Salesforce Expand Strategic Partnership to Deliver Trusted AI for Regulated Industries〉（2025-10-14）](https://www.salesforce.com/news/press-releases/2025/10/14/anthropic-regulated-industries-partnership-expansion-announcement/)
+38. [Anthropic〈Anthropic and Salesforce expand partnership to bring Claude to regulated industries〉（2025-10）](https://www.anthropic.com/news/salesforce-anthropic-expanded-partnership)
+39. [AWS Partner Network Blog〈Salesforce and AWS Accelerate Agentic AI Transformation for Agentic Enterprises〉](https://aws.amazon.com/blogs/apn/salesforce-and-aws-accelerate-agentic-ai-transformation-for-agentic-enterprises/)
+40. [VentureBeat〈Salesforce CEO Marc Benioff slams Microsoft Copilot as 'Clippy 2.0'〉（2024-10）](https://venturebeat.com/ai/salesforce-ceo-marc-beinoff-slams-microsoft-copilot-as-clippy-2-0)
+41. [Salesforce Ventures〈Behind the Investment: Anthropic〉](https://salesforceventures.com/perspectives/behind-the-investment-anthropic/)
+42. [Bloomberg〈Salesforce Investment in Anthropic Is Valued at About $5 Billion〉（2026-06-01）](https://www.bloomberg.com/news/articles/2026-06-01/salesforce-investment-in-anthropic-is-valued-at-about-5-billion)
+43. [Salesforce Ben〈Could Anthropic Acquire Salesforce?〉](https://www.salesforceben.com/could-anthropic-acquire-salesforce/)
+44. [VentureBeat〈Salesforce just put its entire CRM inside Claude and says you'll never need its app again〉（2026-08-26）](https://venturebeat.com/orchestration/salesforce-just-put-its-entire-crm-inside-claude-and-says-youll-never-need-its-app-again)
+45. [Salesforce〈Salesforce and OpenAI announce strategic partnership expansion〉（2025-10-14）](https://www.salesforce.com/news/press-releases/2025/10/14/openai-partnership-expansion-announcement/)
+46. [CNBC〈Salesforce will bring Agentforce to OpenAI's ChatGPT〉（2025-10-14）](https://www.cnbc.com/2025/10/14/salesforce-will-bring-agentforce-to-openais-chatgpt.html)
+47. [OpenAI〈ServiceNow powers actionable enterprise AI with OpenAI〉（2026-01-20）](https://openai.com/index/servicenow-powers-actionable-enterprise-ai-with-openai/)
+48. [ServiceNow Newsroom〈ServiceNow and OpenAI collaborate to deepen and accelerate enterprise AI outcomes〉（2026-01-20）](https://newsroom.servicenow.com/press-releases/details/2026/ServiceNow-and-OpenAI-collaborate-to-deepen-and-accelerate-enterprise-AI-outcomes/default.aspx)
+49. [OpenAI〈Introducing company knowledge〉](https://openai.com/index/introducing-company-knowledge/)
+50. [OpenAI〈Target partnership〉](https://openai.com/index/target-partnership/)
+51. [CNBC〈OpenAI launches new enterprise platform Frontier〉（2026-02-05）](https://www.cnbc.com/2026/02/05/open-ai-frontier-enterprise-customers.html)
+52. [TechCrunch〈OpenAI launches a way for enterprises to build and manage AI agents〉（2026-02-05）](https://techcrunch.com/2026/02/05/openai-launches-a-way-for-enterprises-to-build-and-manage-ai-agents/)
+53. [Menlo Ventures〈2025 Mid-Year LLM Market Update〉](https://menlovc.com/perspective/2025-mid-year-llm-market-update/)
+54. [Menlo Ventures 2025 State of Generative AI Report（Yahoo Finance 轉載）](https://finance.yahoo.com/news/menlo-ventures-2025-state-generative-123000623.html)
+55. [Bloomberg〈OpenAI's Revenue Run Rate Tops $40 Billion Ahead of IPO〉（2026-08-13）](https://www.bloomberg.com/news/articles/2026-08-13/openai-s-revenue-run-rate-tops-40-billion-ahead-of-ipo)
+56. [Motley Fool〈Anthropic's Revenue Run Rate Just Hit $65 Billion〉（2026-08-20）](https://www.fool.com/investing/2026/08/20/anthropics-revenue-run-rate-just-hit-65-billion-amazon-and-spacex-may-be-the-biggest-winners/)
+57. [Fortune〈Anthropic confidentially files for IPO after raising $65 billion at a $965 billion valuation〉（2026-06-01）](https://fortune.com/2026/06/01/anthropic-confidentially-files-ipo-965-billion-valuation/)
 
 ---
 
