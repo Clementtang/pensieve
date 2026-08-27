@@ -42,7 +42,7 @@ Salesforce 的財報日通常不會讓我想寫東西。這次的觸發點是一
 
 上市節奏分三段：2026 年 8 月 26 日起先開放給精選的 pilot 客戶，2026 年 9 月進 open beta，涵蓋其他職能的技能預計從第三季起陸續推出。定價目前沒有公布，所以我也不猜。
 
-我沒有 pilot 資格，所以這次沒辦法像當年玩 AI Dungeon 那樣先實測十分鐘再回來寫，以下都是根據官方說法跟媒體報導整理的。
+我沒有 pilot 資格，所以這次沒辦法先實測十分鐘再回來寫，以下都是根據官方說法跟媒體報導整理的。
 
 不過如果只把 Claudeforce 理解成一個外掛，會嚴重低估這件事的規模。它其實是一個傘狀品牌，底下是一整層預設模型的更換：Claude 同時成為 Slack AI 與 Slackbot 的預設模型，並透過 Claude Tag 支援團隊決策；在 Agentforce 這側，Claude 是 Atlas Reasoning Engine 可選用的推理模型之一，同時是 Agentforce Vibes 與 Agentforce Coworker 的預設模型；在 Headless 360 裡，Claude 一樣是預設模型。Salesforce 甚至把 Claude Code 部署到自己全球的工程組織內部使用。換句話說，Claude 被塞進了 Salesforce 幾乎每一個會用到模型推理的位置。
 
