@@ -70,7 +70,7 @@ Salesforce 的 agentic AI 產品線從 2024 年 10 月的 Agentforce 1.0 起步�
 
 這邊要停一下。
 
-Salesforce 在同一份財報裡揭露，「自本季起，Agentforce ARR 的計算範圍納入 AI offerings、Slackbot 與 Headless 360」。也就是說，這一季才把 Slackbot 跟 Headless 360 的 ARR 併進 Agentforce 這個口徑。我不認為這是造假，這些產品本來就是 Claudeforce 傘狀品牌下的一員，歸進去有它的邏輯。但這確實意味著，15 億美元、年增 240% 這組被市場反覆引用的數字，並不是在同一個統計基礎上跟去年同期比較。想拿它做逐季趨勢推論的人，最好先意識到分母在這季被動過。
+Salesforce 在同一份財報裡揭露，「自本季起，Agentforce ARR 的計算範圍納入 AI offerings、Slackbot 與 Headless 360」。也就是說，這一季才把 Slackbot 跟 Headless 360 的 ARR 併進 Agentforce 這個口徑。我不認為這是造假，這些產品本來就是 Claudeforce 傘狀品牌下的一員，歸進去有它的邏輯。但這確實意味著，15 億美元、年增 240% 這組被市場反覆引用的數字，並不是在同一個統計基礎上跟去年同期比較。想拿它做逐季趨勢推論的人，最好先意識到本季起計算範圍已經調整。
 
 人力那一側，Salesforce 講得比誰都直白。Benioff 在 2025 年 9 月證實，客服團隊從約 9,000 人縮到約 5,000 人，減幅 44%，AI agent 處理大約一半的客戶對話，客服成本下降 17%，他當時的原話是「I need less heads」。2026 年 2 月再裁不到 1,000 人，6 月又有一輪，除了業務團隊以外幾乎全面凍結招募，工程組織的生產力據稱提升超過三成。
 
@@ -130,7 +130,7 @@ OpenAI 在其他企業 SaaS 的佈局也很清楚。2026 年 1 月 20 日，Open
 
 這個差異其實反映了兩家完全相反的路線。OpenAI 從消費端的 ChatGPT 品牌與流量出發往企業端滲透，所以它跟 SaaS 巨頭的合作模式多半是「把你的 app 放進我的介面」。Anthropic 從企業後端與程式碼協作起家，所以它的模式是「把我的模型放進你的系統，再讓你的系統出現在我的介面裡」。Claudeforce 能做到雙向嵌入，正是因為 Anthropic 在 Slack 跟 Agentforce 內部已經卡了將近一年的位置。
 
-這條路線差異在市佔上留下了很清楚的痕跡。根據 Menlo Ventures 對技術主管的調查，2023 年 OpenAI 在企業 LLM API 市場的佔有率約 50%，Anthropic 只有 12%；到 2025 年中排序翻轉，Anthropic 32%、OpenAI 25%；到 2025 年底，Anthropic 進一步拉開到 40%、OpenAI 27%。同一份調查也指出，企業 LLM 支出在六個月內從 35 億美元翻倍到 84 億美元。市場在長大，但主要受益者換人了。營收規模上，Bloomberg 在 2026 年 8 月報導 OpenAI 的年化 run rate 約 400 億美元，而據 Motley Fool 引述的資料，Anthropic 同期約在 650 億美元上下，方向感是一致的。
+這條路線差異在市佔上留下了很清楚的痕跡。根據 Menlo Ventures 對技術主管的調查，2023 年 OpenAI 在企業 LLM API 市場的佔有率約 50%，Anthropic 只有 12%；到 2025 年中排序翻轉，Anthropic 32%、OpenAI 25%；到 2025 年底，Anthropic 進一步拉開到 40%、OpenAI 27%。同一份調查也指出，企業 LLM 支出在六個月內從 35 億美元翻倍到 84 億美元。市場在長大，但主要受益者換人了。營收規模上，Bloomberg 在 2026 年 8 月報導 OpenAI 的年化 run rate 約 400 億美元；Anthropic 則在同月向投資人揭露，截至 7 月底的年化 run rate 達 650 億美元，這個數字有 Bloomberg、CNBC 與 TechCrunch 等多家媒體同步報導，方向感是一致的。
 
 ## 一些個人觀察
 
@@ -209,11 +209,15 @@ Salesforce 用 27 年的招牌，換來的究竟是一張 agent 時代的入場�
 53. [Menlo Ventures〈2025 Mid-Year LLM Market Update〉](https://menlovc.com/perspective/2025-mid-year-llm-market-update/)
 54. [Menlo Ventures 2025 State of Generative AI Report（Yahoo Finance 轉載）](https://finance.yahoo.com/news/menlo-ventures-2025-state-generative-123000623.html)
 55. [Bloomberg〈OpenAI's Revenue Run Rate Tops $40 Billion Ahead of IPO〉（2026-08-13）](https://www.bloomberg.com/news/articles/2026-08-13/openai-s-revenue-run-rate-tops-40-billion-ahead-of-ipo)
-56. [Motley Fool〈Anthropic's Revenue Run Rate Just Hit $65 Billion〉（2026-08-20）](https://www.fool.com/investing/2026/08/20/anthropics-revenue-run-rate-just-hit-65-billion-amazon-and-spacex-may-be-the-biggest-winners/)
+56. [CNBC〈Anthropic tells investors annualized revenue run rate climbed to $65 billion in July〉（2026-08-17）](https://www.cnbc.com/2026/08/17/anthropic-says-annualized-revenue-climbed-to-65-billion-in-july.html)
 57. [Fortune〈Anthropic confidentially files for IPO after raising $65 billion at a $965 billion valuation〉（2026-06-01）](https://fortune.com/2026/06/01/anthropic-confidentially-files-ipo-965-billion-valuation/)
 58. [Salesforce CTRL: A Conditional Transformer Language Model for Controllable Generation（GitHub）](https://github.com/salesforce/ctrl)
 59. [NFX〈Generative Tech Begins〉by James Currier（2022-10）](https://www.nfx.com/post/generative-tech)
+60. [Bloomberg〈Anthropic's Annualized Revenue Tops $65 Billion Before IPO〉（2026-08-17）](https://www.bloomberg.com/news/articles/2026-08-17/anthropic-revenue-run-rate-surpasses-65-billion-ahead-of-ipo)
+61. [TechCrunch〈Anthropic's annualized revenue surges to $65B〉（2026-08-17）](https://techcrunch.com/2026/08/17/anthropics-annualized-revenue-surges-to-65b/)
 
 ---
+
+_本文為個人觀點，與任職公司立場無關；非投資建議。_
 
 _最後更新：2026-08-27_
