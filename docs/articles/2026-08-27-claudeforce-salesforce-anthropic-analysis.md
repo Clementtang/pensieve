@@ -38,7 +38,7 @@ Salesforce 的財報日通常不會讓我想寫東西。這次的觸發點是一
 
 先講清楚它實際上是什麼東西，再來談它代表什麼。
 
-首發產品叫「Salesforce in Claude」，形式是 Claude 裡的一個 plugin，底層走 MCP 跟 MCP Apps，內建 37 個預建銷售技能 (prebuilt sales skills)，涵蓋會議準備、成交健康度檢視、pipeline 檢視這些業務的日常。官方把它形容成業務人員的「AI CRO」，賣點是你可以在 Claude 的對話視窗裡直接查詢、更新 live CRM 資料並且採取行動，完全不用打開 Salesforce 本身，而所有動作最終仍然會路由回 Salesforce 執行，確保既有的商業規則被強制套用。
+首發產品叫「Salesforce in Claude」，形式是 Claude Cowork 裡的一個 plugin，底層走 MCP 跟 MCP Apps，內建 37 個預建銷售技能 (prebuilt sales skills)，涵蓋會議準備、成交健康度檢視、pipeline 檢視這些業務的日常。官方把它形容成業務人員的「AI CRO」，賣點是你可以在 Claude 的對話視窗裡直接查詢、更新 live CRM 資料並且採取行動，完全不用打開 Salesforce 本身，而所有動作最終仍然會路由回 Salesforce 執行，確保既有的商業規則被強制套用。
 
 上市節奏分三段：2026 年 8 月 26 日起先開放給精選的 pilot 客戶，2026 年 9 月進 open beta，涵蓋其他職能的技能預計從第三季起陸續推出。定價目前沒有公布，所以我也不猜。
 
