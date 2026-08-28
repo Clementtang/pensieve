@@ -5,7 +5,7 @@ date: 2026-08-27
 author: "Clement Tang"
 tags: ["議題研究", "AI", "企業軟體", "Salesforce", "Anthropic", "OpenAI", "競爭分析"]
 category: articles
-status: draft
+status: published
 ---
 
 # Salesforce 把 27 年的招牌借給 Anthropic，然後叫你不用再打開 Salesforce
@@ -19,7 +19,7 @@ status: draft
 | **建立日期** | 2026-08-27                                                       |
 | **更新日期** | 2026-08-27                                                       |
 | **標籤**     | #議題研究 #AI #企業軟體 #Salesforce #Anthropic #OpenAI #競爭分析 |
-| **狀態**     | 草稿                                                              |
+| **狀態**     | 已發布                                                              |
 | **字數**     | 約 4,700 字                                                      |
 
 ---
