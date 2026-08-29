@@ -1,16 +1,18 @@
 ---
 title: "Research Memo: Claudeforce 與 Salesforce 的模型外包賭注"
-description: "Salesforce 與 Anthropic 於 2026 年 8 月 26 日發布 Claudeforce，把 CRM 塞進 Claude。本備忘整理雙方合作沿革、Agentforce 商業數據、Slack 戰略角色與 OpenAI 對照組，供後續分析文使用。"
+description: "Salesforce 與 Anthropic 發布 Claudeforce 的研究備忘（合作沿革、Agentforce 商業數據、Slack 戰略角色與 OpenAI 對照組），已擴寫為分析文後歸檔"
 date: 2026-08-27
 author: "Clement Tang"
 tags: ["research-memo", "Salesforce", "Anthropic", "Claude", "Slack", "Agentforce", "OpenAI", "企業軟體"]
-category: topic-research
-status: draft
+category: memo
+status: archived
+related:
+  - "docs/articles/2026-08-27-claudeforce-salesforce-anthropic-analysis.md"
 ---
 
 # Research Memo: Claudeforce 與 Salesforce 的模型外包賭注
 
-> 輕量級研究備忘錄，供 writer agent 擴寫為深度分析文。所有事實均以 2026-08-27 當日網路查證為準，並標註來源與報導日期。
+> 輕量級研究備忘錄，供 writer agent 擴寫為深度分析文。所有事實均以 2026-08-27 當日網路查證為準，並標註來源與報導日期。已擴寫為正式分析文（見 related）。
 
 ## 會話資訊
 
