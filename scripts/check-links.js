@@ -12,6 +12,7 @@
  * 選項：
  *   --check     實際發 HTTP 請求驗證（預設只列出）
  *   --timeout   單一連線逾時毫秒（預設 8000）
+ *   --delay     同網域請求間隔毫秒（預設 1000）
  *   --json      JSON 輸出
  */
 
@@ -22,6 +23,31 @@ const https = require("https");
 
 const MD_LINK_RE = /\[([^\]]*)\]\((https?:\/\/[^)\s]+)\)/g;
 const BARE_URL_RE = /(?<!\]\()(?<!\]:\s)(https?:\/\/[^\s<>\]\)"']+)/g;
+
+// 多數新聞站會擋掉非瀏覽器 UA，導致可用連結被誤報為失效
+const BROWSER_UA =
+  "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 " +
+  "(KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36";
+
+// SEC 的存取政策要求 User-Agent 帶聯絡方式，未設定時退回瀏覽器 UA。
+// 用法：CHECK_LINKS_CONTACT="Your Name you@example.com" npm run check-links -- ... --check
+const SEC_UA = process.env.CHECK_LINKS_CONTACT
+  ? `pensieve-check-links (${process.env.CHECK_LINKS_CONTACT})`
+  : BROWSER_UA;
+
+// 這些狀態碼代表「伺服器認得這個路徑但拒絕本次請求」，並非連結失效，值得改用 GET 再試。
+// 404 之類的明確失效不重試。
+const RETRY_WITH_GET = new Set([403, 405, 429]);
+
+function shouldRetryWithGet(status) {
+  return RETRY_WITH_GET.has(status) || (status >= 500 && status < 600);
+}
+
+function userAgentFor(hostname) {
+  return hostname === "sec.gov" || hostname.endsWith(".sec.gov")
+    ? SEC_UA
+    : BROWSER_UA;
+}
 
 /**
  * 從 markdown 內文抽出連結
@@ -66,9 +92,9 @@ function extractLinks(content) {
 }
 
 /**
- * HEAD 優先，失敗再 GET；回傳 statusCode 或 error
+ * 送出單次請求，回傳 { ok, status, error }
  */
-function probeUrl(url, timeoutMs = 8000) {
+function requestOnce(url, method, timeoutMs) {
   return new Promise((resolve) => {
     let settled = false;
     const done = (result) => {
@@ -89,48 +115,19 @@ function probeUrl(url, timeoutMs = 8000) {
     const req = lib.request(
       url,
       {
-        method: "HEAD",
+        method,
         timeout: timeoutMs,
-        headers: { "User-Agent": "pensieve-check-links/1.0" },
+        headers: {
+          "User-Agent": userAgentFor(parsed.hostname),
+          Accept:
+            "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+          "Accept-Language": "en-US,en;q=0.9",
+        },
       },
       (res) => {
-        // 部分站不支援 HEAD（405）時改 GET
-        if (res.statusCode === 405) {
-          res.resume();
-          const getReq = lib.request(
-            url,
-            {
-              method: "GET",
-              timeout: timeoutMs,
-              headers: { "User-Agent": "pensieve-check-links/1.0" },
-            },
-            (getRes) => {
-              getRes.resume();
-              const code = getRes.statusCode || 0;
-              done({
-                ok: code >= 200 && code < 400,
-                status: code,
-                error: null,
-              });
-            },
-          );
-          getReq.on("error", (e) =>
-            done({ ok: false, status: null, error: e.message }),
-          );
-          getReq.on("timeout", () => {
-            getReq.destroy();
-            done({ ok: false, status: null, error: "timeout" });
-          });
-          getReq.end();
-          return;
-        }
         res.resume();
         const code = res.statusCode || 0;
-        done({
-          ok: code >= 200 && code < 400,
-          status: code,
-          error: null,
-        });
+        done({ ok: code >= 200 && code < 400, status: code, error: null });
       },
     );
 
@@ -141,6 +138,25 @@ function probeUrl(url, timeoutMs = 8000) {
     });
     req.end();
   });
+}
+
+/**
+ * HEAD 優先。遇到 403 / 405 / 429 / 5xx 或連線層錯誤時改用 GET 再確認一次，
+ * 避免把只是擋機器人或限流的連結誤判為失效。404 這類明確失效不重試。
+ */
+async function probeUrl(url, timeoutMs = 8000) {
+  const head = await requestOnce(url, "HEAD", timeoutMs);
+  if (head.ok) return head;
+
+  if (head.status === null) {
+    // 網址格式錯誤重試也沒有意義
+    if (head.error && head.error.startsWith("invalid URL")) return head;
+  } else if (!shouldRetryWithGet(head.status)) {
+    return head;
+  }
+
+  const get = await requestOnce(url, "GET", timeoutMs);
+  return { ...get, retriedWithGet: true };
 }
 
 function collectMarkdownFiles(target) {
@@ -173,6 +189,7 @@ function parseArgs(argv) {
     check: false,
     json: false,
     timeout: 8000,
+    delay: 1000,
     help: false,
   };
   for (let i = 0; i < argv.length; i++) {
@@ -181,6 +198,9 @@ function parseArgs(argv) {
     else if (argv[i] === "--help" || argv[i] === "-h") result.help = true;
     else if (argv[i] === "--timeout" && argv[i + 1]) {
       result.timeout = Number(argv[i + 1]);
+      i++;
+    } else if (argv[i] === "--delay" && argv[i + 1]) {
+      result.delay = Number(argv[i + 1]);
       i++;
     } else if (!argv[i].startsWith("-")) {
       result.target = argv[i];
@@ -193,7 +213,26 @@ function parseArgs(argv) {
  * 檢查一組檔案
  */
 async function checkLinksInFiles(files, options = {}) {
-  const { check = false, timeout = 8000 } = options;
+  const { check = false, timeout = 8000, delay = 1000 } = options;
+
+  // 同一網域連續請求容易觸發限流（429），故每個 host 之間至少間隔 delay 毫秒
+  const lastHitAt = new Map();
+  const throttle = async (url) => {
+    if (!delay) return;
+    let host;
+    try {
+      host = new URL(url).hostname;
+    } catch {
+      return;
+    }
+    const prev = lastHitAt.get(host);
+    if (prev !== undefined) {
+      const wait = delay - (Date.now() - prev);
+      if (wait > 0) await new Promise((r) => setTimeout(r, wait));
+    }
+    lastHitAt.set(host, Date.now());
+  };
+
   const report = {
     files: [],
     bareCount: 0,
@@ -216,6 +255,7 @@ async function checkLinksInFiles(files, options = {}) {
 
       const item = { ...link, status: null, ok: null, error: null };
       if (check && link.url.startsWith("http")) {
+        await throttle(link.url);
         const result = await probeUrl(link.url, timeout);
         item.ok = result.ok;
         item.status = result.status;
@@ -237,11 +277,15 @@ async function main() {
 Markdown 連結檢查
 
 使用方式：
-  node scripts/check-links.js <file|directory> [--check] [--timeout 8000] [--json]
+  node scripts/check-links.js <file|directory> [--check] [--timeout 8000] [--delay 1000] [--json]
 
   --check    實際 HTTP 探測（預設只列出）
   --timeout  逾時毫秒
+  --delay    同一網域連續請求的最小間隔毫秒（預設 1000，設 0 關閉）
   --json     JSON 輸出
+
+  探測會先送 HEAD，遇到 403 / 405 / 429 / 5xx 改用 GET 再確認一次。
+  sec.gov 需要帶聯絡方式的 User-Agent，請設環境變數 CHECK_LINKS_CONTACT。
 `);
     process.exit(args.help ? 0 : 1);
   }
@@ -262,6 +306,7 @@ Markdown 連結檢查
   const report = await checkLinksInFiles(files, {
     check: args.check,
     timeout: args.timeout,
+    delay: args.delay,
   });
 
   if (args.json) {
@@ -312,6 +357,7 @@ if (require.main === module) {
 module.exports = {
   extractLinks,
   probeUrl,
+  shouldRetryWithGet,
   checkLinksInFiles,
   collectMarkdownFiles,
   parseArgs,

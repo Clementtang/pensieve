@@ -2,6 +2,7 @@ import { describe, it, expect } from "vitest";
 import {
   extractLinks,
   parseArgs,
+  shouldRetryWithGet,
 } from "../scripts/check-links.js";
 
 describe("extractLinks", () => {
@@ -46,7 +47,33 @@ describe("parseArgs", () => {
       check: true,
       json: false,
       timeout: 5000,
+      delay: 1000,
       help: false,
     });
+  });
+});
+
+describe("shouldRetryWithGet", () => {
+  it("should retry bot-blocked and rate-limited responses", () => {
+    expect(shouldRetryWithGet(403)).toBe(true);
+    expect(shouldRetryWithGet(405)).toBe(true);
+    expect(shouldRetryWithGet(429)).toBe(true);
+    expect(shouldRetryWithGet(500)).toBe(true);
+    expect(shouldRetryWithGet(503)).toBe(true);
+  });
+
+  it("should not retry success or definitive failures", () => {
+    expect(shouldRetryWithGet(200)).toBe(false);
+    expect(shouldRetryWithGet(301)).toBe(false);
+    expect(shouldRetryWithGet(404)).toBe(false);
+    expect(shouldRetryWithGet(410)).toBe(false);
+  });
+});
+
+describe("parseArgs --delay", () => {
+  it("should default to 1000ms and accept an override", () => {
+    expect(parseArgs(["docs/"]).delay).toBe(1000);
+    expect(parseArgs(["docs/", "--delay", "2500"]).delay).toBe(2500);
+    expect(parseArgs(["docs/", "--delay", "0"]).delay).toBe(0);
   });
 });
