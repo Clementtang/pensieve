@@ -24,7 +24,7 @@ related:
 | **目標輸出** | Article（深度分析文章） |
 | **預計字數** | 3,000 至 4,500 字 |
 | **前作** | [Claudeforce 研究備忘](./2026-08-27-memo-salesforce-claudeforce-research.md)、[Claudeforce 分析文](../docs/articles/2026-08-27-claudeforce-salesforce-anthropic-analysis.md) |
-| **研究方法** | 2026-09-10 以 WebSearch 交叉查證；**2026-09-11 已對主要一手頁面以 live HTML / WebFetch 逐頁核實**（Salesforce 新聞稿、Fin Ideas、fin.ai 定價與案例、Apex / CX Models、Intercom 官方部落格、Agentforce / Zendesk 定價頁、Dreamforce 議程與 SEC 10-Q 等）。舊版備忘所稱 EGRESS_BLOCKED 已非現行方法。仍查無或僅二手者已於「一手來源核實紀錄」標明。 |
+| **研究方法** | 2026-09-10 以 WebSearch 交叉查證；**2026-09-11 已對主要一手頁面以 live HTML / WebFetch 逐頁核實**（Salesforce 新聞稿、Fin Ideas、fin.ai 定價與案例、Apex / CX Models、Intercom 官方部落格、Agentforce / Zendesk 定價頁、Dreamforce 議程與 SEC 10-Q 等）。**核實輪次在另一個具備瀏覽器存取的環境執行**；初查環境的 EGRESS_BLOCKED 限制屬實且至 2026-09-12 仍然成立（實測 salesforce.com、sec.gov 皆擋），兩者不衝突。仍查無或僅二手者已於「一手來源核實紀錄」標明。 |
 | **重大更新** | 使用者提供的背景說「交易尚未完成，預計 FY27 第四季完成」。**查證結果：交易已於 2026-09-10 完成交割**，比原訂時程提早整整一季。FY27 Q2 10-Q 另確認對價約為 **36 億美元現金**。 |
 
 ---
@@ -162,6 +162,8 @@ Everest Group 的分析把這件事講得最清楚：Fin 把 Agentforce 往下�
 **第二階段（2024-10）：換成 Claude。** Fin 2 發布，改用 Anthropic Claude 3.5 Sonnet。共同創辦人暨首席策略長 Des Traynor 在官方部落格原文寫道：「We landed on Claude for one simple reason: it delivers.」（[Intercom Blog〈Fin 2: Powered by Anthropic's Claude LLM〉](https://www.intercom.com/blog/fin-2-powered-by-anthropic-claude-llm/)，2024-10；[The Letter Two](https://thelettertwo.com/2024/10/12/intercom-releases-fin-2-ai-agent-switching-anthropic-from-openai/) 為二手轉述）。
 
 **第三階段（2026-03）：自己做模型，並且公開宣稱贏過 Claude。** Fin Apex 1.0 發布。官方 Apex 部落格寫明：先前核心回答模型一直是前沿實驗室產品（先是 GPT 系列，後來是 Sonnet 4.0），現在核心回答模型改為 Apex 1.0；文中並討論 open-weight 基座與 post-training 的產業意涵。**一手 Fin / Intercom 文本未公開具名基座，也未見「數千億參數」逐字表述**；若引用參數規模，只能標為二手（如 VentureBeat）或直接略過（[Intercom Blog〈Announcing Fin Apex〉](https://www.intercom.com/blog/announcing-fin-apex-the-age-of-vertical-models-is-here/)，2026-03-26）。[fin.ai/cx-models](https://fin.ai/cx-models) 圖表數據為：Fin Apex 1.0 **73.1**、Claude Opus 4.5 **71.1**、GPT-5.4 **71.1**、Claude Sonnet 4.6 **69.6**；官方另稱相較 Sonnet 4.6，解決率高 2.8%、首 token 快 0.6 秒、幻覺少 **65%**（對照對象是 **Sonnet 4.6，不是 4.0**）。獨立第三方複現 73.1% 數字截至 2026-09-11 **查無**。
+
+> **警告：Fin 自家的兩組數字對不起來。** 圖表的 73.1 對 69.6 是 **3.5 個百分點**（相對差 5.0%），與文案宣稱的「解決率高 2.8%」兩種讀法都湊不出來（2.8 個百分點會是 72.4，相對 2.8% 會是 71.5）。這兩個數字同時出現在 Fin 官方頁面上，但顯然出自不同批次的測量或不同的基準集。**writer 請擇一使用，不要把它們寫成同一個比較**；若要同時提及，必須說明兩者出處不同。這個矛盾本身也可以當成「vendor benchmark 不可盡信」的佐證。
 
 Fin 的模型套件不只 Apex，而是七個各司其職的模型，包括 Escalation Router（採 multi-task ModernBERT 架構，決定要繼續、提議轉真人還是直接升級）、Retrieval、Reranker、Issue Summarizer 等（[The AI Economy](https://theaieconomy.substack.com/p/intercom-fin-api-platform-developers)、[fin.ai CX Models](https://fin.ai/cx-models)）。2026 年 4 月，Fin 進一步開放 Fin API Platform，讓開發者取用 Apex、RAG、Retrieval 與 Reranker（[The Letter Two](https://thelettertwo.com/2026/04/03/intercom-fin-api-platform-developers/)）。
 
@@ -335,7 +337,7 @@ Anthropic 是 Fin 的客戶，Fin 說自己的模型贏過 Claude，Salesforce �
 7. **不要編造台灣客戶案例、台灣定價或 Salesforce 台灣的官方說法。** 可寫產品支援繁中（fin.ai help）。
 8. **不要把 Fin 的 benchmark 當成中立第三方評測。** 73.1% 等是 Fin / cx-models 自家數字，獨立複現查無。幻覺對照是 **Sonnet 4.6**，不是 4.0。
 9. **不要斷言「Zendesk 被逼到牆角」是業界共識。** Zendesk / Sierra 官方回應仍查無。
-10. **不要混用解決率數字（76% / 73.1% / 65-70% / Anthropic 案例 79%）**，每次引用都要標明出處與定義。
+10. **不要混用解決率數字**，每次引用都要標明出處與定義。目前已知**六個版本**：76%（Salesforce 交割稿，Fin 平均）、73.1%（Fin Apex benchmark，模型對比）、79%（Anthropic 案例頁）、65-70%（第三方推估）、「up to 90%」（AWS Intercom 案例）、「Over 90%」（Dreamforce 場次標題）。**兩個 90% 是行銷標題的最佳案例值，不是平均值，絕對不可當代表數字使用。**
 11. **Listen Labs 收購案只能寫成傳聞。** 約 20 億美元洽談、尚未簽約。
 12. **不要再用 Anthropic 案例舊數字 58% / 1,700 小時。** 現行官方案例頁為 >560k / 79% / 63% / 80%。
 13. **不要宣稱會前議程「完全沒有 Fin 場次」。** 已有兩場 Fin 具名場次；但不要把 Salesforce Apex（語言）場次誤認成 Fin Apex，也不要發明台上講稿（待會後補）。
@@ -474,7 +476,7 @@ Anthropic 是 Fin 的客戶，Fin 說自己的模型贏過 Claude，Salesforce �
 
 - [x] 資料收集完成
 - [x] 大綱確定（見第七節建議切入角度）
-- [x] **2026-09-11 一手來源核實輪次完成**（egress / live HTML / WebFetch 可用；舊 EGRESS_BLOCKED 前提作廢）
+- [x] **2026-09-11 一手來源核實輪次完成**（於另一個具備瀏覽器存取的環境執行；初查環境的 EGRESS_BLOCKED 限制仍然成立，未來若在該環境續接，逐字引述一樣讀不到原文）
 - [x] 可開始撰寫
 
 ### 待補充項目
