@@ -13,19 +13,19 @@ related:
 
 # Research Memo: Salesforce 收購 Fin 與 Claudeforce 的兩手棋
 
-> 輕量級研究備忘錄，供 writer agent 擴寫為深度分析文。事實以 2026-09-10 初查為底，並於 2026-09-11 以一手頁面（live HTML / WebFetch）核實後更新。本篇為 Claudeforce 備忘（2026-08-27）的續篇，論述請與前作呼應。
+> 輕量級研究備忘錄，供 writer agent 擴寫為深度分析文。事實以 2026-09-10 初查為底，並於 2026-09-11 以一手頁面（live HTML / WebFetch）核實後更新；**2026-09-18 另完成 Dreamforce 2026 會後一手核實（round 2）**。本篇為 Claudeforce 備忘（2026-08-27）的續篇，論述請與前作呼應。
 
 ## 會話資訊
 
 | 欄位 | 內容 |
 |------|------|
-| **日期** | 2026-09-10 |
+| **日期** | 2026-09-10（初稿）；2026-09-11（一手核實）；**2026-09-18（Dreamforce 會後核實 round 2）** |
 | **平台** | CLI（deep research agent） |
 | **目標輸出** | Article（深度分析文章） |
 | **預計字數** | 3,000 至 4,500 字 |
 | **前作** | [Claudeforce 研究備忘](./2026-08-27-memo-salesforce-claudeforce-research.md)、[Claudeforce 分析文](../docs/articles/2026-08-27-claudeforce-salesforce-anthropic-analysis.md) |
-| **研究方法** | 2026-09-10 以 WebSearch 交叉查證；**2026-09-11 已對主要一手頁面以 live HTML / WebFetch 逐頁核實**（Salesforce 新聞稿、Fin Ideas、fin.ai 定價與案例、Apex / CX Models、Intercom 官方部落格、Agentforce / Zendesk 定價頁、Dreamforce 議程與 SEC 10-Q 等）。**核實輪次在另一個具備瀏覽器存取的環境執行**；初查環境的 EGRESS_BLOCKED 限制屬實且至 2026-09-12 仍然成立（實測 salesforce.com、sec.gov 皆擋），兩者不衝突。仍查無或僅二手者已於「一手來源核實紀錄」標明。 |
-| **重大更新** | 使用者提供的背景說「交易尚未完成，預計 FY27 第四季完成」。**查證結果：交易已於 2026-09-10 完成交割**，比原訂時程提早整整一季。FY27 Q2 10-Q 另確認對價約為 **36 億美元現金**。 |
+| **研究方法** | 2026-09-10 以 WebSearch 交叉查證；**2026-09-11 已對主要一手頁面以 live HTML / WebFetch 逐頁核實**（Salesforce 新聞稿、Fin Ideas、fin.ai 定價與案例、Apex / CX Models、Intercom 官方部落格、Agentforce / Zendesk 定價頁、Dreamforce 議程與 SEC 10-Q 等）。**2026-09-18 Dreamforce 會後核實（round 2）**：先通過 media resources gate，再以 WebFetch／curl 讀 Salesforce 官方稿、定價頁、Salesforce+ 場次元資料、SEC EDGAR、TNW／Salesforce Ben 等原文；搜尋僅作發現線索。明確區分會前發表與會期發表、官方與產業媒體。仍查無或僅二手者已於「一手來源核實紀錄」標明。 |
+| **重大更新** | （1）交易已於 **2026-09-10 完成交割**，對價約 **36 億美元現金**（FY27 Q2 10-Q）。（2）**2026-09-18 會後核實**：產品名稱流動、Casey／Fin 並存、定價雙軌（席次捆綁＋成果計價）、AIforce／Claudeforce beta、兩個 30,000 必須分開；詳見新增「Dreamforce 2026 會後更新」節。 |
 
 ---
 
@@ -139,7 +139,7 @@ Intercom 於 2011 年在都柏林創立，創辦人為 Eoghan McCabe、Des Trayn
 1. **How Fin Delivers Over 90% Resolution Rates for Customers**（週三 9/16，2:30 至 2:50 PM PDT；Moscone South, LL, Content Pavilion, Stage 8）
 2. **SMB & Startup Keynote: 5 turnkey agents, 10x results ft. Fin**（週二 9/15，3:30 至 4:20 PM PDT；Moscone West, L3, Keynote Room 3001）
 
-「舞台道具」推論因此**被議程部分坐實**（Fin 已有具名場次），但台上實際內容、產品整併路徑仍屬 **待會期後補**（Task 2）。另請區分 **Fin Apex（模型）** 與議程中常見的 **Salesforce Apex（平台語言）** 場次，不可混為一談。（[Dreamforce](https://www.salesforce.com/dreamforce/)、[議程目錄](https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog)）
+「舞台道具」推論因此**被議程部分坐實**（Fin 已有具名場次）。**會後（2026-09-18）更新：** SMB Keynote ft. Fin 已有 [Salesforce+ 成片](https://www.salesforce.com/plus/experience/dreamforce_2026/series/small_and_medium_business_at_dreamforce_2026/episode/episode-s1e2)（含 Des Traynor）；Stage 8「Over 90%」場次則**查無**錄影／摘要。產品整併技術路徑公開 meta 仍未說明。另請區分 **Fin Apex（模型）** 與議程中常見的 **Salesforce Apex（平台語言）** 場次，不可混為一談。詳見「Dreamforce 2026 會後更新」。（[Dreamforce](https://www.salesforce.com/dreamforce/)、[議程目錄](https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog)）
 
 ### 3.2 Fin 在堆疊裡的位置
 
@@ -188,7 +188,7 @@ Fin 的模型套件不只 Apex，而是七個各司其職的模型，包括 Esca
 
 這個架構的合理性在於：客服是 Benioff 拿來證明 AI ROI 最重要的展示櫥窗（Salesforce 自家客服團隊從約 9,000 人縮減到約 5,000 人，見前作備忘第 3.4 節）。把這個櫥窗的模型層押在一家隨時可能改變定價、而且正在準備 IPO 的模型供應商身上，風險太高。
 
-風險則在於：**Salesforce 現在同時擁有兩套互相競爭的模型敘事**。對客戶說「Claude 是最好的推理模型」的同一家公司，旗下的 Fin 官方 benchmark 說「我們的 Apex 在客服場景贏過 Claude」。這兩句話可以並存（垂直模型在垂直任務上贏過通用模型是合理的），但需要非常小心的產品訊息設計。Dreamforce（9/15 至 9/17）已排入兩場 Fin 具名場次，會是觀察 Salesforce 如何處理這個矛盾的場合；台上實際講稿與產品訊息仍待會期後補。
+風險則在於：**Salesforce 現在同時擁有兩套互相競爭的模型敘事**。對客戶說「Claude 是最好的推理模型」的同一家公司，旗下的 Fin 官方 benchmark 說「我們的 Apex 在客服場景贏過 Claude」。這兩句話可以並存（垂直模型在垂直任務上贏過通用模型是合理的），但需要非常小心的產品訊息設計。Dreamforce（9/15 至 9/17）已排入兩場 Fin 具名場次；會後確認 SMB Keynote 把 Fin 放進 SMB turnkey agents 敘事，但 **Fin Apex vs Claude 官方分工聲明仍查無**（見會後更新 T3）。
 
 **還有一個諷刺的層次：Anthropic 自己是 Fin 的客戶。** 現行官方案例頁（[fin.ai/customers/anthropic-transformation](https://fin.ai/customers/anthropic-transformation)，2026-09-11 核實）公布的指標是：每月逾 **56 萬**次 Fin resolutions、**79%** resolution rate、**63%** automation rate；正文並寫 Fin 介入 **80%** 的進來查詢，再以 79% 解決率端到端處理約 63% 的支援量。**舊備忘的 58% 解決率與節省 1,700 小時已不在現行一手案例頁**，不可再當現況數字。AWS 案例談的是 Intercom「resolution rates of up to 90 percent」，亦非 58% / 1,700。也就是說，Salesforce 買下的公司，是它最大模型夥伴的客服供應商；而這家公司又剛剛發表 benchmark 說自己的模型比那個夥伴的模型好。
 
@@ -261,6 +261,101 @@ writer 可寫「主要法域未見公開阻擋，交割反而提前；至少德�
 
 ---
 
+## Dreamforce 2026 會後更新
+
+> 核實日：2026-09-18（Asia/Saigon）。活動：Dreamforce 2026，2026-09-15 至 09-17，已結束。來源層級：T1＝Salesforce／SEC 官方；T2＝一線媒體原文；T3＝產業媒體。以下各項皆標日期與層級；查不到寫「查無可靠來源」。
+
+### T1 產品改名（會前網站更名，非會期新聞稿）
+
+改名**確實發生在行銷官網上**，時間點約為 Dreamforce 前一週（約 2026-09-08 至 09-14），屬**會前網站更名**。Salesforce **沒有**發布「我們拿掉 Agentforce 前綴」的官方新聞稿；主源為 *The Information* 獨家（付費牆，本輪未能讀全文），由 [The Next Web（2026-09-14）](https://thenextweb.com/news/salesforce-drops-agentforce-branding-product-names-dreamforce) 等轉載並核對 live 頁（T2）。
+
+截至 2026-09-18 官網現況（T1）：
+
+| 項目 | 現況 | 狀態 |
+|------|------|------|
+| Sales Cloud | 官網主名已復為 **Sales Cloud**；文案中仍可見「Agentforce Sales」作能力描述 | 一致（TNW＋官網） |
+| Agentforce 360 | **保留**該名稱（含產業變體） | 一致 |
+| Fin | **品牌明確保留**（交割稿、2026-09-11 七 agent 名單、fin.ai） | 一致 |
+| 「約兩打」產品去 Agentforce 前綴 | 僅媒體數字；**無公開完整對照表** | 部分一致／查無完整表 |
+| 官方改名原因說明 | **查無可靠來源**（TNW：發言人未回應） | 查無 |
+
+**Headless 360 不可寫成單一乾淨的「改回 Salesforce Platform」。** 三套說法並存：
+
+1. **The Information 系（T2 轉述，TNW 核對）**：Headless 360 Platform → **Salesforce Platform**；平台頁標題為 Salesforce Platform，且頁上不見「Headless 360」字樣。
+2. **Salesforce Ben（T3，引述 Help）**：稱自 **2026-09-04**，Headless 360 **rebranded to AIforce**；本輪未能直接打開該 Help 條目原文。
+3. **Dreamforce 官方 AIforce 稿（T1，2026-09-15）**：定位 AIforce 為 live interface layer，寫「**AIforce is powered by the Headless Toolkit**」，**沒有**寫「Headless 360 已更名為 Salesforce Platform」或「Headless 360＝AIforce」。
+
+**寫作建議：** 不要寫「官方宣布 Headless 360 改回 Salesforce Platform」。可寫「行銷站平台傘名現多呈現為 Salesforce Platform；Dreamforce 旗艦介面層品牌為 AIforce，底層稱 Headless Toolkit；文件層是否將 Headless 360 全面改稱 AIforce，僅見產業媒體引述 Help」。已發布前作若大量使用 Headless 360，建議加註術語流動（見交接備註 T8），勿 silently 全局替換。
+
+### T2 Casey 與 Fin 的分工
+
+- **Casey 是 Help Agent 的具名／persona 包裝**，不是另一套引擎。官方句式為 *“Casey, your help agent”*；小企業部落格明寫 *“Casey is the friendly name for a Help Agent”*（[SMB blog 2026-09-14](https://www.salesforce.com/blog/small-business/meet-your-digital-teammate-for-service-agent/)，T1）。
+- **七個具名 agent 於 2026-09-11（會前）發布**，不是 Dreamforce 會期首發（[job-ready agents 稿](https://www.salesforce.com/news/stories/agentforce-job-ready-ai-agents/)，T1）。名單含 Casey、Paige、Carter、Hunter、Marshall、Piper、**Fin**；Fin 條目點名 Operator 與 **Fin Apex**。
+- **市場分段**：2026-06-15 收購稿有官方措辭：Fin 的 fast-to-value **especially well-suited for SMB and some commercial**；與 Agentforce **deeply customizable**／**enterprise-scale** 互補。這是 **Fin vs Agentforce（平台／客製）**，不是官方一句「Fin＝SMB、Agentforce Contact Center＝enterprise」的對位口號。Contact Center 對位表本輪**查無** Dreamforce 正式官方稿。
+- **500 萬次對話**：Customer Zero 頁寫的是 **Agentforce on Help／Salesforce Help** 累計逾五百萬次；**不是**在該頁寫「Casey」。勿把 Customer Zero 數字直接等同「Casey 對外客戶部署量」。
+- **合併路徑：查無可靠來源。** 交割稿與 9/11 稿皆為 choice／portfolio／complement。
+
+### T3 Fin Apex 與 Claude 的分工
+
+- **截至 2026-09-18，Dreamforce 官方材料中查無**「Fin Apex 負責客服、Claude 負責銷售／推理」這類明確分工聲明。備忘第 7.3 條「不要斷言 Fin Apex 會不會取代 Claude」**應保留**。
+- **Claudeforce／Salesforce in Claude**：AIforce 稿（2026-09-15，T1）稱 **now available to all customers in beta**；**37 prebuilt sales skills**；service／marketing／commerce skills「in the near future」。亦即 broad beta **主範圍是銷售**，客服場景**尚未**列為已含。
+- **AIforce 首發三件套**：Claudeforce、Slackforce、Agentforce Coworker。**Fin 未出現在 AIforce 首發三件套**。Fin 歸屬官方表述仍為 **Salesforce AI Labs**（交割稿）；**查無**「Fin Apex 納入 Salesforce AI Research」一手聲明。
+- **Techzine 標題易誤導**（T3）：本輪讀到的 Techzine 主體是 Salesforce＋NVIDIA 的 **Koa** CRM reasoning model，旁論 Fin Apex／Casey；**不是**官方「自建模型取代 Claude」聲明。Koa 另有官方稿（2026-09-15），與 Fin Apex 不可混為一談。
+
+### T4 定價：席次制沒有被成果計價取代（雙軌）
+
+**席次制沒有被成果計價取代。** 實際圖像是雙軌（以官方定價頁為準，2026-09-18）：
+
+| 產品／項目 | 模式 | 單價（USD） | 來源 |
+|------|------|-------------|------|
+| Sales Cloud **Core** | 席次／年付 | **$195**/user/month | [sales pricing](https://www.salesforce.com/sales/pricing/)；[editions 稿 2026-09-03](https://www.salesforce.com/news/stories/salesforce-simplifies-editions-2026/)（T1） |
+| Sales Cloud **Advanced** | 席次／年付 | **$395**/user/month | 同上 |
+| Sales Cloud **Max** | 席次／年付 | **$550**/user/month | 同上 |
+| Core 內含 | Slack Business+、Tableau Next、**500K Flex Credits／org／year** | 捆綁 | 定價頁 |
+| Help Agent Resolutions（Casey） | 按 resolution | **$2** | [Agentforce pricing](https://www.salesforce.com/agentforce/pricing/)（T1）；Service 分層文案用 Casey 名 |
+| Agentforce Conversations | 按 conversation | **$2** | 同上 |
+| Fin | per outcome | **$0.99** | [fin.ai/pricing](https://fin.ai/pricing)；**查無**交割後官方改價聲明 |
+
+Editions 稿（**會前** 2026-09-03）把 Slack、Tableau Next、credits、部分 agent 能力折回 Core／Advanced／Max 席次。官方 Agentforce 定價頁並列 consumption-based **or per-user licensing**。
+
+產業媒體（SalesforceDevops.net，T3，2026-09-14）記載 legacy Enterprise list **$175**、Unlimited **$350**，故 Core／Advanced 約＋11%／＋13%；**非官方自己標的漲幅百分比**。若寫漲幅請標 T3 計算。
+
+**對角度 B 的含義：** 應改寫為「敘事上推 outcomes，帳單上回收席次」，不是單向的席次制崩解。見 7.1。
+
+### T5 Dreamforce 主要發表（一手核實）
+
+| 項目 | 結果 | 來源與層級 |
+|------|------|------------|
+| **AIforce**＝live interface layer；疊在 Data 360／Customer 360／Agentforce 之上；**Zero Data Retention** | 確認 | [AIforce 公告 2026-09-15](https://www.salesforce.com/news/stories/aiforce-announcement/)（T1） |
+| Claudeforce／Salesforce in Claude 進入 **all customers in beta** | 確認；台上轉寫另用 “open beta” | 同上＋keynote 轉寫／Salesforce Ben（T3） |
+| Hunter 上季約 **$500M pipeline** | 台上宣稱（轉寫）；官方新聞稿未見此句；轉寫對 Hunter vs Hunter+Piper 歸因不一 | Singju 轉寫／Ben 摘要（T3） |
+| Hunter **$2B annualized** | **非 Benioff 原話**；為媒體把 $500M×4 的外推 | [G2／Tim Sanders 2026-09-16](https://learn.g2.com/dreamforce-2026-keynote-recap) |
+| Fin「逾 **30,000** 家企業」 | 交割官方稿，穩 | [交割稿 2026-09-10](https://www.salesforce.com/news/press-releases/2026/09/10/salesforce-completes-acquisition-of-fin/)（T1） |
+| Agentforce「over **30,000** customers on this platform」 | 會期台上口徑；**官網 metrics 頁仍寫 25,000+**（抓取 2026-09-18） | 轉寫／Ben；[Agentforce metrics](https://www.salesforce.com/eu/agentforce/metrics/) |
+| Fulton Bank **80,000 hours**／**$389M** loans/deposits | **僅見** Salesforce Ben Agentforce keynote 摘要（T3）；官方 AIforce 稿僅有 Coworker 引言（約 20 use cases、3,000 users），**未**寫此二數字 | Ben 2026-09-16；勿升格為已刊官方數字 |
+
+**兩個 30,000 必須分開。** Fin 30k＝被收購方既有全球客戶基數；Agentforce 30k＝平台上線客戶（台上）並與官網 25k+ 並陳。
+
+### T6 Fin 在 Dreamforce 台上
+
+| 場次 | 結果 |
+|------|------|
+| **SMB & Startup Keynote: 5 turnkey agents, 10x results ft. Fin**（9/15，Room 3001） | **已舉行**；[Salesforce+](https://www.salesforce.com/plus/experience/dreamforce_2026/series/small_and_medium_business_at_dreamforce_2026/episode/episode-s1e2) 已上架 Replay。官方文案：Fin＝five turnkey agents 中的 newest，對象為 SMB leaders；講者含 **Des Traynor**。公開 meta **未說明**產品整併技術路徑。 |
+| **How Fin Delivers Over 90% Resolution Rates for Customers**（9/16，Stage 8） | **查無可靠來源**確認實際開講；**查無**錄影、官方摘要或可信現場稿。Salesforce+ 系列資料找不到此標題／Stage 8。「Over 90%」本場次無一手定義；**維持**兩個 90% 為最佳案例／標題用語、非平均值。 |
+
+### 會前 vs 會期（防混淆）
+
+| 日期 | 性質 | 與本節相關 |
+|------|------|------------|
+| 2026-09-03 | 會前 | Core／Advanced／Max editions＋席次捆綁 |
+| 2026-09-04 | 會前（據 T3） | Help 稱 Headless 360→AIforce |
+| 約 2026-09-08 至 14 | 會前 | 網站拿掉多個 Agentforce 產品前綴（媒體） |
+| 2026-09-10 | 會前 | Fin 交割；進 AI Labs |
+| 2026-09-11 | 會前 | 七具名 agents（含 Casey、Fin） |
+| 2026-09-15 至 17 | **會期** | AIforce；Claudeforce broad beta；Koa；SMB Keynote ft. Fin |
+
+---
+
 ## 五、估值合理性（次要，簡短）
 
 以 36 億美元計算：
@@ -306,10 +401,10 @@ writer 可寫「主要法域未見公開阻擋，交割反而提前；至少德�
 ### 7.1 建議切入角度（擇一或組合）
 
 **角度 A：兩手棋的架構論（最推薦）**
-以「Salesforce 一手把推理外包、一手把成果買斷」為主軸，把 Claudeforce 與 Fin 放在同一張架構圖上解釋。優勢是與前作直接呼應，且有 Everest Group 的「降低對前沿實驗室 API 依賴」作為第三方佐證。開頭可以從 9 月 10 日交割當天寫起，五天後就是 Dreamforce（會前已有兩場 Fin 具名場次）。
+以「Salesforce 一手把推理外包、一手把成果買斷」為主軸，把 Claudeforce 與 Fin 放在同一張架構圖上解釋。優勢是與前作直接呼應，且有 Everest Group 的「降低對前沿實驗室 API 依賴」作為第三方佐證。開頭可以從 9 月 10 日交割當天寫起，五天後就是 Dreamforce（會後已確認 SMB Keynote ft. Fin 有 Salesforce+ 成片；Stage 8「Over 90%」場次查無錄影）。Dreamforce **仍無** Fin Apex vs Claude 官方分工聲明，角度 A 維持推論框架。
 
-**角度 B：0.99 美元的定價革命**
-以三個價碼（Fin 0.99、Zendesk 1.50、Agentforce 2.00）為敘事骨幹，談 AI 如何把 SaaS 的計價單位從「人」換成「事」。McCabe 所稱新客戶 NRR 從 112% 到 146%（LinkedIn，非 IR）是可用的敘事數據，但須標明口徑。
+**角度 B：成果敘事與席次捆綁的雙軌（2026-09-18 會後改寫）**
+不要再寫「席次制走向終結」的單向崩解敘事。Dreamforce 前（2026-09-03 editions 稿＋定價頁）Salesforce 已把 Slack、Tableau Next、Flex Credits、部分 agent 能力折回 Sales／Service Cloud **Core $195／Advanced $395／Max $550** 席次；同時保留成果／用量錶：Fin **$0.99** per outcome、Help Agent Resolutions（Casey）**$2**、Agentforce Conversations **$2**。文章張力改為：Salesforce **一邊用成果計價打贏採購敘事，一邊把錢收回席次與捆綁**；席次制被重新武裝成 AI bundle，成果計價是加層而非替代。三個價碼（Fin 0.99、Zendesk 1.50／2.00、Agentforce 2.00）與 McCabe 新客戶 NRR 112%→146%（LinkedIn，非 IR）仍可用，但須放在雙軌框架下，並標明口徑。
 
 **角度 C：那個諷刺的三角**
 Anthropic 是 Fin 的客戶，Fin 說自己的模型贏過 Claude，Salesforce 同時買下 Fin 並把 Claude 立為預設模型。以這個三角的荒謬感開場，再拆解它其實在商業邏輯上完全自洽。
@@ -340,9 +435,15 @@ Anthropic 是 Fin 的客戶，Fin 說自己的模型贏過 Claude，Salesforce �
 10. **不要混用解決率數字**，每次引用都要標明出處與定義。目前已知**六個版本**：76%（Salesforce 交割稿，Fin 平均）、73.1%（Fin Apex benchmark，模型對比）、79%（Anthropic 案例頁）、65-70%（第三方推估）、「up to 90%」（AWS Intercom 案例）、「Over 90%」（Dreamforce 場次標題）。**兩個 90% 是行銷標題的最佳案例值，不是平均值，絕對不可當代表數字使用。**
 11. **Listen Labs 收購案只能寫成傳聞。** 約 20 億美元洽談、尚未簽約。
 12. **不要再用 Anthropic 案例舊數字 58% / 1,700 小時。** 現行官方案例頁為 >560k / 79% / 63% / 80%。
-13. **不要宣稱會前議程「完全沒有 Fin 場次」。** 已有兩場 Fin 具名場次；但不要把 Salesforce Apex（語言）場次誤認成 Fin Apex，也不要發明台上講稿（待會後補）。
-14. **不要把 Salesforce AI Labs 寫成等同 AI Research。** AI Labs 僅見交割稿措辭；ai-labs/ 404。
-15. ~~引述來自搜尋摘要、逐字引用前請核對~~：**已於 2026-09-11 核實的新聞稿 / Fin Ideas / Des Traynor / 定價頁引述可逕用核實措辭**；其餘未核者仍須保留。
+13. **Fin 議程（會後更新）：** 不要宣稱議程「完全沒有 Fin 場次」。會前已有兩場具名場次；會後確認 SMB Keynote ft. Fin 有 Salesforce+ 成片（含 Des Traynor），Stage 8「Over 90%」場次則**查無**錄影／摘要／舉行確證。不要把 Salesforce Apex（語言）場次誤認成 Fin Apex；不要發明 Stage 8 台上講稿或把「Over 90%」寫進平均值。
+14. **不要把 Salesforce AI Labs 寫成等同 AI Research。** AI Labs 僅見交割稿措辭；ai-labs/ 404。**查無** Fin Apex 納入 AI Research 一手聲明。
+15. ~~引述來自搜尋摘要、逐字引用前請核對~~：**已於 2026-09-11 核實的新聞稿 / Fin Ideas / Des Traynor / 定價頁引述可逕用核實措辭**；**2026-09-18 Dreamforce 會後核實項目見新增節與文末核實表**；其餘未核者仍須保留。
+16. **產品名稱管制：** 可寫會前網站去 Agentforce 前綴／Sales Cloud 復名，但須標**非官方新聞稿**；「約兩打」僅媒體數字。**不要**寫 Fin 品牌被吃掉。**不要**寫「官方宣布 Headless 360 改回 Salesforce Platform」；並陳 TNW／Platform、Ben Help→AIforce、官方「powered by Headless Toolkit」三套說法。
+17. **Casey 與 Fin：** Casey＝Help Agent persona；七 agent 發布日為 **2026-09-11 會前**（非 Dreamforce keynote）。兩者官方並存為 portfolio choice；**不要**寫已拍板合併，也**不要**把 Customer Zero 的 500 萬次直接寫成「Casey 產品對外客戶量」。
+18. **兩個 30,000：** Fin「逾 30,000 家企業」（交割稿）與 Agentforce「over 30,000 customers on this platform」（台上）定義不同，禁止合併敘述；Agentforce 須並陳官網 metrics 仍為 25,000+。
+19. **Hunter $2B：** Benioff 台上可寫上季約 $500M pipeline（註明轉寫對 Hunter／Piper 歸因不一）；**不要**把 $2B annualized 寫成官方年化數字（媒體外推）。
+20. **Fulton 80k／$389M：** 僅 Salesforce Ben keynote 轉述時可引用並標 T3；**不要**升格為 Salesforce 已刊官方數字。
+21. **不要寫「席次制已被成果計價取代」。** 官方是席次捆綁（Core／Advanced／Max）與 outcomes／credits 用量並存的雙軌。
 
 ### 7.4 寫作風格提醒（比照前作）
 
@@ -438,7 +539,7 @@ Anthropic 是 Fin 的客戶，Fin 說自己的模型贏過 Claude，Salesforce �
 
 ## 一手來源核實紀錄
 
-核實日期：2026-09-11。方法：live HTML / WebFetch / curl，非搜尋摘要。
+核實日期：2026-09-11（初輪）；**2026-09-18 追加 Dreamforce 會後核實（round 2）**。方法：live HTML / WebFetch / curl，非搜尋摘要。
 
 | 核實項目 | 結果 | 來源 URL | 備註 |
 |---------|------|---------|------|
@@ -469,26 +570,66 @@ Anthropic 是 Fin 的客戶，Fin 說自己的模型贏過 Claude，Salesforce �
 | Salesforce 台灣 Fin PR | 仍查無 | salesforce.com/tw/news/ | trade press 有轉述，非官方台灣稿 |
 | DKM APAC 經銷日期 | 仍薄弱 | dkmeco.com | 可寫經銷關係；勿寫死簽約日 |
 | Listen Labs | 仍查無簽約 | BI / TechCrunch 2026-09-09 | 約 $2B 洽談、未簽約、可能破局 |
+| Media resources gate（round 2） | 通過 | [dreamforce-26-media-resources](https://www.salesforce.com/news/dreamforce-26-media-resources/) | 首則 AIforce 09/15/26；2026-09-18 |
+| Sales Cloud 復名／去 Agentforce 前綴 | 部分一致 | [TNW 2026-09-14](https://thenextweb.com/news/salesforce-drops-agentforce-branding-product-names-dreamforce)；[salesforce.com/sales/](https://www.salesforce.com/sales/) | 會前網站；無官方改名稿；「約兩打」僅媒體 |
+| Headless 360 術語 | 並陳三套說法 | TNW（→Platform）；Ben 引 Help（→AIforce）；[AIforce 稿](https://www.salesforce.com/news/stories/aiforce-announcement/)（Headless Toolkit） | 勿單寫「官方改回 Platform」 |
+| Agentforce 360／Fin 品牌保留 | 一致 | 媒體＋官網；交割 PR；9/11 agents PR | Fin 未品牌被吃掉 |
+| Casey＝Help Agent persona | 一致 | [job-ready agents 2026-09-11](https://www.salesforce.com/news/stories/agentforce-job-ready-ai-agents/)；[SMB blog 2026-09-14](https://www.salesforce.com/blog/small-business/meet-your-digital-teammate-for-service-agent/) | 七 agent 為會前發布 |
+| 5M conversations 定義 | 已修正 | [Customer Zero](https://www.salesforce.com/agentforce/use-cases/customer-zero/) | Help／Agentforce on Help；非一律＝Casey |
+| Casey／Fin 合併路徑 | 查無 | （無） | 官方講 choice／portfolio |
+| Fin Apex vs Claude 官方分工 | 仍查無 | （無） | Dreamforce 後仍無；保留勿斷言 |
+| Claudeforce all-customer beta | 一致 | AIforce 09/15 | Sales skills；service 未來；台上另稱 open beta |
+| AIforce 首發三件套 | 一致 | AIforce PR | Claudeforce／Slackforce／Coworker；**Fin 不在三件套** |
+| Core／Advanced／Max 官價 | 一致 | [sales pricing](https://www.salesforce.com/sales/pricing/)；[editions 09/03](https://www.salesforce.com/news/stories/salesforce-simplifies-editions-2026/) | $195／$395／$550；Slack／Tableau／credits 捆綁 |
+| $2／$0.99／$2 成果錶 | 一致 | [Agentforce pricing](https://www.salesforce.com/agentforce/pricing/)；[fin.ai/pricing](https://fin.ai/pricing) | 席次**未被**取代；雙軌 |
+| AIforce＋Zero Data Retention | 確認 | [AIforce announcement](https://www.salesforce.com/news/stories/aiforce-announcement/) | 2026-09-15；T1 |
+| Hunter $500M pipeline | 台上宣稱 | keynote 轉寫；Salesforce Ben | 歸因 Hunter vs Hunter+Piper 不一；非 SEC |
+| Hunter $2B annualized | **非官方** | [G2 keynote recap](https://learn.g2.com/dreamforce-2026-keynote-recap) | 作者外推；勿當官方 |
+| Fin 30k vs Agentforce 30k | 已分開 | 交割稿；轉寫／Ben；[metrics 25k+](https://www.salesforce.com/eu/agentforce/metrics/) | 禁止合併；台上 vs 產品頁並陳 |
+| Fulton 80k／$389M | 僅 T3 | [Ben Agentforce keynote](https://www.salesforceben.com/complete-roundup-of-the-agentforce-keynote-at-dreamforce-26/) | 官方稿僅有 Coworker 引言 |
+| SMB Keynote ft. Fin | 有 Salesforce+ 成片 | [episode-s1e2](https://www.salesforce.com/plus/experience/dreamforce_2026/series/small_and_medium_business_at_dreamforce_2026/episode/episode-s1e2) | Fin＝turnkey newest；含 Des Traynor |
+| Stage 8 Over 90% 場次 | 查無錄影／摘要／舉行確證 | （無） | 勿塌縮進平均值 |
+| Apex 2.8% vs 3.5pp／獨立複現 | 仍矛盾；仍查無複現 | fin.ai/cx-models；VentureBeat | 維持原狀（T7a） |
+| Zendesk／Sierra／Bret Taylor 回應 | 仍查無 | newsroom；sierra.ai/blog | T7b |
+| Form 8-K Item 2.01 | 仍查無；S-8 確認 09-10 交割 | [EDGAR S-8](https://www.sec.gov/Archives/edgar/data/1108524/000110852426000204/forms-8xfinequityplan.htm) | 無 PPA；T7c |
+| DE B7-50/26 PDF／ACCC 原文 | PDF 仍未取回；ACCC URL 被擋 | （無） | 維持前輪；T7d |
+| 台灣市場 | 仍查無客戶／定價／專稿 | （無） | 繁中支援前輪已記；T7e |
+| Listen Labs（會期） | 仍未簽約；DF 無官宣 | BI／TC 2026-09-09 | T7f |
+| Headless 360 in published article（T8） | 已發布文 2 行／3 次；前作備忘 6 行／7 次 | `docs/articles/2026-08-27-…`；`drafts/2026-08-27-…` | **建議 footnote，本輪未改已發布文** |
 
 ## 交接備註
 
 ### 研究狀態
 
 - [x] 資料收集完成
-- [x] 大綱確定（見第七節建議切入角度）
-- [x] **2026-09-11 一手來源核實輪次完成**（於另一個具備瀏覽器存取的環境執行；初查環境的 EGRESS_BLOCKED 限制仍然成立，未來若在該環境續接，逐字引述一樣讀不到原文）
+- [x] 大綱確定（見第七節建議切入角度；**角度 B 已於 2026-09-18 改為雙軌定價**）
+- [x] **2026-09-11 一手來源核實輪次完成**
+- [x] **2026-09-18 Dreamforce 會後核實（round 2）完成**（T1 至 T8；新增「Dreamforce 2026 會後更新」節；更新 7.1／7.3／核實表）
 - [x] 可開始撰寫
 
-### 待補充項目
+### 已完成（本輪 round 2）
 
-1. **購買價格分攤（PPA）/ 商譽**：對價已確認為約 36 億美元現金；earnout 仍查無。FY27 Q3 財報若揭露 PPA 可回頭補
-2. **Dreamforce 台上內容（Task 2）**：會前已確認兩場 Fin 具名場次；台上講稿、產品整併路徑待會期後補
-3. **Fin Apex 與 Claude 在 Salesforce 內的分工**：目前沒有任何官方聲明
-4. **獨立第三方對 Fin Apex benchmark 的複現**：仍查無
-5. **Zendesk 與 Sierra 的官方回應**：仍查無
-6. **台灣客戶名單 / 本地定價 / Salesforce Taiwan Fin PR**：仍查無（繁中支援已確認）
-7. **Listen Labs**：截至 2026-09-11 仍為約 20 億美元洽談、未簽約
-8. **交割專屬 Form 8-K**：截至 2026-09-11 查無；若之後出現可補 Item 2.01 細節
+1. ~~Dreamforce 台上內容~~：SMB Keynote ft. Fin 有 Salesforce+ 成片；Stage 8「Over 90%」查無錄影／摘要
+2. ~~定價方向~~：確認席次捆綁＋成果計價雙軌；角度 B 已改寫
+3. ~~Casey／Fin 分工與七 agent 日期~~：Casey＝Help persona；9/11 會前；合併路徑查無
+4. ~~產品改名範圍~~：Sales Cloud 復名、Agentforce 360／Fin 保留；Headless 360 三套說法並陳
+5. ~~AIforce／Claudeforce beta／兩個 30k／Hunter $500M vs $2B~~：已寫入會後更新節
+
+### 待補充項目（仍開放）
+
+1. **購買價格分攤（PPA）/ 商譽**：對價已確認為約 36 億美元現金；earnout 仍查無。FY27 Q3 財報若揭露 PPA 可回頭補。S-8（2026-09-10／11）確認交割但無 PPA
+2. **Fin Apex 與 Claude 在 Salesforce 內的分工**：Dreamforce 後**仍查無**官方聲明；角度 A 維持推論
+3. **獨立第三方對 Fin Apex benchmark 的複現**：仍查無；2.8% vs 3.5pp 矛盾仍在
+4. **Zendesk 與 Sierra／Bret Taylor 的官方回應**：仍查無
+5. **台灣客戶名單 / 本地定價 / Salesforce Taiwan Fin PR**：仍查無（繁中支援已確認；本輪未複驗語言表原文成功）
+6. **Listen Labs**：截至 2026-09-18 仍為約 20 億美元洽談、未簽約；Dreamforce **無**官宣
+7. **交割專屬 Form 8-K Item 2.01**：仍查無；可用 S-8 作 SEC 交割確認
+8. **德國 B7-50/26 clearance PDF**、**ACCC Phase 1 原文**（本環境 Access Denied）：仍未取回一手 PDF
+9. **SMB Keynote 逐字聽寫**：本輪僅核到 Salesforce+ published metadata／description，未逐字聽完成片
+10. **T8 已發布前作術語（建議 footnote，勿自行改寫 published）**
+    - `docs/articles/2026-08-27-claudeforce-salesforce-anthropic-analysis.md`：含「Headless 360」**2 行／3 次**（約 L47、L73）
+    - `drafts/2026-08-27-memo-salesforce-claudeforce-research.md`：含該詞 **6 行／7 次**
+    - **建議**：已發布文加編者註／文末 footnote，說明 2026-08 寫作時官方名稱為 Headless 360；Dreamforce 前／會期官網改掛 Salesforce Platform／AIforce＋Headless Toolkit；ARR 口徑仍以當時 10-Q／earnings 原文為準。**本輪未改這兩檔。**
 
 ### 續接建議
 
@@ -496,6 +637,7 @@ Anthropic 是 Fin 的客戶，Fin 說自己的模型贏過 Claude，Salesforce �
 - **建議模板：** `templates/article-template.md`（深度分析文，3,000 至 4,500 字）
 - **特別注意：**
   - **交易已完成交割（2026-09-10），不要沿用「尚未完成」的舊前提；對價寫現金約 36 億美元**
-  - 本文與 2026-08-27 的 Claudeforce 分析文為同一系列，建議在文中明確互相引用，並避免重複展開 Claudeforce 的產品細節（讀者可回頭看前作）
-  - 一手引述以 2026-09-11 核實措辭為準；見「一手來源核實紀錄」
-  - 數字可信度分層：Salesforce 官方新聞稿與 SEC 文件最可信；Sacra 為付費研究機構的估算，可用但要標明「估計」；分析部落格只能當觀點引用，不能當事實
+  - **定價寫雙軌，不要寫席次制已被取代**；見會後更新 T4 與 7.1 角度 B
+  - 本文與 2026-08-27 的 Claudeforce 分析文為同一系列，建議在文中明確互相引用，並避免重複展開 Claudeforce 的產品細節（讀者可回頭看前作）；**前作 Headless 360 用語見上列 T8 建議 footnote**
+  - 一手引述以 2026-09-11 與 **2026-09-18** 核實措辭為準；見「一手來源核實紀錄」
+  - 數字可信度分層：Salesforce 官方新聞稿與 SEC 文件最可信；Sacra 為付費研究機構的估算，可用但要標明「估計」；分析部落格只能當觀點引用，不能當事實；keynote 數字若僅有非官方轉寫須標明
