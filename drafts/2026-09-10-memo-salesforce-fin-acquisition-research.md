@@ -1,9 +1,9 @@
 ---
 title: "Research Memo: Salesforce 收購 Fin 與 Claudeforce 的兩手棋"
-description: "Salesforce 以約 36 億美元收購 Fin（前 Intercom）的研究備忘，聚焦這樁併購與 Claudeforce 模型外包的連動、Fin 自研模型 Apex 的定位，以及 outcome-based 定價對 AI 客服賽道的衝擊"
+description: "Salesforce 以約 36 億美元收購 Fin（前 Intercom）的研究備忘；Dreamforce 會後補上 Koa（首個 CRM reasoning model），把 Claude／Fin Apex／Koa 放進同一張堆疊圖，並標明哪些關係仍屬推論"
 date: 2026-09-10
 author: "Clement Tang"
-tags: ["research-memo", "Salesforce", "Fin", "Intercom", "Agentforce", "Anthropic", "Claudeforce", "AI 客服", "併購", "企業軟體"]
+tags: ["research-memo", "Salesforce", "Fin", "Intercom", "Agentforce", "Anthropic", "Claudeforce", "Koa", "NVIDIA", "AI 客服", "併購", "企業軟體"]
 category: memo
 status: draft
 related:
@@ -13,19 +13,19 @@ related:
 
 # Research Memo: Salesforce 收購 Fin 與 Claudeforce 的兩手棋
 
-> 輕量級研究備忘錄，供 writer agent 擴寫為深度分析文。事實以 2026-09-10 初查為底，並於 2026-09-11 以一手頁面（live HTML / WebFetch）核實後更新；**2026-09-18 另完成 Dreamforce 2026 會後一手核實（round 2）**。本篇為 Claudeforce 備忘（2026-08-27）的續篇，論述請與前作呼應。
+> 輕量級研究備忘錄，供 writer agent 擴寫為深度分析文。事實以 2026-09-10 初查為底，並於 2026-09-11 以一手頁面（live HTML / WebFetch）核實後更新；**2026-09-18 完成 Dreamforce 2026 會後核實（round 2）**，同日另完成 **Koa／三層模型策略核實（round 3）**。本篇為 Claudeforce 備忘（2026-08-27）的續篇，論述請與前作呼應。租／買／造三層是本研究分析框架，**不是** Salesforce 官方戰略名稱。
 
 ## 會話資訊
 
 | 欄位 | 內容 |
 |------|------|
-| **日期** | 2026-09-10（初稿）；2026-09-11（一手核實）；**2026-09-18（Dreamforce 會後核實 round 2）** |
+| **日期** | 2026-09-10（初稿）；2026-09-11（一手核實）；**2026-09-18（Dreamforce 會後核實 round 2；Koa／三層模型 round 3）** |
 | **平台** | CLI（deep research agent） |
 | **目標輸出** | Article（深度分析文章） |
 | **預計字數** | 3,000 至 4,500 字 |
 | **前作** | [Claudeforce 研究備忘](./2026-08-27-memo-salesforce-claudeforce-research.md)、[Claudeforce 分析文](../docs/articles/2026-08-27-claudeforce-salesforce-anthropic-analysis.md) |
-| **研究方法** | 2026-09-10 以 WebSearch 交叉查證；**2026-09-11 已對主要一手頁面以 live HTML / WebFetch 逐頁核實**（Salesforce 新聞稿、Fin Ideas、fin.ai 定價與案例、Apex / CX Models、Intercom 官方部落格、Agentforce / Zendesk 定價頁、Dreamforce 議程與 SEC 10-Q 等）。**2026-09-18 Dreamforce 會後核實（round 2）**：先通過 media resources gate，再以 WebFetch／curl 讀 Salesforce 官方稿、定價頁、Salesforce+ 場次元資料、SEC EDGAR、TNW／Salesforce Ben 等原文；搜尋僅作發現線索。明確區分會前發表與會期發表、官方與產業媒體。仍查無或僅二手者已於「一手來源核實紀錄」標明。 |
-| **重大更新** | （1）交易已於 **2026-09-10 完成交割**，對價約 **36 億美元現金**（FY27 Q2 10-Q）。（2）**2026-09-18 會後核實**：產品名稱流動、Casey／Fin 並存、定價雙軌（席次捆綁＋成果計價）、AIforce／Claudeforce beta、兩個 30,000 必須分開；詳見新增「Dreamforce 2026 會後更新」節。 |
+| **研究方法** | 2026-09-10 以 WebSearch 交叉查證；**2026-09-11 已對主要一手頁面以 live HTML / WebFetch 逐頁核實**（Salesforce 新聞稿、Fin Ideas、fin.ai 定價與案例、Apex / CX Models、Intercom 官方部落格、Agentforce / Zendesk 定價頁、Dreamforce 議程與 SEC 10-Q 等）。**2026-09-18 Dreamforce 會後核實（round 2）**：先通過 media resources gate，再以 WebFetch／curl 讀 Salesforce 官方稿、定價頁、Salesforce+ 場次元資料、SEC EDGAR、TNW／Salesforce Ben 等原文。**同日 round 3（Koa）**：gate 通過官方 Koa PR 標題與首段，再讀 Why We Post-Trained、產品頁、NVIDIA blog、arXiv 2609.15066、Agentforce 定價頁、TechCrunch／Techzine／Channel Insider、Anthropic newsroom（負面證據）；不重查前兩輪已確認的 Fin／Claudeforce 事實。搜尋僅作發現線索。仍查無或僅二手者已於「一手來源核實紀錄」標明。 |
+| **重大更新** | （1）交易已於 **2026-09-10 完成交割**，對價約 **36 億美元現金**（FY27 Q2 10-Q）。（2）**2026-09-18 會後核實（round 2）**：產品名稱流動、Casey／Fin 並存、定價雙軌、AIforce／Claudeforce beta、兩個 30,000 必須分開。（3）**同日 round 3**：補上 **Koa**（首個 CRM reasoning model，built on Nemotron 3 Super）；堆疊圖改為 Claude／Fin Apex／Koa 三模型層；核心張力與角度 A 改三層架構論；「租腦／買手」比喻標為不完整分析框架。詳見會後更新內 **Koa 與三層模型策略**。 |
 
 ---
 
@@ -131,7 +131,7 @@ Intercom 於 2011 年在都柏林創立，創辦人為 Eoghan McCabe、Des Trayn
 2026-08-26  Claudeforce 發布，Claude 成為 Salesforce 全線預設模型
 2026-09-01  Contentful 交割完成
 2026-09-10  Fin 交割完成，納入 Salesforce AI Labs
-2026-09-15  Dreamforce 2026 開幕（Moscone Center，9/15 至 9/17）
+2026-09-15  Dreamforce 2026 開幕（Moscone Center，9/15 至 9/17）；同日發表 Koa（首個 CRM reasoning model）
 ```
 
 收購案在前，模型外包在後，兩者相隔 72 天，而 Fin 的交割日距離 Dreamforce 開幕只有五天。會前（2026-09-11）官方頁確認活動為 **9/15 至 9/17**（Moscone / Salesforce+）；行銷首頁主打 Claudeforce 與 Dario Amodei，**尚無 Fin 收購專題露出**。瀏覽器議程目錄搜尋則已找到兩場 **Fin 具名場次**（Intercom = 0；精確詞「AI Labs」= 0）：
@@ -143,15 +143,17 @@ Intercom 於 2011 年在都柏林創立，創辦人為 Eoghan McCabe、Des Trayn
 
 ### 3.2 Fin 在堆疊裡的位置
 
-我的判讀（**分析，非查證事實**）：Fin 同時卡在三層，這正是它值 36 億美元、也正是它與 Claudeforce 產生張力的原因。
+我的判讀（**分析，非查證事實**）：Fin 仍同時卡在 Agent／應用層；模型層在 Dreamforce 後已從「Claude vs Fin Apex」擴成**三個可觀測的模型資產**。下表拆開模型層，並標明官方確認與推論。
 
-| 層級 | Fin 帶來什麼 | 與 Salesforce 既有資產的關係 |
-|------|-------------|---------------------------|
-| **模型層** | Fin CX Model Suite（含 Fin Apex 1.0） | 與 Claudeforce 的「Claude 為預設模型」直接競合 |
-| **Agent 層** | 開箱即用的客服代理，平均解決率官方稱 76% | 與 Agentforce Service Agent / Help Agent 高度重疊 |
-| **應用層** | Intercom 2 客服平台、逾 3 萬家客戶、SMB 通路 | 與 Service Cloud 部分重疊，但補上 Salesforce 弱勢的中小企業市場 |
+| 層級 | 資產 | 官方確認（截至 2026-09-18） | 關係／分工（推論請標明） |
+|------|------|---------------------------|--------------------------|
+| **模型層：前沿／平台預設** | Claude（Claudeforce／Agentforce 等） | Claude 為多產品預設模型，並為 Atlas Reasoning Engine **可選**推理模型之一（見前作備忘）；AIforce 稿稱 Claudeforce **all customers in beta**，主範圍偏銷售 | 與 Koa／Fin Apex **並存**而非官方宣告取代；三者之間**查無**完整官方分工聲明 |
+| **模型層：客服垂直** | Fin CX Model Suite（含 Fin Apex 1.0） | 交割稿保留 Fin model suite；七 agent 稿把 Fin Apex 掛在 **Fin** agent 下；組織掛鉤為 **Salesforce AI Labs**（交割稿） | Everest（2026-06）稱 Apex 有助「降低對前沿實驗室 API 依賴」屬**分析**；**查無**官方「Fin Apex 負責客服、Claude 負責其他」句；**查無**與 Koa 整併訊號 |
+| **模型層：CRM 平台推理（會期新增）** | **Koa** | 官方定位為 Salesforce **first CRM reasoning model for Agentforce**，built on **NVIDIA Nemotron**（Nemotron 3 Super post-train）；產品頁列為 Agentforce／Setup **可選 model provider（第四家）**、opt-in；weights 與 inference 在 Salesforce trust boundary；組織敘事掛 **AI Research**（技術故事／arXiv），**不是** AI Labs | **查無**官方「Koa 進入 Atlas」聲明；**查無**「取代 Claude」；**查無**「Koa 管 CRM、Fin Apex 管客服」分工；「租／買／造」三層＝**本研究框架，非官方戰略名**（詳見會後更新「Koa 與三層模型策略」） |
+| **Agent 層** | Fin 開箱客服代理（官方平均解決率 76%） | 交割稿與七 agent 名單並存 Casey／Fin | 與 Agentforce Service Agent／Help Agent（Casey）高度重疊；合併路徑**查無** |
+| **應用層** | Intercom 2 客服平台、逾 3 萬家客戶、SMB 通路 | 收購稿：Fin fast-to-value especially well-suited for SMB and some commercial | 與 Service Cloud 部分重疊，補中小企業市場；屬產品組合敘事 |
 
-Everest Group 的分析把這件事講得最清楚：Fin 把 Agentforce 往下延伸到 Salesforce 企業級銷售模式服務不到的 SMB 與中型市場，同時帶來一套已經跑通的 outcome-based 定價；而 **Fin 自有的 Apex 模型讓 Salesforce 擁有一個自己掌控的客服專用模型，降低對前沿實驗室 API 的依賴**（[Everest Group](https://www.everestgrp.com/blogs/salesforce-built-the-foundation-fin-brings-the-intelligence)，2026-06）。
+Everest Group（2026-06，**早於 Koa**）把 Fin 講成：把 Agentforce 往下延伸到企業級銷售模式服務不到的 SMB／中型市場，並帶來已跑通的 outcome-based 定價；同時稱 **Fin 自有 Apex 讓 Salesforce 擁有自己掌控的客服專用模型，降低對前沿實驗室 API 的依賴**（[Everest Group](https://www.everestgrp.com/blogs/salesforce-built-the-foundation-fin-brings-the-intelligence)）。**不可**把該句偷渡成 Everest 已評 Koa。
 
 ### 3.3 Fin 的模型策略：一段完整的「先外包、再自研」路徑
 
@@ -182,17 +184,23 @@ Fin 的模型套件不只 Apex，而是七個各司其職的模型，包括 Esca
 
 **我的分析（非查證事實）：**
 
-這兩步棋拼起來的圖像，是一個**分層外包、分層自持**的架構。Salesforce 把最貴、最難、最沒有差異化空間的通用推理層外包給 Anthropic，換取合規背書與分發通路；同時用 36 億美元現金買下客服這個單一垂直領域的專用模型與現成代理，把「解決率」這個唯一能收費的指標握在自己手上。
+會前兩步棋拼起來，仍像**分層外包、分層自持**：把通用推理外包給 Anthropic（Claudeforce），用 36 億美元現金買下客服垂直的專用模型與現成代理（Fin／Fin Apex），把「解決率」這個能收費的指標握在自己手上。
 
-換句話說，Claudeforce 買的是**推理能力**，Fin 買的是**成果保證**。前者是別人的資產，後者要變成自己的資產。
+Dreamforce 同日發表 **Koa** 之後，可觀測圖像變成**三套模型敘事**（仍非官方自我命名）：
 
-這個架構的合理性在於：客服是 Benioff 拿來證明 AI ROI 最重要的展示櫥窗（Salesforce 自家客服團隊從約 9,000 人縮減到約 5,000 人，見前作備忘第 3.4 節）。把這個櫥窗的模型層押在一家隨時可能改變定價、而且正在準備 IPO 的模型供應商身上，風險太高。
+1. **租（Claude）**：前沿推理／預設模型與 Claudeforce 通路；官方強調並存與可選，而非「只認一家」。
+2. **買（Fin Apex）**：收購進來的 CX／客服垂直模型，掛在 Fin agent 與 **AI Labs**。
+3. **造（Koa）**：在 Nemotron 開源權重上 post-train 的 CRM reasoning model，Salesforce 控制 weights、推理在 trust boundary；掛 **AI Research**／Agentforce 可選 provider。
 
-風險則在於：**Salesforce 現在同時擁有兩套互相競爭的模型敘事**。對客戶說「Claude 是最好的推理模型」的同一家公司，旗下的 Fin 官方 benchmark 說「我們的 Apex 在客服場景贏過 Claude」。這兩句話可以並存（垂直模型在垂直任務上贏過通用模型是合理的），但需要非常小心的產品訊息設計。Dreamforce（9/15 至 9/17）已排入兩場 Fin 具名場次；會後確認 SMB Keynote 把 Fin 放進 SMB turnkey agents 敘事，但 **Fin Apex vs Claude 官方分工聲明仍查無**（見會後更新 T3）。
+原備忘的「Claudeforce 租腦、Fin 買手」比喻**至多描述前兩層**；少了「造」就無法解釋會期新增的 Koa。該比喻與「租／買／造」三層一樣，是**分析框架，不是 Salesforce 官方戰略聲明**（截至 2026-09-18 **查無**官方用 rent／buy／build 或「三層模型策略」自我描述）。
 
-**還有一個諷刺的層次：Anthropic 自己是 Fin 的客戶。** 現行官方案例頁（[fin.ai/customers/anthropic-transformation](https://fin.ai/customers/anthropic-transformation)，2026-09-11 核實）公布的指標是：每月逾 **56 萬**次 Fin resolutions、**79%** resolution rate、**63%** automation rate；正文並寫 Fin 介入 **80%** 的進來查詢，再以 79% 解決率端到端處理約 63% 的支援量。**舊備忘的 58% 解決率與節省 1,700 小時已不在現行一手案例頁**，不可再當現況數字。AWS 案例談的是 Intercom「resolution rates of up to 90 percent」，亦非 58% / 1,700。也就是說，Salesforce 買下的公司，是它最大模型夥伴的客服供應商；而這家公司又剛剛發表 benchmark 說自己的模型比那個夥伴的模型好。
+架構合理性（推論）：客服仍是 Benioff 證明 AI ROI 的重要櫥窗（自家客服團隊從約 9,000 人縮減到約 5,000 人，見前作備忘第 3.4 節）；Fin 把成果收費握在自己手上。Koa 則回應另一類風險：高頻 CRM multi-step 若長期只靠 frontier token，控制權、traces 與成本敘事（媒體 tokenomics，**非**官方定價承諾）都偏弱。官方 Why We Post-Trained 強調的是 trust boundary 與「alongside frontier LLMs」，不是「脫離 Anthropic」。
 
-> **這一段是全篇最強的敘事素材，建議 writer 重點鋪陳。**
+風險則在於：**同一公司現在同時講三套模型故事**。對客戶說 Claude 是預設／前沿推理；Fin 自家 benchmark 說 Apex 在客服場景贏過 Claude；Koa 的 PR 說在自家 CRM Bench 上 matches or exceeds leading model performance with three times fewer errors（**未點名** Claude／GPT），而同公司 arXiv 論文又承認 Koa remaining below the strongest frontier models。三句話可以並存（場景不同、基準不同），但產品訊息設計難度比兩套更高。**Claude vs Fin Apex、Koa vs Claude、Koa vs Fin Apex 的官方點名分工截至 2026-09-18 皆查無**（見會後更新 T3 與「Koa 與三層模型策略」）。
+
+**還有一個諷刺的層次：Anthropic 自己是 Fin 的客戶。** 現行官方案例頁（核實於 2026-09-11）公布每月逾 **56 萬**次 Fin resolutions、**79%** resolution rate、**63%** automation rate；正文並寫 Fin 介入 **80%** 的進來查詢，再以 79% 解決率端到端處理約 63% 的支援量。**舊備忘的 58% 解決率與節省 1,700 小時已不在現行一手案例頁**，不可再當現況數字。也就是說，Salesforce 買下的公司，是它最大模型夥伴的客服供應商；而這家公司又發表 benchmark 說自己的模型比那個夥伴的模型好。會期再疊上 TechCrunch「AI labs should fear」與同稿「isn’t exactly abandoning Anthropic」的並讀，諷刺三角變成可寫的開場，但 Anthropic **查無**對 Koa 的官方回應。
+
+> **這一段仍是全篇最強的敘事素材；round 3 起請用「三套敘事＋租買造為分析框架」鋪陳，勿寫成官方戰略名。**
 
 ---
 
@@ -300,7 +308,7 @@ writer 可寫「主要法域未見公開阻擋，交割反而提前；至少德�
 - **截至 2026-09-18，Dreamforce 官方材料中查無**「Fin Apex 負責客服、Claude 負責銷售／推理」這類明確分工聲明。備忘第 7.3 條「不要斷言 Fin Apex 會不會取代 Claude」**應保留**。
 - **Claudeforce／Salesforce in Claude**：AIforce 稿（2026-09-15，T1）稱 **now available to all customers in beta**；**37 prebuilt sales skills**；service／marketing／commerce skills「in the near future」。亦即 broad beta **主範圍是銷售**，客服場景**尚未**列為已含。
 - **AIforce 首發三件套**：Claudeforce、Slackforce、Agentforce Coworker。**Fin 未出現在 AIforce 首發三件套**。Fin 歸屬官方表述仍為 **Salesforce AI Labs**（交割稿）；**查無**「Fin Apex 納入 Salesforce AI Research」一手聲明。
-- **Techzine 標題易誤導**（T3）：本輪讀到的 Techzine 主體是 Salesforce＋NVIDIA 的 **Koa** CRM reasoning model，旁論 Fin Apex／Casey；**不是**官方「自建模型取代 Claude」聲明。Koa 另有官方稿（2026-09-15），與 Fin Apex 不可混為一談。
+- **Techzine 標題易誤導**（T3）：主體是 Salesforce＋NVIDIA 的 **Koa** CRM reasoning model，旁論 Fin Apex／Casey；**不是**官方「自建模型取代 Claude」聲明。Koa 與 Fin Apex 不可混為一談；完整 K1/K6 見下節「Koa 與三層模型策略」。
 
 ### T4 定價：席次制沒有被成果計價取代（雙軌）
 
@@ -354,6 +362,62 @@ Editions 稿（**會前** 2026-09-03）把 Slack、Tableau Next、credits、部�
 | 2026-09-11 | 會前 | 七具名 agents（含 Casey、Fin） |
 | 2026-09-15 至 17 | **會期** | AIforce；Claudeforce broad beta；Koa；SMB Keynote ft. Fin |
 
+### Koa 與三層模型策略
+
+> round 3 核實日：2026-09-18（Asia/Saigon）。範圍：僅補 Koa／三層模型缺口，不重查前兩輪 Fin／Claudeforce 已確認事實。T1＝Salesforce／NVIDIA／SEC；T2＝一線媒體；T3＝產業媒體。**租／買／造三層＝本研究分析框架，查無 Salesforce 官方以此自我描述。**
+
+#### K1 官方定位與規格（T1）
+
+- **定位句**（[Koa PR 2026-09-15](https://www.salesforce.com/news/press-releases/2026/09/15/koa-reasoning-model/)）："Salesforce's first CRM reasoning model for Agentforce, built on NVIDIA Nemotron."；"purpose-built to help agents reason through complex, multistep workflows and use the right tools to get work done."
+- **基座與 post-train**：built by post-training **NVIDIA Nemotron 3 Super** with a proprietary synthetic dataset；方法含 SFT 與 GRPO（NVIDIA NeMo RL／Gym／AutoModel）。Why We Post-Trained 稱 Nemotron 3 Super 為 120B open model，並寫 "co-engineered Koa with NVIDIA"（[Why We Post-Trained 2026-09-16](https://www.salesforce.com/news/stories/why-we-post-trained-our-own-reasoning-model/)）。
+- **27 年／nearly three decades**：官方並用 "27 years of Salesforce CRM intelligence" 與 "nearly three decades of CRM deployments"；訓練語料為 **synthetic scenarios**，PR 明寫 "No customer data was used"。
+- **Benchmark**：PR 寫 "Salesforce's CRM benchmark"；NVIDIA blog／產品頁用專名 **CRM Bench**。arXiv（[2609.15066](https://arxiv.org/abs/2609.15066)，Submitted 2026-09-14，單位 Salesforce Agentforce & AI Research）將其與公開 Tau2Bench／BFCL 並列，屬 **vendor 自建／自發布**，不是獨立產業標準。
+- **「three times fewer errors」**：PR／產品頁寫 matches or exceeds leading model performance on CRM actions with **three times fewer errors**；**未點名** Claude、GPT、ChatGPT。產品頁另給相對 "today's default general intelligence models" 的指標，仍未點名型號。
+- **論文 nuance（同公司，須分層）**：CRM Bench Weighted Avg 例：GPT-5.5 0.90、Claude Opus 4.8 0.87、**Koa 0.86**、基座 Nemotron 0.84、GPT-4.1 0.81。摘要："surpasses a strong proprietary baseline while remaining below the strongest frontier models."（baseline 正文點名 GPT-4.1）。論文**未出現** "three times fewer errors"。Tau2Bench 上 Koa 亦落後 GPT-5.5／Opus 4.8。
+- **獨立第三方複現**：截至 2026-09-18 **查無可靠來源**。管制比照 Fin Apex：勿把 CRM Bench／3x 當中立第三方評測。
+
+#### K2 與 Claude 的分工
+
+- **Atlas**：官方 PR／Why We Post-Trained／NVIDIA blog／產品頁全文 **查無** "Atlas"＋Koa。截至 2026-09-18 **查無**「Koa 進入 Atlas Reasoning Engine」官方聲明。
+- **可選並存（官方訊號）**：產品頁稱 **fourth model provider** options in Setup、customers **opt-in**；NVIDIA blog：customer-selectable model in Agentforce；PR：Salesforce-hosted option。
+- **最接近的官方編排句**（Why We Post-Trained，**未點名 Claude**）：orchestrating purpose-built models **alongside frontier LLMs**… while **Koa handles multi-step enterprise reasoning**。這不是「Koa＝CRM、Claude＝X」點名分工。
+- **取代 Claude**：**查無**。Claudeforce 範圍本輪無反向改寫證據；前兩輪「broad beta 偏銷售、客服未列入」維持。
+- **「比丟給 Claude 便宜」**：T1 PR／產品頁／[Agentforce pricing](https://www.salesforce.com/agentforce/pricing/)（2026-09-18 抓取）**無** cheaper-than-Claude、無 token 單價。TechCrunch（T2，2026-09-15）記者綜述＋生態系訪談談 tokens burned／tokenomics，屬**媒體／訪談**，不可寫成官方定價承諾。
+- **官方「租、買、造三套模型」戰略聲明**：**查無**。
+
+#### K3 與 Fin Apex 的邊界
+
+| | Koa（官方） | Fin Apex（前兩輪） |
+|------|-------------|-------------------|
+| 定位 | CRM reasoning model for **Agentforce** | CX／客服垂直模型，驅動 **Fin** agent |
+| 組織 | 技術故事／arXiv 掛 **AI Research** | 交割稿掛 **Salesforce AI Labs** |
+| 任務語彙 | leads、opportunities、resolving service cases、CRM actions | 客服解決率／CX workflows |
+
+- **官方領域分工聲明**：**查無**（兩者都碰 service／case，重疊風險屬推論）。
+- **整併訊號**：Koa 一手來源零提及 Fin Apex；**查無**併入／反向路線圖。
+- **AI Labs ≠ AI Research**：Koa 發表**沒有**把 Fin 改口到 AI Research，也**沒有**說 Koa 屬 AI Labs；維持前輪不可逕自等同。
+- **Fin Apex 官方定位因 Koa 改寫**：**查無**證據。
+
+#### K4 定價與可用性
+
+- **時程（T1 PR）**：Available to **select pilot customers now** in Agentforce；general availability expected **winter 2026 in U.S. regions**。產品頁 FAQ 另寫 open beta starting shortly after。NVIDIA blog 寫 pilots "in **October**"（與 PR「now」略有時序差，並列兩源，勿揉成單一日期）。
+- **Pilot 客戶名單（PR／產品頁）**：1-800Accountant、Baxter Credit Union (BCU)、Engine、Formula 1、UChicago Medicine、Xero。
+- **計價**：Agentforce 定價頁（2026-09-18）**Koa／Nemotron 出現次數＝0**；PR／產品頁亦無公開價。**查無可靠來源**說明是否吃 Flex Credits、席次捆綁或獨立 SKU。角度 B 雙軌定價論**暫不因 Koa 強制改寫**；成本故事只能標媒體 tokenomics／尚無官方價。
+
+#### K5 NVIDIA 合作性質
+
+- **官方措辭**：PR "**deep technical collaboration** with NVIDIA"；Why We Post-Trained "**co-engineered**"；Salesforce **controls the model weights**，post-training and inference within its own trust boundary。定性為開源權重基座上的主導 post-train＋NeMo 工具鏈，**不是**買斷 Nemotron 或合資公司聲明。
+- **Jensen Huang（PR 引，與 Koa 直接相關）**："NVIDIA Nemotron open models give Salesforce the foundation to turn decades of enterprise expertise into specialized AI with Koa…" (Jensen Huang, founder and CEO of NVIDIA).
+- **Nemotron open weights**：Nemotron Open Model License（Last Modified 2025-12-15）商業可用、可衍生、no-charge royalty-free；**不是**口語「任意無條件開源」。客戶拿到的是 Salesforce-hosted option，**不是**下載 Koa 開源權重。
+- **股權／投資**：截至 2026-09-18 **查無可靠來源**顯示本樁合作伴隨 Salesforce↔NVIDIA 新股權交易。不可與「Salesforce 持有 Anthropic 股權」編成對稱股權故事。
+
+#### K6 外部評價與三層並讀
+
+- TechCrunch（T2，2026-09-15）標題走向 "AI labs should fear"，同稿強調 isn't exactly abandoning Anthropic／Claudeforce。
+- Techzine／Channel Insider（T3）有把 Claudeforce／Koa／Fin Apex 串讀或主張專用模型處理高頻 CRM；**皆非**官方三層戰略名。
+- Everest「降低 API 依賴」（2026-06）原句綁 **Fin Apex**，**不可**直接當成對 Koa 的 Everest 評語。
+- Anthropic newsroom（2026-09-18 抓取）：Salesforce／Dreamforce／Koa／Claudeforce **出現次數＝0**；**查無** Anthropic 官方回應。
+
 ---
 
 ## 五、估值合理性（次要，簡短）
@@ -400,14 +464,18 @@ Editions 稿（**會前** 2026-09-03）把 Slack、Tableau Next、credits、部�
 
 ### 7.1 建議切入角度（擇一或組合）
 
-**角度 A：兩手棋的架構論（最推薦）**
-以「Salesforce 一手把推理外包、一手把成果買斷」為主軸，把 Claudeforce 與 Fin 放在同一張架構圖上解釋。優勢是與前作直接呼應，且有 Everest Group 的「降低對前沿實驗室 API 依賴」作為第三方佐證。開頭可以從 9 月 10 日交割當天寫起，五天後就是 Dreamforce（會後已確認 SMB Keynote ft. Fin 有 Salesforce+ 成片；Stage 8「Over 90%」場次查無錄影）。Dreamforce **仍無** Fin Apex vs Claude 官方分工聲明，角度 A 維持推論框架。
+**角度 A：三層模型架構論（最推薦；round 3 改寫）**
+以可觀測的三個模型資產畫同一張堆疊圖：**Claude（租／前沿預設）**、**Fin Apex（買／客服垂直，AI Labs）**、**Koa（造／CRM reasoning，AI Research＋Agentforce 可選 provider）**。硬事實可用：Koa＝first CRM reasoning model for Agentforce、Nemotron 3 Super post-train、fourth model provider／opt-in、weights＋inference in trust boundary、pilot now／GA winter 2026 U.S.、Why We Post-Trained「alongside frontier LLMs」。Everest「降低對前沿實驗室 API 依賴」仍可作 Fin Apex 的第三方佐證（2026-06），**不要**寫成已評 Koa。
+
+**必須標為推論、不可寫成官方聲明的關係：** Claude／Fin Apex／Koa 彼此點名分工；Koa 是否進入 Atlas；Koa 是否取代 Claude；Koa 與 Fin Apex 是否整併；「租／買／造」是否為 Salesforce 戰略名稱；「Koa 比 Claude 便宜」是否為官方定價機制。
+
+開頭可從 9 月 10 日交割寫起，五天後 Dreamforce 同日發表 Koa（會後已確認 SMB Keynote ft. Fin 有 Salesforce+ 成片；Stage 8「Over 90%」查無錄影）。建議與角度 C 組合：C 開場建立荒謬感，A 拆成自洽架構（見交接備註「角度 C vs A 素材」）。
 
 **角度 B：成果敘事與席次捆綁的雙軌（2026-09-18 會後改寫）**
 不要再寫「席次制走向終結」的單向崩解敘事。Dreamforce 前（2026-09-03 editions 稿＋定價頁）Salesforce 已把 Slack、Tableau Next、Flex Credits、部分 agent 能力折回 Sales／Service Cloud **Core $195／Advanced $395／Max $550** 席次；同時保留成果／用量錶：Fin **$0.99** per outcome、Help Agent Resolutions（Casey）**$2**、Agentforce Conversations **$2**。文章張力改為：Salesforce **一邊用成果計價打贏採購敘事，一邊把錢收回席次與捆綁**；席次制被重新武裝成 AI bundle，成果計價是加層而非替代。三個價碼（Fin 0.99、Zendesk 1.50／2.00、Agentforce 2.00）與 McCabe 新客戶 NRR 112%→146%（LinkedIn，非 IR）仍可用，但須放在雙軌框架下，並標明口徑。
 
-**角度 C：那個諷刺的三角**
-Anthropic 是 Fin 的客戶，Fin 說自己的模型贏過 Claude，Salesforce 同時買下 Fin 並把 Claude 立為預設模型。以這個三角的荒謬感開場，再拆解它其實在商業邏輯上完全自洽。
+**角度 C：那個諷刺的三角（可與 A 組合；C 開場、A 拆解）**
+Anthropic 是 Fin 的客戶，Fin 說自己的模型贏過 Claude，Salesforce 同時買下 Fin 並把 Claude 立為預設模型；Dreamforce 再疊上自研 Koa 與 TechCrunch「AI labs should fear」／同稿「未放棄 Anthropic」並讀。以荒謬感開場，再用角度 A 的三層架構說明為何仍可自洽。PR「3x fewer errors」vs 自家論文「below the strongest frontier」也適合放在開場反差，但須分層引用。
 
 ### 7.2 可用的金句素材
 
@@ -418,37 +486,53 @@ Anthropic 是 Fin 的客戶，Fin 說自己的模型贏過 Claude，Salesforce �
 - Des Traynor 談 2024 年從 OpenAI 換到 Claude（官方原文）：「We landed on Claude for one simple reason: it delivers.」（[Intercom Blog](https://www.intercom.com/blog/fin-2-powered-by-anthropic-claude-llm/)）
 - Eoghan McCabe 2022 年回鍋時：「回到我們的根本、極端聚焦，以及一個我們過去從不願意下的賭注：選一條車道，並且說清楚我們不做什麼。」（[Silicon Republic](https://www.siliconrepublic.com/business/intercom-ceo-eoghan-mccabe-karen-peacock)，2022-10）
 - Everest Group：Fin 的自有 Apex 模型讓 Salesforce「降低對前沿實驗室 API 的依賴」
-- 可用的比喻方向（我的建議，非引述）：Claudeforce 租的是腦，Fin 買的是手；或者，Salesforce 把「思考」外包出去，把「交付」收回來
+- 可用的比喻方向（我的建議，**分析非引述**）：Claudeforce 租的是腦，Fin 買的是手，Koa 是自己造的 CRM 推理層。原「租腦／買手」**不完整**，少了「造」；且**查無**官方 rent／buy／build 戰略名，寫作時必須標分析框架
 - 時間對照的鉤子：三個月前還在借 2.5 億美元創投債的公司，三個月後以 36 億美元賣掉全公司
 
 ### 7.3 明確不要寫的東西
 
+以下按 **事實類／術語類／數字類** 分組（涵蓋原清單並新增 Koa 管制）。各組內自行編號。
+
+#### 事實類（事件、關係、官方 vs 推論）
+
 1. **不要寫「交易尚未完成」或「預計 FY27 Q4 完成」。** 交易已於 2026-09-10 完成交割。
-2. **不要寫「3 萬個 AI 客戶」。** 官方措辭是「逾 3 萬家企業組成的全球客戶基數」，實際使用 Fin AI 代理的客戶約 8,000 家（2026-05 數據）。
-3. **交易對價可寫「約 36 億美元現金 + customary adjustments」（10-Q）。** 不要發明 earnout、換股比例或最終調整後價格；留任獎金仍查無。也不要宣稱 6/15 或 9/10 已有專屬 Form 8-K（截至 2026-09-11 查無）。
-4. **監管：不要寫「完全沒申報」或「FTC / 歐盟已放行」。** 可寫 US ET / EU register / UK CMA 查無公開紀錄（查無 ≠ 未提 HSR）；德國有 B7-50/26 申報電訊；ACCC Phase 1 已核准。
-5. **3 億美元 Anthropic tokens：只能寫「Benioff 口述估計」（All-In / BI），不可當 SEC 列帳。**
-6. **不要斷言 Fin Apex 會取代或不會取代 Claude 在 Salesforce 內的角色。** 官方只說 Fin 將「繼續」以自有模型套件驅動，沒有任何關於兩者分工的聲明。
-7. **不要編造台灣客戶案例、台灣定價或 Salesforce 台灣的官方說法。** 可寫產品支援繁中（fin.ai help）。
-8. **不要把 Fin 的 benchmark 當成中立第三方評測。** 73.1% 等是 Fin / cx-models 自家數字，獨立複現查無。幻覺對照是 **Sonnet 4.6**，不是 4.0。
-9. **不要斷言「Zendesk 被逼到牆角」是業界共識。** Zendesk / Sierra 官方回應仍查無。
-10. **不要混用解決率數字**，每次引用都要標明出處與定義。目前已知**六個版本**：76%（Salesforce 交割稿，Fin 平均）、73.1%（Fin Apex benchmark，模型對比）、79%（Anthropic 案例頁）、65-70%（第三方推估）、「up to 90%」（AWS Intercom 案例）、「Over 90%」（Dreamforce 場次標題）。**兩個 90% 是行銷標題的最佳案例值，不是平均值，絕對不可當代表數字使用。**
-11. **Listen Labs 收購案只能寫成傳聞。** 約 20 億美元洽談、尚未簽約。
-12. **不要再用 Anthropic 案例舊數字 58% / 1,700 小時。** 現行官方案例頁為 >560k / 79% / 63% / 80%。
-13. **Fin 議程（會後更新）：** 不要宣稱議程「完全沒有 Fin 場次」。會前已有兩場具名場次；會後確認 SMB Keynote ft. Fin 有 Salesforce+ 成片（含 Des Traynor），Stage 8「Over 90%」場次則**查無**錄影／摘要／舉行確證。不要把 Salesforce Apex（語言）場次誤認成 Fin Apex；不要發明 Stage 8 台上講稿或把「Over 90%」寫進平均值。
-14. **不要把 Salesforce AI Labs 寫成等同 AI Research。** AI Labs 僅見交割稿措辭；ai-labs/ 404。**查無** Fin Apex 納入 AI Research 一手聲明。
-15. ~~引述來自搜尋摘要、逐字引用前請核對~~：**已於 2026-09-11 核實的新聞稿 / Fin Ideas / Des Traynor / 定價頁引述可逕用核實措辭**；**2026-09-18 Dreamforce 會後核實項目見新增節與文末核實表**；其餘未核者仍須保留。
-16. **產品名稱管制：** 可寫會前網站去 Agentforce 前綴／Sales Cloud 復名，但須標**非官方新聞稿**；「約兩打」僅媒體數字。**不要**寫 Fin 品牌被吃掉。**不要**寫「官方宣布 Headless 360 改回 Salesforce Platform」；並陳 TNW／Platform、Ben Help→AIforce、官方「powered by Headless Toolkit」三套說法。
-17. **Casey 與 Fin：** Casey＝Help Agent persona；七 agent 發布日為 **2026-09-11 會前**（非 Dreamforce keynote）。兩者官方並存為 portfolio choice；**不要**寫已拍板合併，也**不要**把 Customer Zero 的 500 萬次直接寫成「Casey 產品對外客戶量」。
-18. **兩個 30,000：** Fin「逾 30,000 家企業」（交割稿）與 Agentforce「over 30,000 customers on this platform」（台上）定義不同，禁止合併敘述；Agentforce 須並陳官網 metrics 仍為 25,000+。
-19. **Hunter $2B：** Benioff 台上可寫上季約 $500M pipeline（註明轉寫對 Hunter／Piper 歸因不一）；**不要**把 $2B annualized 寫成官方年化數字（媒體外推）。
-20. **Fulton 80k／$389M：** 僅 Salesforce Ben keynote 轉述時可引用並標 T3；**不要**升格為 Salesforce 已刊官方數字。
-21. **不要寫「席次制已被成果計價取代」。** 官方是席次捆綁（Core／Advanced／Max）與 outcomes／credits 用量並存的雙軌。
+2. **交易對價可寫「約 36 億美元現金 + customary adjustments」（10-Q）。** 不要發明 earnout、換股比例或最終調整後價格；留任獎金仍查無。也不要宣稱 6/15 或 9/10 已有專屬 Form 8-K（截至 2026-09-11 查無）。
+3. **監管：不要寫「完全沒申報」或「FTC / 歐盟已放行」。** 可寫 US ET / EU register / UK CMA 查無公開紀錄（查無 ≠ 未提 HSR）；德國有申報電訊；ACCC Phase 1 已核准。
+4. **不要斷言 Fin Apex 會取代或不會取代 Claude。** 官方只說 Fin 將「繼續」以自有模型套件驅動；**查無**兩者分工聲明。
+5. **不要斷言 Koa 取代 Claude，或 Koa 已進入 Atlas Reasoning Engine。** 截至 2026-09-18 兩者皆**查無**官方聲明；可寫產品頁 fourth model provider／opt-in。
+6. **不要把「租／買／造」或「三層模型策略」寫成 Salesforce 官方戰略名稱。** 那是本研究分析框架；官方**查無** rent／buy／build 自我描述。
+7. **不要把「Koa 比丟給 Claude／ChatGPT 便宜」寫成官方定價承諾。** 僅見 TechCrunch 等媒體／訪談 tokenomics；Agentforce 定價頁無 Koa。
+8. **不要混淆 Koa 與 Fin Apex 的領域，也不要寫兩者已整併。** 官方分工與整併訊號皆**查無**；Koa＝Agentforce CRM reasoning／AI Research，Fin Apex＝Fin 客服垂直／AI Labs。
+9. **不要把 Salesforce AI Labs 寫成等同 AI Research。** Fin→AI Labs（交割稿）；Koa→AI Research（技術故事／arXiv）；ai-labs/ 404。**查無** Fin Apex 納入 AI Research 一手聲明。
+10. **不要把 Everest Group 2026-06「降低對前沿實驗室 API 依賴」直接套到 Koa。** 原句綁 Fin Apex，早於 Koa。
+11. **不要編造台灣客戶案例、台灣定價或 Salesforce 台灣的官方說法。** 可寫產品支援繁中（fin.ai help）。
+12. **不要斷言「Zendesk 被逼到牆角」是業界共識。** Zendesk / Sierra 官方回應仍查無。
+13. **Listen Labs 收購案只能寫成傳聞。** 約 20 億美元洽談、尚未簽約；Dreamforce 無官宣。
+14. **Fin 議程：** 不要宣稱議程「完全沒有 Fin 場次」。會前兩場具名；SMB Keynote 有 Salesforce+ 成片（含 Des Traynor）；Stage 8「Over 90%」**查無**錄影／摘要／舉行確證。不要把 Salesforce Apex（語言）誤認成 Fin Apex；不要發明 Stage 8 講稿。
+15. **Casey 與 Fin：** Casey＝Help Agent persona；七 agent 為 **2026-09-11 會前**。官方並存 portfolio choice；**不要**寫已合併；**不要**把 Customer Zero 500 萬次寫成「Casey 對外客戶量」。
+16. **不要寫「席次制已被成果計價取代」。** 官方是席次捆綁（Core／Advanced／Max）與 outcomes／credits 用量並存的雙軌；Koa 計價**查無**，勿發明第三軌官方機制。
+17. ~~引述來自搜尋摘要、逐字引用前請核對~~：**2026-09-11 與 2026-09-18（含 round 3 Koa）已核實項目見會後更新節與文末核實表**；其餘未核者仍須保留。
+
+#### 術語類（品牌、產品名、評測標籤）
+
+1. **產品名稱管制：** 可寫會前網站去 Agentforce 前綴／Sales Cloud 復名，但須標**非官方新聞稿**；「約兩打」僅媒體。**不要**寫 Fin 品牌被吃掉。**不要**寫「官方宣布 Headless 360 改回 Salesforce Platform」；並陳 TNW／Platform、Ben Help→AIforce、官方「powered by Headless Toolkit」。
+2. **不要把 Fin 的 benchmark 當成中立第三方評測。** 73.1% 等是 Fin／cx-models 自家數字，獨立複現查無。幻覺對照是 **Sonnet 4.6**，不是 4.0。
+3. **不要把 Koa 的 CRM Bench／「three times fewer errors」當成中立第三方評測。** 基準為 Salesforce 自建；PR **未點名** Claude／GPT；同公司論文承認低於 strongest frontier，且論文無 3x 句；獨立複現**查無**。
+4. **兩個 30,000：** Fin「逾 30,000 家企業」（交割稿）與 Agentforce「over 30,000 customers on this platform」（台上）定義不同，禁止合併；Agentforce 須並陳官網 metrics 仍為 25,000+。
+
+#### 數字類（口徑、版本、外推）
+
+1. **不要寫「3 萬個 AI 客戶」。** 官方是「逾 3 萬家企業組成的全球客戶基數」；實際使用 Fin AI 代理約 8,000 家（2026-05）。
+2. **3 億美元 Anthropic tokens：只能寫「Benioff 口述估計」（All-In / BI），不可當 SEC 列帳。**
+3. **不要混用解決率數字**，每次標出處與定義。已知版本含：76%（交割稿）、73.1%（Fin Apex benchmark）、79%（Anthropic 案例）、65-70%（第三方推估）、「up to 90%」（AWS）、「Over 90%」（Dreamforce 場次標題）。**兩個 90% 是最佳案例／標題用語，不是平均值。**
+4. **不要再用 Anthropic 案例舊數字 58% / 1,700 小時。** 現行官方案例頁為 >560k / 79% / 63% / 80%。
+5. **Hunter $2B：** 台上可寫上季約 $500M pipeline（註明轉寫對 Hunter／Piper 歸因不一）；**不要**把 $2B annualized 寫成官方年化（媒體外推）。
+6. **Fulton 80k／$389M：** 僅 Salesforce Ben keynote 轉述可引並標 T3；**不要**升格為已刊官方數字。
 
 ### 7.4 寫作風格提醒（比照前作）
 
 - 全文避免破折號，中英文之間留空格
-- 當代人物一律用英文原名：Marc Benioff、Eoghan McCabe、Des Traynor、Bret Taylor、Tom Eggemeier、Dario Amodei、Karen Peacock、Ciarán Lee、David Barrett
+- 當代人物一律用英文原名：Marc Benioff、Eoghan McCabe、Des Traynor、Bret Taylor、Tom Eggemeier、Dario Amodei、Karen Peacock、Ciarán Lee、David Barrett、Jensen Huang、Jayesh Govindarajan、Silvio Savarese
 - 避免「這不是 X，而是 Y」句型
 - 分析段落請明確標示為作者觀點，與查證事實區隔
 - 開頭建議用敘事切入，例如 2026 年 9 月 10 日交割當天，距離 Dreamforce 開幕只剩五天
@@ -486,6 +570,14 @@ Anthropic 是 Fin 的客戶，Fin 說自己的模型贏過 Claude，Salesforce �
 25. [Salesforce AI Research](https://www.salesforce.com/ai-research/)
 26. [Dreamforce 2026 session catalog](https://reg.salesforce.com/flow/plus/df26/sessioncatalog/page/catalog)
 
+27. [Salesforce〈Announcing Koa: Salesforce's First CRM Reasoning Model, Built on NVIDIA Nemotron〉](https://www.salesforce.com/news/press-releases/2026/09/15/koa-reasoning-model/)（2026-09-15）
+28. [Salesforce〈Why We Post-Trained Our Own Reasoning Model〉](https://www.salesforce.com/news/stories/why-we-post-trained-our-own-reasoning-model/)（2026-09-16）
+29. [Salesforce Agentforce Koa 產品頁](https://www.salesforce.com/agentforce/koa/)
+30. [NVIDIA Blog〈Jensen Huang at Dreamforce〉](https://blogs.nvidia.com/blog/jensen-huang-dreamforce/)（2026-09-15）
+31. [arXiv:2609.15066 Salesforce Koa technical report](https://arxiv.org/abs/2609.15066)（Submitted 2026-09-14；vendor paper）
+32. [NVIDIA Nemotron 3 Super](https://research.nvidia.com/labs/nemotron/Nemotron-3-Super/)
+33. [NVIDIA Nemotron Open Model License](https://www.nvidia.com/en-us/agreements/enterprise-software/nvidia-nemotron-open-model-license/)（Last Modified 2025-12-15）
+
 ### 新聞媒體
 
 1. [CNBC〈Salesforce to buy AI customer service platform Fin for $3.6 billion〉](https://www.cnbc.com/2026/06/15/salesforce-ai-customer-service-fin-acquistion.html)（2026-06-15）
@@ -511,6 +603,9 @@ Anthropic 是 Fin 的客戶，Fin 說自己的模型贏過 Claude，Salesforce �
 21. [The Letter Two〈Intercom Launches Fin API Platform for Developers〉](https://thelettertwo.com/2026/04/03/intercom-fin-api-platform-developers/)（2026-04-03）
 22. [Business Insider〈Marc Benioff on Anthropic token spend〉](https://www.businessinsider.com/marc-benioff-salesforce-anthropic-spend-tokens-slack-2026-5)（2026-05-16；All-In 口述估計）
 23. [Business Insider〈Salesforce Talks to Acquire Listen Labs〉](https://www.businessinsider.com/salesforce-acquire-ai-startup-listen-labs-2026-9)（2026-09-09；未簽約）
+
+24. [TechCrunch〈Salesforce and Nvidia's new reasoning model is everything the AI labs should fear〉](https://techcrunch.com/2026/09/15/salesforce-and-nvidias-new-reasoning-model-is-everything-the-ai-labs-should-fear/)（2026-09-15；T2）
+25. [Channel Insider〈Salesforce and NVIDIA announce Koa〉](https://www.channelinsider.com/ai/news-salesforce-nvidia-koa-agentforce-crm-ai-model/)（2026-09-16；T3）
 
 ### 分析與產業研究
 
@@ -539,7 +634,7 @@ Anthropic 是 Fin 的客戶，Fin 說自己的模型贏過 Claude，Salesforce �
 
 ## 一手來源核實紀錄
 
-核實日期：2026-09-11（初輪）；**2026-09-18 追加 Dreamforce 會後核實（round 2）**。方法：live HTML / WebFetch / curl，非搜尋摘要。
+核實日期：2026-09-11（初輪）；**2026-09-18 追加 Dreamforce 會後核實（round 2）與 Koa／三層模型核實（round 3）**。方法：live HTML / WebFetch / curl，非搜尋摘要。
 
 | 核實項目 | 結果 | 來源 URL | 備註 |
 |---------|------|---------|------|
@@ -596,18 +691,37 @@ Anthropic 是 Fin 的客戶，Fin 說自己的模型贏過 Claude，Salesforce �
 | 台灣市場 | 仍查無客戶／定價／專稿 | （無） | 繁中支援前輪已記；T7e |
 | Listen Labs（會期） | 仍未簽約；DF 無官宣 | BI／TC 2026-09-09 | T7f |
 | Headless 360 in published article（T8） | 已發布文 2 行／3 次；前作備忘 6 行／7 次 | `docs/articles/2026-08-27-…`；`drafts/2026-08-27-…` | **建議 footnote，本輪未改已發布文** |
+| Koa 官方 PR 定位／Nemotron 3 Super／synthetic／no customer data | 一致 | [Koa PR 2026-09-15](https://www.salesforce.com/news/press-releases/2026/09/15/koa-reasoning-model/) | first CRM reasoning model for Agentforce；27y／nearly three decades 並存 |
+| Why We Post-Trained／trust boundary／alongside frontier | 一致 | [Why We Post-Trained 2026-09-16](https://www.salesforce.com/news/stories/why-we-post-trained-our-own-reasoning-model/) | co-engineered；Koa handles multi-step enterprise reasoning |
+| Koa 產品頁 fourth provider／opt-in／GA | 一致 | [agentforce/koa](https://www.salesforce.com/agentforce/koa/) | pilot now；GA winter 2026 U.S. |
+| CRM Bench 名稱與 vendor 自建 | 已寫清 | PR／NVIDIA／產品頁；[arXiv 2609.15066](https://arxiv.org/abs/2609.15066) | 非獨立產業標準；無第三方複現 |
+| 3x fewer errors 對照組 | 已修正 | Koa PR／產品頁 | **未點名** Claude／GPT |
+| arXiv：低於 strongest frontier；無 3x 句 | 已修正 | arXiv 2609.15066 | Koa 0.86 vs Opus 4.8 0.87 vs GPT-5.5 0.90 |
+| Koa 進入 Atlas | 查無 | （PR／故事／NVIDIA／產品頁 Atlas=0） | 可寫 selectable provider，不可寫已進 Atlas |
+| Koa 取代 Claude／官方點名分工 | 查無 | （無） | Why We Post-Trained 僅 frontier 總稱 |
+| 官方稱 Koa 比 Claude 便宜 | 查無（媒體有） | TechCrunch 2026-09-15 | 定價頁無 Koa |
+| 官方租／買／造戰略聲明 | 查無 | （無） | 三層＝分析框架 |
+| Koa vs Fin Apex 分工／整併 | 查無 | Koa 材料零 Fin Apex | 領域潛在重疊屬推論 |
+| Koa→AI Research；Fin→AI Labs | 已修正 | 交割稿；Why We Post-Trained／arXiv | 仍不可逕自等同 |
+| Koa 公開計價／Flex Credits | 查無 | [Agentforce pricing](https://www.salesforce.com/agentforce/pricing/) 2026-09-18 | Koa／Nemotron=0 |
+| NVIDIA deep technical collaboration／Jensen 引語 | 一致 | Koa PR；NVIDIA Dreamforce blog | 非股權交易敘事 |
+| Nemotron Open Model License | 一致 | NVIDIA license 頁 | 可商用衍生；Koa 權重由 SF 控制 |
+| Koa 合作含 Salesforce↔NVIDIA 新股權 | 查無 | 官方稿無披露 | 勿與 Anthropic 持股對稱編造 |
+| Anthropic 對 Koa 回應 | 查無 | anthropic.com/news 2026-09-18 | SF／DF／Koa／Claudeforce=0 |
+| TechCrunch／Techzine 三模型並讀 | 一致（媒體） | TechCrunch 2026-09-15；Techzine | 非官方三層戰略名 |
 
 ## 交接備註
 
 ### 研究狀態
 
 - [x] 資料收集完成
-- [x] 大綱確定（見第七節建議切入角度；**角度 B 已於 2026-09-18 改為雙軌定價**）
+- [x] 大綱確定（見第七節；**角度 B 雙軌定價**；**角度 A 已改三層架構**；建議 **C 開場＋A 拆解**）
 - [x] **2026-09-11 一手來源核實輪次完成**
-- [x] **2026-09-18 Dreamforce 會後核實（round 2）完成**（T1 至 T8；新增「Dreamforce 2026 會後更新」節；更新 7.1／7.3／核實表）
-- [x] 可開始撰寫
+- [x] **2026-09-18 Dreamforce 會後核實（round 2）完成**
+- [x] **2026-09-18 Koa／三層模型核實（round 3）完成**（新增「Koa 與三層模型策略」；改寫 3.2／3.4／7.1／7.3／核實表）
+- [x] 可開始撰寫（下一動：詳細大綱，段落層級標數據）
 
-### 已完成（本輪 round 2）
+### 已完成（round 2）
 
 1. ~~Dreamforce 台上內容~~：SMB Keynote ft. Fin 有 Salesforce+ 成片；Stage 8「Over 90%」查無錄影／摘要
 2. ~~定價方向~~：確認席次捆綁＋成果計價雙軌；角度 B 已改寫
@@ -615,18 +729,46 @@ Anthropic 是 Fin 的客戶，Fin 說自己的模型贏過 Claude，Salesforce �
 4. ~~產品改名範圍~~：Sales Cloud 復名、Agentforce 360／Fin 保留；Headless 360 三套說法並陳
 5. ~~AIforce／Claudeforce beta／兩個 30k／Hunter $500M vs $2B~~：已寫入會後更新節
 
+### 已完成（round 3）
+
+1. ~~Koa 官方定位／規格／CRM Bench／3x／論文 nuance~~：見「Koa 與三層模型策略」K1
+2. ~~Koa vs Claude／Atlas／便宜論／租買造官方聲明~~：K2；多數查無，可選並存有官方訊號
+3. ~~Koa vs Fin Apex／AI Labs vs AI Research~~：K3；分工與整併查無
+4. ~~Koa 定價~~：定價頁零提及；角度 B 暫不強制改寫
+5. ~~NVIDIA 合作／Jensen／open weights／股權~~：K5；股權查無
+6. ~~外部三層並讀／Anthropic 回應~~：K6
+7. ~~3.2 堆疊表、3.4 三套敘事、7.1 角度 A、7.3 Koa 管制分組~~：已改寫
+
+### 給 writer：角度 C vs A 的 Koa 素材（brief next_step）
+
+**適合角度 C（諷刺／荒謬開場）：**
+
+- 會前剛把 Claude 立為預設／Claudeforce broad beta；會上又發表自研 CRM reasoning model Koa
+- TechCrunch「AI labs should fear」vs 同稿「isn't exactly abandoning Anthropic」
+- PR「3x fewer errors」（未點名）vs 自家論文「below the strongest frontier models」
+- Anthropic 是 Fin 客戶＋Fin Apex 自稱贏 Claude＋Salesforce 同時租 Claude、買 Fin、造 Koa
+
+**適合角度 A（架構段）：**
+
+- 產品頁「fourth model provider／opt-in」＝可選並存硬事實
+- Why We Post-Trained「alongside frontier LLMs」＋ Koa 專責 multi-step enterprise reasoning
+- Fin＝AI Labs／成果代理；Koa＝AI Research＋Agentforce 平台推理選項；Claude＝frontier／Claudeforce（結構可畫，箭頭多屬推論）
+- trust boundary／控制 weights；pilot now、GA winter 2026 U.S.
+- **不要**在架構段把租買造寫成官方戰略名；每條箭頭標「官方／推論」
+
 ### 待補充項目（仍開放）
 
 1. **購買價格分攤（PPA）/ 商譽**：對價已確認為約 36 億美元現金；earnout 仍查無。FY27 Q3 財報若揭露 PPA 可回頭補。S-8（2026-09-10／11）確認交割但無 PPA
-2. **Fin Apex 與 Claude 在 Salesforce 內的分工**：Dreamforce 後**仍查無**官方聲明；角度 A 維持推論
-3. **獨立第三方對 Fin Apex benchmark 的複現**：仍查無；2.8% vs 3.5pp 矛盾仍在
-4. **Zendesk 與 Sierra／Bret Taylor 的官方回應**：仍查無
-5. **台灣客戶名單 / 本地定價 / Salesforce Taiwan Fin PR**：仍查無（繁中支援已確認；本輪未複驗語言表原文成功）
-6. **Listen Labs**：截至 2026-09-18 仍為約 20 億美元洽談、未簽約；Dreamforce **無**官宣
-7. **交割專屬 Form 8-K Item 2.01**：仍查無；可用 S-8 作 SEC 交割確認
-8. **德國 B7-50/26 clearance PDF**、**ACCC Phase 1 原文**（本環境 Access Denied）：仍未取回一手 PDF
-9. **SMB Keynote 逐字聽寫**：本輪僅核到 Salesforce+ published metadata／description，未逐字聽完成片
-10. **T8 已發布前作術語（建議 footnote，勿自行改寫 published）**
+2. **Claude／Fin Apex／Koa 官方點名分工**（含 Koa 是否進 Atlas）：Dreamforce／Koa round 後**仍查無**；角度 A 關係箭頭維持推論
+3. **獨立第三方對 Fin Apex／Koa CRM Bench 的複現**：仍查無；Fin 2.8% vs 3.5pp 矛盾仍在
+4. **Koa 公開計價／是否納入 Flex Credits**：定價頁仍無；若 GA 前上架需回頭補，並評估是否動到角度 B
+5. **Zendesk 與 Sierra／Bret Taylor 的官方回應**：仍查無
+6. **台灣客戶名單 / 本地定價 / Salesforce Taiwan Fin PR**：仍查無（繁中支援已確認）
+7. **Listen Labs**：截至 2026-09-18 仍為約 20 億美元洽談、未簽約；Dreamforce **無**官宣
+8. **交割專屬 Form 8-K Item 2.01**：仍查無；可用 S-8 作 SEC 交割確認
+9. **德國 B7-50/26 clearance PDF**、**ACCC Phase 1 原文**：仍未取回一手 PDF
+10. **SMB Keynote 逐字聽寫**：本輪僅核到 Salesforce+ metadata，未逐字聽完成片
+11. **T8 已發布前作術語（建議 footnote，勿自行改寫 published）**
     - `docs/articles/2026-08-27-claudeforce-salesforce-anthropic-analysis.md`：含「Headless 360」**2 行／3 次**（約 L47、L73）
     - `drafts/2026-08-27-memo-salesforce-claudeforce-research.md`：含該詞 **6 行／7 次**
     - **建議**：已發布文加編者註／文末 footnote，說明 2026-08 寫作時官方名稱為 Headless 360；Dreamforce 前／會期官網改掛 Salesforce Platform／AIforce＋Headless Toolkit；ARR 口徑仍以當時 10-Q／earnings 原文為準。**本輪未改這兩檔。**
@@ -634,10 +776,11 @@ Anthropic 是 Fin 的客戶，Fin 說自己的模型贏過 Claude，Salesforce �
 ### 續接建議
 
 - **續接平台：** CLI
-- **建議模板：** `templates/article-template.md`（深度分析文，3,000 至 4,500 字）
+- **建議模板：** `templates/article-template.md`（深度分析文，3,000 至 4,500 字；或分析長文＋短觀點文兩篇，待大綱後決定）
 - **特別注意：**
   - **交易已完成交割（2026-09-10），不要沿用「尚未完成」的舊前提；對價寫現金約 36 億美元**
-  - **定價寫雙軌，不要寫席次制已被取代**；見會後更新 T4 與 7.1 角度 B
-  - 本文與 2026-08-27 的 Claudeforce 分析文為同一系列，建議在文中明確互相引用，並避免重複展開 Claudeforce 的產品細節（讀者可回頭看前作）；**前作 Headless 360 用語見上列 T8 建議 footnote**
-  - 一手引述以 2026-09-11 與 **2026-09-18** 核實措辭為準；見「一手來源核實紀錄」
-  - 數字可信度分層：Salesforce 官方新聞稿與 SEC 文件最可信；Sacra 為付費研究機構的估算，可用但要標明「估計」；分析部落格只能當觀點引用，不能當事實；keynote 數字若僅有非官方轉寫須標明
+  - **定價寫雙軌，不要寫席次制已被取代**；見會後更新 T4 與 7.1 角度 B；Koa 尚無官方價
+  - **模型層寫三套（Claude／Fin Apex／Koa），租買造標分析框架**；見 3.2／3.4／7.1／Koa 節
+  - 本文與 2026-08-27 的 Claudeforce 分析文為同一系列，建議在文中明確互相引用，並避免重複展開 Claudeforce 的產品細節；**前作 Headless 360 用語見上列 T8 建議 footnote**
+  - 一手引述以 2026-09-11 與 **2026-09-18（round 2＋3）** 核實措辭為準；見「一手來源核實紀錄」
+  - 數字可信度分層：Salesforce／NVIDIA 官方與 SEC 最可信；vendor benchmark（Fin Apex、Koa CRM Bench）次之且須標自建；Sacra 為估算；分析部落格／TechCrunch 架構解讀只能當觀點；keynote 非官方轉寫須標明
