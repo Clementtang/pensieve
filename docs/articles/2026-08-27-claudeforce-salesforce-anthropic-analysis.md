@@ -17,7 +17,7 @@ status: published
 | 項目         | 內容                                                             |
 | ------------ | ---------------------------------------------------------------- |
 | **建立日期** | 2026-08-27                                                       |
-| **更新日期** | 2026-08-27                                                       |
+| **更新日期** | 2026-09-26（補充術語註記）                                       |
 | **標籤**     | #議題研究 #AI #企業軟體 #Salesforce #Anthropic #OpenAI #競爭分析 |
 | **狀態**     | 已發布                                                              |
 | **字數**     | 約 4,700 字                                                      |
@@ -44,7 +44,7 @@ Salesforce 的財報日通常不會讓我想寫東西。這次的觸發點是一
 
 我沒有 pilot 資格，所以這次沒辦法先實測十分鐘再回來寫，以下都是根據官方說法跟媒體報導整理的。
 
-不過如果只把 Claudeforce 理解成一個外掛，會嚴重低估這件事的規模。它其實是一個傘狀品牌，底下是一整層預設模型的更換：Claude 同時成為 Slack AI 與 Slackbot 的預設模型，並透過 Claude Tag 支援團隊決策；在 Agentforce 這側，Claude 是 Atlas Reasoning Engine 可選用的推理模型之一，同時是 Agentforce Vibes 與 Agentforce Coworker 的預設模型；在 Headless 360 裡，Claude 一樣是預設模型。Salesforce 甚至把 Claude Code 部署到自己全球的工程組織內部使用。換句話說，Claude 被塞進了 Salesforce 幾乎每一個會用到模型推理的位置。
+不過如果只把 Claudeforce 理解成一個外掛，會嚴重低估這件事的規模。它其實是一個傘狀品牌，底下是一整層預設模型的更換：Claude 同時成為 Slack AI 與 Slackbot 的預設模型，並透過 Claude Tag 支援團隊決策；在 Agentforce 這側，Claude 是 Atlas Reasoning Engine 可選用的推理模型之一，同時是 Agentforce Vibes 與 Agentforce Coworker 的預設模型；在 Headless 360 裡，Claude 一樣是預設模型（這個產品名稱後來有異動，見文末術語註記）。Salesforce 甚至把 Claude Code 部署到自己全球的工程組織內部使用。換句話說，Claude 被塞進了 Salesforce 幾乎每一個會用到模型推理的位置。
 
 Anthropic 執行長 Dario Amodei 在新聞稿裡的說法，語氣比 Benioff 收斂很多：「我們相信前沿智慧應該是安全、可信、且能力深厚的，這正是全球頂尖企業把最重要的工作交給 Claude 的原因。Salesforce in Claude 把同樣的前沿智慧帶進全世界大多數商業活動實際發生的系統裡。透過這個合作，企業可以把 Claude 指向他們在 Salesforce 裡累積數十年的客戶資訊與商業脈絡，並真正用它來經營與成長。」
 
@@ -149,6 +149,20 @@ OpenAI 在其他企業 SaaS 的佈局也很清楚。2026 年 1 月 20 日，Open
 Salesforce 用 27 年的招牌，換來的究竟是一張 agent 時代的入場券，還是一份讓別人主導定價的租約，這個問題現在還沒有答案。但接下來每一季的 Agentforce 客戶滿意度、每一次 Anthropic IPO 前後的估值波動，都會是很好的觀察座標。
 
 我會繼續看下去。
+
+---
+
+## 術語註記（2026-09-26 補充）
+
+本文寫於 2026 年 8 月 27 日。文中提到的「Headless 360」，是當時 Salesforce 官方使用的產品名稱。
+
+Dreamforce 2026 前後，這個名稱的使用出現變化。目前有三種說法，Salesforce 尚未發布正式的改名說明：
+
+1. The Next Web 報導，Salesforce 官網的平台頁已改以「Salesforce Platform」為名，頁面上不再出現 Headless 360（[The Next Web，2026-09-14](https://thenextweb.com/news/salesforce-drops-agentforce-branding-product-names-dreamforce)）
+2. Salesforce Ben 引述 Salesforce Help 文件，稱 Headless 360 自 2026 年 9 月 4 日起改名為 AIforce（[Salesforce Ben](https://www.salesforceben.com/comparing-salesforces-aiforce-headless-360-and-the-enterprise-ai-harness/)）
+3. Salesforce 在 Dreamforce 發布的 AIforce 新聞稿，寫的是「AIforce is powered by the Headless Toolkit」，沒有說 Headless 360 已經改名（[Salesforce，2026-09-15](https://www.salesforce.com/news/stories/aiforce-announcement/)）
+
+因此本文保留原名，不做替換。文中關於 Agentforce ARR 計算範圍納入 Headless 360 的段落，依據的是 FY27 第二季財報當時的揭露原文，口徑以該份文件為準。
 
 ---
 

@@ -141,6 +141,8 @@ Salesforce 在二十天內，對「AI 的腦從哪裡來」給了三個不同的
 - **但要精確**：Koa 是在 NVIDIA 開放權重的 Nemotron 3 Super（120B）上 post-train，不是從零訓練｜T1（Why We Post-Trained，2026-09-16）
 - 所以前作「不參加前沿模型軍備競賽」那層判斷其實還站得住。「造」的地基也是借來的（**推論**）
 
+> **動筆前阻擋項（2026-09-26 時效檢查發現）：** 搜尋摘要顯示 Salesforce 新聞室在 **2026-07-08** 發過〈How We Cut Inference Spend by Right-Sizing Our Models〉（Jayesh Govindarajan），稱 Agentforce 已把大部分推理交給五個自家小型專用模型，只保留前沿模型處理多步驟推理。**若屬實，前作 8/27 寫「它不做模型了」時就已經不精確**，本段的框架要從「三週後被推翻」改成「寫的時候就漏看了」。另外，Koa 的官方定位「handles multi-step enterprise reasoning」剛好是七月那篇保留給前沿模型的工作，這一點若屬實也很值得寫。**此條僅搜尋摘要，須先一手核實原文，核實前本段不可定稿。**
+
 ### 3-2 Koa 是什麼
 
 - 官方定位：「Salesforce's first CRM reasoning model for Agentforce, built on NVIDIA Nemotron」｜T1
@@ -159,6 +161,7 @@ Salesforce 在二十天內，對「AI 的腦從哪裡來」給了三個不同的
 
 - **CRM Bench 加權平均**｜vendor：GPT-5.5 0.90、Claude Opus 4.8 0.87、**Koa 0.86**、Nemotron 基座 0.84、GPT-4.1 0.81
 - 論文裡**沒有**「three times fewer errors」這句
+- **標明比較的是哪一版 Claude**：論文的對照組是 Claude Opus 4.8。Anthropic 在論文之後已發布更新的模型（例如 2026-09-22 的 Opus 5.5｜T1，anthropic.com 原文）。寫「Koa 落在 Claude 之後」時要寫明是論文所用的 Opus 4.8，避免讀者以為是跟最新的 Claude 比
 - **可點出的事實**：在 Salesforce 自己設計的 CRM 基準上，Koa 仍落在它租來的 Claude 之後。post-train 比基座多出 0.02
 - **呼應前作第二句**：「永遠落後半代」這個判斷，被 Salesforce 自己的論文證實了（**作者觀點**）
 
@@ -173,6 +176,7 @@ Salesforce 在二十天內，對「AI 的腦從哪裡來」給了三個不同的
 - 注意這句**沒有點名 Claude**
 - trust boundary 與權重控制權是官方強調的重點｜T1
 - 「Koa 比 Claude 便宜」只見 TechCrunch 報導與訪談｜T2。**不可寫成官方說法**
+- 待核線索：Computer Weekly〈Salesforce wants ASEAN customers to stop thinking in tokens〉在 Dreamforce 現場採訪 Salesforce 東協 CTO Gavin Barfield，摘要出現同樣的「cheaper than Claude or ChatGPT」說法。若核實是 Barfield 原話，可改寫為「另有 Salesforce 區域主管受訪這樣說」，但仍不是官方定價承諾｜僅搜尋摘要，日期不明
 
 **禁寫提醒：**
 
@@ -203,6 +207,7 @@ Salesforce 在二十天內，對「AI 的腦從哪裡來」給了三個不同的
 - **造**：高頻的 CRM 動作如果長期全靠前沿模型的 token，控制權與成本都在別人手上
 - **合起來**：不把腦押在同一家供應商身上
 - Everest Group 說 Fin Apex 能「降低對前沿實驗室 API 的依賴」｜T3。**這句寫於 2026-06，只談 Fin Apex，不可套用到 Koa**（事實類 10）
+- 待核線索（可佐證「造」的邏輯）：CNBC〈AI safety debate meets reality at Dreamforce as business leaders say last year's models are enough〉（2026-09-18｜T2）。摘要稱受訪客戶認為舊一代、較便宜的模型就足以應付日常銷售與客服工作，並提到 Salesforce 支援頁表示 Agentforce 的 bot 並未依賴最新一代的前沿模型｜僅搜尋摘要，支援頁未見原文
 
 ### 4-3 真正值得注意的是沉默
 
@@ -212,7 +217,8 @@ Salesforce 在二十天內，對「AI 的腦從哪裡來」給了三個不同的
 - Koa 與 Claude 的分工：**查無**
 - Koa 與 Fin Apex 的分工：**查無**
 - Koa 是否進入 Atlas：**查無**
-- Anthropic 對 Koa 的回應：**查無**（Anthropic newsroom 截至 2026-09-18 對 Salesforce、Koa、Claudeforce 的提及為零）
+- Anthropic 對 Koa 的回應：**查無**（anthropic.com/news 截至 2026-09-23 的標題中，對 Salesforce、Koa、Claudeforce、Dreamforce 的提及為零｜原文）
+  - **措辭注意**：Anthropic 另在 claude.com 部落格發過〈Salesforce in Claude〉（2026-09-15），那是 Claudeforce 的產品發表文，不是對 Koa 的回應。所以只能寫「Anthropic 對 Koa 沒有回應」，**不能寫「Anthropic 對 Salesforce 隻字未提」**
 - **點出**：Salesforce 還沒有告訴客戶，哪一個腦負責哪一件事
 - **兩種解讀並陳**（**推論**）：刻意保留彈性，或者還沒想清楚
 
@@ -273,10 +279,31 @@ Salesforce 在二十天內，對「AI 的腦從哪裡來」給了三個不同的
 ### 已決定（2026-09-26）
 
 1. **單篇**，不拆篇
-2. **前作補上 Headless 360 術語註記**，於本篇發佈前完成
+2. **前作補上 Headless 360 術語註記**：已完成。`docs/articles/2026-08-27-claudeforce-salesforce-anthropic-analysis.md` 文末新增「術語註記」，並陳三種說法
 3. **不使用 Tau2Bench 數字**
 4. **標題維持「造」字**：Koa 是 post-train、不是從零訓練，由 3-1 在內文說清楚。這個落差本身也是可寫的素材
 
-### 進行中
+### 時效檢查結果（2026-09-26，範圍 9/18 至 9/26）
 
-1. **時效檢查**：資料截至 2026-09-18，正在確認 Koa 定價、Claudeforce 客服技能、Fin 與 Casey 整併、Headless 360 官方說法有無新進展。結果出來後回填本節
+由 subagent 執行。除 anthropic.com 與 claude.com 可讀原文外，其餘皆為搜尋摘要。
+
+| 項目 | 結論 | 對大綱的影響 |
+|------|------|-------------|
+| Koa 定價、GA、與 Claude 分工、第三方評測 | 查無新進展 | 無。另有 Flex Credits 計價線索待核（見下） |
+| Claudeforce 客服技能 | 查無新進展。claude.com〈Salesforce in Claude〉原文未提時程，也未提 Fin 或 Koa | 無 |
+| Fin 與 Casey 整併、改名、調價 | 查無新進展 | 無 |
+| Headless 360 官方說明 | 查無新進展。第三方文章明寫 Salesforce 未發布正式改名公告 | 前作註記維持並陳 |
+| Anthropic 對 Koa 回應 | 查無，newsroom 截至 9/23 原文確認 | 4-3 已更新日期與措辭 |
+| Listen Labs | 查無新進展，仍未簽約 | 無（本篇不用） |
+
+### 動筆前阻擋項
+
+1. **3-1 的七月文章**：須先一手核實 2026-07-08〈Right-Sizing〉原文。這條會決定 3-1 的自我修正怎麼寫，詳見 3-1
+
+### 待一手核實的線索（不阻擋動筆，但核實後可強化內容）
+
+1. Koa 產品頁 FAQ 是否寫明「priced in Flex Credits」（合作夥伴部落格的說法）。若屬實，結尾的觀察座標改為「計價單位為 Flex Credits，費率未公布」，備忘 K4 也要修正
+2. Computer Weekly 的「cheaper than Claude」出自誰（見 3-4）
+3. CNBC 9/18 引用的 Salesforce 支援頁內容（見 4-2）
+4. The Register〈Salesforce blames its Claude addiction for denting profit margin guidance〉（2026-09-03）的內容。只看到標題，可能可以補強「租」的成本面
+5. fin.ai/pricing 是否仍為 0.99 美元
