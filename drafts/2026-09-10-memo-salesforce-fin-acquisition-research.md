@@ -1,5 +1,5 @@
 ---
-title: "Research Memo: Salesforce 收購 Fin 與 Claudeforce 的兩手棋"
+title: "Research Memo: Salesforce 收購 Fin 與租、買、造三層模型策略"
 description: "Salesforce 以約 36 億美元收購 Fin（前 Intercom）的研究備忘；Dreamforce 會後補上 Koa（首個 CRM reasoning model），把 Claude／Fin Apex／Koa 放進同一張堆疊圖，並標明哪些關係仍屬推論"
 date: 2026-09-10
 author: "Clement Tang"
@@ -11,7 +11,7 @@ related:
   - "docs/articles/2026-08-27-claudeforce-salesforce-anthropic-analysis.md"
 ---
 
-# Research Memo: Salesforce 收購 Fin 與 Claudeforce 的兩手棋
+# Research Memo: Salesforce 收購 Fin 與租、買、造三層模型策略
 
 > 輕量級研究備忘錄，供 writer agent 擴寫為深度分析文。事實以 2026-09-10 初查為底，並於 2026-09-11 以一手頁面（live HTML / WebFetch）核實後更新；**2026-09-18 完成 Dreamforce 2026 會後核實（round 2）**，同日另完成 **Koa／三層模型策略核實（round 3）**。本篇為 Claudeforce 備忘（2026-08-27）的續篇，論述請與前作呼應。租／買／造三層是本研究分析框架，**不是** Salesforce 官方戰略名稱。
 
@@ -777,6 +777,8 @@ Anthropic 是 Fin 的客戶，Fin 說自己的模型贏過 Claude，Salesforce �
 
 - **續接平台：** CLI
 - **建議模板：** `templates/article-template.md`（深度分析文，3,000 至 4,500 字；或分析長文＋短觀點文兩篇，待大綱後決定）
+- **文章標題（2026-09-26 定案）：** 〈二十天，三個選擇：Salesforce 租了 Claude、買了 Fin，又自己造了 Koa〉。結構為角度 C 開場、角度 A 拆解
+- **段落大綱：** [2026-09-26-outline-salesforce-rent-buy-build.md](./2026-09-26-outline-salesforce-rent-buy-build.md)
 - **特別注意：**
   - **交易已完成交割（2026-09-10），不要沿用「尚未完成」的舊前提；對價寫現金約 36 億美元**
   - **定價寫雙軌，不要寫席次制已被取代**；見會後更新 T4 與 7.1 角度 B；Koa 尚無官方價
