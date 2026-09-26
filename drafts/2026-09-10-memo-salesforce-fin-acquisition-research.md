@@ -403,6 +403,7 @@ Editions 稿（**會前** 2026-09-03）把 Slack、Tableau Next、credits、部�
 - **時程（T1 PR）**：Available to **select pilot customers now** in Agentforce；general availability expected **winter 2026 in U.S. regions**。產品頁 FAQ 另寫 open beta starting shortly after。NVIDIA blog 寫 pilots "in **October**"（與 PR「now」略有時序差，並列兩源，勿揉成單一日期）。
 - **Pilot 客戶名單（PR／產品頁）**：1-800Accountant、Baxter Credit Union (BCU)、Engine、Formula 1、UChicago Medicine、Xero。
 - **計價**：Agentforce 定價頁（2026-09-18）**Koa／Nemotron 出現次數＝0**；PR／產品頁亦無公開價。**查無可靠來源**說明是否吃 Flex Credits、席次捆綁或獨立 SKU。角度 B 雙軌定價論**暫不因 Koa 強制改寫**；成本故事只能標媒體 tokenomics／尚無官方價。
+- **第四輪複查（2026-09-27）**：合作夥伴 Sirocco Group 稱 Koa「priced in Flex Credits」，本輪查無官方佐證，上一條結論維持。[Koa 產品頁](https://www.salesforce.com/agentforce/koa/)正文與 FAQ 無 Flex Credits、無價格，只有通用區塊的「Flex Credit Calculator」連結；[Rate Cards 頁](https://www.salesforce.com/agentforce/rates/)連到的最新版 [2026-08-31 Flex Credits Rate Card](https://www.salesforce.com/en-us/wp-content/uploads/sites/4/assets/pdf/agentforce/Flex-Credits-Rate-Card-08.31.2026.pdf) 中 Koa、Nemotron 出現次數為 0；Help〈Flex Credits Billable Usage Types〉亦無 Koa。Help〈Select Agentforce Model Option〉列出的模型選項（Salesforce Default、AWS-Hosted、Google Gemini）也還沒有 Koa，與「pilot 中」一致。
 
 #### K5 NVIDIA 合作性質
 
@@ -634,7 +635,7 @@ Anthropic 是 Fin 的客戶，Fin 說自己的模型贏過 Claude，Salesforce �
 
 ## 一手來源核實紀錄
 
-核實日期：2026-09-11（初輪）；**2026-09-18 追加 Dreamforce 會後核實（round 2）與 Koa／三層模型核實（round 3）**。方法：live HTML / WebFetch / curl，非搜尋摘要。
+核實日期：2026-09-11（初輪）；**2026-09-18 追加 Dreamforce 會後核實（round 2）與 Koa／三層模型核實（round 3）**；**2026-09-27 追加第四輪（R1 至 R7，動筆前核實）**。方法：live HTML / WebFetch / curl，Salesforce Help 以 headless Chrome 渲染後讀取，非搜尋摘要。
 
 | 核實項目 | 結果 | 來源 URL | 備註 |
 |---------|------|---------|------|
@@ -709,6 +710,25 @@ Anthropic 是 Fin 的客戶，Fin 說自己的模型贏過 Claude，Salesforce �
 | Koa 合作含 Salesforce↔NVIDIA 新股權 | 查無 | 官方稿無披露 | 勿與 Anthropic 持股對稱編造 |
 | Anthropic 對 Koa 回應 | 查無 | anthropic.com/news 2026-09-18 | SF／DF／Koa／Claudeforce=0 |
 | TechCrunch／Techzine 三模型並讀 | 一致（媒體） | TechCrunch 2026-09-15；Techzine | 非官方三層戰略名 |
+| R1 七月 Right-Sizing 原文（第四輪） | 一致（標題、作者、日期） | [Right-Sizing 2026-07-08](https://www.salesforce.com/news/stories/cutting-inference-spend-by-right-sizing-models/) | Jayesh Govindarajan；schema datePublished 2026-07-08T14:50:58Z |
+| R1 Salesforce 在前作發表前已跑自家模型 | **屬實（結論 A），範圍限定** | 同上；[Engineering 2025-11-20](https://engineering.salesforce.com/solving-real-time-ai-classification-for-agentforce-how-single-token-prediction-delivers-30x-faster-agent-responses/) | HyperClassifier GA Spring ’26、Agentforce Service／Employee Agent 範本預設；Toxicity、TextEval、TextRerank GA；PID rolling out |
+| R1 五個模型的來歷 | 開源微調，非從零訓練 | Right-Sizing 原文 | 「We weren’t training from scratch」；HyperClassifier、TextEval 皆微調自 GPT-OSS-20B；**非** xLAM、xGen |
+| R1 保留給前沿模型的工作 | 已逐字核對 | Right-Sizing 原文 | 「A frontier foundation model still handles the core muti-step reasoning」（原文拼字）；對照 Koa「handles multi-step enterprise reasoning」 |
+| R1 是否點名 Claude | 否 | Right-Sizing 原文 | Claude、Anthropic 出現次數 0；只寫「a single rented model」 |
+| R1 搜尋摘要「大部分推理」 | 已修正 | Right-Sizing 原文 | 原文為「a growing share of the stack」，不可寫「大部分」 |
+| R1 Help Salesforce-Owned Models | 一致（讀取當下） | Help ai.generative_ai_llm_salesforce_owned（無日期） | 「creates, trains, and fine tunes models」；CodeGen、HyperClassifier、TextEval |
+| R1 xLAM 生產佐證 | 證據不足，官方說法有張力 | [2024-09-06 稿](https://www.salesforce.com/news/stories/agentforce-ai-models-announcement/) | 2024 稱專有版驅動 Agentforce；2026-07 稱 18 個月前全靠單一租用模型；勿寫進正文 |
+| R1 xGen-Sales 正式上線 | 查無可靠來源 | [xGen-Sales 部落格 2024-10-21](https://www.salesforce.com/blog/xgen-sales/) | 當時僅 subset of pilot customers；GA 無一手紀錄 |
+| R1 xLAM-2 開源權重 | 一致 | [arXiv 2504.03601](https://arxiv.org/abs/2504.03601)；[Hugging Face 模型卡](https://huggingface.co/Salesforce/Llama-xLAM-2-8b-fc-r) | 2025-04 research release |
+| R2 Salesforce Ben Headless 360→AIforce | 連結正確 | [Salesforce Ben 2026-09-16](https://www.salesforceben.com/comparing-salesforces-aiforce-headless-360-and-the-enterprise-ai-harness/) | Sasha Semjonova；逐字引述 Help 並附連結 |
+| R2 Help AIforce 版本說明 | 已讀原文（T1） | [Help rn_headless360](https://help.salesforce.com/s/articleView?id=release-notes.rn_headless360.htm&release=264&type=5) | 「As of September 4, 2026, Headless 360 has been rebranded to AIforce」；建議前作改引此頁，導言「尚未發布正式改名說明」需改寫（由使用者決定） |
+| R3 Koa 以 Flex Credits 計價 | 查無官方佐證 | [Koa 產品頁](https://www.salesforce.com/agentforce/koa/)；[Rate Card 2026-08-31](https://www.salesforce.com/en-us/wp-content/uploads/sites/4/assets/pdf/agentforce/Flex-Credits-Rate-Card-08.31.2026.pdf) | Koa=0；K4 結論維持，已補註 |
+| R4 Computer Weekly「cheaper than Claude」 | **原文不存在** | [Computer Weekly 2026-09-17](https://www.computerweekly.com/news/366650532/Salesforce-wants-ASEAN-customers-to-stop-thinking-in-tokens) | Aaron Tan；schema 2026-09-16 21:02 UTC；只有記者副標「hand simple tasks to cheaper models」與 Barfield「sledgehammer to cut a nut」 |
+| R5 CNBC 模型選擇段落 | 已逐字核對 | [CNBC 2026-09-18](https://www.cnbc.com/2026/09/18/at-dreamforce-business-leaders-say-older-ai-models-are-enough.html) | 「isn't relying on … Claude Fable 5.1 or … GPT-6 Astra, according to a support page」為記者推論 |
+| R5 CNBC 引用的支援頁 | 已讀原文 | [Help Select Agentforce Model Option](https://help.salesforce.com/s/articleView?id=ai.agent_setup_select_model_provider.htm&type=5)（無日期） | Salesforce Default：新版 builder GPT-4.1、舊版 GPT-4o；AWS-Hosted：Claude Haiku 4.5；Gemini 3.5 Flash；Agentforce 預設**不是** Claude |
+| R6 The Register Claude 成本 | 一致（來源為投資人大會） | [The Register 2026-09-03](https://www.theregister.com/ai-and-ml/2026/09/03/salesforce-blames-its-claude-addiction-for-denting-profit-margin-guidance/5294219)；[DB 大會逐字稿 2026-08-27](https://stockanalysis.com/stocks/crm/transcripts/737696-deutsche-bank-2026-technology-conference/) | Mike Spencer 原話；內部研發 token 成本，非 Claudeforce 產品成本；標題 addiction 為媒體語氣 |
+| R6 法說會與財報對照 | 一致；法說會未提 token | [FY27 Q2 EX-99.1](https://www.sec.gov/Archives/edgar/data/0001108524/000110852426000187/crm-q2fy27xexhibit991.htm)；[Q1 EX-99.1](https://www.sec.gov/Archives/edgar/data/0001108524/000110852426000125/crm-q1fy27xexhibit991.htm)；[法說會逐字稿](https://www.fool.com/earnings/call-transcripts/2026/08/31/salesforce-crm-q2-2027-earnings-call-transcript/) | Q2 GAAP 營益率 20.5%；FY GAAP 指引 20.6%→20.1%，non-GAAP 維持 34.3% |
+| R7 fin.ai/pricing | 一致 | [fin.ai/pricing](https://fin.ai/pricing)（2026-09-27 讀取） | $0.99/outcome；50 outcomes/month minimum；qualifications $9.99 |
 
 ## 交接備註
 
