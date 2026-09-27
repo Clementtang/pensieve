@@ -128,7 +128,7 @@ Intercom 於 2011 年在都柏林創立，創辦人為 Eoghan McCabe、Des Trayn
 ```
 2026-05-12  Intercom 更名為 Fin
 2026-06-15  Salesforce 簽約收購 Fin（36 億美元）
-2026-08-26  Claudeforce 發布，Claude 成為 Salesforce 全線預設模型
+2026-08-26  Claudeforce 發布，Claude 成為 Salesforce 多項產品的預設模型（Agentforce 預設為 GPT-4.1，見第四輪 R5）
 2026-09-01  Contentful 交割完成
 2026-09-10  Fin 交割完成，納入 Salesforce AI Labs
 2026-09-15  Dreamforce 2026 開幕（Moscone Center，9/15 至 9/17）；同日發表 Koa（首個 CRM reasoning model）
@@ -290,10 +290,10 @@ writer 可寫「主要法域未見公開阻擋，交割反而提前；至少德�
 **Headless 360 不可寫成單一乾淨的「改回 Salesforce Platform」。** 三套說法並存：
 
 1. **The Information 系（T2 轉述，TNW 核對）**：Headless 360 Platform → **Salesforce Platform**；平台頁標題為 Salesforce Platform，且頁上不見「Headless 360」字樣。
-2. **Salesforce Ben（T3，引述 Help）**：稱自 **2026-09-04**，Headless 360 **rebranded to AIforce**；本輪未能直接打開該 Help 條目原文。
+2. **Salesforce Ben（T3，引述 Help）**：稱自 **2026-09-04**，Headless 360 **rebranded to AIforce**；本輪未能直接打開該 Help 條目原文。**第四輪（2026-09-27）已讀 Help 原文，升級為 T1**：[Salesforce Help〈AIforce〉版本說明](https://help.salesforce.com/s/articleView?id=release-notes.rn_headless360.htm&release=264&type=5)寫「As of September 4, 2026, Headless 360 has been rebranded to AIforce.」
 3. **Dreamforce 官方 AIforce 稿（T1，2026-09-15）**：定位 AIforce 為 live interface layer，寫「**AIforce is powered by the Headless Toolkit**」，**沒有**寫「Headless 360 已更名為 Salesforce Platform」或「Headless 360＝AIforce」。
 
-**寫作建議：** 不要寫「官方宣布 Headless 360 改回 Salesforce Platform」。可寫「行銷站平台傘名現多呈現為 Salesforce Platform；Dreamforce 旗艦介面層品牌為 AIforce，底層稱 Headless Toolkit；文件層是否將 Headless 360 全面改稱 AIforce，僅見產業媒體引述 Help」。已發布前作若大量使用 Headless 360，建議加註術語流動（見交接備註 T8），勿 silently 全局替換。
+**寫作建議（2026-09-27 依第四輪修訂）：** 可寫「Salesforce 官方說明文件寫明，Headless 360 自 2026-09-04 起改名為 AIforce；Salesforce 沒有為此發布新聞稿」。**不要**寫「官方宣布 Headless 360 改回 Salesforce Platform」。TNW 報導的平台頁改名 Salesforce Platform 可並陳，但它與「改名 AIforce」的關係官方未說明，不要替兩者下結論。前作已加註（見交接備註 T8）。
 
 ### T2 Casey 與 Fin 的分工
 
@@ -356,7 +356,7 @@ Editions 稿（**會前** 2026-09-03）把 Slack、Tableau Next、credits、部�
 | 日期 | 性質 | 與本節相關 |
 |------|------|------------|
 | 2026-09-03 | 會前 | Core／Advanced／Max editions＋席次捆綁 |
-| 2026-09-04 | 會前（據 T3） | Help 稱 Headless 360→AIforce |
+| 2026-09-04 | 會前（Help 原文，T1，第四輪核實） | Help 稱 Headless 360→AIforce |
 | 約 2026-09-08 至 14 | 會前 | 網站拿掉多個 Agentforce 產品前綴（媒體） |
 | 2026-09-10 | 會前 | Fin 交割；進 AI Labs |
 | 2026-09-11 | 會前 | 七具名 agents（含 Casey、Fin） |
@@ -516,7 +516,7 @@ Anthropic 是 Fin 的客戶，Fin 說自己的模型贏過 Claude，Salesforce �
 
 #### 術語類（品牌、產品名、評測標籤）
 
-1. **產品名稱管制：** 可寫會前網站去 Agentforce 前綴／Sales Cloud 復名，但須標**非官方新聞稿**；「約兩打」僅媒體。**不要**寫 Fin 品牌被吃掉。**不要**寫「官方宣布 Headless 360 改回 Salesforce Platform」；並陳 TNW／Platform、Ben Help→AIforce、官方「powered by Headless Toolkit」。
+1. **產品名稱管制：** 可寫會前網站去 Agentforce 前綴／Sales Cloud 復名，但須標**非官方新聞稿**；「約兩打」僅媒體。**不要**寫 Fin 品牌被吃掉。**不要**寫「官方宣布 Headless 360 改回 Salesforce Platform」。可寫官方說明文件已寫明 Headless 360 自 2026-09-04 改名 AIforce（Help，T1，第四輪核實），但**不要**寫成「官方發布改名新聞稿」；TNW 的 Salesforce Platform 說法可並陳，兩者關係官方未說明。
 2. **不要把 Fin 的 benchmark 當成中立第三方評測。** 73.1% 等是 Fin／cx-models 自家數字，獨立複現查無。幻覺對照是 **Sonnet 4.6**，不是 4.0。
 3. **不要把 Koa 的 CRM Bench／「three times fewer errors」當成中立第三方評測。** 基準為 Salesforce 自建；PR **未點名** Claude／GPT；同公司論文承認低於 strongest frontier，且論文無 3x 句；獨立複現**查無**。
 4. **兩個 30,000：** Fin「逾 30,000 家企業」（交割稿）與 Agentforce「over 30,000 customers on this platform」（台上）定義不同，禁止合併；Agentforce 須並陳官網 metrics 仍為 25,000+。
@@ -788,10 +788,11 @@ Anthropic 是 Fin 的客戶，Fin 說自己的模型贏過 Claude，Salesforce �
 8. **交割專屬 Form 8-K Item 2.01**：仍查無；可用 S-8 作 SEC 交割確認
 9. **德國 B7-50/26 clearance PDF**、**ACCC Phase 1 原文**：仍未取回一手 PDF
 10. **SMB Keynote 逐字聽寫**：本輪僅核到 Salesforce+ metadata，未逐字聽完成片
-11. **T8 已發布前作術語（建議 footnote，勿自行改寫 published）**
-    - `docs/articles/2026-08-27-claudeforce-salesforce-anthropic-analysis.md`：含「Headless 360」**2 行／3 次**（約 L47、L73）
-    - `drafts/2026-08-27-memo-salesforce-claudeforce-research.md`：含該詞 **6 行／7 次**
-    - **建議**：已發布文加編者註／文末 footnote，說明 2026-08 寫作時官方名稱為 Headless 360；Dreamforce 前／會期官網改掛 Salesforce Platform／AIforce＋Headless Toolkit；ARR 口徑仍以當時 10-Q／earnings 原文為準。**本輪未改這兩檔。**
+11. ~~**T8 已發布前作術語**~~ **已處理（經使用者同意）**
+    - 2026-09-26：前作文末新增「術語註記」，第 47 行加註指向文末
+    - 2026-09-27：依第四輪 R2 修訂註記。初版寫「Salesforce 尚未發布正式的改名說明」不正確，改以 Help 官方文件為主要來源，並在註記中註明初版錯誤
+    - 2026-09-27：依第四輪 R1 新增「更正」一節，說明「七年後，它不做模型了」不精確（七月 Right-Sizing 原文、2025 年 xLAM-2 開源），內文原句保留並加註
+    - `drafts/2026-08-27-memo-salesforce-claudeforce-research.md`（已封存的前作備忘）未修改
 
 ### 續接建議
 
@@ -803,6 +804,6 @@ Anthropic 是 Fin 的客戶，Fin 說自己的模型贏過 Claude，Salesforce �
   - **交易已完成交割（2026-09-10），不要沿用「尚未完成」的舊前提；對價寫現金約 36 億美元**
   - **定價寫雙軌，不要寫席次制已被取代**；見會後更新 T4 與 7.1 角度 B；Koa 尚無官方價
   - **模型層寫三套（Claude／Fin Apex／Koa），租買造標分析框架**；見 3.2／3.4／7.1／Koa 節
-  - 本文與 2026-08-27 的 Claudeforce 分析文為同一系列，建議在文中明確互相引用，並避免重複展開 Claudeforce 的產品細節；**前作 Headless 360 用語見上列 T8 建議 footnote**
-  - 一手引述以 2026-09-11 與 **2026-09-18（round 2＋3）** 核實措辭為準；見「一手來源核實紀錄」
+  - 本文與 2026-08-27 的 Claudeforce 分析文為同一系列，建議在文中明確互相引用，並避免重複展開 Claudeforce 的產品細節；**前作已新增更正與術語註記（見上列 T8）**，續篇引用前作「它不做模型了」時要一併提到這則更正
+  - 一手引述以 2026-09-11、**2026-09-18（round 2＋3）** 與 **2026-09-27（round 4）** 核實措辭為準；見「一手來源核實紀錄」
   - 數字可信度分層：Salesforce／NVIDIA 官方與 SEC 最可信；vendor benchmark（Fin Apex、Koa CRM Bench）次之且須標自建；Sacra 為估算；分析部落格／TechCrunch 架構解讀只能當觀點；keynote 非官方轉寫須標明
