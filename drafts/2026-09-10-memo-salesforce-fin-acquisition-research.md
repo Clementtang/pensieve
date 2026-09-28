@@ -178,7 +178,7 @@ Fin 的模型套件不只 Apex，而是七個各司其職的模型，包括 Esca
 **已查證的事實面：**
 
 - Claudeforce 讓 Claude 成為 Slack AI、Slackbot、Agentforce Vibes、Agentforce Coworker 與 Headless 360 的預設模型，並成為 Atlas Reasoning Engine 可選的推理模型之一（見[前作備忘第 1.5 節](./2026-08-27-memo-salesforce-claudeforce-research.md)）
-- Salesforce 持有的 Anthropic 股權於 2026 年 6 月價值約 50 億美元（[Bloomberg](https://www.bloomberg.com/news/articles/2026-06-01/salesforce-investment-in-anthropic-is-valued-at-about-5-billion)）
+- Salesforce 持有的 Anthropic 股權於 2026 年 6 月價值約 50 億美元（[Bloomberg](https://www.bloomberg.com/news/articles/2026-06-01/salesforce-investment-in-anthropic-is-valued-at-about-5-billion)）。**第五輪（2026-09-28）更新**：Bloomberg 正文未讀；改引 [FY27 Q2 10-Q](https://www.sec.gov/Archives/edgar/data/1108524/000110852426000190/crm-20260731.htm)，截至 2026-07-31 帳面價值約 51 億美元、約占策略投資組合 45%（T1）
 - Salesforce 官方新聞稿在收購時明確保留 Fin 的模型：「powered by the Fin model suite, the company's proprietary AI models trained specifically for customer experience」（[Salesforce](https://www.salesforce.com/news/press-releases/2026/09/10/salesforce-completes-acquisition-of-fin/)，2026-09-10）
 - Marc Benioff 在 All-In podcast 口述估計 2026 年 Salesforce 將使用約 **3 億美元** Anthropic tokens（主要談 coding），由 Business Insider 報導（[BI 2026-05-16](https://www.businessinsider.com/marc-benioff-salesforce-anthropic-spend-tokens-slack-2026-5)）。**這是執行長口述估計，不是 SEC 10-K/Q 或財報稿的列帳科目**；Q2 EX-99.1 / 10-Q 的 Fin 相關段落亦未寫入此數字。writer 引用時必須標「執行長口述估計」，不可寫成已審定支出。
 

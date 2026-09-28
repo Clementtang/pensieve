@@ -26,11 +26,11 @@ status: draft
 
 先把三個日期放在一起，不加評論。
 
-2026 年 8 月 26 日，Salesforce 與 Anthropic 共同發布 Claudeforce，Claude 成為 Salesforce 多項產品的預設模型【待核】。2026 年 9 月 10 日，Salesforce 完成對 Fin（原名 Intercom）的收購，對價約 36 億美元現金。2026 年 9 月 15 日，Dreamforce 開幕當天，Salesforce 同步發表 Koa，官方稱之為自己第一個 CRM 推理模型。
+2026 年 8 月 26 日，Salesforce 與 Anthropic 共同發布 Claudeforce，Claude 成為 Salesforce 多項產品的預設模型。2026 年 9 月 10 日，Salesforce 完成對 Fin（原名 Intercom）的收購，對價約 36 億美元現金。2026 年 9 月 15 日，Dreamforce 開幕當天，Salesforce 同步發表 Koa，官方稱之為自己第一個 CRM 推理模型。
 
 三個日期，二十天。
 
-再把另外三件事疊上去。Salesforce 持有 Anthropic 的股權，2026 年 6 月的估值約 50 億美元【待核】。而 Anthropic 本身，恰好也是 Fin 的客戶：根據 fin.ai 的官方案例頁，Anthropic 每月透過 Fin 處理逾 56 萬次解決，解決率 79%。更微妙的是，Fin 自家的 benchmark 顯示，它的新模型 Fin Apex 在解決率上贏過 Claude：73.1 分，對上 Claude Opus 4.5 的 71.1 分、Claude Sonnet 4.6 的 69.6 分（這是 Fin 自己公布的評測，不是中立第三方的結果）。
+再把另外三件事疊上去。Salesforce 持有 Anthropic 的股權，根據它自己的 FY27 第二季 10-Q，截至 2026 年 7 月 31 日，這筆股權的帳面價值約 51 億美元，約占 Salesforce 整個策略投資組合的 45%。而 Anthropic 本身，恰好也是 Fin 的客戶：根據 fin.ai 的官方案例頁，Anthropic 每月透過 Fin 處理逾 56 萬次解決，解決率 79%。更微妙的是，Fin 自家的 benchmark 顯示，它的新模型 Fin Apex 在解決率上贏過 Claude：73.1 分，對上 Claude Opus 4.5 的 71.1 分、Claude Sonnet 4.6 的 69.6 分（這是 Fin 自己公布的評測，不是中立第三方的結果）。
 
 然後，Salesforce 又自己做了一個。
 
@@ -42,11 +42,11 @@ Claudeforce 本身是什麼，我在前作〈[Salesforce 把 27 年的招牌借�
 
 Claudeforce 目前已經開放給所有客戶進入 beta，內建 37 個銷售技能。客服、行銷、商務這三類技能，官方的措辭是「in the near future」，沒有給出任何日期。
 
-真正值得補上的，是 Claude 實際落在哪裡。Claudeforce 新聞稿列出的產品清單裡，Claude 是 Slack AI、Slackbot、Agentforce Vibes、Agentforce Coworker 的預設模型【待核】。但在 Agentforce 本身，Claude 不是預設，只是一個選項。截至 2026 年 9 月，Salesforce Help 的〈Select Agentforce Model Option〉頁面寫得很清楚：官方建議的「Salesforce Default」，在新版 Agentforce Builder 用的是 GPT-4.1，舊版用 GPT-4o；客戶要選擇「AWS-Hosted」，才會用到 Claude，版本是 Claude Haiku 4.5；另外還有一個選項是 Gemini 3.5 Flash。
+真正值得補上的，是 Claude 實際落在哪裡。Claudeforce 新聞稿寫，Claude 是 Slack（含 Slackbot）、Agentforce Vibes、Agentforce Coworker 等產品的預設模型，也是 Agentforce Atlas Reasoning Engine 的推理模型之一。但在 Agentforce 本身，Claude 不是預設，只是一個選項。截至 2026 年 9 月，Salesforce Help 的〈Select Agentforce Model Option〉頁面寫得很清楚：官方建議的「Salesforce Default」，在新版 Agentforce Builder 用的是 GPT-4.1，舊版用 GPT-4o；客戶要選擇「AWS-Hosted」，才會用到 Claude，版本是 Claude Haiku 4.5；另外還有一個選項是 Gemini 3.5 Flash。
 
 換句話說，Salesforce 租的腦其實有好幾個，Anthropic 只是其中一家，這是可以查證的事實。我認為，這本身就是「不把腦押在同一家供應商身上」的第一層，只是這一層在前作發表的時候，我沒有看得夠仔細。
 
-寫到這裡，有一個曖昧值得點一下：我說 Salesforce 在「租」，但租的對象，正是它自己持股、2026 年 6 月估值約 50 億美元【待核】的那家公司。房客同時是房東的股東，這讓「租」這個字沒有表面上那麼單純。
+寫到這裡，有一個曖昧值得點一下：我說 Salesforce 在「租」，但租的對象，正是它自己持股、帳面價值約 51 億美元的那家公司。房客同時是房東的股東，這讓「租」這個字沒有表面上那麼單純。
 
 成本這一側也值得補一筆。Salesforce 副財務長 Mike Spencer 在 2026 年 8 月 27 日的 Deutsche Bank 科技大會上說：「roughly about six months ago, we unleashed Claude in our R&D cycle. It is part of the reason we did not raise margin guidance on the year is because we are covering some of the token spend.」他同場還說，多數工作用「second or third generation model」就夠，公司內部同時在用 OpenAI、Cursor、Claude，也開始試用 Grok。要提醒的是，Spencer 講的是 Salesforce 內部研發使用 Claude 的成本，不是 Claudeforce 產品本身的成本，財報稿與法說會只寫了 GAAP 營益率指引從約 20.6% 調到約 20.1%，法說會本身完全沒有提到 token 這個字。把營益率和 Claude 連在一起的，是投資人大會上的口頭發言，不是財報揭露。
 
@@ -56,7 +56,7 @@ Claudeforce 目前已經開放給所有客戶進入 beta，內建 37 個銷售�
 
 Fin 是這二十天裡新聞含金量最高的一段，值得多花一點篇幅。
 
-交易本身沒有太多懸念。FY27 第二季 10-Q 寫明對價約 36 億美元現金。從 2026 年 6 月 15 日簽約到 9 月 10 日交割，只花了 87 天，比原訂的 FY27 第四季提早了一整季。交割新聞稿列出的數字是逾 30,000 家企業客戶，平均解決率 76%。
+交易本身沒有太多懸念。FY27 第二季 10-Q 寫明對價約 36 億美元現金。從 2026 年 6 月 15 日簽約到 9 月 10 日交割，只花了 87 天。簽約時官方預計在 FY27 第四季交割，實際在第三季就完成了。交割新聞稿列出的數字是逾 30,000 家企業客戶，平均解決率 76%。
 
 但比交易本身更有意思的，是 Fin 自己走過的路。還叫 Intercom 的時候，初代 Fin 用的是 OpenAI 的模型。2024 年 10 月，Fin 2 發布，改用 Anthropic 的 Claude 3.5 Sonnet，共同創辦人暨首席策略長 Des Traynor 在官方部落格裡寫下這句話：「We landed on Claude for one simple reason: it delivers.」到了 2026 年 3 月，Fin 發表在開放權重基座上後訓練的 Fin Apex 1.0，走完了「先租、再自己造」這條路。
 
@@ -125,7 +125,7 @@ Salesforce 買到的顯然不只是一個模型。它買到的是一個開箱即
 
 ### 這套邏輯為什麼自洽
 
-租，是因為前沿模型的軍備競賽，呼應前作，一家 CRM 公司的資本結構撐不起，而且 Salesforce 租的還不只一家。買，是因為客服是少數能夠按成果收費的場景，「解決率」這個指標最好握在自己手上，客服同時也是 Benioff 用來證明 AI 回報的櫥窗，Salesforce 自家客服團隊已經從約 9,000 人減到約 5,000 人【待核】。造，則是因為高頻的 CRM 動作如果長期全靠前沿模型的 token，控制權與成本都留在別人手上。合起來看，這套邏輯的核心只有一句：不要把腦押在同一家供應商身上。
+租，是因為前沿模型的軍備競賽，呼應前作，一家 CRM 公司的資本結構撐不起，而且 Salesforce 租的還不只一家。買，是因為客服是少數能夠按成果收費的場景，「解決率」這個指標最好握在自己手上，客服同時也是 Benioff 用來證明 AI 回報的櫥窗，他在 2025 年 8 月底的 podcast 上說，自己把 support 團隊從 9,000 人減到約 5,000 人，理由是「I need less heads」。造，則是因為高頻的 CRM 動作如果長期全靠前沿模型的 token，控制權與成本都留在別人手上。合起來看，這套邏輯的核心只有一句：不要把腦押在同一家供應商身上。
 
 第三方的說法可以拿來佐證，但要小心邊界。Everest Group 在 2026 年 6 月說，Fin Apex 能「降低對前沿實驗室 API 的依賴」，這句話寫在 Koa 發表之前，只談 Fin Apex，不能套用到 Koa 身上。CNBC 在 2026 年 9 月 18 日的報導裡，引述 Dreamforce 現場的客戶與合作夥伴表示「older and cheaper AI models are plenty powerful for everyday sales and customer service work」，這是受訪者的說法。同一篇報導裡還有一句「Salesforce isn't relying on … Claude Fable 5.1 or … GPT-6 Astra, according to a support page」，不過那個支援頁面上並沒有提到 Fable 或 Astra，這一句是記者對照模型清單得出的推論。前面提過 Mike Spencer 的說法也可以呼應，他說多數工作用上一兩代的模型就夠。
 
@@ -155,7 +155,7 @@ Salesforce 到現在還沒有告訴客戶，哪一個腦負責哪一件事。我
 4. [Salesforce FY27 Q2 Form 10-Q（SEC）](https://www.sec.gov/Archives/edgar/data/1108524/000110852426000190/crm-20260731.htm)
 5. [Salesforce〈AIforce〉發布稿（2026-09-15）](https://www.salesforce.com/news/stories/aiforce-announcement/)
 6. [Salesforce Help〈Select Agentforce Model Option〉](https://help.salesforce.com/s/articleView?id=ai.agent_setup_select_model_provider.htm&type=5)
-7. [Bloomberg〈Salesforce Investment in Anthropic Is Valued at About $5 Billion〉（2026-06-01）](https://www.bloomberg.com/news/articles/2026-06-01/salesforce-investment-in-anthropic-is-valued-at-about-5-billion)
+7. [CNBC 報導 Marc Benioff 談 support 團隊人數（2025-09-02）](https://www.cnbc.com/2025/09/02/salesforce-ceo-confirms-4000-layoffs-because-i-need-less-heads-with-ai.html)
 8. [fin.ai〈AI-first by design: How Anthropic transformed support operations with Fin〉](https://fin.ai/customers/anthropic-transformation)
 9. [fin.ai〈CX Models〉](https://fin.ai/cx-models)
 10. [The Register〈Salesforce blames its Claude addiction for denting profit margin guidance〉（2026-09-03）](https://www.theregister.com/ai-and-ml/2026/09/03/salesforce-blames-its-claude-addiction-for-denting-profit-margin-guidance/5294219)
@@ -177,7 +177,8 @@ Salesforce 到現在還沒有告訴客戶，哪一個腦負責哪一件事。我
 26. [Anthropic〈Introducing Claude Opus 5.5〉（2026-09-22）](https://www.anthropic.com/claude-opus-5-5)
 27. [Anthropic Newsroom](https://www.anthropic.com/news)
 28. [Claude Blog〈Salesforce in Claude〉（2026-09-15）](https://claude.com/blog/salesforce-in-claude)
-29. [Clement Tang〈Salesforce 把 27 年的招牌借給 Anthropic，然後叫你不用再打開 Salesforce〉（2026-08-27）](../docs/articles/2026-08-27-claudeforce-salesforce-anthropic-analysis.md)
+29. [The Logan Bartlett Show〈EP 149: Marc Benioff (CEO, Salesforce) Predicts Half of Conversations Will be With AI Agents Next Year〉（2025-08-29）](https://podcasts.apple.com/us/podcast/ep-149-marc-benioff-ceo-salesforce-predicts-half-of/id1606770839?i=1000724017332)
+30. [Clement Tang〈Salesforce 把 27 年的招牌借給 Anthropic，然後叫你不用再打開 Salesforce〉（2026-08-27）](../docs/articles/2026-08-27-claudeforce-salesforce-anthropic-analysis.md)
 
 ---
 

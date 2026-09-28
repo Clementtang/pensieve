@@ -100,7 +100,7 @@ Salesforce 在二十天內，對「AI 的腦從哪裡來」給了三個不同的
    - 2026-09-10：Fin 交割，約 36 億美元現金｜T1（新聞稿＋FY27 Q2 10-Q）
    - 2026-09-15：Dreamforce 同日發表 Koa，Salesforce 第一個 CRM 推理模型｜T1
 2. **疊上諷刺三角**，一句一個事實
-   - Salesforce 持有 Anthropic 股權，2026 年 6 月估值約 50 億美元｜Bloomberg（正文未讀）。**第五輪：需改措辭，改引 FY27 Q2 10-Q，見發佈前待核 V2**
+   - Salesforce 持有的 Anthropic 股權，截至 2026-07-31 帳面價值約 51 億美元，約占策略投資組合 45%｜T1（FY27 Q2 10-Q，第五輪）
    - Anthropic 本身是 Fin 的客戶：每月逾 56 萬次解決、79% 解決率｜T1（fin.ai 案例頁）
    - Fin 自家 benchmark 說 Fin Apex 贏過 Claude：73.1 對 Opus 4.5 的 71.1、Sonnet 4.6 的 69.6｜vendor
    - 然後 Salesforce 又自己做了一個
@@ -127,7 +127,7 @@ Salesforce 在二十天內，對「AI 的腦從哪裡來」給了三個不同的
    - Slack AI、Slackbot、Agentforce Vibes、Agentforce Coworker 的預設模型｜T1（Claudeforce 新聞稿，第五輪已讀原文；Atlas 措辭見發佈前待核 V1）
    - 在 Agentforce 裡是**選項**，不是預設：Salesforce Help〈Select Agentforce Model Option〉寫官方建議的「Salesforce Default」在新版 Agentforce Builder 用 **GPT-4.1**、舊版用 GPT-4o；選「AWS-Hosted」才會用到 Claude，版本是 **Claude Haiku 4.5**；另有 Gemini 3.5 Flash｜T1（Help 頁無發布日期，引用時寫「截至 2026 年 9 月」）
 4. **點出重點**：Salesforce 租的腦其實有好幾個，Anthropic 只是其中一家（這是事實）。這本身就是「不把腦押在同一家」的第一層（**推論**）
-5. **寫作細節**：說是「租」，但租的對象是自己持股約 50 億美元的公司。這個曖昧可以點一句
+5. **寫作細節**：說是「租」，但租的對象是自己持股、帳面價值約 51 億美元的公司。這個曖昧可以點一句
 6. **成本面（選用）**
    - Salesforce 副財務長 Mike Spencer 在 2026-08-27 Deutsche Bank 科技大會說：「roughly about six months ago, we unleashed Claude in our R&D cycle. It is part of the reason we did not raise margin guidance on the year is because we are covering some of the token spend」｜受訪者原話（逐字稿｜T3；The Register 2026-09-03 有引述｜T2）
    - 同場他說多數工作用「second or third generation model」就夠，內部同時用 OpenAI、Cursor、Claude，也開始試 Grok
@@ -193,7 +193,7 @@ Salesforce 在二十天內，對「AI 的腦從哪裡來」給了三個不同的
 3. **說明前作已補更正**：前作文末已於 2026-09-27 加上更正說明，這裡附連結
 4. **但要精確**：七月那批模型是在 GPT-OSS-20B 等開源模型上微調，原文自己寫「We weren't training from scratch」，負責路由、防護、評估、重排序這類周邊工作。前作「前沿模型的軍備競賽不是 CRM 公司撐得起」那層判斷仍然成立｜T1
 5. **真正的轉折**
-   - 七月：「A frontier foundation model still handles the core multi-step reasoning」｜T1（原文拼成 muti-step，引用時加 [sic] 或改寫成中文）
+   - 七月：「A frontier foundation model still handles the core muti-step [sic] reasoning」｜T1（原文拼字即為 muti-step，引語不可改拼法）
    - 九月：「Koa handles multi-step enterprise reasoning」｜T1（Why We Post-Trained，2026-09-16）
    - 兩句並置後的解讀（**作者觀點**）：Koa 新的地方不在「Salesforce 開始做模型」，而在自家模型第一次被放進核心推理的位置。**十週之內，移動的是分工線**
 6. **「造」字的分寸**：Koa 是在 NVIDIA 開放權重的 Nemotron 3 Super（120B）上 post-train，不是從零訓練｜T1。和七月那批是同一種做法，只是位置往上移了一層（**推論**）。「造」的地基也是借來的
@@ -225,7 +225,7 @@ Salesforce 在二十天內，對「AI 的腦從哪裡來」給了三個不同的
 - 論文裡**沒有**「three times fewer errors」這句
 - **可點出的兩件事**
   - Koa 贏過的 GPT-4.1，正好是 Agentforce 現行的預設模型（見一、租）｜兩件事各自是事實
-  - Koa 輸給的 Claude Opus 4.8，是 Salesforce 另一個租來的腦｜vendor
+  - Koa 輸給的 Claude Opus 4.8，出自 Salesforce 的另一家租用來源 Anthropic｜vendor。**不要寫成「Salesforce 租來的 Opus 4.8」**：Agentforce 可選的 Claude 是 Haiku 4.5，沒有證據顯示 Salesforce 租用 Opus 4.8
   - 連起來讀（**推論**）：Koa 超過了 Agentforce 現在的預設，但還追不上最強的前沿模型。post-train 比基座多出 0.02
 - **呼應前作第二句**：「永遠落後半代」這個判斷，被 Salesforce 自己的論文證實了（**作者觀點**）
 
@@ -360,6 +360,7 @@ Salesforce 在二十天內，對「AI 的腦從哪裡來」給了三個不同的
 | 2026-09-27 | 大綱整理為可動筆版，核實歷程集中到本節 |
 | 2026-09-27 | 整理時對照核實紀錄，發現三條第一輪的事實從未讀過原文，原本卻標成 T1 或 T2。改標「待讀原文」，列入發佈前待核 |
 | 2026-09-28 | 第五輪讀過三條事實的原文。Claude 預設清單改回 T1；Anthropic 持股建議改引 FY27 Q2 10-Q（約 51 億美元帳面價值）；客服人數改標 T2 並補 Benioff 原話出處 |
+| 2026-09-28 | 審稿時發現大綱兩處錯誤並修正：3-1 七月引語原本先改了原文拼字（muti-step），改回原文加 [sic]；3-3 把 Claude Opus 4.8 寫成 Salesforce「租來的腦」，改為「出自租用來源 Anthropic」。開場第 2 點與一、租第 5 點改用 10-Q 措辭 |
 
 ### 已發布前作的修改（皆經使用者同意）
 
