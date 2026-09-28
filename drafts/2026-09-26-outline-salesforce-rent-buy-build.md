@@ -24,7 +24,7 @@ related:
 | **篇幅** | 單篇，正文約 4,000 至 4,500 字 |
 | **主視角** | 第一人稱，比照前作語氣 |
 | **系列定位** | 前作〈Salesforce 把 27 年的招牌借給 Anthropic，然後叫你不用再打開 Salesforce〉的續篇。前作講「租」，本篇補上「買」與「造」 |
-| **資料截止** | 2026-09-27（四輪一手核實＋一次時效檢查） |
+| **資料截止** | 2026-09-28（五輪一手核實＋一次時效檢查） |
 
 ### 來源層級標記
 
@@ -45,13 +45,47 @@ Salesforce 在二十天內，對「AI 的腦從哪裡來」給了三個不同的
 3. **兩個 benchmark 都是廠商自建。** Fin Apex 的 73.1% 與 Koa 的 CRM Bench 都不是中立評測（禁寫・術語類 2、3）
 4. **Claude 不是 Salesforce 的「全線」預設模型。** Claude 是 Slack、Agentforce Vibes、Coworker 等產品的預設，但 Agentforce 的預設是 OpenAI 的 GPT-4.1。只能寫「多項產品的預設」
 
-### 發佈前待核（不擋動筆）
+### 發佈前待核（第五輪已核，2026-09-28）
 
-以下三條是第一輪研究時從搜尋摘要取得、之後四輪都沒有讀過原文的事實。大綱中標為「**待讀原文**」。可以先照寫，**發佈前必須核實**：
+以下三條原本是第一輪研究從搜尋摘要取得、之後四輪都沒有讀過原文的事實，大綱中曾標為「待讀原文」。第五輪已逐一讀過原文，結果如下。原文網址、日期與逐字引語另見 [Research Memo](./2026-09-10-memo-salesforce-fin-acquisition-research.md) 文末「一手來源核實紀錄」的 V1 至 V4 列。
 
-1. Claudeforce 新聞稿列出的 Claude 預設產品清單（開場、一、租）
-2. Salesforce 持有 Anthropic 股權約 50 億美元（開場、一、租、4-1）。Bloomberg 有付費牆，可改找 Salesforce 10-Q 的策略投資揭露
-3. Salesforce 自家客服從約 9,000 人減到約 5,000 人（4-2）。前作引用的是 Fortune 2025-09-02〈Salesforce CEO Marc Benioff says his company has cut 4,000 customer service jobs〉
+1. **V1 Claudeforce 新聞稿的 Claude 預設產品清單：正確，Atlas 措辭需微調**
+   - 來源：[Claudeforce 新聞稿](https://www.salesforce.com/news/press-releases/2026/08/26/salesforce-and-anthropic-announce-claudeforce/)（2026-08-26｜T1）。本輪以 curl 讀取全文
+   - 第 2 節〈Claude inside Salesforce〉原文：「Claude is available in Agentforce」，接著寫「serving as a reasoning model for the Atlas Reasoning Engine, powering Agentforce Vibes and Agentforce Coworker by default, and available in Agent Builder」
+   - 第 3 節〈Slack〉原文：「Claude is the default model for Slack」，並「powering Slackbot to supercharge personal productivity by default」；另提到 Claude Tag 與 Slack Code
+   - 第 4 節〈A partnership built on mutual adoption〉原文：「Claude is the default model for Slack AI, Slackbot, Salesforce in Claude, Headless 360, Agentforce Coworker, and Claude Code across Salesforce's engineering organization」
+   - 比對：大綱列的 Slack AI、Slackbot、Agentforce Vibes、Agentforce Coworker 四項都有原文支持。其中 Vibes 只出現在第 2 節，Slack AI 只出現在第 4 節清單。第 4 節清單另有 Salesforce in Claude、Headless 360、Claude Code
+   - 注意：第 4 節那句放在「雙方互為客戶」的段落，句尾「across Salesforce's engineering organization」可能只修飾 Claude Code，也可能是整句都在講內部使用，原文沒有說清楚。引用這份清單時不要寫成「對所有客戶的預設」
+   - Atlas：原文是「a reasoning model」（推理模型之一），**沒有「optional」或「可選」字樣，也沒有「default」**。「Agentforce 的預設是 GPT-4.1，Claude 是選項」的依據是 Salesforce Help〈Select Agentforce Model Option〉（第四輪 R5），不是這份新聞稿
+   - Headless 360：原文出現兩次（Benioff 引語「our new AIforce UI harness, Headless 360, Data 360, Tableau, and Slack」與第 4 節清單）。本篇仍依術語類 1 避開
+   - Claude Code：原文寫明是 Salesforce 工程組織的預設，並「Salesforce will make Claude Code and Claude Enterprise available to all of its developers and knowledge workers」
+   - **建議的正確措辭**：「Claudeforce 新聞稿寫，Claude 是 Slack（含 Slackbot）、Agentforce Vibes、Agentforce Coworker 等產品的預設模型，也是 Agentforce Atlas Reasoning Engine 的推理模型之一」｜T1。若要寫「Agentforce 裡是選項」，出處要標 Salesforce Help，不要標新聞稿
+   - 要改的大綱段落：開場第 1 點與一、租第 3 點的來源標記已改回 T1；一、租第 3 點若要提 Atlas，照上句措辭
+2. **V2 Salesforce 持有 Anthropic 股權約 50 億美元：數字方向正確，建議改引 SEC 文件**
+   - Bloomberg：[〈Salesforce Investment in Anthropic Is Valued at About $5 Billion〉](https://www.bloomberg.com/news/articles/2026-06-01/salesforce-investment-in-anthropic-is-valued-at-about-5-billion)（2026-06-01）。本輪 WebFetch 與 curl 都遇到 Bloomberg 機器人驗證頁（HTTP 403），**僅見 Bloomberg 標題，正文未讀**。搜尋索引顯示的頁面資訊為作者 Brody Ford、美東 2026-06-01 12:21 PM，第一段「Salesforce Inc. has a stake in Anthropic PBC worth about $5 billion after repeatedly investing in the ascendant AI startup.」；這段是搜尋索引文字，不算本輪讀過原文。依索引文字，消息來源是匿名知情人士
+   - **Salesforce 自己的揭露（T1）**：[FY27 Q2 10-Q](https://www.sec.gov/Archives/edgar/data/1108524/000110852426000190/crm-20260731.htm)（2026-08-27 申報，截至 2026-07-31）
+     - 「our strategic investment portfolio consisted of investments in over 450 companies with a combined carrying value of $11.3 billion, including the Company's investment in Anthropic PBC (“Anthropic”) which represented approximately $5.1 billion of the total strategic investments portfolio」
+     - 附註：Anthropic 的 carrying value 約占策略投資組合「45 percent」（2026-07-31）與「22 percent」（2026-01-31）
+     - 附註：「unrealized gains of $2.7 billion and $3.0 billion, respectively, related to the Company's investment in Anthropic」（三個月與六個月）
+   - [FY27 Q1 10-Q](https://www.sec.gov/Archives/edgar/data/1108524/000110852426000127/crm-20260430.htm)（2026-05-28 申報，截至 2026-04-30）**沒有點名 Anthropic**，只寫組合帳面價值 78 億美元，其中兩筆私募投資各超過 5%、合計 37%
+   - 口徑：10-Q 是「carrying value」（帳面價值，私募股權採 measurement alternative 認列）；Bloomberg 標題是「valued at」，依索引文字第一段是「worth」
+   - 法說會：FY27 Q2 法說會（2026-08-26 美西時間）第三方逐字稿（[The Motley Fool](https://www.fool.com/earnings/call-transcripts/2026/08/31/salesforce-crm-q2-2027-earnings-call-transcript/)｜T3）中，Benioff 說「Then take the value of our Anthropic stock. That has been like half our value.」，語意不明、沒有金額，**不可引用為持股價值**。EX-99.1 財報稿沒有點名 Anthropic
+   - 更新數字：2026-07-31 之後，**查無可靠來源**揭露新的持股價值
+   - **建議的正確措辭**：「根據 Salesforce FY27 第二季 10-Q，截至 2026 年 7 月 31 日，它持有的 Anthropic 股權帳面價值約 51 億美元，約占策略投資組合的 45%」｜T1。若要保留 Bloomberg，寫「Bloomberg 在 2026 年 6 月報導約 50 億美元」，並標明是 T2、引用匿名消息來源
+   - 要改的大綱段落：開場第 2 點（「2026 年 6 月估值約 50 億美元｜Bloomberg」改為上句）、一、租第 5 點（「持股約 50 億美元」改為「帳面價值約 51 億美元」）。4-1 表格「租（對象是自己持股的公司）」不用改
+3. **V3 Salesforce 自家客服從約 9,000 人減到約 5,000 人：數字是 Benioff 原話，需補歸屬與時點**
+   - 原始出處：The Logan Bartlett Show〈[EP 149: Marc Benioff (CEO, Salesforce) Predicts Half of Conversations Will be With AI Agents Next Year](https://podcasts.apple.com/us/podcast/ep-149-marc-benioff-ceo-salesforce-predicts-half-of/id1606770839?i=1000724017332)〉，Apple Podcasts 頁面日期 2025-08-29。本輪未聽音檔，逐字引語以兩家一線媒體一致的引述為準
+   - [Fortune](https://fortune.com/2025/09/02/salesforce-ceo-billionaire-marc-benioff-ai-agents-jobs-layoffs-customer-service-sales/)（2025-09-02｜T2）：「I was able to rebalance my headcount on my support」、「I've reduced it from 9,000 heads to about 5,000, because I need less heads.」
+   - [CNBC](https://www.cnbc.com/2025/09/02/salesforce-ceo-confirms-4000-layoffs-because-i-need-less-heads-with-ai.html)（2025-09-02｜T2）引述同一句
+   - 9,000 與 5,000 都是 Benioff 原話；「4,000」是媒體相減的結果。原話是「9,000 heads」（沒有「約」）與「about 5,000」
+   - 部門：Benioff 說的是「my support」；Fortune 另引他說「9,000 people that you would be interacting with globally on our service cloud」。Salesforce 發言人對 Fortune 說「we no longer need to actively backfill support engineer roles」與「We've successfully redeployed hundreds of employees」，所以不宜寫成「裁員 4,000 人」
+   - 時間範圍：原話沒有明說起訖，只說「If we were having this conversation a year ago」
+   - 2025-09 之後的更新：Salesforce 官方稿（例如 2026-04-29〈[How Salesforce Is Reshaping Its Workforce in the Age of AI](https://www.salesforce.com/news/stories/salesforce-reshaping-workforce-in-age-of-ai/)〉）只寫「redeployed hundreds of support engineers」與「not backfilling other roles」，**查無可靠來源**更新 9,000 與 5,000 這組數字
+   - **建議的正確措辭**：「Benioff 在 2025 年 8 月底的 podcast 上說，他把 support 團隊從 9,000 人減到約 5,000 人，理由是『I need less heads』」｜T2（Fortune、CNBC 2025-09-02 引述）
+   - 要改的大綱段落：4-2「買」一點。來源標記已改為 T2；若文中出現「裁員」二字，改寫為「不再補人」
+4. **V4 收購案原訂交割時程（P2）：正確**
+   - [簽約新聞稿](https://www.salesforce.com/news/press-releases/2026/06/15/salesforce-signs-definitive-agreement-to-acquire-fin/)（2026-06-15｜T1）原文：「The transaction is expected to close in the fourth quarter of Salesforce's fiscal year 2027, subject to the satisfaction of customary closing conditions, including the receipt of required regulatory clearances.」
+   - 2-1「比原訂的 FY27 第四季提早」有原文支持。「一整季」屬換算：FY27 Q2 10-Q 的季末是 2026-07-31，所以 2026-09-10 落在 FY27 第三季。若想避開「一整季」的爭議，可寫「原訂 FY27 第四季交割，實際在第三季完成」
 
 ---
 
@@ -62,11 +96,11 @@ Salesforce 在二十天內，對「AI 的腦從哪裡來」給了三個不同的
 **段落節奏：**
 
 1. **用三個日期開場**，不加評論，讓時間軸自己說話
-   - 2026-08-26：Claudeforce 發布，Claude 成為 Salesforce 多項產品的預設模型｜Claudeforce 新聞稿，**待讀原文**
+   - 2026-08-26：Claudeforce 發布，Claude 成為 Salesforce 多項產品的預設模型｜T1（Claudeforce 新聞稿，第五輪已讀原文）
    - 2026-09-10：Fin 交割，約 36 億美元現金｜T1（新聞稿＋FY27 Q2 10-Q）
    - 2026-09-15：Dreamforce 同日發表 Koa，Salesforce 第一個 CRM 推理模型｜T1
 2. **疊上諷刺三角**，一句一個事實
-   - Salesforce 持有 Anthropic 股權，2026 年 6 月估值約 50 億美元｜Bloomberg，**待讀原文**
+   - Salesforce 持有 Anthropic 股權，2026 年 6 月估值約 50 億美元｜Bloomberg（正文未讀）。**第五輪：需改措辭，改引 FY27 Q2 10-Q，見發佈前待核 V2**
    - Anthropic 本身是 Fin 的客戶：每月逾 56 萬次解決、79% 解決率｜T1（fin.ai 案例頁）
    - Fin 自家 benchmark 說 Fin Apex 贏過 Claude：73.1 對 Opus 4.5 的 71.1、Sonnet 4.6 的 69.6｜vendor
    - 然後 Salesforce 又自己做了一個
@@ -90,7 +124,7 @@ Salesforce 在二十天內，對「AI 的腦從哪裡來」給了三個不同的
    - Claudeforce 已開放所有客戶 beta，含 37 個銷售技能｜T1（AIforce 稿，2026-09-15）
    - 客服、行銷、商務技能寫的是「in the near future」，沒有日期｜T1
 3. **Claude 實際在哪裡**
-   - Slack AI、Slackbot、Agentforce Vibes、Agentforce Coworker 的預設模型｜Claudeforce 新聞稿，**待讀原文**（多家轉述一致）
+   - Slack AI、Slackbot、Agentforce Vibes、Agentforce Coworker 的預設模型｜T1（Claudeforce 新聞稿，第五輪已讀原文；Atlas 措辭見發佈前待核 V1）
    - 在 Agentforce 裡是**選項**，不是預設：Salesforce Help〈Select Agentforce Model Option〉寫官方建議的「Salesforce Default」在新版 Agentforce Builder 用 **GPT-4.1**、舊版用 GPT-4o；選「AWS-Hosted」才會用到 Claude，版本是 **Claude Haiku 4.5**；另有 Gemini 3.5 Flash｜T1（Help 頁無發布日期，引用時寫「截至 2026 年 9 月」）
 4. **點出重點**：Salesforce 租的腦其實有好幾個，Anthropic 只是其中一家（這是事實）。這本身就是「不把腦押在同一家」的第一層（**推論**）
 5. **寫作細節**：說是「租」，但租的對象是自己持股約 50 億美元的公司。這個曖昧可以點一句
@@ -237,7 +271,7 @@ Salesforce 在二十天內，對「AI 的腦從哪裡來」給了三個不同的
 ### 4-2 自洽的邏輯（全段標作者觀點）
 
 - **租**：前沿模型的軍備競賽，一家 CRM 公司的資本結構撐不起（呼應前作）。而且租的不只一家
-- **買**：客服是少數能按成果收費的場景，「解決率」這個指標要握在自己手上。客服也是 Benioff 證明 AI 回報的櫥窗，Salesforce 自家客服團隊從約 9,000 人減到約 5,000 人｜前作備忘，**待讀原文**
+- **買**：客服是少數能按成果收費的場景，「解決率」這個指標要握在自己手上。客服也是 Benioff 證明 AI 回報的櫥窗，Salesforce 自家客服團隊從約 9,000 人減到約 5,000 人｜T2（Fortune、CNBC 2025-09-02 引述 Benioff 原話）。**第五輪：需補歸屬與時點，見發佈前待核 V3**
 - **造**：高頻的 CRM 動作如果長期全靠前沿模型的 token，控制權與成本都在別人手上
 - **合起來**：不把腦押在同一家供應商身上
 - **第三方佐證**
@@ -325,6 +359,7 @@ Salesforce 在二十天內，對「AI 的腦從哪裡來」給了三個不同的
 | 2026-09-27 | 一、租改寫為「Claude，但不只 Claude」，依據 Agentforce 預設為 GPT-4.1 |
 | 2026-09-27 | 大綱整理為可動筆版，核實歷程集中到本節 |
 | 2026-09-27 | 整理時對照核實紀錄，發現三條第一輪的事實從未讀過原文，原本卻標成 T1 或 T2。改標「待讀原文」，列入發佈前待核 |
+| 2026-09-28 | 第五輪讀過三條事實的原文。Claude 預設清單改回 T1；Anthropic 持股建議改引 FY27 Q2 10-Q（約 51 億美元帳面價值）；客服人數改標 T2 並補 Benioff 原話出處 |
 
 ### 已發布前作的修改（皆經使用者同意）
 
@@ -343,6 +378,7 @@ Salesforce 在二十天內，對「AI 的腦從哪裡來」給了三個不同的
 | 第一至三輪 | 2026-09-11 至 09-18 | Fin 收購、Dreamforce 會後、Koa | 大綱的事實基礎，詳見 Research Memo |
 | 時效檢查 | 2026-09-26 | 9/18 至 9/26 新進展（subagent，多為搜尋摘要） | P0 三項查無新進展；發現七月 Right-Sizing 線索；3-3 補上 Claude 版本、4-3 修正 Anthropic 措辭 |
 | 第四輪 | 2026-09-27 | R1 至 R7 一手核實 | 見下表 |
+| 第五輪 | 2026-09-28 | V1 至 V4 發佈前待核（Claudeforce 新聞稿全文、Bloomberg、FY27 Q1／Q2 10-Q、Fortune／CNBC、Logan Bartlett Show、簽約新聞稿） | V1 正確，Atlas 措辭微調；V2 改引 10-Q 帳面價值約 51 億美元，Bloomberg 正文未讀；V3 數字為 Benioff 原話，改標 T2 並補時點；V4 原文確認 FY27 第四季。詳見開頭「發佈前待核」 |
 
 ### 第四輪結果摘要
 
