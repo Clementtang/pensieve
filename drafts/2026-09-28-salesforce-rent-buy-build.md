@@ -20,7 +20,7 @@ status: draft
 | **更新日期** | 2026-09-28                                                                |
 | **標籤**     | #議題研究 #AI #企業軟體 #Salesforce #Anthropic #Fin #Koa #NVIDIA #AI模型策略 |
 | **狀態**     | 草稿                                                                       |
-| **字數**     | 約 3,900 字                                                               |
+| **字數**     | 約 4,000 字                                                               |
 
 ---
 
@@ -48,7 +48,7 @@ Claudeforce 目前已經開放給所有客戶進入 beta，內建 37 個銷售�
 
 寫到這裡，有一個曖昧值得點一下：我說 Salesforce 在「租」，但租的對象，正是它自己持股、帳面價值約 51 億美元的那家公司。房客同時是房東的股東，這讓「租」這個字沒有表面上那麼單純。
 
-成本這一側也值得補一筆。Salesforce 副財務長 Mike Spencer 在 2026 年 8 月 27 日的 Deutsche Bank 科技大會上說：「roughly about six months ago, we unleashed Claude in our R&D cycle. It is part of the reason we did not raise margin guidance on the year is because we are covering some of the token spend.」他同場還說，多數工作用「second or third generation model」就夠，公司內部同時在用 OpenAI、Cursor、Claude，也開始試用 Grok。要提醒的是，Spencer 講的是 Salesforce 內部研發使用 Claude 的成本，不是 Claudeforce 產品本身的成本，財報稿與法說會只寫了 GAAP 營益率指引從約 20.6% 調到約 20.1%，法說會本身完全沒有提到 token 這個字。把營益率和 Claude 連在一起的，是投資人大會上的口頭發言，不是財報揭露。
+成本這一側也值得補一筆。Salesforce 副財務長 Mike Spencer 在 2026 年 8 月 27 日的 Deutsche Bank 科技大會上說：「roughly about six months ago, we unleashed Claude in our R&D cycle. It is part of the reason we did not raise margin guidance on the year is because we are covering some of the token spend」他同場還說，多數工作用「second or third generation model」就夠，公司內部同時在用 OpenAI、Cursor、Claude，也開始試用 Grok。要提醒的是，Spencer 講的是 Salesforce 內部研發使用 Claude 的成本，不是 Claudeforce 產品本身的成本，財報稿與法說會只寫了 GAAP 營益率指引從約 20.6% 調到約 20.1%，法說會本身完全沒有提到 token 這個字。把營益率和 Claude 連在一起的，是投資人大會上的口頭發言，不是財報揭露。
 
 還有一件事可以先埋在這裡：Claudeforce 的客服技能還沒上線，而客服，正好是 Fin 的地盤。
 
@@ -62,7 +62,7 @@ Fin 是這二十天裡新聞含金量最高的一段，值得多花一點篇幅�
 
 我覺得這裡有一層值得停下來想的張力：一家公司先租了 Claude，後來自己造了一個模型，然後這家公司被另一家正在租 Claude 的公司買下。每一步都是可以查證的事實，把它們串起來讀出的那層諷刺，是我的解讀。
 
-Salesforce 買到的顯然不只是一個模型。它買到的是一個開箱即用的客服代理，收購新聞稿明確寫了 Fin 的 fast-to-value「especially well-suited for SMB and some commercial」，我的理解是，Fin 補的是 Salesforce 在中小企業市場的那一塊。它買到的還有一套現成的成果計價，每次成果 0.99 美元，每月最低 50 次。而在 Salesforce 自己的產品線裡，同樣做客服的還有 Casey，Help Agent 的具名包裝，每次解決收費 2 美元。官方的說法是讓客戶自己選，至於 Casey 與 Fin 最終會不會整併，目前查無官方說法。值得一提的是，Salesforce 同時也把 agent 能力包回了席次價，Sales Cloud Core 從每人每月 195 美元起跳，成果計價與席次制目前是並存的兩條軌道，不是誰取代誰。
+Salesforce 買到的顯然不只是一個模型。它買到的是一個開箱即用的客服代理，收購新聞稿明確寫了 Fin 的 fast-to-value「especially well-suited for SMB and some commercial」，我的理解是，Fin 補的是 Salesforce 在中小企業市場的那一塊。它買到的還有一套現成的成果計價，每次成果 0.99 美元，每月最低 50 次。而在 Salesforce 自己的產品線裡，同樣做客服的還有 Casey，Help Agent 的具名包裝，每次解決收費 2 美元。官方的說法是讓客戶自己選，至於 Casey 與 Fin 最終會不會整併，目前查無官方定論。值得一提的是，Salesforce 同時也把 agent 能力包回了席次價，Sales Cloud Core 從每人每月 195 美元起跳，成果計價與席次制目前是並存的兩條軌道，不是誰取代誰。
 
 這裡先埋一個伏筆，留給下一段的 Koa。Fin 的官方頁面上同時寫著兩個數字：一句文案說解決率「高 2.8%」，圖表卻顯示是 73.1 對 69.6，也就是 3.5 個百分點。不管用百分點還是相對百分比去讀，這兩個說法都對不上。我認為這個小矛盾本身就是一個提醒，廠商自建的 benchmark，連自己都對不齊。這個模式，在 Koa 身上還會再出現一次。
 
@@ -78,9 +78,9 @@ Salesforce 買到的顯然不只是一個模型。它買到的是一個開箱即
 
 第一句話，我必須自己修正。前作發表前七週，Salesforce 新聞室就在〈How We Cut Inference Spend by Right-Sizing Our Models〉（作者 Jayesh Govindarajan，發布於 2026 年 7 月 8 日）裡公開說明，Agentforce 早已在正式環境跑五個自家調校的專用模型，其中四個已經正式上線（GA）。負責意圖路由的 HyperClassifier，在那時就已經是 Service Agent 與 Employee Agent 範本的預設路由模型。也就是說，「它不做模型了」這句話，在我寫下它的當下就已經不精確。前作文末已於 2026 年 9 月 27 日補上更正，這裡不重複展開，有興趣可以回去看。
 
-但精確一點說，七月那批模型是在 GPT-OSS-20B 等開源模型上微調而成的，原文自己寫得很直接：「We weren't training from scratch.」它們負責的是路由、防護、評估、重排序這類周邊工作。所以前作那句「軍備競賽不是一家 CRM 公司撐得起」的判斷，我認為仍然成立。
+但精確一點說，七月那批模型是在 GPT-OSS-20B 等開源模型上微調而成的，原文自己寫得很直接：「We weren't training from scratch」它們負責的是路由、防護、評估、重排序這類周邊工作。所以前作那句「軍備競賽不是一家 CRM 公司撐得起」的判斷，我認為仍然成立。
 
-真正的轉折，藏在兩句話的並置裡。七月那篇原文寫的是：「A frontier foundation model still handles the core muti-step [sic] reasoning.」也就是核心的多步驟推理，仍然交給前沿模型。九月，Salesforce 在〈Why We Post-Trained Our Own Reasoning Model〉裡寫：「Koa handles multi-step enterprise reasoning.」
+真正的轉折，藏在兩句話的並置裡。七月那篇原文寫的是：「A frontier foundation model still handles the core muti-step [sic] reasoning」也就是核心的多步驟推理，仍然交給前沿模型。九月，Salesforce 在〈Why We Post-Trained Our Own Reasoning Model〉裡寫：「Koa handles multi-step enterprise reasoning」
 
 把這兩句話放在一起讀，我的解讀是：Salesforce 七月就已經在做模型了，Koa 新的地方，在於自家模型第一次被放進了核心推理這個位置。十週之內，移動的是分工線本身。
 
@@ -105,7 +105,7 @@ Salesforce 買到的顯然不只是一個模型。它買到的是一個開箱即
 
 ### 那為什麼還要造
 
-官方唯一比較接近答案的一句話，出自〈Why We Post-Trained Our Own Reasoning Model〉：「orchestrating purpose-built models alongside frontier LLMs… Koa handles multi-step enterprise reasoning.」這句話同樣沒有點名 Claude。官方反覆強調的重點是信任邊界與模型權重的控制權。至於「Koa 比 Claude 便宜」這個說法，我只在 TechCrunch 的報導與生態系訪談裡看到，這不是官方的說法，我也沒有找到 Salesforce 主管公開這樣說過。Agentforce 的定價頁上，目前也查不到 Koa 的價格。
+官方唯一比較接近答案的一句話，出自〈Why We Post-Trained Our Own Reasoning Model〉：「orchestrating purpose-built models alongside frontier LLMs… while Koa handles multi-step enterprise reasoning」這句話同樣沒有點名 Claude。官方反覆強調的重點是信任邊界與模型權重的控制權。至於「Koa 比 Claude 便宜」這個說法，我只在 TechCrunch 的報導與生態系訪談裡看到，這不是官方的說法，我也沒有找到 Salesforce 主管公開這樣說過。Agentforce 的定價頁上，目前也查不到 Koa 的價格。
 
 ## 拆解：為什麼三條路可以同時走
 
@@ -127,11 +127,11 @@ Salesforce 買到的顯然不只是一個模型。它買到的是一個開箱即
 
 租，是因為前沿模型的軍備競賽，呼應前作，一家 CRM 公司的資本結構撐不起，而且 Salesforce 租的還不只一家。買，是因為客服是少數能夠按成果收費的場景，「解決率」這個指標最好握在自己手上，客服同時也是 Benioff 用來證明 AI 回報的櫥窗，他在 2025 年 8 月底的 podcast 上說，自己把 support 團隊從 9,000 人減到約 5,000 人，理由是「I need less heads」。造，則是因為高頻的 CRM 動作如果長期全靠前沿模型的 token，控制權與成本都留在別人手上。合起來看，這套邏輯的核心只有一句：不要把腦押在同一家供應商身上。
 
-第三方的說法可以拿來佐證，但要小心邊界。Everest Group 在 2026 年 6 月說，Fin Apex 能「降低對前沿實驗室 API 的依賴」，這句話寫在 Koa 發表之前，只談 Fin Apex，不能套用到 Koa 身上。CNBC 在 2026 年 9 月 18 日的報導裡，引述 Dreamforce 現場的客戶與合作夥伴表示「older and cheaper AI models are plenty powerful for everyday sales and customer service work」，這是受訪者的說法。同一篇報導裡還有一句「Salesforce isn't relying on … Claude Fable 5.1 or … GPT-6 Astra, according to a support page」，不過那個支援頁面上並沒有提到 Fable 或 Astra，這一句是記者對照模型清單得出的推論。前面提過 Mike Spencer 的說法也可以呼應，他說多數工作用上一兩代的模型就夠。
+第三方的說法可以拿來佐證，但要小心邊界。Everest Group 在 2026 年 6 月說，Fin Apex 能「降低對前沿實驗室 API 的依賴」，這句話寫在 Koa 發表之前，只談 Fin Apex，不能套用到 Koa 身上。CNBC 在 2026 年 9 月 18 日的報導裡寫道：「Salesforce customers and partners at the conference told CNBC that older and cheaper AI models are plenty powerful for everyday sales and customer service work.」這是記者對現場受訪者說法的轉述。同一篇報導裡還有一句「Salesforce isn't relying on … Claude Fable 5.1 or … GPT-6 Astra, according to a support page」，不過那個支援頁面上並沒有提到 Fable 或 Astra，這一句是記者對照模型清單得出的推論。前面提過 Mike Spencer 的說法也可以呼應，他說多數工作用上一兩代的模型就夠。
 
 ### 真正值得注意的是沉默
 
-拆到這裡，我認為全文最重要的觀察，其實不是這套架構怎麼自洽，而是 Salesforce 從來沒有明確說過的那些空白。Claude 與 Fin Apex 的分工，查無。Koa 與 Claude 的分工，查無。Koa 與 Fin Apex 的分工，查無。Koa 會不會進入 Atlas Reasoning Engine，查無。Anthropic 對 Koa 的回應，同樣查無，截至 2026 年 9 月 23 日，anthropic.com/news 上關於 Salesforce、Koa、Claudeforce、Dreamforce 的提及次數是零。這裡要精確一點：Anthropic 確實在 claude.com 部落格發過一篇〈Salesforce in Claude〉，但那是 Claudeforce 本身的產品發表文，所以只能說 Anthropic 對 Koa 沒有回應，不能說它對 Salesforce 隻字未提。
+拆到這裡，比起這套架構怎麼自洽，我認為更值得注意的，是 Salesforce 從來沒有明確說過的那些空白。Claude 與 Fin Apex 的分工，查無。Koa 與 Claude 的分工，查無。Koa 與 Fin Apex 的分工，查無。Koa 會不會進入 Atlas Reasoning Engine，查無。Anthropic 對 Koa 的回應，同樣查無，截至 2026 年 9 月 23 日，anthropic.com/news 上關於 Salesforce、Koa、Claudeforce、Dreamforce 的提及次數是零。這裡要精確一點：Anthropic 確實在 claude.com 部落格發過一篇〈Salesforce in Claude〉，但那是 Claudeforce 本身的產品發表文，所以只能說 Anthropic 對 Koa 沒有回應，不能說它對 Salesforce 隻字未提。
 
 Salesforce 到現在還沒有告訴客戶，哪一個腦負責哪一件事。我認為這裡有兩種可能的解讀：一種是刻意保留彈性，讓每個場景都能挑最合適的模型；另一種是它自己也還沒想清楚。這兩種解讀，現階段都只是推論，我沒有辦法替讀者選一個。
 
@@ -178,7 +178,8 @@ Salesforce 到現在還沒有告訴客戶，哪一個腦負責哪一件事。我
 27. [Anthropic Newsroom](https://www.anthropic.com/news)
 28. [Claude Blog〈Salesforce in Claude〉（2026-09-15）](https://claude.com/blog/salesforce-in-claude)
 29. [The Logan Bartlett Show〈EP 149: Marc Benioff (CEO, Salesforce) Predicts Half of Conversations Will be With AI Agents Next Year〉（2025-08-29）](https://podcasts.apple.com/us/podcast/ep-149-marc-benioff-ceo-salesforce-predicts-half-of/id1606770839?i=1000724017332)
-30. [Clement Tang〈Salesforce 把 27 年的招牌借給 Anthropic，然後叫你不用再打開 Salesforce〉（2026-08-27）](../docs/articles/2026-08-27-claudeforce-salesforce-anthropic-analysis.md)
+30. [Salesforce Sales Cloud 定價頁](https://www.salesforce.com/sales/pricing/)
+31. [Clement Tang〈Salesforce 把 27 年的招牌借給 Anthropic，然後叫你不用再打開 Salesforce〉（2026-08-27）](../docs/articles/2026-08-27-claudeforce-salesforce-anthropic-analysis.md)
 
 ---
 

@@ -237,7 +237,7 @@ Salesforce 在二十天內，對「AI 的腦從哪裡來」給了三個不同的
 
 ### 3-4 那為什麼還要造
 
-- 官方唯一接近答案的句子：「orchestrating purpose-built models alongside frontier LLMs… Koa handles multi-step enterprise reasoning」｜T1（Why We Post-Trained）
+- 官方唯一接近答案的句子：「orchestrating purpose-built models alongside frontier LLMs… while Koa handles multi-step enterprise reasoning」｜T1（Why We Post-Trained）
 - 這句**沒有點名 Claude**
 - trust boundary 與權重控制權是官方強調的重點｜T1
 - 「Koa 比 Claude 便宜」只見 TechCrunch 的報導與訪談｜T2。**不可寫成官方說法，也不要寫成 Salesforce 主管說的**
@@ -276,7 +276,7 @@ Salesforce 在二十天內，對「AI 的腦從哪裡來」給了三個不同的
 - **合起來**：不把腦押在同一家供應商身上
 - **第三方佐證**
   - Everest Group 說 Fin Apex 能「降低對前沿實驗室 API 的依賴」｜T3。**這句寫於 2026-06，只談 Fin Apex，不可套用到 Koa**（事實類 10）
-  - CNBC（2026-09-18）報導，Dreamforce 上的客戶與合作夥伴表示「older and cheaper AI models are plenty powerful for everyday sales and customer service work」｜T2，受訪者說法
+  - CNBC（2026-09-18）記者寫：「Salesforce customers and partners at the conference told CNBC that older and cheaper AI models are plenty powerful for everyday sales and customer service work.」｜T2，**這是記者的轉述，不是受訪者原話**，不可寫成「受訪者表示『older and cheaper…』」
   - Mike Spencer 說多數工作用上一兩代的模型就夠（見一、租第 6 點）
 
 **這段的措辭分寸：**
@@ -361,6 +361,7 @@ Salesforce 在二十天內，對「AI 的腦從哪裡來」給了三個不同的
 | 2026-09-27 | 整理時對照核實紀錄，發現三條第一輪的事實從未讀過原文，原本卻標成 T1 或 T2。改標「待讀原文」，列入發佈前待核 |
 | 2026-09-28 | 第五輪讀過三條事實的原文。Claude 預設清單改回 T1；Anthropic 持股建議改引 FY27 Q2 10-Q（約 51 億美元帳面價值）；客服人數改標 T2 並補 Benioff 原話出處 |
 | 2026-09-28 | 審稿時發現大綱兩處錯誤並修正：3-1 七月引語原本先改了原文拼字（muti-step），改回原文加 [sic]；3-3 把 Claude Opus 4.8 寫成 Salesforce「租來的腦」，改為「出自租用來源 Anthropic」。開場第 2 點與一、租第 5 點改用 10-Q 措辭 |
+| 2026-09-28 | editor 審稿後再修大綱兩處整理時造成的錯誤：3-4 官方引語漏了「while」；4-2 把 CNBC 記者的轉述寫成受訪者原話 |
 
 ### 已發布前作的修改（皆經使用者同意）
 
