@@ -17,7 +17,7 @@ status: published
 | 項目         | 內容                                                             |
 | ------------ | ---------------------------------------------------------------- |
 | **建立日期** | 2026-08-27                                                       |
-| **更新日期** | 2026-08-27                                                       |
+| **更新日期** | 2026-09-27（新增更正；修訂術語註記）                             |
 | **標籤**     | #議題研究 #AI #企業軟體 #Salesforce #Anthropic #OpenAI #競爭分析 |
 | **狀態**     | 已發布                                                              |
 | **字數**     | 約 4,700 字                                                      |
@@ -44,7 +44,7 @@ Salesforce 的財報日通常不會讓我想寫東西。這次的觸發點是一
 
 我沒有 pilot 資格，所以這次沒辦法先實測十分鐘再回來寫，以下都是根據官方說法跟媒體報導整理的。
 
-不過如果只把 Claudeforce 理解成一個外掛，會嚴重低估這件事的規模。它其實是一個傘狀品牌，底下是一整層預設模型的更換：Claude 同時成為 Slack AI 與 Slackbot 的預設模型，並透過 Claude Tag 支援團隊決策；在 Agentforce 這側，Claude 是 Atlas Reasoning Engine 可選用的推理模型之一，同時是 Agentforce Vibes 與 Agentforce Coworker 的預設模型；在 Headless 360 裡，Claude 一樣是預設模型。Salesforce 甚至把 Claude Code 部署到自己全球的工程組織內部使用。換句話說，Claude 被塞進了 Salesforce 幾乎每一個會用到模型推理的位置。
+不過如果只把 Claudeforce 理解成一個外掛，會嚴重低估這件事的規模。它其實是一個傘狀品牌，底下是一整層預設模型的更換：Claude 同時成為 Slack AI 與 Slackbot 的預設模型，並透過 Claude Tag 支援團隊決策；在 Agentforce 這側，Claude 是 Atlas Reasoning Engine 可選用的推理模型之一，同時是 Agentforce Vibes 與 Agentforce Coworker 的預設模型；在 Headless 360 裡，Claude 一樣是預設模型（這個產品名稱後來有異動，見文末術語註記）。Salesforce 甚至把 Claude Code 部署到自己全球的工程組織內部使用。換句話說，Claude 被塞進了 Salesforce 幾乎每一個會用到模型推理的位置。
 
 Anthropic 執行長 Dario Amodei 在新聞稿裡的說法，語氣比 Benioff 收斂很多：「我們相信前沿智慧應該是安全、可信、且能力深厚的，這正是全球頂尖企業把最重要的工作交給 Claude 的原因。Salesforce in Claude 把同樣的前沿智慧帶進全世界大多數商業活動實際發生的系統裡。透過這個合作，企業可以把 Claude 指向他們在 Salesforce 裡累積數十年的客戶資訊與商業脈絡，並真正用它來經營與成長。」
 
@@ -56,7 +56,7 @@ Anthropic 執行長 Dario Amodei 在新聞稿裡的說法，語氣比 Benioff �
 
 也就是說，2019 年的 Salesforce，是會自己發論文、自己訓模型、還把權重開源出去給人玩的那種公司。
 
-七年後，它不做模型了，改成把別人的模型掛上自己的招牌。
+七年後，它不做模型了，改成把別人的模型掛上自己的招牌。（這句不精確，見文末更正。）
 
 我不覺得這是墮落，反而覺得這是一個很誠實的商業判斷。前沿模型的軍備競賽早就不是一間 CRM 公司的資本結構撐得起的，硬要自研，最好的結果也只是永遠落後半代。但把這兩件事擺在同一條時間軸上看，你會很具體地感受到這七年來，價值鏈上的話語權移動到哪裡去了。
 
@@ -149,6 +149,31 @@ OpenAI 在其他企業 SaaS 的佈局也很清楚。2026 年 1 月 20 日，Open
 Salesforce 用 27 年的招牌，換來的究竟是一張 agent 時代的入場券，還是一份讓別人主導定價的租約，這個問題現在還沒有答案。但接下來每一季的 Agentforce 客戶滿意度、每一次 Anthropic IPO 前後的估值波動，都會是很好的觀察座標。
 
 我會繼續看下去。
+
+---
+
+## 更正（2026-09-27）
+
+本文原寫「七年後，它不做模型了，改成把別人的模型掛上自己的招牌」，這句不精確。
+
+Salesforce 在本文發表前的 2026 年 7 月 8 日就公開說明，Agentforce 已在正式環境使用五個自家調校的專用模型，負責意圖分類與路由、提示注入防護、毒性過濾、回答評估與搜尋結果重排序，其中四個已正式上線。負責意圖分類的 HyperClassifier，還是 Agentforce Service Agent 與 Employee Agent 範本的預設路由模型（[Salesforce，2026-07-08](https://www.salesforce.com/news/stories/cutting-inference-spend-by-right-sizing-models/)）。另外，文中把「把權重開源出去給人玩」寫成 2019 年的事，但 Salesforce AI Research 在 2025 年 4 月仍以研究用途開源了 xLAM-2 系列模型的權重（[arXiv 2504.03601](https://arxiv.org/abs/2504.03601)）。
+
+需要補充的是，七月那批模型是在 OpenAI 開源的 GPT-OSS-20B 等模型上微調而成，Salesforce 在原文寫明「We weren't training from scratch」，而且同一篇文章也寫到，核心的多步驟推理仍由前沿模型處理。所以比較準確的說法是：Salesforce 沒有停止做模型，它沒有做的是從零訓練通用大模型、加入前沿模型的競賽。本文其餘關於軍備競賽與「永遠落後半代」的判斷不受影響。
+
+## 術語註記（2026-09-26 補充，2026-09-27 修訂）
+
+本文寫於 2026 年 8 月 27 日。文中提到的「Headless 360」，是當時 Salesforce 官方使用的產品名稱。
+
+Salesforce 在 Dreamforce 2026 前更改了這個名稱。它沒有為此發布新聞稿，但官方說明文件寫明：「As of September 4, 2026, Headless 360 has been rebranded to AIforce.」文件也提到，過渡期間產品與文件中仍會看到 Headless 360 的字樣，功能與內容不變（[Salesforce Help](https://help.salesforce.com/s/articleView?id=release-notes.rn_headless360.htm&release=264&type=5)；[Salesforce Ben，2026-09-16](https://www.salesforceben.com/comparing-salesforces-aiforce-headless-360-and-the-enterprise-ai-harness/) 亦有引述）。
+
+另有兩條相關資訊，一併列出：
+
+- Salesforce 在 Dreamforce 發布的 AIforce 新聞稿寫「AIforce is powered by the Headless Toolkit」（[Salesforce，2026-09-15](https://www.salesforce.com/news/stories/aiforce-announcement/)）
+- The Next Web 報導，Salesforce 官網的平台頁已改以「Salesforce Platform」為名，頁面上不再出現 Headless 360（[The Next Web，2026-09-14](https://thenextweb.com/news/salesforce-drops-agentforce-branding-product-names-dreamforce)）。這和說明文件所寫的「改名為 AIforce」是什麼關係，Salesforce 沒有說明
+
+本文保留原名，不做替換。文中關於 Agentforce ARR 計算範圍納入 Headless 360 的段落，依據的是 FY27 第二季財報當時的揭露原文，口徑以該份文件為準。
+
+本註記 2026-09-26 的初版寫「Salesforce 尚未發布正式的改名說明」，這不正確：官方說明文件已寫明改名，只是沒有發布新聞稿。已於 2026-09-27 修訂。
 
 ---
 
