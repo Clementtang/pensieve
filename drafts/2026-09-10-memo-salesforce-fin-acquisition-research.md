@@ -1,19 +1,21 @@
 ---
 title: "Research Memo: Salesforce 收購 Fin 與租、買、造三層模型策略"
-description: "Salesforce 以約 36 億美元收購 Fin（前 Intercom）的研究備忘；Dreamforce 會後補上 Koa（首個 CRM reasoning model），把 Claude／Fin Apex／Koa 放進同一張堆疊圖，並標明哪些關係仍屬推論"
+description: "Salesforce 以約 36 億美元收購 Fin（前 Intercom）的研究備忘；Dreamforce 會後補上 Koa（首個 CRM reasoning model），把 Claude／Fin Apex／Koa 放進同一張堆疊圖，並標明哪些關係仍屬推論。已擴寫為分析文後歸檔"
 date: 2026-09-10
 author: "Clement Tang"
 tags: ["research-memo", "Salesforce", "Fin", "Intercom", "Agentforce", "Anthropic", "Claudeforce", "Koa", "NVIDIA", "AI 客服", "併購", "企業軟體"]
 category: memo
-status: draft
+status: archived
 related:
+  - "docs/articles/2026-09-28-salesforce-rent-buy-build.md"
+  - "drafts/2026-09-26-outline-salesforce-rent-buy-build.md"
   - "drafts/2026-08-27-memo-salesforce-claudeforce-research.md"
   - "docs/articles/2026-08-27-claudeforce-salesforce-anthropic-analysis.md"
 ---
 
 # Research Memo: Salesforce 收購 Fin 與租、買、造三層模型策略
 
-> 輕量級研究備忘錄，供 writer agent 擴寫為深度分析文。事實以 2026-09-10 初查為底，並於 2026-09-11 以一手頁面（live HTML / WebFetch）核實後更新；**2026-09-18 完成 Dreamforce 2026 會後核實（round 2）**，同日另完成 **Koa／三層模型策略核實（round 3）**。本篇為 Claudeforce 備忘（2026-08-27）的續篇，論述請與前作呼應。租／買／造三層是本研究分析框架，**不是** Salesforce 官方戰略名稱。
+> 輕量級研究備忘錄，供 writer agent 擴寫為深度分析文。事實以 2026-09-10 初查為底，並於 2026-09-11 以一手頁面（live HTML / WebFetch）核實後更新；**2026-09-18 完成 Dreamforce 2026 會後核實（round 2）**，同日另完成 **Koa／三層模型策略核實（round 3）**。本篇為 Claudeforce 備忘（2026-08-27）的續篇，論述請與前作呼應。租／買／造三層是本研究分析框架，**不是** Salesforce 官方戰略名稱。2026-09-27 與 09-28 另完成第四、五輪核實。已擴寫為正式分析文（見 related）。
 
 ## 會話資訊
 

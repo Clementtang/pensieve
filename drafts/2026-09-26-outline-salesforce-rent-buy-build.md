@@ -1,19 +1,20 @@
 ---
 title: "文章大綱：二十天，三個選擇：Salesforce 租了 Claude、買了 Fin，又自己造了 Koa"
-description: "Salesforce 收購 Fin 分析文的段落層級大綱：角度 C 開場建立荒謬感，租、買、造三段展開，角度 A 拆解為何自洽，最後回扣前作 Claudeforce 分析文"
+description: "Salesforce 收購 Fin 分析文的段落層級大綱：角度 C 開場建立荒謬感，租、買、造三段展開，角度 A 拆解為何自洽，最後回扣前作 Claudeforce 分析文。正式文已發布後歸檔"
 date: 2026-09-26
 author: "Clement Tang"
 tags: ["outline", "Salesforce", "Fin", "Claude", "Koa", "Anthropic", "NVIDIA", "AI 模型策略"]
 category: articles
-status: draft
+status: archived
 related:
+  - "docs/articles/2026-09-28-salesforce-rent-buy-build.md"
   - "drafts/2026-09-10-memo-salesforce-fin-acquisition-research.md"
   - "docs/articles/2026-08-27-claudeforce-salesforce-anthropic-analysis.md"
 ---
 
 # 文章大綱：二十天，三個選擇
 
-> 可動筆版（2026-09-27 整理）。每段標明要用的數據、來源層級，以及對應的備忘禁寫條目。所有數據的原始出處見 [Research Memo](./2026-09-10-memo-salesforce-fin-acquisition-research.md) 文末的「一手來源核實紀錄」。核實過程與決策歷程收在本文最後的決策紀錄，動筆時不用看。
+> 可動筆版（2026-09-27 整理）。**已擴寫為正式分析文並歸檔（見 related）。**每段標明要用的數據、來源層級，以及對應的備忘禁寫條目。所有數據的原始出處見 [Research Memo](./2026-09-10-memo-salesforce-fin-acquisition-research.md) 文末的「一手來源核實紀錄」。核實過程與決策歷程收在本文最後的決策紀錄，動筆時不用看。
 
 ## 總覽
 

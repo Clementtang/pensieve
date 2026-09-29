@@ -5,7 +5,7 @@ date: 2026-09-28
 author: "Clement Tang"
 tags: ["議題研究", "AI", "企業軟體", "Salesforce", "Anthropic", "Fin", "Koa", "NVIDIA", "AI 模型策略"]
 category: articles
-status: draft
+status: published
 ---
 
 # 二十天，三個選擇：Salesforce 租了 Claude、買了 Fin，又自己造了 Koa
@@ -17,9 +17,9 @@ status: draft
 | 項目         | 內容                                                                     |
 | ------------ | ------------------------------------------------------------------------ |
 | **建立日期** | 2026-09-28                                                                |
-| **更新日期** | 2026-09-28                                                                |
+| **更新日期** | 2026-09-29                                                                |
 | **標籤**     | #議題研究 #AI #企業軟體 #Salesforce #Anthropic #Fin #Koa #NVIDIA #AI模型策略 |
-| **狀態**     | 草稿                                                                       |
+| **狀態**     | 已發布                                                                     |
 | **字數**     | 約 4,000 字                                                               |
 
 ---
@@ -38,7 +38,7 @@ status: draft
 
 ## 先把「租」說完：Claude，但不只 Claude
 
-Claudeforce 本身是什麼，我在前作〈[Salesforce 把 27 年的招牌借給 Anthropic，然後叫你不用再打開 Salesforce](../docs/articles/2026-08-27-claudeforce-salesforce-anthropic-analysis.md)〉裡已經寫過，這裡不重複，只補上前作發表後的新進度，以及一個我當時沒講清楚的細節。
+Claudeforce 本身是什麼，我在前作〈[Salesforce 把 27 年的招牌借給 Anthropic，然後叫你不用再打開 Salesforce](./2026-08-27-claudeforce-salesforce-anthropic-analysis.md)〉裡已經寫過，這裡不重複，只補上前作發表後的新進度，以及一個我當時沒講清楚的細節。
 
 Claudeforce 目前已經開放給所有客戶進入 beta，內建 37 個銷售技能。客服、行銷、商務這三類技能，官方的措辭是「in the near future」，沒有給出任何日期。
 
@@ -179,10 +179,10 @@ Salesforce 到現在還沒有告訴客戶，哪一個腦負責哪一件事。我
 28. [Claude Blog〈Salesforce in Claude〉（2026-09-15）](https://claude.com/blog/salesforce-in-claude)
 29. [The Logan Bartlett Show〈EP 149: Marc Benioff (CEO, Salesforce) Predicts Half of Conversations Will be With AI Agents Next Year〉（2025-08-29）](https://podcasts.apple.com/us/podcast/ep-149-marc-benioff-ceo-salesforce-predicts-half-of/id1606770839?i=1000724017332)
 30. [Salesforce Sales Cloud 定價頁](https://www.salesforce.com/sales/pricing/)
-31. [Clement Tang〈Salesforce 把 27 年的招牌借給 Anthropic，然後叫你不用再打開 Salesforce〉（2026-08-27）](../docs/articles/2026-08-27-claudeforce-salesforce-anthropic-analysis.md)
+31. [Clement Tang〈Salesforce 把 27 年的招牌借給 Anthropic，然後叫你不用再打開 Salesforce〉（2026-08-27）](./2026-08-27-claudeforce-salesforce-anthropic-analysis.md)
 
 ---
 
 _本文為個人觀點，與任職公司立場無關；非投資建議。_
 
-_最後更新：2026-09-28_
+_最後更新：2026-09-29_
